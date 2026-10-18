@@ -1,0 +1,20 @@
+생기부 작성 도우미 · 구글 ver1.00
+
+1. classallinone 저장소에 google2 폴더째 업로드합니다.
+   결과: classallinone/google2/package.json
+2. Vercel에서 같은 저장소로 새 프로젝트를 만듭니다.
+   Root Directory: google2
+   Framework: Other / Build: npm run build / Output: dist / Install: npm ci
+3. 먼저 배포해서 고정 사이트 주소를 확인합니다.
+4. Google Cloud에서 Google Drive API를 사용 설정합니다.
+5. Google Auth Platform에서 웹 OAuth 클라이언트를 만듭니다.
+   Authorized redirect URI: https://실제사이트주소/api/auth/callback
+6. Vercel 환경변수 네 개를 등록합니다.
+   APP_URL / GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET / SESSION_SECRET
+   APP_URL 뒤에 /google2를 붙이지 않습니다.
+7. Vercel에서 다시 배포(Redeploy)합니다.
+8. Google 로그인 후 기존 앱의 암호화 통합 JSON을 복원합니다.
+9. 지금 저장 → Drive 저장 완료 → 새로고침 후 자료 유지 확인.
+
+상세 설명: README.md
+SQL은 필요 없습니다. 기존 google 폴더와 기존 Supabase 앱은 변경하지 않습니다.
