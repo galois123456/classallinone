@@ -307,7 +307,7 @@ body.dark .wide-board-shortcut{background:#203c39!important;border-color:#426c63
 <input type="file" id="wb-imageFile" accept="image/*" multiple hidden>
 <input type="file" id="wb-backupFile" accept=".json,application/json" hidden>
 <dialog id="wb-exportDialog" class="wb-export-dialog" aria-labelledby="wb-exportTitle"><div class="row between"><h2 id="wb-exportTitle">PNG로 저장할 범위</h2><button id="wb-exportCancel" class="btn" aria-label="닫기">×</button></div><button id="wb-exportAll" class="export-choice"><strong>필기 전체</strong><small>현재 쪽의 필기와 사진을 모두 저장합니다.</small></button><button id="wb-exportView" class="export-choice"><strong>현재 화면</strong><small>지금 보이는 판서 영역을 저장합니다.</small></button></dialog><dialog id="wb-textDialog" class="wb-textdialog"><h2>글자 넣기</h2><textarea id="wb-textValue" aria-label="넣을 글자" maxlength="2000" placeholder="수식이나 안내 문구를 입력하세요. 예: y = x² + 2x + 1"></textarea><label>크기<select id="wb-textSize"><option value="20">20</option><option value="28" selected>28</option><option value="40">40</option><option value="56">56</option></select></label><div class="row"><button id="wb-textCancel" class="btn line">취소</button><button id="wb-textInsert" class="btn primary">넣기</button></div></dialog></section>
-<div class="footer"><span>Google Drive ver1.00</span><span>학생 화면 ESC 돌아가기 · F 전체화면</span></div></main>
+<div class="footer"><span>Google Drive ver1.01</span><span>학생 화면 ESC 돌아가기 · F 전체화면</span></div></main>
 <dialog id="settingsDialog" aria-labelledby="settingsTitle">
  <div class="settings-head row between"><div><span class="eyebrow">TEACHER SETTINGS</span><h2 id="settingsTitle">교실 도구 설정</h2></div><button id="closeSettings" aria-label="설정 닫기">✕</button></div>
  <div class="settings-sections">
@@ -2241,7 +2241,7 @@ function restoreExtraState(s){
  if(s.wheelData){wheelItems=[...s.wheelData.items];wheelOriginal=[...s.wheelData.original];wheelAngle=s.wheelData.angle;drawWheel()}
  restoreClasses(s);if(s.memoQrMode)setMemoQrMode(s.memoQrMode);renderRandomMode();syncGroupSource();syncSourceClasses();for(const pre of ['wheel','ladder']){const id=s.fields?.[pre+'Class'];if(classProfiles.some(c=>c.id===id))$(pre+'Class').value=id;syncDrawSource(pre)}
 }
-on('exportSettings',async()=>{requireTeacher();if(draftChanged())throw Error('수정한 명단을 먼저 적용한 뒤 백업해 주세요.');if(drawing||wheelSpinning||ladderBusy)throw Error('추첨이 끝난 뒤 백업해 주세요.');await window.ClassroomBoard.ready;save();const data={...snapshot(),whiteboard:window.ClassroomBoard.snapshot(),exportedAt:new Date().toISOString()};downloadBlob(new Blob([JSON.stringify(data)],{type:'application/json'}),'교실도구_Google_전체백업_v1.00.json');toast('화이트보드·자리배치를 포함한 전체 백업을 저장했습니다.')});
+on('exportSettings',async()=>{requireTeacher();if(draftChanged())throw Error('수정한 명단을 먼저 적용한 뒤 백업해 주세요.');if(drawing||wheelSpinning||ladderBusy)throw Error('추첨이 끝난 뒤 백업해 주세요.');await window.ClassroomBoard.ready;save();const data={...snapshot(),whiteboard:window.ClassroomBoard.snapshot(),exportedAt:new Date().toISOString()};downloadBlob(new Blob([JSON.stringify(data)],{type:'application/json'}),'교실도구_Google_전체백업_v1.01.json');toast('화이트보드·자리배치를 포함한 전체 백업을 저장했습니다.')});
 on('importSettings',async e=>{try{requireTeacher();const file=e.target.files[0];if(!file)return;if(drawing||wheelSpinning||ladderBusy)throw Error('추첨이 끝난 뒤 복원해 주세요.');if(file.size>80*1024*1024)throw Error('80MB 이하의 백업 파일을 선택해 주세요.');const data=JSON.parse(await file.text());validateBackup(data);validateExtraState(data);if(!confirm('전체 백업의 내용으로 현재 자료를 복원할까요?'))return;await window.ClassroomBoard.ready;restore(data);restoreExtraState(data);if(data.whiteboard)await window.ClassroomBoard.restore(data.whiteboard);renderTeams();save();$('settingsDialog').close();toast('모든 반과 수업 자료를 복원했습니다. 복원된 비밀번호로 설정을 다시 열어 주세요.')}catch(e){toast(e.message)}finally{e.target.value=''}},'change');
 
 // Multiple classes share one teacher lock. Each class owns its roster and results.
@@ -2432,7 +2432,7 @@ const checkIds=['excludePrevious','allAgain','oneByOne','showGrid','showAxes','l
 const own=(object,key)=>Object.prototype.hasOwnProperty.call(object,key);
 const copyJSON=value=>JSON.parse(JSON.stringify(value));
 function snapshot(){return{
- ...currentExtraState(),version:2,appVersion:'Google Drive 1.00',tab:activeTab,dark:document.body.classList.contains('dark'),duration,angle,scientific,memoBold,memoUnderline,memoPaused,teamMode,timerMode,stopwatchElapsed,lapTimes:[...lapTimes],teamScores:copyJSON(teamScores),presentationOrder:[...presentationOrder],presentationIndex,lotteryMode,probMode,graphPoints:copyJSON(graphPoints),graphSegments:copyJSON(graphSegments),
+ ...currentExtraState(),version:2,appVersion:'Google Drive 1.01',tab:activeTab,dark:document.body.classList.contains('dark'),duration,angle,scientific,memoBold,memoUnderline,memoPaused,teamMode,timerMode,stopwatchElapsed,lapTimes:[...lapTimes],teamScores:copyJSON(teamScores),presentationOrder:[...presentationOrder],presentationIndex,lotteryMode,probMode,graphPoints:copyJSON(graphPoints),graphSegments:copyJSON(graphSegments),
  fields:Object.fromEntries(storedIds.map(id=>[id,$(id).value])),checks:Object.fromEntries(checkIds.map(id=>[id,$(id).checked])),
  functions:functions.map(f=>({expr:f.expr,show:f.show,color:f.color})),view:{...view},
  teamResults:copyJSON(teamResults),
