@@ -9,7 +9,7 @@
 - Drive에 기존 자료가 있으면 `Drive 자료 불러오기` 또는 `현재 자료로 Drive 파일 덮어쓰기`를 선택합니다.
 - 저장 위치는 내 Drive의 `ClassroomAllInOne/classroom-all-in-one-data.json`입니다. 폴더와 JSON 파일은 Google Drive에서 직접 확인할 수 있습니다.
 - 자료 변경 후 약 3초가 지나면 자동 저장합니다. 화이트보드 필기/PDF를 포함합니다.
-- access token은 메모리에만 두며, 새로고침한 뒤 다시 로그인합니다. OAuth Client ID만 이 브라우저에 기억합니다.
+- access token은 메모리에만 둡니다. OAuth Client ID는 이 브라우저에 저장하고, 로그인 세션과 기존 동의가 유효하면 새로고침 때 조용히 재연결해 Drive 자료를 불러옵니다. Google 세션이 만료되거나 권한 확인이 필요하면 수동으로 다시 연결해야 합니다.
 - Drive 데이터 파일에는 학생 명단과 교사 설정이 들어갈 수 있습니다. Google Drive 공유 권한을 확인하세요. 이 앱은 JSON을 별도로 암호화하지 않습니다.
 
 ## Google Cloud 설정
