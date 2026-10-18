@@ -1,33 +1,60 @@
-# 교실 도구 Google Drive 버전
+# 교실 도구 Google Drive · Vercel 버전 1.02
 
-`index.html`은 기존 교실 올인원 도구에 Google 계정 로그인과 Google Drive 자동 저장을 추가한 정적 웹 앱입니다. 별도 서버와 데이터베이스를 운영하지 않습니다.
+GitHub 저장소를 코드 원본으로 사용하고, Vercel에서 앱과 OAuth 백엔드를 함께 실행하는 버전입니다. Google Drive 자료는 기존처럼 사용자의 Drive에 저장됩니다. Vercel에는 수업 자료를 저장하지 않습니다.
 
-## 저장 방식
+## 로그인 유지 방식
 
-- 첫 실행 때 Google 로그인 창이 열립니다.
-- OAuth 웹 클라이언트 ID를 입력하고 Google 계정으로 연결합니다.
-- Drive에 기존 자료가 있으면 `Drive 자료 불러오기` 또는 `현재 자료로 Drive 파일 덮어쓰기`를 선택합니다.
-- 저장 위치는 내 Drive의 `ClassroomAllInOne/classroom-all-in-one-data.json`입니다. 폴더와 JSON 파일은 Google Drive에서 직접 확인할 수 있습니다.
-- 자료 변경 후 약 3초가 지나면 자동 저장합니다. 화이트보드 필기/PDF를 포함합니다.
-- access token은 메모리에만 둡니다. OAuth Client ID는 이 브라우저에 저장하고, 로그인 세션과 기존 동의가 유효하면 새로고침 때 조용히 재연결해 Drive 자료를 불러옵니다. Google 세션이 만료되거나 권한 확인이 필요하면 수동으로 다시 연결해야 합니다.
-- Drive 데이터 파일에는 학생 명단과 교사 설정이 들어갈 수 있습니다. Google Drive 공유 권한을 확인하세요. 이 앱은 JSON을 별도로 암호화하지 않습니다.
+- Google 인증 코드는 Vercel API에서 교환합니다.
+- 갱신 토큰은 암호화된 `HttpOnly; Secure; SameSite=Lax` 쿠키로 저장합니다. 자바스크립트가 토큰을 읽을 수 없습니다.
+- 새로고침하면 서버가 쿠키를 확인해 Drive 접속을 이어갑니다.
+- `연결 해제`를 누르면 Google 권한을 취소하고 브라우저 세션 쿠키를 지웁니다.
+- Google에서 권한을 취소하거나 계정 보안 정책으로 토큰이 만료되면 다시 로그인해야 합니다.
 
-## Google Cloud 설정
+## 1. GitHub에 업로드
 
-1. Google Cloud Console에서 프로젝트를 만들거나 선택합니다.
-2. `Google Drive API`를 사용 설정합니다.
-3. OAuth 동의 화면을 설정하고 OAuth 클라이언트 ID에서 `웹 애플리케이션`을 선택합니다.
-4. 승인된 JavaScript 원본에 실제 배포 사이트의 origin을 등록합니다. GitHub Pages 프로젝트 사이트라면 예: `https://galois123456.github.io` (저장소 이름 경로는 넣지 않습니다). 테스트 중에는 필요한 경우 `http://localhost:포트`를 추가합니다.
-5. 앱을 열고 `Google OAuth 웹 클라이언트 ID`에 `.apps.googleusercontent.com`으로 끝나는 Client ID를 붙여넣습니다.
-6. 테스트 모드로 운영한다면 OAuth 동의 화면의 테스트 사용자에 로그인할 Google 계정을 추가합니다.
+1. 압축을 풉니다.
+2. 폴더 `classroom_all_in_one_google_vercel_v1.02` 전체를 GitHub 저장소에 올립니다.
+3. 커밋합니다. 같은 저장소 안에 기존 `google/` 폴더가 있어도 그대로 둘 수 있습니다.
 
-이 앱은 Google Identity Services의 사용자 동의 토큰 흐름과 제한된 `drive.file` 범위를 사용합니다. 비밀 키나 클라이언트 시크릿은 HTML에 넣지 않습니다. Google OAuth 동작은 HTTPS 또는 등록된 localhost에서만 사용할 수 있습니다.
+## 2. Vercel 프로젝트 연결
 
-## GitHub Pages 배포
+1. Vercel에서 **Add New → Project**를 선택하고 해당 GitHub 저장소를 연결합니다.
+2. **Root Directory**를 `classroom_all_in_one_google_vercel_v1.02`로 지정합니다.
+3. Framework Preset은 Other로 둡니다. 빌드 명령과 Output Directory는 비워 둡니다.
+4. Vercel이 정적 페이지와 `api/` 폴더의 서버리스 함수를 배포합니다.
+5. 첫 배포 후 사용할 고정 도메인(예: `https://교실도구이름.vercel.app`)을 확인합니다. 이후 환경 변수의 `APP_ORIGIN`에는 이 주소를 사용합니다.
 
-1. 이 저장소의 기존 `index.html`을 유지하려면 압축을 풀고 폴더 안의 파일을 저장소의 `google/` 폴더에 올립니다.
-2. GitHub 저장소의 **Settings → Pages**에서 배포 소스를 `Deploy from a branch`, 브랜치 `main`, 폴더 `/ (root)`로 설정합니다.
-3. GitHub Pages 배포가 활성화되면 `https://galois123456.github.io/classallinone/google/`에서 앱을 열고 Client ID를 입력한 뒤 Google Drive를 연결합니다.
-4. Google Cloud OAuth의 승인된 JavaScript 원본에는 `https://galois123456.github.io`를 등록합니다.
+## 3. Google Cloud OAuth 설정
 
-Google OAuth access token은 짧은 시간만 유효합니다. 저장 요청에서 만료 안내가 나오면 Google 계정을 다시 연결하세요.
+기존 OAuth 웹 클라이언트를 사용해도 됩니다.
+
+- **승인된 JavaScript 원본**에 Vercel 도메인을 추가합니다. 예: `https://교실도구이름.vercel.app`
+- **승인된 리디렉션 URI**에 다음 주소를 추가합니다. 예: `https://교실도구이름.vercel.app/api/auth/callback`
+- 클라이언트 ID와 클라이언트 보안 비밀번호(Secret)를 준비합니다. Secret은 HTML이나 GitHub에 넣지 않습니다.
+- Drive API 사용 설정과 OAuth 동의 화면의 `drive.file` 권한 설정은 기존 설정을 유지합니다.
+
+## 4. Vercel 환경 변수
+
+Vercel 프로젝트 **Settings → Environment Variables**에 Production 환경으로 등록합니다.
+
+| 이름 | 값 |
+| --- | --- |
+| `APP_ORIGIN` | `https://교실도구이름.vercel.app` (끝에 `/` 없음) |
+| `GOOGLE_CLIENT_ID` | Google OAuth 웹 클라이언트 ID |
+| `GOOGLE_CLIENT_SECRET` | Google Cloud에서 해당 웹 클라이언트의 보안 비밀번호 |
+| `GOOGLE_REDIRECT_URI` | `https://교실도구이름.vercel.app/api/auth/callback` |
+| `SESSION_ENCRYPTION_KEY` | 아래 명령으로 만든 무작위 32바이트 키를 Base64 문자열로 입력 |
+
+Mac 터미널에서 `openssl rand -base64 32`를 실행해 키를 만들 수 있습니다. 출력된 값을 Vercel에만 입력하고 GitHub나 채팅에 올리지 마세요. 환경 변수 저장 후 **Redeploy**해야 적용됩니다.
+
+## 5. 사용
+
+Vercel 배포 주소를 열고 Google 계정으로 한 번 로그인합니다. 이후 새로고침해도 로그인 세션이 유지됩니다. Google Drive 상단 버튼에 연결된 이메일이 표시되고, 자료 변경은 약 3초 뒤 자동 저장됩니다. Google Drive의 파일은 `ClassroomAllInOne/classroom-all-in-one-data.json`입니다.
+
+GitHub Pages의 기존 주소는 정적 버전으로 남습니다. 로그인 유지 기능을 쓰려면 앱을 Vercel 배포 주소에서 열어야 합니다.
+
+## 보안 참고
+
+- OAuth Client ID는 공개 식별자지만 Client Secret과 세션 암호화 키는 서버 환경 변수에만 둡니다.
+- refresh token은 암호화된 HttpOnly 보안 쿠키로 저장합니다. 브라우저 쿠키를 지우거나 Google 권한을 취소하면 다시 로그인해야 합니다.
+- Vercel 미리보기 주소는 OAuth에 등록되지 않을 수 있으므로 Production 도메인으로 로그인 테스트를 하세요.
