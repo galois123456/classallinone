@@ -1,4 +1,4 @@
-# 교실 도구 Google Drive · Vercel 버전 1.02
+# 교실 도구 Google Drive · Vercel 버전 1.03
 
 GitHub 저장소를 코드 원본으로 사용하고, Vercel에서 앱과 OAuth 백엔드를 함께 실행하는 버전입니다. Google Drive 자료는 기존처럼 사용자의 Drive에 저장됩니다. Vercel에는 수업 자료를 저장하지 않습니다.
 
@@ -13,13 +13,13 @@ GitHub 저장소를 코드 원본으로 사용하고, Vercel에서 앱과 OAuth 
 ## 1. GitHub에 업로드
 
 1. 압축을 풉니다.
-2. 폴더 `classroom_all_in_one_google_vercel_v1.02` 전체를 GitHub 저장소에 올립니다.
-3. 커밋합니다. 같은 저장소 안에 기존 `google/` 폴더가 있어도 그대로 둘 수 있습니다.
+2. 압축 안의 `google` 폴더 내용을 GitHub 저장소의 기존 `google/`에 덮어씁니다.
+3. 커밋합니다. 기존 사용자라면 `google/index.html`만 교체해도 됩니다.
 
 ## 2. Vercel 프로젝트 연결
 
 1. Vercel에서 **Add New → Project**를 선택하고 해당 GitHub 저장소를 연결합니다.
-2. **Root Directory**를 `classroom_all_in_one_google_vercel_v1.02`로 지정합니다.
+2. **Root Directory**를 `google`로 지정합니다.
 3. Framework Preset은 Other로 둡니다. 빌드 명령과 Output Directory는 비워 둡니다.
 4. Vercel이 정적 페이지와 `api/` 폴더의 서버리스 함수를 배포합니다.
 5. 첫 배포 후 사용할 고정 도메인(예: `https://교실도구이름.vercel.app`)을 확인합니다. 이후 환경 변수의 `APP_ORIGIN`에는 이 주소를 사용합니다.
@@ -58,3 +58,15 @@ GitHub Pages의 기존 주소는 정적 버전으로 남습니다. 로그인 유
 - OAuth Client ID는 공개 식별자지만 Client Secret과 세션 암호화 키는 서버 환경 변수에만 둡니다.
 - refresh token은 암호화된 HttpOnly 보안 쿠키로 저장합니다. 브라우저 쿠키를 지우거나 Google 권한을 취소하면 다시 로그인해야 합니다.
 - Vercel 미리보기 주소는 OAuth에 등록되지 않을 수 있으므로 Production 도메인으로 로그인 테스트를 하세요.
+
+## v1.03 변경 사항
+
+- PNG 저장과 사진 붙여넣기를 화이트보드 `⋯ 더보기`로 이동했습니다.
+- 넓게 쓰기의 상단을 한 줄로 유지합니다. 좁은 화면에서는 도구 버튼 부분을 좌우로 밀어 선택합니다.
+- 새로 가져오는 PDF는 현재 판서 영역에 한 페이지가 모두 들어오는 크기로 넣고 100% 배율로 시작합니다. 원본 비율과 출력 화질은 유지합니다.
+- 여러 페이지의 가로·세로 연결 및 이전·다음 페이지 이동을 유지합니다.
+- 기존에 가져온 PDF와 필기는 크기를 자동으로 바꾸지 않습니다. 새 방식은 다시 가져온 PDF에 적용됩니다.
+
+### 기존 google 폴더 업데이트
+
+`index.html`만 기존 GitHub 저장소의 `google/index.html`에 덮어쓰고 커밋하면 됩니다. Vercel의 Root Directory, 환경 변수, Google OAuth 설정은 기존 값을 유지합니다. Vercel 배포가 완료되면 Vercel 주소에서 새로고침합니다.
