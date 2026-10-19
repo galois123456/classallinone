@@ -17,6 +17,8 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: '허용되지 않은 Google Drive 업로드 주소입니다.' });
     }
     const { total, start, data, probe } = input;
+    const contentType = input.contentType || 'application/json';
+    if (!/^(application\/json|image\/(png|jpeg|webp|gif))$/.test(contentType)) return res.status(400).json({ error: '지원하지 않는 저장 형식입니다.' });
     if (!Number.isSafeInteger(total) || total < 1) return res.status(400).json({ error: '파일 크기가 올바르지 않습니다.' });
     let chunk = Buffer.alloc(0), range = `bytes */${total}`;
     if (probe !== true) {
@@ -34,7 +36,7 @@ module.exports = async function handler(req, res) {
     const { accessToken } = await requireSession(req);
     const upstream = await fetch(target, {
       method: 'PUT', redirect: 'manual', signal: AbortSignal.timeout(25000),
-      headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json', 'Content-Range': range }, body: chunk
+      headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': contentType, 'Content-Range': range }, body: chunk
     });
     if (upstream.status === 308) return res.status(200).json({ uploadStatus: 308, range: upstream.headers.get('Range') || '' });
     if (upstream.status === 200 || upstream.status === 201) {
