@@ -49,7 +49,7 @@ test('print checklist controls both print layouts; semester uses hidden evaluati
  check('printWritten',false);check('printSemester',true);doc.getElementById('printAll').click();let out=doc.getElementById('printArea');assert.ok(!out.textContent.includes('1회고사'));assert.ok(out.textContent.includes('80.00'));assert.ok(out.textContent.includes('수학도서 서평쓰기'));assert.equal(out.querySelector('.print-class').nextElementSibling.textContent,'평가 점수 확인 문구');
  check('printPerformance',false);doc.getElementById('printIndividual').click();assert.equal(out.querySelectorAll('tbody tr').length,1);assert.ok(out.textContent.includes('80.00'));assert.ok(!out.textContent.includes('수학도서 서평쓰기'));
  check('printWritten',true);check('printSemester',false);doc.getElementById('printAll').click();assert.ok(out.textContent.includes('객관식 48 / 60'));assert.ok(!out.textContent.includes('수학도서 서평쓰기'));assert.ok(!out.textContent.includes('80.00'));
- const b=fixture();b.classes[0].data.printOptions={written:true,performance:false,semester:true};b.classes[0].data.evaluations[0].weight='19';w.recordApp.setState(b);doc.getElementById('printAll').click();assert.ok(x.alerts.at(-1).includes('100%'));assert.equal(doc.getElementById('printArea').textContent,'');
+ const b=fixture();b.classes[0].data.printOptions={written:true,performance:false,semester:true};b.classes[0].data.evaluations[0].weight='19';w.recordApp.setState(b);doc.getElementById('printAll').click();assert.equal(doc.getElementById('printSemester').disabled,true);assert.equal(doc.getElementById('printSemester').checked,false);assert.ok(!doc.getElementById('printArea').textContent.includes('학기말 환산 점수'));assert.ok(doc.getElementById('printArea').textContent.includes('1회고사'));assert.equal(x.alerts.length,0);
 });
 test('new backup validates, reloads and keeps per-class print options and scores',t=>{
  const x=load(t,fixture()),b=fixture();b.classes[0].data.printOptions={written:false,performance:true,semester:true};x.w.recordApp.setState(b);x.w.recordApp.save();const reloaded=load(t,JSON.parse(x.w.localStorage.getItem('school-record-assessment-v1')));assert.deepEqual(clone(reloaded.w.recordApp.getState()),b);assert.equal(reloaded.doc.getElementById('printWritten').checked,false);assert.equal(reloaded.doc.getElementById('printSemester').checked,true);assert.equal(reloaded.w.semesterResult(data(reloaded.w).students[0]).label,'80.00');
@@ -63,4 +63,13 @@ test('criteria copying matches written rounds, keeps scores, deletes only select
 test('shared roster rename keeps written components and stable student IDs',()=>{
  const start=shell.indexOf('function projectRoster('),end=shell.indexOf('\nfunction ',start+1);assert.ok(start>0&&end>start);const raw=fixture(),context={raw,roster:{classes:[{id:'class-one',name:'3-1',students:[{id:'student-one',number:'30101',name:'이름 수정'}]}]},clone,rosterGroups:()=>[],appApi:()=>{throw Error('unexpected fallback')}};
  vm.runInNewContext(shell.slice(start,end)+";result=projectRoster('assessment',raw,roster);",context);const st=context.result.classes[0].data.students[0];assert.equal(st.name,'이름 수정');assert.equal(st.scores['idw1:objective'],'48');assert.equal(st.scores['idw2:essay'],'28');assert.equal(context.result.classes[0].data.evaluations[1].weight,'30');
+});
+
+test('optional weighting stays quiet and disables semester print until all ratios are ready',t=>{
+ const b=fixture();for(const e of b.classes[0].data.evaluations)delete e.weight;const {w,doc,alerts}=load(t,b);
+ assert.equal(doc.getElementById('weightSummary').hidden,true);assert.equal(doc.getElementById('weightSummary').classList.contains('bad'),false);assert.equal(doc.querySelector('td.semester-cell').textContent.trim(),'');assert.equal(doc.getElementById('printSemester').disabled,true);
+ assert.ok(!doc.getElementById('scoreTable').textContent.includes('반영 미설정'));assert.equal(doc.querySelector('.evalWeight').placeholder,'');
+ doc.getElementById('printAll').click();assert.equal(alerts.length,0);assert.ok(doc.getElementById('printArea').textContent.includes('1회고사'));
+ const formula='학기말 환산 = ∑{(받은 점수 ÷ 평가 만점) × 반영 비율} : 소수 셋째 자리에서 반올림하여 둘째 자리까지 표시';assert.ok(doc.querySelector('.weight-summary').textContent.includes(formula));
+ w.recordApp.setState(fixture());assert.equal(doc.getElementById('printSemester').disabled,false);doc.getElementById('printSemester').click();doc.getElementById('printAll').click();assert.ok(doc.getElementById('printArea').textContent.includes(formula));
 });

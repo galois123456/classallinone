@@ -23,7 +23,39 @@ export function attachCloudToolbar(outer, inner) {
     html[data-theme=dark] .desktop-cloud-status span[data-state=pending],html[data-theme=dark] .desktop-cloud-status span[data-state=saving]{color:#fcd34d}
     html[data-theme=dark] .desktop-cloud-status span[data-state=offline],html[data-theme=dark] .desktop-cloud-status span[data-state=error],html[data-theme=dark] .desktop-cloud-status span[data-state=conflict]{color:#fda4af}
   }
-  @media(min-width:761px) and (max-width:1450px){.switchbar .shell-actions{flex-basis:100%;justify-content:flex-end;margin-left:0}.switchbar .tabs{margin-left:auto}}
+
+  /* Keep the integrated desktop/tablet header on one line. */
+  @media(min-width:761px){
+    .switchbar{flex-wrap:nowrap!important;gap:6px!important}
+    .switchbar .brand{flex:0 1 auto!important;min-width:0;gap:6px}
+    .switchbar .tabs{flex:0 0 auto;flex-wrap:nowrap!important;width:auto!important;margin-left:0!important}
+    .switchbar .shell-actions{flex:0 0 auto!important;flex-basis:auto!important;flex-wrap:nowrap!important;width:auto!important;gap:4px;margin-left:auto!important}
+    .desktop-cloud-email{max-width:110px}.desktop-cloud-actions{flex-wrap:nowrap}
+  }
+  @media(min-width:761px) and (max-width:1600px){
+    .switchbar{padding:4px 6px!important;gap:5px!important}
+    .switchbar .brand h1{font-size:12px}.desktop-cloud-email{display:none!important}
+    .desktop-cloud-status{font-size:9px;gap:4px}.desktop-cloud-status b{font-size:8px;letter-spacing:0}
+    .desktop-cloud-status span{display:inline-block;max-width:105px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .switchbar .tabs{gap:3px}.switchbar .tabs .tab{font-size:10px;padding:5px;min-height:28px}
+    .switchbar .shell-actions .shell-btn{font-size:10px;padding:5px;min-height:28px}
+    .desktop-cloud-actions{gap:3px}
+  }
+  @media(min-width:761px) and (max-width:1100px){
+    .switchbar .brand{gap:4px!important}.switchbar .brand h1{font-size:11px}
+    .desktop-cloud-status b{display:none}.desktop-cloud-status span{max-width:82px}
+    .switchbar .shell-actions #themeToggle{font-size:0!important;width:26px;padding:4px!important}
+    .switchbar .shell-actions #themeToggle::before{content:attr(data-mobile-icon);font-size:15px}
+  }
+  @media(min-width:761px) and (max-width:920px){
+    .switchbar .brand h1{max-width:90px;overflow:hidden;text-overflow:ellipsis}.desktop-cloud-status span{max-width:65px}
+    .switchbar .tabs .tab{font-size:0!important;padding:5px 4px}
+    .switchbar .tabs .tab::after{font-size:10px}
+    #tab-journal::after{content:'누가기록'}#tab-integrated::after{content:'교과활동'}#tab-macro::after{content:'문장매크로'}#tab-helper::after{content:'활동보조'}#tab-assessment::after{content:'수행평가'}
+    .desktop-cloud-actions #desktop-reloadBtn{font-size:0!important}
+    .desktop-cloud-actions #desktop-reloadBtn::after{content:'새로 열기';font-size:10px}
+  }
+
   `;
   inner.head.append(style);
   const stateBox=inner.createElement('span');stateBox.className='desktop-cloud-status';
