@@ -34,7 +34,7 @@ export function attachCloudToolbar(outer, inner) {
   }
   @media(min-width:761px) and (max-width:1600px){
     .switchbar{padding:4px 6px!important;gap:5px!important}
-    .switchbar .brand h1{font-size:12px}.desktop-cloud-email{display:none!important}
+    .switchbar .brand h1{font-size:12px}
     .desktop-cloud-status{font-size:9px;gap:4px}.desktop-cloud-status b{font-size:8px;letter-spacing:0}
     .desktop-cloud-status span{display:inline-block;max-width:105px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .switchbar .tabs{gap:3px}.switchbar .tabs .tab{font-size:10px;padding:5px;min-height:28px}
@@ -54,6 +54,17 @@ export function attachCloudToolbar(outer, inner) {
     #tab-journal::after{content:'누가기록'}#tab-integrated::after{content:'교과활동'}#tab-macro::after{content:'문장매크로'}#tab-helper::after{content:'활동보조'}#tab-assessment::after{content:'수행평가'}
     .desktop-cloud-actions #desktop-reloadBtn{font-size:0!important}
     .desktop-cloud-actions #desktop-reloadBtn::after{content:'새로 열기';font-size:10px}
+  }
+
+  @media(min-width:761px) and (max-width:1600px){
+    .desktop-cloud-email{display:block!important;width:110px;max-width:110px;min-width:75px;flex:0 0 110px;font-size:9px;margin-right:2px}
+  }
+  @media(min-width:761px) and (max-width:1100px){.desktop-cloud-email{width:92px;max-width:92px;flex-basis:92px;font-size:8px}}
+  @media(min-width:761px) and (max-width:920px){
+    .desktop-cloud-email{width:82px;max-width:82px;flex-basis:82px;font-size:8px}
+    .switchbar .brand h1{font-size:0!important;max-width:none}.switchbar .brand h1::after{content:'생기부';font-size:10px}
+    .switchbar .tabs .tab::after{font-size:9px}.switchbar .shell-actions .shell-btn{font-size:9px;padding:4px}
+    .desktop-cloud-actions #desktop-reloadBtn::after{font-size:9px}
   }
 
   `;

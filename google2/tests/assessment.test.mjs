@@ -26,13 +26,13 @@ test('written exam buttons produce two fixed sections, independent performance n
  const card=x.doc.querySelector('[data-card="'+written[0].id+'"]');edit(w,'[data-card="'+written[0].id+'"] .objectiveMax','55.5');edit(w,'[data-card="'+written[0].id+'"] .essayMax','44.5');edit(w,'[data-card="'+written[0].id+'"] .evalWeight','30');card.querySelector('[data-action="apply"]').click();written=data(w).evaluations.filter(w.isWritten);assert.equal(written[0].objectiveMax,'55.5');assert.equal(written[0].weight,'30');assert.equal(w.maximum(written[0]),10000);
 });
 test('component bounds, missing versus zero, exact weighted total and rounding',t=>{
- const {w}=load(t,fixture());let s=data(w),st=s.students[0];assert.equal(w.semesterResult(st).label,'80.00');assert.equal(w.rawValue(st,s.evaluations[1]),8000);
+ const {w}=load(t,fixture());let s=data(w),st=s.students[0];assert.equal(w.semesterResult(st).label,'71.00');assert.equal(w.rawValue(st,s.evaluations[1]),8000);
  st.scores['idw1:objective']='61';assert.equal(w.status(s.evaluations[1],w.rawScore(st,s.evaluations[1])).type,'bad');assert.equal(w.semesterResult(st).ok,false);
  st.scores['idw1:objective']='';assert.equal(w.status(s.evaluations[1],w.rawScore(st,s.evaluations[1])).type,'pending');assert.equal(w.rawValue(st,s.evaluations[1]),null);assert.equal(w.semesterResult(st).ok,false);
- st.scores['idw1:objective']='0';st.scores['idw1:essay']='0';assert.equal(w.status(s.evaluations[1],w.rawScore(st,s.evaluations[1])).type,'good');assert.equal(w.semesterResult(st).label,'56.00');
- const book=fixture(),d=book.classes[0].data;d.evaluations=[{id:'idround',name:'소수 검증',weight:'100',items:[{name:'항목',scores:'0,1,32'}]}];d.students[0].scores={idround:'1'};w.recordApp.setState(book);assert.equal(w.semesterResult(data(w).students[0]).label,'3.13');
- d.evaluations[0].items[0].scores='0,1,3';w.recordApp.setState(book);assert.equal(w.semesterResult(data(w).students[0]).label,'33.33');
- d.evaluations[0].items[0].scores='0';d.students[0].scores={idround:'0'};w.recordApp.setState(book);assert.equal(w.semesterResult(data(w).students[0]).ok,false);
+ st.scores['idw1:objective']='0';st.scores['idw1:essay']='0';assert.equal(w.status(s.evaluations[1],w.rawScore(st,s.evaluations[1])).type,'good');assert.equal(w.semesterResult(st).label,'47.00');
+ const book=fixture(),d=book.classes[0].data;d.evaluations=[{id:'idround',name:'소수 검증',weight:'100',items:[{name:'항목',scores:'0,1,32'}]}];d.students[0].scores={idround:'1'};w.recordApp.setState(book);assert.equal(w.semesterResult(data(w).students[0]).label,'1.00');
+ d.evaluations[0].items[0].scores='0,1,3';w.recordApp.setState(book);assert.equal(w.semesterResult(data(w).students[0]).label,'1.00');
+ d.evaluations[0].items[0].scores='0';d.students[0].scores={idround:'0'};w.recordApp.setState(book);assert.equal(w.semesterResult(data(w).students[0]).label,'0.00');
 });
 test('weights must be specified and sum to 100; zero-weight assessments do not require scores',t=>{
  const {w}=load(t,fixture());const b=fixture(),s=b.classes[0].data;s.evaluations[0].weight='19.99';w.recordApp.setState(b);assert.equal(w.weightCheck().ok,false);assert.equal(w.semesterResult(data(w).students[0]).ok,false);
@@ -41,18 +41,18 @@ test('weights must be specified and sum to 100; zero-weight assessments do not r
 });
 test('mobile has four columns and written inputs update totals without discarding other grades',t=>{
  const x=load(t,fixture()),{w,doc}=x;x.mobile(true);let select=doc.getElementById('mobileEvaluationSelect');select.value='idw1';select.dispatchEvent(new w.Event('change',{bubbles:true}));assert.equal(doc.querySelectorAll('#scoreTable thead th').length,4);assert.equal(doc.querySelectorAll('#scoreTable input[data-part]').length,2);
- edit(w,'#scoreTable input[data-part="objective"]','50');assert.match(doc.querySelector('.written-total').textContent,/82/);assert.match(doc.querySelector('.semester-cell').textContent,/80.60/);assert.equal(data(w).students[0].scores.idp2,'85');assert.equal(JSON.parse(w.localStorage.getItem('school-record-assessment-v1')).classes[0].data.students[0].scores['idw1:objective'],'50');
- x.mobile(false);assert.equal(doc.querySelectorAll('#scoreTable thead th').length,8);assert.match(doc.querySelector('td.semester-cell').textContent,/80.60/);
+ edit(w,'#scoreTable input[data-part="objective"]','50');assert.match(doc.querySelector('.written-total').textContent,/82/);assert.match(doc.querySelector('.semester-cell').textContent,/71.60/);assert.equal(data(w).students[0].scores.idp2,'85');assert.equal(JSON.parse(w.localStorage.getItem('school-record-assessment-v1')).classes[0].data.students[0].scores['idw1:objective'],'50');
+ x.mobile(false);assert.equal(doc.querySelectorAll('#scoreTable thead th').length,8);assert.match(doc.querySelector('td.semester-cell').textContent,/71.60/);
 });
 test('print checklist controls both print layouts; semester uses hidden evaluation weights too',t=>{
  const x=load(t,fixture()),{w,doc}=x;function check(id,value){doc.getElementById(id).checked=value;doc.getElementById(id).dispatchEvent(new w.Event('change',{bubbles:true}));}
- check('printWritten',false);check('printSemester',true);doc.getElementById('printAll').click();let out=doc.getElementById('printArea');assert.ok(!out.textContent.includes('1회고사'));assert.ok(out.textContent.includes('80.00'));assert.ok(out.textContent.includes('수학도서 서평쓰기'));assert.equal(out.querySelector('.print-class').nextElementSibling.textContent,'평가 점수 확인 문구');
- check('printPerformance',false);doc.getElementById('printIndividual').click();assert.equal(out.querySelectorAll('tbody tr').length,1);assert.ok(out.textContent.includes('80.00'));assert.ok(!out.textContent.includes('수학도서 서평쓰기'));
- check('printWritten',true);check('printSemester',false);doc.getElementById('printAll').click();assert.ok(out.textContent.includes('객관식 48 / 60'));assert.ok(!out.textContent.includes('수학도서 서평쓰기'));assert.ok(!out.textContent.includes('80.00'));
+ check('printWritten',false);check('printSemester',true);doc.getElementById('printAll').click();let out=doc.getElementById('printArea');assert.ok(!out.textContent.includes('1회고사'));assert.ok(out.textContent.includes('71.00'));assert.ok(out.textContent.includes('수학도서 서평쓰기'));assert.equal(out.querySelector('.print-class').nextElementSibling.textContent,'평가 점수 확인 문구');
+ check('printPerformance',false);doc.getElementById('printIndividual').click();assert.equal(out.querySelectorAll('tbody tr').length,1);assert.ok(out.textContent.includes('71.00'));assert.ok(!out.textContent.includes('수학도서 서평쓰기'));
+ check('printWritten',true);check('printSemester',false);doc.getElementById('printAll').click();assert.ok(out.textContent.includes('80 / 100점'));assert.ok(!out.textContent.includes('객관식'));doc.getElementById('printIndividual').click();assert.ok(out.textContent.includes('객관식 48 / 60'));assert.ok(!out.textContent.includes('수학도서 서평쓰기'));assert.ok(!out.textContent.includes('71.00'));
  const b=fixture();b.classes[0].data.printOptions={written:true,performance:false,semester:true};b.classes[0].data.evaluations[0].weight='19';w.recordApp.setState(b);doc.getElementById('printAll').click();assert.equal(doc.getElementById('printSemester').disabled,true);assert.equal(doc.getElementById('printSemester').checked,false);assert.ok(!doc.getElementById('printArea').textContent.includes('학기말 환산 점수'));assert.ok(doc.getElementById('printArea').textContent.includes('1회고사'));assert.equal(x.alerts.length,0);
 });
 test('new backup validates, reloads and keeps per-class print options and scores',t=>{
- const x=load(t,fixture()),b=fixture();b.classes[0].data.printOptions={written:false,performance:true,semester:true};x.w.recordApp.setState(b);x.w.recordApp.save();const reloaded=load(t,JSON.parse(x.w.localStorage.getItem('school-record-assessment-v1')));assert.deepEqual(clone(reloaded.w.recordApp.getState()),b);assert.equal(reloaded.doc.getElementById('printWritten').checked,false);assert.equal(reloaded.doc.getElementById('printSemester').checked,true);assert.equal(reloaded.w.semesterResult(data(reloaded.w).students[0]).label,'80.00');
+ const x=load(t,fixture()),b=fixture();b.classes[0].data.printOptions={written:false,performance:true,semester:true};x.w.recordApp.setState(b);x.w.recordApp.save();const reloaded=load(t,JSON.parse(x.w.localStorage.getItem('school-record-assessment-v1')));assert.deepEqual(clone(reloaded.w.recordApp.getState()),b);assert.equal(reloaded.doc.getElementById('printWritten').checked,false);assert.equal(reloaded.doc.getElementById('printSemester').checked,true);assert.equal(reloaded.w.semesterResult(data(reloaded.w).students[0]).label,'71.00');
  const broken=clone(b);broken.classes[0].data.evaluations[1].objectiveMax='-1';assert.throws(()=>x.w.recordApp.validate(broken));broken.classes[0].data.evaluations[1].objectiveMax='60';broken.classes[0].data.evaluations[1].weight='101';assert.throws(()=>x.w.recordApp.validate(broken));
 });
 test('criteria copying matches written rounds, keeps scores, deletes only selected evaluation',t=>{
@@ -70,6 +70,36 @@ test('optional weighting stays quiet and disables semester print until all ratio
  assert.equal(doc.getElementById('weightSummary').hidden,true);assert.equal(doc.getElementById('weightSummary').classList.contains('bad'),false);assert.equal(doc.querySelector('td.semester-cell').textContent.trim(),'');assert.equal(doc.getElementById('printSemester').disabled,true);
  assert.ok(!doc.getElementById('scoreTable').textContent.includes('반영 미설정'));assert.equal(doc.querySelector('.evalWeight').placeholder,'');
  doc.getElementById('printAll').click();assert.equal(alerts.length,0);assert.ok(doc.getElementById('printArea').textContent.includes('1회고사'));
- const formula='학기말 환산 = ∑{(받은 점수 ÷ 평가 만점) × 반영 비율} : 소수 셋째 자리에서 반올림하여 둘째 자리까지 표시';assert.ok(doc.querySelector('.weight-summary').textContent.includes(formula));
+ const formula='학기말 환산 = ∑{받은 점수 × (최종 반영 비율 ÷ 100)} : 소수 셋째 자리에서 반올림하여 둘째 자리까지 표시';assert.ok(doc.querySelector('.weight-summary').textContent.includes(formula));
  w.recordApp.setState(fixture());assert.equal(doc.getElementById('printSemester').disabled,false);doc.getElementById('printSemester').click();doc.getElementById('printAll').click();assert.ok(doc.getElementById('printArea').textContent.includes(formula));
+});
+
+test('performance subtotal excludes written exams and displayed order is stable',t=>{
+ const {w,doc}=load(t,fixture()),s=data(w),st=s.students[0];assert.equal(w.total(st),'130 / 150점');assert.equal(w.overallMax(),'150');
+ const cells=[...doc.querySelectorAll('#scoreTable tbody tr:first-child>td')];assert.deepEqual(cells.slice(2).map(td=>td.dataset.scoreEval||(td.classList.contains('total')?'performance-total':'semester')),['idp1','idp2','performance-total','idw1','idw2','semester']);
+ assert.match(cells[4].textContent,/130/);assert.ok(!cells[4].textContent.includes('280'));
+});
+test('all print checkbox combinations keep separate performance subtotal, first and second exams',t=>{
+ const {w,doc}=load(t,fixture());const choose=(performance,written,semester)=>{for(const [id,value] of [['printPerformance',performance],['printWritten',written],['printSemester',semester]]){doc.getElementById(id).checked=value;doc.getElementById(id).dispatchEvent(new w.Event('change',{bubbles:true}));}};
+ const keys=()=>[...doc.querySelectorAll('#printArea tbody tr:first-child td[data-print-column]')].map(td=>td.dataset.printColumn);
+ choose(true,false,false);doc.getElementById('printAll').click();assert.deepEqual(keys(),['idp1','idp2','performance-total']);assert.equal(doc.querySelectorAll('#printArea thead tr').length,1);assert.match(doc.querySelector('#printArea [data-print-column="performance-total"]').textContent,/수행평가 총점/);
+ choose(true,true,false);doc.getElementById('printAll').click();assert.deepEqual(keys(),['idp1','idp2','performance-total','idw1','idw2']);assert.equal(doc.querySelectorAll('#printArea thead tr').length,2);assert.equal(doc.querySelector('#printArea th[scope="colgroup"]').colSpan,3);
+ choose(true,true,true);doc.getElementById('printAll').click();assert.deepEqual(keys(),['idp1','idp2','performance-total','idw1','idw2','semester']);assert.equal(doc.querySelector('#printArea tbody td[data-print-column="semester"]').textContent,'71.00점');assert.equal(doc.querySelector('#printArea tbody td[data-print-column="performance-total"]').textContent,'130 / 150점');
+ doc.getElementById('printIndividual').click();assert.deepEqual([...doc.querySelectorAll('#printArea tr[data-print-column]')].map(tr=>tr.dataset.printColumn),['idp1','idp2','performance-total','idw1','idw2','semester']);
+ choose(false,true,false);doc.getElementById('printAll').click();assert.deepEqual(keys(),['idw1','idw2']);assert.equal(doc.querySelector('#printArea [data-print-column="performance-total"]'),null);
+ choose(false,false,true);doc.getElementById('printAll').click();assert.deepEqual(keys(),['semester']);assert.equal(doc.querySelector('#printArea tbody td[data-print-column="semester"]').textContent,'71.00점');
+});
+test('one written exam and semester rounding use raw points without max-score normalization',t=>{
+ const b=fixture(),d=b.classes[0].data;d.evaluations=d.evaluations.filter(e=>e.id!=='idw2');d.evaluations.find(e=>e.id==='idw1').weight='60';const {w,doc}=load(t,b);assert.equal(w.semesterResult(data(w).students[0]).label,'74.00');doc.getElementById('printSemester').click();doc.getElementById('printAll').click();assert.equal(doc.querySelector('#printArea [data-print-column="idw2"]'),null);
+ const round=fixture(),r=round.classes[0].data;r.evaluations=[{id:'idround1',name:'반올림 확인',weight:'10',items:[{name:'항목',scores:'0,12.34,12.35,50'}]},{id:'idround2',name:'나머지',weight:'90',items:[{name:'항목',scores:'0,100'}]}];r.students[0].scores={idround1:'12.35',idround2:'0'};w.recordApp.setState(round);assert.equal(w.semesterResult(data(w).students[0]).label,'1.24');r.students[0].scores.idround1='12.34';w.recordApp.setState(round);assert.equal(w.semesterResult(data(w).students[0]).label,'1.23');
+});
+test('CSV follows the performance, subtotal, written-round and semester structure',t=>{
+ const {w,doc}=load(t,fixture());let csv='';w.download=(name,text)=>csv=text;doc.getElementById('csv').click();const lines=csv.split('\r\n');assert.ok(lines[0].indexOf('수행평가 총점')<lines[0].indexOf('1회고사'));assert.ok(lines[0].indexOf('1회고사')<lines[0].indexOf('2회고사'));assert.ok(lines[1].includes('130 / 150점'));assert.ok(lines[1].endsWith('"71.00"'));
+});
+
+test('25-student roster retains every score and compact exam totals; individual notices keep details',t=>{
+ const b=fixture(),d=b.classes[0].data,student=d.students[0];d.students=Array.from({length:25},(_,i)=>({...clone(student),id:'student-'+i,no:String(30101+i),name:'가상학생'+(i+1)}));
+ const {doc}=load(t,b);doc.getElementById('printSemester').click();doc.getElementById('printAll').click();const rows=[...doc.querySelectorAll('#printArea tbody tr')];assert.equal(rows.length,25);assert.match(rows[24].textContent,/30125가상학생25/);
+ for(const row of rows){assert.equal(row.querySelector('[data-print-column="idw1"]').textContent,'80 / 100점');assert.equal(row.querySelector('[data-print-column="idw2"]').textContent,'70 / 100점');assert.equal(row.querySelector('[data-print-column="semester"]').textContent,'71.00점');}
+ doc.getElementById('printIndividual').click();assert.equal(doc.querySelectorAll('#printArea .print-student').length,25);assert.match(doc.querySelector('#printArea .print-student').textContent,/객관식 48 \/ 60/);assert.match(doc.querySelector('#printArea .print-student').textContent,/논서술형 32 \/ 40/);
 });
