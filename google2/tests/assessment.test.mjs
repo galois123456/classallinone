@@ -103,3 +103,22 @@ test('25-student roster retains every score and compact exam totals; individual 
  for(const row of rows){assert.equal(row.querySelector('[data-print-column="idw1"]').textContent,'80 / 100점');assert.equal(row.querySelector('[data-print-column="idw2"]').textContent,'70 / 100점');assert.equal(row.querySelector('[data-print-column="semester"]').textContent,'71.00점');}
  doc.getElementById('printIndividual').click();assert.equal(doc.querySelectorAll('#printArea .print-student').length,25);assert.match(doc.querySelector('#printArea .print-student').textContent,/객관식 48 \/ 60/);assert.match(doc.querySelector('#printArea .print-student').textContent,/논서술형 32 \/ 40/);
 });
+
+test('individual notice groups performance rows vertically and highlights both totals',t=>{
+ const {w,doc}=load(t,fixture());doc.getElementById('printSemester').click();doc.getElementById('printIndividual').click();const table=doc.querySelector('#printArea .individual-score-table');assert.ok(table);assert.equal(table.querySelector('thead th').colSpan,2);const group=table.querySelector('.performance-group');assert.equal(group.textContent,'수행평가');assert.equal(group.rowSpan,3);
+ assert.deepEqual([...table.querySelectorAll('tbody tr')].map(tr=>tr.dataset.printColumn),['idp1','idp2','performance-total','idw1','idw2','semester']);assert.equal(table.querySelectorAll('.print-sum').length,2);assert.equal(table.querySelector('[data-print-column="semester"] td').colSpan,2);assert.match(table.querySelector('[data-print-column="idw1"]').textContent,/객관식 48 \/ 60/);
+ doc.getElementById('printPerformance').click();doc.getElementById('printIndividual').click();assert.equal(doc.querySelector('#printArea .performance-group'),null);assert.equal(doc.querySelector('#printArea [data-print-column="idw1"] td').colSpan,2);
+ doc.getElementById('printPerformance').click();doc.getElementById('printWritten').click();doc.getElementById('printSemester').click();doc.getElementById('printIndividual').click();assert.equal(doc.querySelector('#printArea .performance-group').rowSpan,3);assert.equal(doc.querySelector('#printArea [data-print-column="semester"]'),null);
+});
+test('saved ratios warn above 100 percent even when another ratio is missing',t=>{
+ const b=fixture(),d=b.classes[0].data;d.evaluations[0].weight='50.01';delete d.evaluations[2].weight;const {w,doc}=load(t,b),n=doc.getElementById('weightSummary');assert.equal(w.weightCheck().exceeded,true);assert.equal(w.weightCheck().sum,11001);assert.equal(n.hidden,false);assert.equal(n.getAttribute('role'),'alert');assert.match(n.textContent,/110.01%.*100%를 초과/);assert.equal(doc.getElementById('printSemester').disabled,true);
+ d.evaluations[0].weight='20';w.recordApp.setState(b);assert.equal(n.hidden,true);assert.equal(n.classList.contains('bad'),false);assert.equal(w.weightCheck().ok,false);
+});
+test('ratio warning previews live drafts, clears on correction, and persists after saving',t=>{
+ const {w,doc}=load(t,fixture()),n=doc.getElementById('weightSummary');edit(w,'[data-card="idp1"] .evalWeight','20.01');assert.equal(n.hidden,false);assert.equal(n.classList.contains('bad'),true);assert.match(n.textContent,/100.01%/);assert.equal(data(w).evaluations[0].weight,'20');
+ edit(w,'[data-card="idp1"] .evalWeight','19.99');assert.equal(n.hidden,true);edit(w,'[data-card="idp1"] .evalWeight','20');assert.equal(n.textContent,'반영 비율 합계 100%');assert.equal(n.classList.contains('bad'),false);
+ edit(w,'[data-card="idp1"] .evalWeight','30');doc.querySelector('[data-card="idp1"] [data-action="apply"]').click();assert.equal(data(w).evaluations[0].weight,'30');assert.equal(w.weightCheck().exceeded,true);assert.match(n.textContent,/110%/);assert.equal(doc.getElementById('printSemester').disabled,true);assert.equal(w.semesterResult(data(w).students[0]).ok,false);
+});
+test('excess ratio warnings stay within the active class',t=>{
+ const b=fixture(),other=clone(b.classes[0]);other.id='class-two';other.name='3-2';other.data.evaluations[0].weight='40';b.classes.push(other);const {w,doc}=load(t,b);assert.equal(doc.getElementById('weightSummary').classList.contains('bad'),false);b.activeId='class-two';w.recordApp.setState(b);assert.match(doc.getElementById('weightSummary').textContent,/120%/);b.activeId='class-one';w.recordApp.setState(b);assert.equal(doc.getElementById('weightSummary').textContent,'반영 비율 합계 100%');
+});

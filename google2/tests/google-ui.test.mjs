@@ -43,7 +43,7 @@ test('Google sign-in resumes session, opens all five editors, saves assessment a
   const inner=shell.w.document.getElementById(name+'Frame');Object.defineProperty(inner,'contentWindow',{value:apps[name].w});Object.defineProperty(inner,'contentDocument',{value:apps[name].w.document});
  }
  for(const script of shell.w.document.scripts)vm.runInContext(script.textContent,shell.d.getInternalVMContext());
- shell.w.eval("installSharedRoster()");await sleep(200);assert.deepEqual(shell.errors,[]);assert.ok(shell.w.document.querySelector('.desktop-cloud-status'));assert.match(shell.w.document.body.textContent,/구글 ver1.03/);
+ shell.w.eval("installSharedRoster()");await sleep(200);assert.deepEqual(shell.errors,[]);assert.ok(shell.w.document.querySelector('.desktop-cloud-status'));assert.match(shell.w.document.body.textContent,/구글 ver1.04/);
  const a=apps.assessment.w;const ab=JSON.parse(JSON.stringify(a.recordApp.getState()));ab.classes.find(c=>c.id===ab.activeId).data.students=[{id:'test-student',no:'30101',name:'가상학생',scores:{}}];const ac=ab.classes.find(c=>c.id===ab.activeId);ac.data.evaluations.forEach(e=>e.weight='0');ac.data.evaluations.push({id:'idwrittencheck',kind:'written',writtenOrder:1,name:'1회고사',items:[],objectiveMax:'60',essayMax:'40',weight:'100'});ac.data.students[0].scores={'idwrittencheck:objective':'30','idwrittencheck:essay':'20'};
  const common={classes:ab.classes.map(c=>({id:c.id,name:c.name,students:c.data.students.map(st=>({id:st.id,number:st.no,name:st.name+' 수정'}))}))};
  const projected=shell.w.projectRoster('assessment',ab,common);assert.equal(projected.classes.find(c=>c.id===ab.activeId).data.students[0].scores['idwrittencheck:objective'],'30');

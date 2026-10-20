@@ -1,4 +1,4 @@
-생기부 작성 도우미 · 구글 ver1.03
+생기부 작성 도우미 · 구글 ver1.04
 
 1. classallinone 저장소에 google2 폴더째 업로드합니다.
    결과: classallinone/google2/package.json
