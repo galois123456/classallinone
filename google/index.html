@@ -409,7 +409,7 @@ body.student #formulaStudio .slot.active-slot{box-shadow:none}
 @media(max-width:700px){#formulaStudio #fc-examples,#formulaStudio #fc-wrapper{width:100%}#formulaStudio #fc-editor{min-height:120px}}
 
 </style>
-<script type="application/json" id="classroom-changelog">[{"version":"1.395","date":"2026-11-23","added":["공학용 계산기 예시 선택 칸 너비와 줄바꿈 조정"]},{"version":"1.39","date":"2026-11-23","added":["공학용·파이썬·LaTeX에 단원별 예시와 미분·적분 수업 예시 추가","LaTeX 도함수·부정적분, x=수식 계산과 등식 검산 구분","계산기 4종에서 잘못된 입력은 결과 칸에 Error와 이유 표시"],"validation":{"passed":["오프라인 공학용 13개·파이썬 26개·LaTeX 32개 예시의 실행 결과","4개 모드 오류 표시·복구, 기존 급수와 역함수, 백업 복원과 모바일 폭"],"notTested":["실제 iPad Safari, Google Drive 계정 연결"]}},{"version":"1.38","date":"2026-11-23","changed":["공학용·파이썬·LaTeX 계산기의 다항함수 예시를 f(x)=6x^5−4x^3+2x−1로 변경"]},{"version":"1.37","date":"2026-11-23","added":["수학 탐구 → 계산기 아래에 LaTeX 수식 변환기 추가","시각적 편집과 LaTeX·한글 수식 코드 변환·복사, 기호 키보드 및 예제","수식과 작성 중인 코드의 기기 저장·전체 백업 연동, 넓게 보기와 학생 화면 지원"],"validation":{"passed":["원본 예제 14개의 LaTeX·한글 수식 출력 28건 비교","분수 입력, 행렬 생성, 양방향 편집, 복사, 실행 취소·다시 실행","미완성 코드 새로고침 복원, 이전 백업 호환, 모의 Drive 저장 후 새 브라우저에서 불러오기","모바일 폭·넓게 보기·학생 화면, 오프라인 파일 실행 및 기존 계산기·화이트보드 회귀 점검"],"notTested":["실제 iPad Safari 및 한컴오피스 한글에서의 붙여넣기","실제 Google 계정의 Drive 업로드·다운로드"]}},{"version":"1.36","date":"2026-11-23","added":["기본·공학용·파이썬·LaTeX 계산기와 공학용 사용자 함수","오프라인 Python 3.12: 여러 줄 코드, 함수·변수 재사용, 중지·초기화","LaTeX 수식 미리보기, x 대입, 정확한 값·근삿값","등비·맥클로린·테일러 급수의 무한합·부분합·수렴 범위, g(t) 정적분 예시","원래 함수와 단조 구간을 지정하는 역함수 계산 및 두 가지 예시"],"validation":{"passed":["기본·공학용 계산, 함수 등록·재호출·복원","오프라인 Python 함수·표준 라이브러리·중지 후 재실행","LaTeX 계산, 수렴 범위 끝점과 부분합, 적분 상한·역방향·g(t) 변경","기존 넓게 보기·화이트보드 메모 필기·백업 관련 회귀 점검","역함수의 두 가지·치역 밖·단조가 아닌 구간 확인"],"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive 및 Vercel·Supabase 연결"]}},{"version":"1.35","date":"2026-11-05","fixed":["메모 상단의 손바닥 이동보다 Apple Pencil 입력을 우선 처리","메모 필기 중 손바닥이 보드 이동·확대 및 메모 버튼을 작동시키는 충돌 방지","종료 이벤트 누락·캡처 변경 후 다음 펜 입력 복구","메모의 고해상도 캔버스와 화면 크기 분리"],"changed":["메모의 완료된 필기 캐시 및 프레임 단위 화면 갱신","메모 실행 취소 기록에서 매번 전체 좌표를 복사하던 작업 제거","펜을 뗀 마지막 좌표 반영·메모 형광펜 겹침 개선","숨긴 메모의 화면 버퍼 해제로 메모리 사용 감소"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil 및 홈 화면 웹앱","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["v1.34에서 손바닥 선행 터치와 종료 누락 시 필기 차단 재현","손바닥보다 Pencil 우선·손가락 인식 ON/OFF 필기","필기 중 손바닥에 의한 메모 이동·보드 이동 차단","종료 누락·동일 펜 ID 재사용·캡처 변경·hover·취소 복구","브라우저 pen 포인터 스트림의 실제 캡처·메모 밖 이동·종료","고속 좌표 묶음과 pointerup 마지막 좌표 반영","메모 이동·크기·배경·실행 취소/다시 실행·지우기·복원","보드/메모 입력 전환 및 스냅샷 복원 후 메모 실행 취소","600개 기존 획에서 80회 이동 입력: 이동 중·획 종료 시 전체 필기 재그리기 없음","고해상도 캔버스 크기 안정성·숨김 버퍼 해제·재열기·새로고침 저장 유지","기존 필기·형광펜·지우개·PDF 탐색·시트 관리·PNG/PDF 저장 회귀 시험","설정 전체 기기 저장·퀴즈 초안 저장·확률 실험·반응형 UI 회귀 시험","10개 인라인 JavaScript 구문 검사·퀴즈 내장 소스 동일 확인·이전 변경 이력 보존"]}},{"version":"1.34","date":"2026-11-02","changed":["홈 하단에 Class all in one Google ver1.34. made by YOONSUNGHO 표시","상단 화이트보드 바로가기를 화이트 보드로 단축하고 주황색 적용","모든 확대 화면 복귀 버튼을 퀴즈·메모·QR과 같은 배경·글자·테두리 색으로 통일","복귀 버튼 문구를 ↩️ 작게 보기로 변경"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["홈 하단 문구·위치 및 도구 전환 후 홈 복귀 표시 확인","화이트 보드 바로가기의 실제 배경·글자 색 확인: 밝은·다크 모드","퀴즈 기준과 9개 도구의 작게 보기 문구·배경·글자·테두리 색 일치","넓게 보기 진입·작게 보기 복귀·Escape 및 모드·도구 전환","1024px 태블릿·390px 모바일 조작","프로젝트 3열·확률 실험·전체 기기 저장·새로고침 후 자료 유지","시트 관리·PNG/PDF 다운로드·내보내기 전후 원본 상태 유지","10개 인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.33","date":"2026-11-02","changed":["화이트보드 넓게 쓰기를 넓게 보기로 통일","화이트보드·퀴즈의 넓게 보기 진입 버튼을 타이머와 같은 제목 오른쪽 위치로 통합","넓게 보기 버튼의 배경·글자·테두리 색을 도구 간 통일"],"fixed":["화이트보드 넓게 보기에서 Escape 복귀 시 캔버스 크기 갱신","퀴즈 넓게 보기에서 Escape 복귀"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["타이머·화이트보드·퀴즈·메모·QR의 제목 오른쪽 위치·문구·색 일치: 밝은/다크 모드","기본 화면 중복 버튼 숨김·확대 화면 복귀·Escape·모드/도구 전환","1024px 태블릿·390px 모바일에서 진입 및 복귀 버튼 조작","프로젝트 3열·확률 실험·전체 기기 저장·새로고침 후 자료 유지","시트 관리·PNG/PDF 다운로드·내보내기 전후 원본 상태 유지","기존 지우개·형광펜·펜 크기·PDF 탐색 회귀 테스트","인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.32","date":"2026-11-02","changed":["메뉴를 퀴즈·메모·QR로 단축","퀴즈 프로젝트 카드 3열 및 간격 축소","퀴즈 저장 버튼은 Google Drive 저장 완료까지 저장 중 표시","화이트보드 작업 단위를 시트로 통일"],"added":["설정 전체 저장 및 새로고침","타이머·조자리점수·행운뽑기·계산기·함수그래프·확률통계·소음측정·메모QR 넓게보기","화이트보드 시트 관리: 미리보기·열기·이름·복제·삭제·순서 이동","현재 시트·모든 시트 PDF 저장"],"validation":{"notTested":["실제 Google Drive·Supabase·Vercel 서버 연결","실제 iPad Safari·Apple Pencil"],"passed":["1024·1536px 프로젝트 3열·390px 1열 및 메뉴 폭 확인","8개 도구 넓게보기·복귀·도구 전환","설정 전체 저장: 퀴즈 초안·비밀번호·전체 화이트보드 포함","Drive 지연 시 저장 중 유지·실패 표시·기기본 보존·변경 없는 재시도","업로드 중 새 편집은 미저장 초안으로 보존","Drive 충돌 시 전체 저장 취소 및 원격 내용 보호","새로고침 후 기기 자료 유지","시트 미리보기·열기·이름·복제·삭제·순서 변경","PNG·현재/전체 시트 PDF 다운로드·PDF 구조 파싱·렌더 확인·원본 상태 유지","기존 수동 저장·다크 화면 버튼 대비·형광펜·지우개·PDF 탐색·분리 동기화 회귀 확인","10개 인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.31","date":"2026-11-01","fixed":["공통 입력 스타일에 가려졌던 꺼진 스위치의 배경·윤곽·손잡이 표시","다크 퀴즈 화면의 정답 가리기 등 일반 버튼 글자·아이콘 대비","출제 순서·화면 배경 선택 및 도움말 글자 대비"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase 서버 연결"],"passed":["클릭 전 꺼짐 상태의 스위치 배경·윤곽·손잡이 표시","스위치 켜기·끄기 및 출제 순서 선택 동작","올인원 밝음/어두움 × 퀴즈 밝음/어두움 조합의 버튼 대비","정답 보기·가리기·완료 화면 버튼 글자 대비 4.5 이상","설정 창 선택 버튼과 일반 버튼 글자 대비 4.5 이상","390px 모바일 설정 창·스위치 조작","퀴즈 실행·정답 공개·요약 화면 전환, 페이지 오류 없음","기존 퀴즈 수동 저장 등 JavaScript 바이트 동일 확인"]}},{"version":"1.30","date":"2026-11-01","changed":["퀴즈 프로젝트 편집의 자동 저장을 수동 저장으로 변경","설정 왼쪽에 저장 버튼 및 미저장 표시 추가","편집 초안과 저장본 분리: 전체 저장·Drive·백업에 초안 제외"],"added":["편집 화면 이탈 시 저장·버리기·계속 편집 선택","Ctrl/Cmd+S 저장, 새로고침 이탈 경고"],"validation":{"notTested":["실제 Google Drive·Supabase·Vercel 연결","실제 iPad Safari·Apple Pencil"],"passed":["저장 버튼이 설정 왼쪽에 배치","입력 후 자동 저장·전체 저장·Host flush에서 초안 제외","저장 버튼·Ctrl/Cmd+S 명시적 저장","계속 편집·버리기·저장하고 이동 분기","다른 도구로 이동 후 초안 유지, 저장본 미변경","새로고침 시 미저장 경고, 저장 후 새로고침 복원","문항 추가의 수동 저장","화이트보드 진입·확률 동전 100회 실행, 페이지 오류 없음"]}},{"version":"1.29","date":"2026-11-01","added":["온라인 학생 참여: 코드·비밀번호·학번·이름, 기존 교사 Google 로그인 재사용","개별·교사 진행, 전체·문항별 시간제한 및 교사 수동 마감","서버 자동 채점, 제출 즉시 점수·종료 후 정답 공개, 교사 재응시·재접속 허용","퀴즈별 결과·문항별 답안·CSV 및 종료 성적 요약 Drive 저장"],"changed":["객관식 기본 선지 2개, 선지 추가·삭제 및 6개 제한 해제","문항별 진행은 이전 문항 잠금, 전체 퀴즈 마감은 제출 전 답안 수정"],"excluded":["학생별 누적 성적표"],"validation":{"notTested":["실제 Supabase 프로젝트·Vercel 배포","실제 Google OAuth·Drive 계정 연결","실제 iPad Safari·Apple Pencil","100명 실서버 동시 접속 부하"],"passed":["PGlite PostgreSQL 검사 19개: 권한·자동채점·마감·중복제출·재접속·재응시","교사와 학생 브라우저 연결: 코드·QR·입장·점수·답안·CSV·재접속·재응시","시간 만료 시 응시만 마감, 교사 전체 종료 후 정답·해설 공개","객관식 기본 2개 및 7개 이상 선지 추가·삭제·저장","종료 성적 요약의 기기 저장, 모의 Drive 저장·복원 왕복 보존","기존 퀴즈 편집·수식·Markdown·발표·백업 회귀 검사","화이트보드 필기·형광펜·지우개·PDF 이동 회귀 검사","모의 Drive의 화이트보드 진입 비교·분리 저장·충돌 방지 회귀 검사"]}},{"version":"1.28","date":"2026-11-01","changed":["퀴즈 100% OFFLINE 문구 제거, 교실 도구 테마와 색상 통일","시작 시 수업 도구만 동기화, 화이트보드는 진입 시 내용 비교 후 업로드·불러오기 선택","다른 도구 저장 시 Drive 화이트보드 쪽·사진 유지, 화이트보드 사진 다운로드 안 함","퀴즈 완료 화면 버튼을 제목 바로 아래로 이동"],"added":["교실 도구 제목 클릭으로 홈 이동, 홈 도구 카드"],"compatibility":["기존 Drive v2 저장 구조와 백업 지원","화이트보드 화면 이동·확대율만 다른 경우에는 내용 충돌로 묻지 않음"],"validation":{"notTested":["실제 Google OAuth 실계정 전송","실제 iPad Safari·Apple Pencil"],"passed":["시작 시 홈 표시 및 선택창 없음, 교실 도구 제목으로 홈 이동","모의 Drive: 시작·수업 도구 저장 시 화이트보드 쪽·사진 읽기 0건","모의 Drive: 다른 도구 저장 후 원격 화이트보드 쪽 목록·사진 유지","화이트보드 진입 시 내용이 다를 때 선택, 같은 내용·화면 위치 차이만 있을 때는 선택창 없음","화이트보드 업로드·불러오기·기기 전용 작업·첫 Drive 파일 생성","비교 이후 원격 자료 변경 시 덮어쓰기 차단","퀴즈 밝은 테마·다크모드 색상, OFFLINE 문구 제거, 완료 버튼 위치","퀴즈 편집·수식·발표·백업·기기 저장 회귀 테스트","화이트보드 필기·형광펜·지우개·사진 편집·굵기·PDF 이동 회귀 테스트"]}},{"version":"1.27","date":"2026-11-01","added":["메모 화면에 퀴즈 스튜디오 1.01 통합: 퀴즈·메모·QR 코드 선택","프로젝트·문제 편집·사진·LaTeX·발표·수업 기록·퀴즈 백업","퀴즈 기기 저장, 전체 백업 및 Google Drive 동기화","퀴즈 사진 원본은 기존 Drive 이미지 분리 저장으로 중복 업로드 방지"],"changed":["발표 중에는 퀴즈가 화면 전체 사용","상위 메뉴 이름을 퀴즈·수업 메모·QR 코드로 변경"],"compatibility":["기존 백업에 퀴즈가 없으면 현재 퀴즈 유지","기존 메모·QR 코드·화이트보드 데이터와 저장 키 유지"],"validation":{"passed":["퀴즈 버튼 순서·프로젝트 편집·LaTeX·마크다운 가져오기","스페이스·빈 화면 클릭 발표·마침 화면·모바일 발표 영역","메모·QR 유지·기기 저장·새로고침 복원·전체 백업·이전 백업 호환","모의 Drive 저장·불러오기·동일 사진 재업로드 방지·삭제 자원 정리","화이트보드 펜·형광펜·지우개·사진 편집·굵기·PDF 이동 회귀 테스트","타이머·확률 실험·함수 그래프 기본 동작"],"notTested":["실제 Google OAuth 로그인 및 실계정 Drive 전송","실제 iPad Safari·Apple Pencil 입력"]}},{"version":"1.26","date":"2026-10-30","changed":["펜 굵기 슬라이더: 아래 50%는 1~20px, 위 50%는 20~50px"]},{"version":"1.25","date":"2026-10-30","changed":["지우개 기본값 개체 전체","더보기 백업 불러오기 이동 및 중복 자르기 제거","사진 편집 닫기 버튼 수정","현재 화면에서 가까운 PDF 쪽을 기준으로 이전·다음 이동","형광펜 한 획의 투명도 겹침과 중복 입력 보완"]},{"version":"1.24","date":"2026-10-29","fixed":["손가락 인식 해제 시 펜슬 도구 클릭","왼쪽 굵기·투명도·Undo·Redo·굵기 버튼은 손가락 허용"]},{"version":"1.23","date":"2026-10-29","changed":["새 스티커 기본색을 옅은 노란색으로 변경"]},{"version":"1.22","date":"2026-10-29","added":["스티커 색 변경"]},{"version":"1.21","date":"2026-10-29","added":["보드 좌표에 고정되는 스티커","메모 이전·다음 버튼"],"changed":["저장된 메모는 보존하며 화면에는 하나만 표시","필기 전체 지우기는 사진·PDF·스티커·메모 유지"]},{"version":"1.20","date":"2026-10-29","changed":["더보기의 전체 지우기를 필기 전용 지우기로 변경"]},{"version":"1.19","date":"2026-10-29","added":["메모 관리: 열기·숨기기·삭제"],"removed":["더보기의 중복 페이지 삭제·필기 지우기 버튼"]},{"version":"1.18","date":"2026-10-29","added":["펜슬 필기용 메모장과 배경색·무늬 설정"],"changed":["현재 쪽 삭제와 이름 변경을 더보기로 이동"]},{"version":"1.17","date":"2026-10-29","added":["이동·크기 조절 메모장","1·5·10·15px 바로가기"],"changed":["왼쪽 굵기 슬라이더 길이 확대"]}]</script><style id="classroom-v132">
+<script type="application/json" id="classroom-changelog">[{"version":"1.40","date":"2026-11-23","added":["공학용 내 함수: 그래프에 그리기, 미분(1·2차, 미분계수), 적분(부정적분·정적분), 함숫값 표·복사","통계 계산기: 평균·중앙값·최빈값·사분위수·분산·표준편차, 점도표와 상자그림","방정식 풀이: 일차~고차 방정식 정확한 해(분수·근호·허근), 판별식·인수분해, 수치해, 연립일차방정식","수열·합: 일반항·등차·등비·점화식, Σ 합, 무한등비급수, 그래프와 표","계산기 크게 보기 화면"],"validation":{"passed":["미분·적분 결과의 수치 검산","방정식·통계·수열 예시 실행, 저장 후 새로고침 복원, 모바일 폭"],"notTested":["실제 iPad Safari"]}},{"version":"1.396","date":"2026-11-23","changed":["공학용 내 함수 버튼에 f(x) = 식 형태로 함수식 표시","파이썬·LaTeX 예시 글자 한 줄 표시"]},{"version":"1.395","date":"2026-11-23","added":["공학용 계산기 예시 선택 칸 너비와 줄바꿈 조정"]},{"version":"1.39","date":"2026-11-23","added":["공학용·파이썬·LaTeX에 단원별 예시와 미분·적분 수업 예시 추가","LaTeX 도함수·부정적분, x=수식 계산과 등식 검산 구분","계산기 4종에서 잘못된 입력은 결과 칸에 Error와 이유 표시"],"validation":{"passed":["오프라인 공학용 13개·파이썬 26개·LaTeX 32개 예시의 실행 결과","4개 모드 오류 표시·복구, 기존 급수와 역함수, 백업 복원과 모바일 폭"],"notTested":["실제 iPad Safari, Google Drive 계정 연결"]}},{"version":"1.38","date":"2026-11-23","changed":["공학용·파이썬·LaTeX 계산기의 다항함수 예시를 f(x)=6x^5−4x^3+2x−1로 변경"]},{"version":"1.37","date":"2026-11-23","added":["수학 탐구 → 계산기 아래에 LaTeX 수식 변환기 추가","시각적 편집과 LaTeX·한글 수식 코드 변환·복사, 기호 키보드 및 예제","수식과 작성 중인 코드의 기기 저장·전체 백업 연동, 넓게 보기와 학생 화면 지원"],"validation":{"passed":["원본 예제 14개의 LaTeX·한글 수식 출력 28건 비교","분수 입력, 행렬 생성, 양방향 편집, 복사, 실행 취소·다시 실행","미완성 코드 새로고침 복원, 이전 백업 호환, 모의 Drive 저장 후 새 브라우저에서 불러오기","모바일 폭·넓게 보기·학생 화면, 오프라인 파일 실행 및 기존 계산기·화이트보드 회귀 점검"],"notTested":["실제 iPad Safari 및 한컴오피스 한글에서의 붙여넣기","실제 Google 계정의 Drive 업로드·다운로드"]}},{"version":"1.36","date":"2026-11-23","added":["기본·공학용·파이썬·LaTeX 계산기와 공학용 사용자 함수","오프라인 Python 3.12: 여러 줄 코드, 함수·변수 재사용, 중지·초기화","LaTeX 수식 미리보기, x 대입, 정확한 값·근삿값","등비·맥클로린·테일러 급수의 무한합·부분합·수렴 범위, g(t) 정적분 예시","원래 함수와 단조 구간을 지정하는 역함수 계산 및 두 가지 예시"],"validation":{"passed":["기본·공학용 계산, 함수 등록·재호출·복원","오프라인 Python 함수·표준 라이브러리·중지 후 재실행","LaTeX 계산, 수렴 범위 끝점과 부분합, 적분 상한·역방향·g(t) 변경","기존 넓게 보기·화이트보드 메모 필기·백업 관련 회귀 점검","역함수의 두 가지·치역 밖·단조가 아닌 구간 확인"],"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive 및 Vercel·Supabase 연결"]}},{"version":"1.35","date":"2026-11-05","fixed":["메모 상단의 손바닥 이동보다 Apple Pencil 입력을 우선 처리","메모 필기 중 손바닥이 보드 이동·확대 및 메모 버튼을 작동시키는 충돌 방지","종료 이벤트 누락·캡처 변경 후 다음 펜 입력 복구","메모의 고해상도 캔버스와 화면 크기 분리"],"changed":["메모의 완료된 필기 캐시 및 프레임 단위 화면 갱신","메모 실행 취소 기록에서 매번 전체 좌표를 복사하던 작업 제거","펜을 뗀 마지막 좌표 반영·메모 형광펜 겹침 개선","숨긴 메모의 화면 버퍼 해제로 메모리 사용 감소"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil 및 홈 화면 웹앱","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["v1.34에서 손바닥 선행 터치와 종료 누락 시 필기 차단 재현","손바닥보다 Pencil 우선·손가락 인식 ON/OFF 필기","필기 중 손바닥에 의한 메모 이동·보드 이동 차단","종료 누락·동일 펜 ID 재사용·캡처 변경·hover·취소 복구","브라우저 pen 포인터 스트림의 실제 캡처·메모 밖 이동·종료","고속 좌표 묶음과 pointerup 마지막 좌표 반영","메모 이동·크기·배경·실행 취소/다시 실행·지우기·복원","보드/메모 입력 전환 및 스냅샷 복원 후 메모 실행 취소","600개 기존 획에서 80회 이동 입력: 이동 중·획 종료 시 전체 필기 재그리기 없음","고해상도 캔버스 크기 안정성·숨김 버퍼 해제·재열기·새로고침 저장 유지","기존 필기·형광펜·지우개·PDF 탐색·시트 관리·PNG/PDF 저장 회귀 시험","설정 전체 기기 저장·퀴즈 초안 저장·확률 실험·반응형 UI 회귀 시험","10개 인라인 JavaScript 구문 검사·퀴즈 내장 소스 동일 확인·이전 변경 이력 보존"]}},{"version":"1.34","date":"2026-11-02","changed":["홈 하단에 Class all in one Google ver1.34. made by YOONSUNGHO 표시","상단 화이트보드 바로가기를 화이트 보드로 단축하고 주황색 적용","모든 확대 화면 복귀 버튼을 퀴즈·메모·QR과 같은 배경·글자·테두리 색으로 통일","복귀 버튼 문구를 ↩️ 작게 보기로 변경"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["홈 하단 문구·위치 및 도구 전환 후 홈 복귀 표시 확인","화이트 보드 바로가기의 실제 배경·글자 색 확인: 밝은·다크 모드","퀴즈 기준과 9개 도구의 작게 보기 문구·배경·글자·테두리 색 일치","넓게 보기 진입·작게 보기 복귀·Escape 및 모드·도구 전환","1024px 태블릿·390px 모바일 조작","프로젝트 3열·확률 실험·전체 기기 저장·새로고침 후 자료 유지","시트 관리·PNG/PDF 다운로드·내보내기 전후 원본 상태 유지","10개 인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.33","date":"2026-11-02","changed":["화이트보드 넓게 쓰기를 넓게 보기로 통일","화이트보드·퀴즈의 넓게 보기 진입 버튼을 타이머와 같은 제목 오른쪽 위치로 통합","넓게 보기 버튼의 배경·글자·테두리 색을 도구 간 통일"],"fixed":["화이트보드 넓게 보기에서 Escape 복귀 시 캔버스 크기 갱신","퀴즈 넓게 보기에서 Escape 복귀"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["타이머·화이트보드·퀴즈·메모·QR의 제목 오른쪽 위치·문구·색 일치: 밝은/다크 모드","기본 화면 중복 버튼 숨김·확대 화면 복귀·Escape·모드/도구 전환","1024px 태블릿·390px 모바일에서 진입 및 복귀 버튼 조작","프로젝트 3열·확률 실험·전체 기기 저장·새로고침 후 자료 유지","시트 관리·PNG/PDF 다운로드·내보내기 전후 원본 상태 유지","기존 지우개·형광펜·펜 크기·PDF 탐색 회귀 테스트","인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.32","date":"2026-11-02","changed":["메뉴를 퀴즈·메모·QR로 단축","퀴즈 프로젝트 카드 3열 및 간격 축소","퀴즈 저장 버튼은 Google Drive 저장 완료까지 저장 중 표시","화이트보드 작업 단위를 시트로 통일"],"added":["설정 전체 저장 및 새로고침","타이머·조자리점수·행운뽑기·계산기·함수그래프·확률통계·소음측정·메모QR 넓게보기","화이트보드 시트 관리: 미리보기·열기·이름·복제·삭제·순서 이동","현재 시트·모든 시트 PDF 저장"],"validation":{"notTested":["실제 Google Drive·Supabase·Vercel 서버 연결","실제 iPad Safari·Apple Pencil"],"passed":["1024·1536px 프로젝트 3열·390px 1열 및 메뉴 폭 확인","8개 도구 넓게보기·복귀·도구 전환","설정 전체 저장: 퀴즈 초안·비밀번호·전체 화이트보드 포함","Drive 지연 시 저장 중 유지·실패 표시·기기본 보존·변경 없는 재시도","업로드 중 새 편집은 미저장 초안으로 보존","Drive 충돌 시 전체 저장 취소 및 원격 내용 보호","새로고침 후 기기 자료 유지","시트 미리보기·열기·이름·복제·삭제·순서 변경","PNG·현재/전체 시트 PDF 다운로드·PDF 구조 파싱·렌더 확인·원본 상태 유지","기존 수동 저장·다크 화면 버튼 대비·형광펜·지우개·PDF 탐색·분리 동기화 회귀 확인","10개 인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.31","date":"2026-11-01","fixed":["공통 입력 스타일에 가려졌던 꺼진 스위치의 배경·윤곽·손잡이 표시","다크 퀴즈 화면의 정답 가리기 등 일반 버튼 글자·아이콘 대비","출제 순서·화면 배경 선택 및 도움말 글자 대비"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase 서버 연결"],"passed":["클릭 전 꺼짐 상태의 스위치 배경·윤곽·손잡이 표시","스위치 켜기·끄기 및 출제 순서 선택 동작","올인원 밝음/어두움 × 퀴즈 밝음/어두움 조합의 버튼 대비","정답 보기·가리기·완료 화면 버튼 글자 대비 4.5 이상","설정 창 선택 버튼과 일반 버튼 글자 대비 4.5 이상","390px 모바일 설정 창·스위치 조작","퀴즈 실행·정답 공개·요약 화면 전환, 페이지 오류 없음","기존 퀴즈 수동 저장 등 JavaScript 바이트 동일 확인"]}},{"version":"1.30","date":"2026-11-01","changed":["퀴즈 프로젝트 편집의 자동 저장을 수동 저장으로 변경","설정 왼쪽에 저장 버튼 및 미저장 표시 추가","편집 초안과 저장본 분리: 전체 저장·Drive·백업에 초안 제외"],"added":["편집 화면 이탈 시 저장·버리기·계속 편집 선택","Ctrl/Cmd+S 저장, 새로고침 이탈 경고"],"validation":{"notTested":["실제 Google Drive·Supabase·Vercel 연결","실제 iPad Safari·Apple Pencil"],"passed":["저장 버튼이 설정 왼쪽에 배치","입력 후 자동 저장·전체 저장·Host flush에서 초안 제외","저장 버튼·Ctrl/Cmd+S 명시적 저장","계속 편집·버리기·저장하고 이동 분기","다른 도구로 이동 후 초안 유지, 저장본 미변경","새로고침 시 미저장 경고, 저장 후 새로고침 복원","문항 추가의 수동 저장","화이트보드 진입·확률 동전 100회 실행, 페이지 오류 없음"]}},{"version":"1.29","date":"2026-11-01","added":["온라인 학생 참여: 코드·비밀번호·학번·이름, 기존 교사 Google 로그인 재사용","개별·교사 진행, 전체·문항별 시간제한 및 교사 수동 마감","서버 자동 채점, 제출 즉시 점수·종료 후 정답 공개, 교사 재응시·재접속 허용","퀴즈별 결과·문항별 답안·CSV 및 종료 성적 요약 Drive 저장"],"changed":["객관식 기본 선지 2개, 선지 추가·삭제 및 6개 제한 해제","문항별 진행은 이전 문항 잠금, 전체 퀴즈 마감은 제출 전 답안 수정"],"excluded":["학생별 누적 성적표"],"validation":{"notTested":["실제 Supabase 프로젝트·Vercel 배포","실제 Google OAuth·Drive 계정 연결","실제 iPad Safari·Apple Pencil","100명 실서버 동시 접속 부하"],"passed":["PGlite PostgreSQL 검사 19개: 권한·자동채점·마감·중복제출·재접속·재응시","교사와 학생 브라우저 연결: 코드·QR·입장·점수·답안·CSV·재접속·재응시","시간 만료 시 응시만 마감, 교사 전체 종료 후 정답·해설 공개","객관식 기본 2개 및 7개 이상 선지 추가·삭제·저장","종료 성적 요약의 기기 저장, 모의 Drive 저장·복원 왕복 보존","기존 퀴즈 편집·수식·Markdown·발표·백업 회귀 검사","화이트보드 필기·형광펜·지우개·PDF 이동 회귀 검사","모의 Drive의 화이트보드 진입 비교·분리 저장·충돌 방지 회귀 검사"]}},{"version":"1.28","date":"2026-11-01","changed":["퀴즈 100% OFFLINE 문구 제거, 교실 도구 테마와 색상 통일","시작 시 수업 도구만 동기화, 화이트보드는 진입 시 내용 비교 후 업로드·불러오기 선택","다른 도구 저장 시 Drive 화이트보드 쪽·사진 유지, 화이트보드 사진 다운로드 안 함","퀴즈 완료 화면 버튼을 제목 바로 아래로 이동"],"added":["교실 도구 제목 클릭으로 홈 이동, 홈 도구 카드"],"compatibility":["기존 Drive v2 저장 구조와 백업 지원","화이트보드 화면 이동·확대율만 다른 경우에는 내용 충돌로 묻지 않음"],"validation":{"notTested":["실제 Google OAuth 실계정 전송","실제 iPad Safari·Apple Pencil"],"passed":["시작 시 홈 표시 및 선택창 없음, 교실 도구 제목으로 홈 이동","모의 Drive: 시작·수업 도구 저장 시 화이트보드 쪽·사진 읽기 0건","모의 Drive: 다른 도구 저장 후 원격 화이트보드 쪽 목록·사진 유지","화이트보드 진입 시 내용이 다를 때 선택, 같은 내용·화면 위치 차이만 있을 때는 선택창 없음","화이트보드 업로드·불러오기·기기 전용 작업·첫 Drive 파일 생성","비교 이후 원격 자료 변경 시 덮어쓰기 차단","퀴즈 밝은 테마·다크모드 색상, OFFLINE 문구 제거, 완료 버튼 위치","퀴즈 편집·수식·발표·백업·기기 저장 회귀 테스트","화이트보드 필기·형광펜·지우개·사진 편집·굵기·PDF 이동 회귀 테스트"]}},{"version":"1.27","date":"2026-11-01","added":["메모 화면에 퀴즈 스튜디오 1.01 통합: 퀴즈·메모·QR 코드 선택","프로젝트·문제 편집·사진·LaTeX·발표·수업 기록·퀴즈 백업","퀴즈 기기 저장, 전체 백업 및 Google Drive 동기화","퀴즈 사진 원본은 기존 Drive 이미지 분리 저장으로 중복 업로드 방지"],"changed":["발표 중에는 퀴즈가 화면 전체 사용","상위 메뉴 이름을 퀴즈·수업 메모·QR 코드로 변경"],"compatibility":["기존 백업에 퀴즈가 없으면 현재 퀴즈 유지","기존 메모·QR 코드·화이트보드 데이터와 저장 키 유지"],"validation":{"passed":["퀴즈 버튼 순서·프로젝트 편집·LaTeX·마크다운 가져오기","스페이스·빈 화면 클릭 발표·마침 화면·모바일 발표 영역","메모·QR 유지·기기 저장·새로고침 복원·전체 백업·이전 백업 호환","모의 Drive 저장·불러오기·동일 사진 재업로드 방지·삭제 자원 정리","화이트보드 펜·형광펜·지우개·사진 편집·굵기·PDF 이동 회귀 테스트","타이머·확률 실험·함수 그래프 기본 동작"],"notTested":["실제 Google OAuth 로그인 및 실계정 Drive 전송","실제 iPad Safari·Apple Pencil 입력"]}},{"version":"1.26","date":"2026-10-30","changed":["펜 굵기 슬라이더: 아래 50%는 1~20px, 위 50%는 20~50px"]},{"version":"1.25","date":"2026-10-30","changed":["지우개 기본값 개체 전체","더보기 백업 불러오기 이동 및 중복 자르기 제거","사진 편집 닫기 버튼 수정","현재 화면에서 가까운 PDF 쪽을 기준으로 이전·다음 이동","형광펜 한 획의 투명도 겹침과 중복 입력 보완"]},{"version":"1.24","date":"2026-10-29","fixed":["손가락 인식 해제 시 펜슬 도구 클릭","왼쪽 굵기·투명도·Undo·Redo·굵기 버튼은 손가락 허용"]},{"version":"1.23","date":"2026-10-29","changed":["새 스티커 기본색을 옅은 노란색으로 변경"]},{"version":"1.22","date":"2026-10-29","added":["스티커 색 변경"]},{"version":"1.21","date":"2026-10-29","added":["보드 좌표에 고정되는 스티커","메모 이전·다음 버튼"],"changed":["저장된 메모는 보존하며 화면에는 하나만 표시","필기 전체 지우기는 사진·PDF·스티커·메모 유지"]},{"version":"1.20","date":"2026-10-29","changed":["더보기의 전체 지우기를 필기 전용 지우기로 변경"]},{"version":"1.19","date":"2026-10-29","added":["메모 관리: 열기·숨기기·삭제"],"removed":["더보기의 중복 페이지 삭제·필기 지우기 버튼"]},{"version":"1.18","date":"2026-10-29","added":["펜슬 필기용 메모장과 배경색·무늬 설정"],"changed":["현재 쪽 삭제와 이름 변경을 더보기로 이동"]},{"version":"1.17","date":"2026-10-29","added":["이동·크기 조절 메모장","1·5·10·15px 바로가기"],"changed":["왼쪽 굵기 슬라이더 길이 확대"]}]</script><style id="classroom-v132">
 .tabs .nav-label{min-width:0;overflow-wrap:anywhere}.tabs button{max-width:100%}.settings-save-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.settings-save-actions button{font-size:12px;white-space:nowrap;padding:8px 10px}.settings-save-status{padding-top:16px;margin-bottom:0;line-height:1.6}.settings-save-status.error{color:var(--danger)}#settingsSaveAll.saving-online{background:#a6650e;color:#fff;opacity:1;cursor:wait}.tool-widebar{display:none}body.tool-wide{overflow:hidden}body.tool-wide .panel.active{position:fixed;inset:0;z-index:120;overflow:auto;background:var(--bg);margin:0;padding:16px max(18px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left));border:0;border-radius:0;max-width:none}body.tool-wide .panel.active>.tool-widebar{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:-16px;z-index:10;padding:12px 0;margin:0 0 18px;background:var(--bg);border-bottom:1px solid var(--line)}.tool-widebar strong{font-size:18px}.tool-widebar button{font-size:13px}#toolWideButton{background:var(--soft);color:var(--blue);white-space:nowrap}#whiteboard #wb-sheetManager{width:min(980px,96vw);max-height:90dvh;overflow:auto;padding:20px}#whiteboard .sheet-manager-tools{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:15px 0;font-size:13px;color:var(--muted)}#whiteboard #wb-sheetList{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}#whiteboard .sheet-manager-card{padding:12px;border:1px solid var(--line);border-radius:13px;background:var(--card);min-width:0;display:flex;flex-direction:column;gap:8px}#whiteboard .sheet-manager-card.current{border:2px solid var(--blue);padding:11px}#whiteboard .sheet-manager-card canvas{width:100%;height:154px;object-fit:contain;background:#f1f5f4;border-radius:8px;pointer-events:none}#whiteboard .sheet-manager-card strong{font-size:14px;overflow-wrap:anywhere}#whiteboard .sheet-manager-card small{font-size:11px;color:var(--muted)}#whiteboard .sheet-manager-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:auto}#whiteboard .sheet-manager-actions button{font-size:11px;min-height:32px;padding:6px 9px}#whiteboard #wb-pdfExportDialog{width:min(430px,94vw);padding:22px}#whiteboard #wb-pdfExportDialog label{display:grid;gap:7px;margin:16px 0;font-size:13px}#whiteboard #wb-pdfExportDialog select{width:100%}#whiteboard #wb-pdfExportDialog .field-note{line-height:1.65;margin:12px 0}#whiteboard #wb-pdfExportStart{width:100%}
 @media(max-width:650px){body.tool-wide .panel.active{padding:12px}body.tool-wide .panel.active>.tool-widebar{top:-12px}.heading{flex-wrap:wrap}.heading-actions{flex-wrap:wrap}.settings-save-actions button{font-size:11px;padding:6px 8px}#settingsDialog .settings-head{gap:9px;flex-wrap:wrap}.tool-widebar strong{font-size:16px}}
 </style><style id="classroom-v133">
@@ -507,6 +507,105 @@ body.student #calculator .calc-result .calc-output:not([data-empty="true"]){font
 @media(max-width:620px){#calculator .calc-example-label{width:100%}#calculator .calc-example-label select{flex:1;width:auto}}
 #calculator #sciTools .calc-example-label{width:auto;max-width:100%;white-space:nowrap;word-break:keep-all;flex:0 1 auto}
 #calculator #sciExample{width:clamp(9rem,24vw,13rem);flex:0 1 auto;min-width:0;max-width:calc(100% - 3em)}
+#calculator .calc-example-label{white-space:nowrap;word-break:keep-all;flex-shrink:0}
+#calculator .calc-lab-head .calc-example-label{margin-inline-start:auto}
+#calculator .calc-fn-list span{max-width:100%;min-width:0}
+#calculator .calc-fn-list .calc-fn-use{max-width:min(32rem,calc(100vw - 7rem));overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-transform:none;font-size:14px}
+@media(max-width:620px){#calculator .calc-example-label{flex-shrink:1;min-width:0}}
+</style>
+<style id="classroom-calc140">
+#calculator .calc-tabs{flex-wrap:wrap;gap:6px}
+#calculator .calc-mode-side{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+#calculator #calcStageBtn{cursor:pointer;white-space:nowrap}
+#calculator .calc-fn-tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding-top:4px;border-top:1px dashed var(--line)}
+#calculator .calc-fn-tools label{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:650;color:var(--muted);min-width:0}
+#calculator .calc-fn-tools select{max-width:min(16rem,60vw);min-height:34px;padding:4px 8px;font:inherit;color:var(--text);background:var(--card);text-overflow:ellipsis}
+#calculator .calc-fn-tools button,#calculator .calc-tool-panel button{min-height:34px;font-size:13px;padding:4px 11px;background:var(--card);color:var(--blue);margin:0}
+#calculator .calc-tool-panel button.primary{background:var(--blue);color:var(--card)}
+#calculator .calc-tool-panel{display:grid;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+#calculator .calc-tool-opts,#calculator .calc-options,#calculator .calc-seq-form{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font-size:13px}
+#calculator .calc-tool-opts label,#calculator .calc-options label,#calculator .calc-seq-form label{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-weight:650;color:var(--text)}
+#calculator .calc-tool-opts[hidden],#calculator .calc-seq-form [hidden]{display:none}
+#calculator .calc-bound{width:6.5em;min-height:34px;padding:4px 8px;font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:8px;box-sizing:border-box}
+#calculator #seqExpr,#calculator #seqRec{width:12em;min-height:34px;padding:4px 8px;font:inherit;border:1px solid var(--line);border-radius:8px;color:var(--text);background:var(--card)}
+#calculator .calc-options select,#calculator .calc-seq-form select{min-height:34px;padding:4px 8px;font:inherit;color:var(--text);background:var(--card)}
+#calculator .calc-check{font-weight:600!important}
+#calculator .calc-tool-head{display:flex;gap:8px;align-items:center}
+#calculator .calc-tool-head strong{font-size:14px}
+#calculator .calc-tool-head span{color:var(--muted);font-size:12px}
+#calculator #sciToolClose{margin-left:auto!important;padding:2px 9px;color:var(--muted)}
+#calculator .calc-steps{display:grid;gap:6px;margin-top:6px}
+#calculator .calc-tex-line{display:flex;gap:10px;align-items:center;min-width:0;flex-wrap:wrap}
+#calculator .calc-tex-label{flex:0 0 auto;min-width:4.6em;font-size:12px;font-weight:750;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:2px 9px;text-align:center}
+#calculator .calc-result .calc-tex-label{background:var(--card)}
+#calculator .calc-tex-line .calc-formula{min-width:0;overflow-x:auto;max-width:100%;font:600 18px/1.4 ui-monospace,Consolas,monospace}
+#calculator .calc-error{color:var(--danger,#a52c33);font-weight:650;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5}
+body.dark #calculator .calc-error{color:#ffaea2}
+#calculator .calc-table-wrap{max-height:380px;overflow:auto;border-radius:10px}
+#calculator .calc-table-wrap:empty{display:none}
+#calculator .calc-table{border-collapse:collapse;width:100%;font:600 14px/1.4 ui-monospace,Consolas,monospace;background:var(--card)}
+#calculator .calc-table th,#calculator .calc-table td{border:1px solid var(--line);padding:5px 10px;text-align:right;white-space:nowrap}
+#calculator .calc-table thead th{position:sticky;top:0;background:var(--soft);color:var(--text);text-align:center;font-family:inherit}
+#calculator .calc-table tbody th{background:var(--soft);color:var(--muted)}
+#calculator .calc-table td.muted{color:var(--muted);font-weight:500}
+#calculator .calc-stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:8px}
+#calculator .calc-stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 10px;display:grid;gap:2px;min-width:0}
+#calculator .calc-stat span{font-size:12px;color:var(--muted);font-weight:650}
+#calculator .calc-stat strong{font:700 clamp(17px,1.8vw,22px)/1.3 ui-monospace,Consolas,monospace;color:var(--text);overflow-wrap:anywhere}
+#calculator .calc-plot{margin-top:10px}
+#calculator .calc-plot:empty{display:none}
+#calculator .calc-svg{display:block;width:100%;height:auto;max-height:300px;background:var(--card);border:1px solid var(--line);border-radius:10px}
+#calculator .calc-svg .axis{stroke:var(--muted);stroke-width:1.4}
+#calculator .calc-svg .grid{stroke:var(--grid);stroke-width:1}
+#calculator .calc-svg .tick,#calculator .calc-svg .legend{fill:var(--muted);font:13px Arial,sans-serif}
+#calculator .calc-svg .dot{fill:var(--blue);fill-opacity:.85}
+#calculator .calc-svg .sumdot{fill:var(--card);stroke:var(--orange);stroke-width:2}
+#calculator .calc-svg .sumline{fill:none;stroke:var(--orange);stroke-width:1.6;stroke-dasharray:4 3}
+#calculator .calc-svg .box{fill:var(--soft);stroke:var(--blue);stroke-width:2}
+#calculator .calc-svg .whisker{stroke:var(--blue);stroke-width:2}
+#calculator .calc-svg .median{stroke:var(--text);stroke-width:3.5}
+#calculator .calc-svg .outlier{fill:var(--card);stroke:var(--danger);stroke-width:2}
+#calculator .calc-svg .mean{fill:var(--orange)}
+#calculator .calc-sorted{margin-top:8px;font-size:13px;overflow-wrap:anywhere}
+#calculator #seqHelp{margin:0}
+body.student #calculator .calc-stat strong{font-size:clamp(24px,3vw,40px)}
+body.student #calculator .calc-tex-line .calc-formula img{transform-origin:left center}
+/* 크게 보기 */
+#calcStage.calc-stage{position:fixed;inset:0;z-index:3000;background:var(--card);color:var(--text);display:flex;flex-direction:column}
+.calc-stage[hidden]{display:none}
+body.calc-stage-open{overflow:hidden}
+.calc-stage-bar{display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--line);background:var(--soft)}
+.calc-stage-bar strong{font-size:18px}
+.calc-stage-tools{margin-left:auto;display:flex;gap:8px}
+.calc-stage-tools button{min-height:40px;padding:6px 14px;font-size:15px}
+.calc-stage-body{flex:1;overflow:auto;padding:3vh 4vw;display:flex;flex-direction:column;gap:2.4vh;--stage-scale:1}
+.calc-stage-input{font:600 calc(clamp(30px,4.6vw,72px)*var(--stage-scale))/1.25 ui-monospace,Consolas,monospace;color:var(--muted);overflow-wrap:anywhere}
+.calc-stage-answer{font:800 calc(clamp(48px,8vw,140px)*var(--stage-scale))/1.15 ui-monospace,Consolas,monospace;text-align:right;overflow-wrap:anywhere}
+.calc-stage-answer[data-error="true"]{color:var(--danger);font-size:calc(clamp(26px,3.5vw,52px)*var(--stage-scale))}
+.calc-stage-code{margin:0;font:600 calc(clamp(20px,2.4vw,38px)*var(--stage-scale))/1.4 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--soft);border-radius:14px;padding:2vh 2vw}
+.calc-stage-output{background:transparent;border:2px solid var(--line)}
+.calc-stage-output[data-error="true"]{color:var(--danger)}
+.calc-stage-note,.calc-stage-data{font:600 calc(clamp(18px,2vw,30px)*var(--stage-scale))/1.4 system-ui,sans-serif;color:var(--muted);overflow-wrap:anywhere}
+#calcStage #calcStageBody img{max-width:100%;height:auto}
+body.dark #calcStage #calcStageBody img{filter:brightness(0) invert(.93)}
+#calcStage #calcStageBody .calc-tex-line{display:flex;gap:1.2vw;align-items:center;flex-wrap:wrap}
+#calcStage #calcStageBody .calc-tex-label{font:700 calc(clamp(14px,1.4vw,22px)*var(--stage-scale)) system-ui,sans-serif;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.2em .8em}
+#calcStage #calcStageBody .calc-approx{font-size:calc(clamp(18px,2vw,30px)*var(--stage-scale));color:var(--muted)}
+#calcStage #calcStageBody .calc-error{color:var(--danger);font-size:calc(clamp(20px,2.4vw,36px)*var(--stage-scale))}
+#calcStage #calcStageBody .calc-stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(calc(250px*var(--stage-scale)),1fr));gap:12px}
+#calcStage #calcStageBody .calc-stat{border:1px solid var(--line);border-radius:14px;padding:12px 16px;display:grid;gap:4px;background:var(--soft)}
+#calcStage #calcStageBody .calc-stat span{font:650 calc(clamp(14px,1.4vw,22px)*var(--stage-scale)) system-ui,sans-serif;color:var(--muted)}
+#calcStage #calcStageBody .calc-stat strong{font:800 calc(clamp(22px,2.4vw,40px)*var(--stage-scale))/1.2 ui-monospace,Consolas,monospace}
+#calcStage #calcStageBody .calc-svg{width:100%;height:auto;max-height:none;border:1px solid var(--line);border-radius:12px}
+#calcStage #calcStageBody .calc-svg .axis{stroke:var(--muted);stroke-width:1.4}#calcStage #calcStageBody .calc-svg .grid{stroke:var(--grid)}
+#calcStage #calcStageBody .calc-svg .tick,#calcStage #calcStageBody .calc-svg .legend{fill:var(--muted);font:13px Arial,sans-serif}
+#calcStage #calcStageBody .calc-svg .dot{fill:var(--blue)}#calcStage #calcStageBody .calc-svg .box{fill:var(--soft);stroke:var(--blue);stroke-width:2}
+#calcStage #calcStageBody .calc-svg .whisker{stroke:var(--blue);stroke-width:2}#calcStage #calcStageBody .calc-svg .median{stroke:var(--text);stroke-width:3.5}
+#calcStage #calcStageBody .calc-svg .outlier{fill:var(--card);stroke:var(--danger);stroke-width:2}#calcStage #calcStageBody .calc-svg .mean{fill:var(--orange)}
+#calcStage #calcStageBody .calc-svg .sumdot{fill:var(--card);stroke:var(--orange);stroke-width:2}#calcStage #calcStageBody .calc-svg .sumline{fill:none;stroke:var(--orange);stroke-dasharray:4 3}
+#calcStage #calcStageBody .calc-table{border-collapse:collapse;font:600 calc(18px*var(--stage-scale))/1.4 ui-monospace,Consolas,monospace}
+#calcStage #calcStageBody .calc-table th,#calcStage #calcStageBody .calc-table td{border:1px solid var(--line);padding:6px 14px;text-align:right}
+@media(max-width:620px){#calculator .calc-fn-tools select{max-width:100%}#calculator .calc-bound{width:5.5em}#calculator #seqExpr,#calculator #seqRec{width:9em}.calc-stage-bar{padding:8px 10px}.calc-stage-tools button{padding:4px 9px;font-size:13px}}
 </style>
 </head><body class="menu-collapsed">
 <header class="top"><div class="brandbar"><div class="brand"><button id="menuToggle" aria-label="메뉴 펼치기" aria-controls="mainNav" aria-expanded="false"><i></i><i></i><i></i></button><button type="button" id="soundMenuButton" class="logo" aria-label="효과음 열기" aria-controls="soundPopup" aria-expanded="false">▦</button><button type="button" id="homeTitle" class="brand-name" aria-label="교실 도구 홈으로">교실 도구<span class="brand-sub">CLASSROOM ALL IN ONE</span></button><span id="globalSaveStatus" class="global-save-status" role="status" aria-live="polite">저장 상태 확인 중…</span></div><div class="row"><button id="saveAllBtn" class="global-save-button">✓ 저장</button><button id="studentBtn" class="primary">▣ 학생 화면</button><button id="darkBtn">◐ 다크모드</button><button id="wideBoardBtn" class="wide-board-shortcut" title="화이트 보드" aria-label="화이트 보드">화이트 보드</button><button id="fullscreenBtn">⛶ 전체화면</button><button id="driveOpen" class="drive-open">☁ Google Drive</button><button id="settingsBtn">⚙ 설정</button></div></div><nav id="mainNav" class="tabs" aria-label="교실 도구 선택"></nav></header>
@@ -597,14 +696,30 @@ body.dark .wide-board-shortcut{background:#203c39!important;border-color:#426c63
       <button id="scientificMode" aria-controls="calcClassic">공학용 계산기</button>
       <button id="pythonMode" aria-controls="calcPython">파이썬 계산기</button>
       <button id="latexMode" aria-controls="calcLatex">LaTeX 계산기</button>
+      <button id="statsMode" aria-controls="calcStats">통계</button>
+      <button id="equationMode" aria-controls="calcEquation">방정식</button>
+      <button id="sequenceMode" aria-controls="calcSequence">수열</button>
     </div>
-    <button id="angleBtn" class="badge" title="도와 라디안 전환">DEG</button>
+    <span class="calc-mode-side"><button id="angleBtn" class="badge" title="도와 라디안 전환">DEG</button><button id="calcStageBtn" class="badge" title="입력식과 결과를 칠판 화면에 크게 보기">⛶ 크게 보기</button></span>
   </div>
   <div id="calcClassic">
     <div class="calc-display"><div class="small muted" id="calcModeLabel">DEG · 각도 단위</div><input id="calcInput" aria-label="계산식" placeholder="계산식을 입력하세요" autocomplete="off" spellcheck="false"><div class="calc-answer" id="calcAnswer" aria-live="polite">0</div></div>
     <div id="sciTools" class="calc-fns teacher" hidden>
       <div class="calc-fn-line"><strong>내 함수</strong><span class="calc-help">함수식을 입력하고 = 를 누르면 등록됩니다.</span><label class="calc-example-label">예시 <select id="sciExample" aria-label="공학용 예시"><option value="">예시 선택</option></select></label></div>
       <div id="sciFunctions" class="calc-fn-list"></div>
+      <div id="sciFnTools" class="calc-fn-tools" hidden>
+        <label>함수 <select id="sciToolFn" aria-label="사용할 내 함수"></select></label>
+        <button data-sci-tool="graph">📈 그래프에 그리기</button><button data-sci-tool="diff">미분 f′(x)</button><button data-sci-tool="int">적분 ∫</button><button data-sci-tool="table">함숫값 표</button>
+      </div>
+      <div id="sciToolPanel" class="calc-tool-panel" hidden>
+        <div class="calc-tool-head"><strong id="sciToolTitle"></strong><span id="sciToolStatus" role="status"></span><button id="sciToolClose" aria-label="도구 닫기">✕</button></div>
+        <div class="calc-tool-opts" data-tool-opts="diff"><label>차수 <select id="sciDiffOrder"><option value="1">1차 f′(x)</option><option value="2">2차 f″(x)</option></select></label><label>미분계수 x = <input id="sciDiffAt" class="calc-bound" placeholder="선택" maxlength="60" autocomplete="off"></label><button class="primary" data-sci-run="diff">= 미분하기</button></div>
+        <div class="calc-tool-opts" data-tool-opts="int"><label>아래끝 <input id="sciIntLo" class="calc-bound" placeholder="비우면 부정적분" maxlength="60" autocomplete="off"></label><label>위끝 <input id="sciIntHi" class="calc-bound" maxlength="60" autocomplete="off"></label><button class="primary" data-sci-run="int">= 적분하기</button></div>
+        <div class="calc-tool-opts" data-tool-opts="table"><label>x 시작 <input id="sciTabLo" class="calc-bound" value="-3" maxlength="40" autocomplete="off"></label><label>끝 <input id="sciTabHi" class="calc-bound" value="3" maxlength="40" autocomplete="off"></label><label>간격 <input id="sciTabStep" class="calc-bound" value="1" maxlength="40" autocomplete="off"></label><button class="primary" data-sci-run="table">= 표 만들기</button><button id="sciTabCopy">표 복사</button></div>
+        <div id="sciToolResult" class="calc-steps"></div>
+        <div class="calc-actions"><button id="sciToolGraph" hidden>📈 결과를 그래프에 그리기</button></div>
+        <div id="sciTable" class="calc-table-wrap"></div>
+      </div>
       <div id="sciNotice" class="calc-help" role="status"></div>
     </div>
     <div class="calc-key-layout teacher" id="calcKeyLayout"><div class="science" id="scienceKeys"></div><div class="keypad" id="basicKeys"></div></div>
@@ -636,7 +751,55 @@ print(f(3))</textarea>
     <div class="calc-actions teacher"><button class="primary" id="texRun">= 계산하기</button><button id="texStop" hidden>중지</button><small class="calc-shortcut">Enter 계산 · Shift + Enter 줄바꿈</small></div>
     <div class="calc-result" aria-live="polite" aria-atomic="true"><div class="calc-result-top"><strong>계산 결과</strong><span id="texStatus" role="status"></span></div><div id="texResult" class="calc-formula calc-output" data-empty="true">계산하면 결과가 표시됩니다.</div><div id="texApprox" class="calc-approx" hidden></div><div id="texDetail" class="calc-approx" hidden></div></div>
   </div>
-</div><aside class="card calc-history teacher"><h2>계산 기록</h2><div class="history" id="calcHistory" style="margin-top:18px;max-height:550px"></div><button id="clearCalcHistory" style="margin-top:16px">기록 지우기</button></aside></div></section>
+
+  <div id="calcStats" class="calc-lab" hidden>
+    <div class="calc-lab-head"><h2>통계 계산기</h2><label class="calc-example-label teacher">예시 <select id="statsExample" aria-label="통계 예시"><option value="">예시 선택</option></select></label></div>
+    <label class="calc-caption" for="statsData">자료 <small class="teacher">쉼표·공백·줄바꿈으로 구분</small></label>
+    <textarea id="statsData" class="calc-code" rows="3" maxlength="60000" autocapitalize="off" autocomplete="off" spellcheck="false">72, 85, 90, 64, 78, 85, 93, 70, 88, 85</textarea>
+    <div class="calc-actions calc-options teacher">
+      <label>분산 <select id="statsVar"><option value="pop">모분산 (n으로 나눔)</option><option value="sample">표본분산 (n−1로 나눔)</option></select></label>
+      <label>사분위수 <select id="statsQuart"><option value="tukey">아래·위 절반의 중앙값</option><option value="inc">선형 보간 (엑셀 QUARTILE.INC)</option></select></label>
+      <label class="calc-check"><input type="checkbox" id="statsOutlier"> 이상값 따로 표시 (1.5×IQR)</label>
+    </div>
+    <div class="calc-result" aria-live="polite"><div class="calc-result-top"><strong>계산 결과</strong><span id="statsStatus" role="status"></span></div>
+      <div id="statsResult" class="calc-stat-grid"></div>
+      <div id="statsPlot" class="calc-plot"></div>
+      <div id="statsSorted" class="calc-approx calc-sorted"></div>
+    </div>
+  </div>
+  <div id="calcEquation" class="calc-lab" hidden>
+    <div class="calc-lab-head"><h2>방정식 풀이</h2><label class="calc-example-label teacher">예시 <select id="eqExample" aria-label="방정식 예시"><option value="">예시 선택</option></select></label></div>
+    <p class="calc-example-hint" id="eqExampleHint"></p>
+    <label class="calc-caption" for="eqSource">방정식 <small class="teacher">한 줄이면 x에 대한 방정식, 두세 줄이면 x·y·z 연립일차방정식</small></label>
+    <textarea id="eqSource" class="calc-code" rows="2" maxlength="2000" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false">x^2-5x+6=0</textarea>
+    <p class="calc-help teacher">2x, 3(x+1)처럼 곱셈 기호를 생략할 수 있습니다. 공학용 계산기에 등록한 f(x), g(x)도 쓸 수 있습니다.</p>
+    <div class="calc-actions calc-options teacher"><span>다항식이 아닐 때 수치해를 찾는 구간</span><label>x = <input id="eqLo" class="calc-bound" value="-10" maxlength="40" aria-label="탐색 구간 시작"></label><label>~ <input id="eqHi" class="calc-bound" value="10" maxlength="40" aria-label="탐색 구간 끝"></label><button class="primary" id="eqRun">= 풀기</button><small class="calc-shortcut">Enter 풀기 · Shift + Enter 줄바꿈</small></div>
+    <div class="calc-result" aria-live="polite"><div class="calc-result-top"><strong>풀이 결과</strong><span id="eqStatus" role="status"></span></div>
+      <div id="eqResult" class="calc-steps"><div class="calc-approx">풀면 결과가 표시됩니다.</div></div>
+    </div>
+  </div>
+  <div id="calcSequence" class="calc-lab" hidden>
+    <div class="calc-lab-head"><h2>수열 · 합 계산</h2><label class="calc-example-label teacher">예시 <select id="seqExample" aria-label="수열 예시"><option value="">예시 선택</option></select></label></div>
+    <div class="calc-seq-form teacher">
+      <label>종류 <select id="seqType"><option value="general">일반항 aₙ</option><option value="arith">등차수열</option><option value="geo">등비수열</option><option value="recur">점화식</option></select></label>
+      <label data-seq="general">aₙ = <input id="seqExpr" value="2n+1" maxlength="300" autocapitalize="off" spellcheck="false"></label>
+      <label data-seq="arith geo recur">첫째항 a₁ = <input id="seqA1" class="calc-bound" value="3" maxlength="60"></label>
+      <label data-seq="arith geo"><span id="seqDLabel">공차 d</span> = <input id="seqD" class="calc-bound" value="2" maxlength="60"></label>
+      <label data-seq="recur">aₙ₊₁ = <input id="seqRec" value="2a+1" maxlength="300" autocapitalize="off" spellcheck="false"></label>
+      <label>시작 번호 n = <input id="seqStart" class="calc-bound" type="number" value="1" min="-1000" max="1000" step="1"></label>
+      <label>항의 개수 <input id="seqCount" class="calc-bound" type="number" value="10" min="1" max="200" step="1"></label>
+      <label class="calc-check"><input type="checkbox" id="seqShowSum"> 그래프에 Sₙ도 표시</label>
+      <button class="primary" id="seqRun">= 계산하기</button>
+    </div>
+    <p class="calc-help teacher" id="seqHelp">n은 항의 번호입니다. 점화식에서 a는 바로 앞의 항 aₙ입니다. 분수는 1/2처럼 입력합니다.</p>
+    <div class="calc-result" aria-live="polite"><div class="calc-result-top"><strong>계산 결과</strong><span id="seqStatus" role="status"></span></div>
+      <div id="seqFormula" class="calc-steps"></div>
+      <div id="seqPlot" class="calc-plot"></div>
+      <div id="seqTable" class="calc-table-wrap"></div>
+    </div>
+  </div>
+</div><aside class="card calc-history teacher"><h2>계산 기록</h2><div class="history" id="calcHistory" style="margin-top:18px;max-height:550px"></div><button id="clearCalcHistory" style="margin-top:16px">기록 지우기</button></aside></div>
+<div id="calcStage" class="calc-stage" hidden role="dialog" aria-modal="true" aria-labelledby="calcStageTitle"><div class="calc-stage-bar"><strong id="calcStageTitle">계산기</strong><span class="calc-stage-tools"><button id="calcStageSmaller" aria-label="글자 작게">가−</button><button id="calcStageBigger" aria-label="글자 크게">가+</button><button id="calcStageClose" class="primary">✕ 닫기 (Esc)</button></span></div><div id="calcStageBody" class="calc-stage-body"></div></div></section>
 <section id="formulaConverter" class="panel" aria-label="LaTeX 수식 변환기"><div id="formulaStudio"><div class="fc-work">
 
 <section class="fc-card" aria-label="수식 편집">
@@ -844,7 +1007,7 @@ print(f(3))</textarea>
 <dialog id="wb-sheetManager" aria-labelledby="wb-sheetManagerTitle"><div class="row between"><h2 id="wb-sheetManagerTitle">시트 관리</h2><button id="wb-sheetManagerClose" aria-label="시트 관리 닫기">×</button></div><div class="sheet-manager-tools"><span id="wb-sheetCount" role="status"></span><button id="wb-sheetAdd" class="btn primary">＋ 새 시트</button></div><div id="wb-sheetList"></div></dialog>
 <dialog id="wb-pdfExportDialog" class="wb-export-dialog" aria-labelledby="wb-pdfExportTitle"><div class="row between"><h2 id="wb-pdfExportTitle">PDF 저장</h2><button id="wb-pdfExportClose" class="btn" aria-label="PDF 저장 닫기">×</button></div><label>저장할 시트<select id="wb-pdfExportSheets"><option value="current">현재 시트</option><option value="all">모든 시트</option></select></label><label>저장 범위<select id="wb-pdfExportScope"><option value="all">필기 전체</option><option value="view">현재 화면</option></select></label><p class="field-note">시트당 PDF 한 쪽으로 저장합니다. 배경·사진·PDF·스티커·필기를 포함합니다.</p><p id="wb-pdfExportStatus" role="status" class="field-note"></p><button id="wb-pdfExportStart" class="btn primary">↓ PDF 저장</button></dialog>
 <dialog id="wb-exportDialog" class="wb-export-dialog" aria-labelledby="wb-exportTitle"><div class="row between"><h2 id="wb-exportTitle">PNG로 저장할 범위</h2><button id="wb-exportCancel" class="btn" aria-label="닫기">×</button></div><button id="wb-exportAll" class="export-choice"><strong>필기 전체</strong><small>현재 시트의 필기와 사진을 모두 저장합니다.</small></button><button id="wb-exportView" class="export-choice"><strong>현재 화면</strong><small>지금 보이는 판서 영역을 저장합니다.</small></button></dialog><dialog id="wb-textDialog" class="wb-textdialog" aria-labelledby="wb-textTitle"><h2 id="wb-textTitle">글자 넣기</h2><textarea id="wb-textValue" aria-label="글자 또는 LaTeX 수식" maxlength="2000" placeholder="수식이나 안내 문구를 입력하세요. 예: y = x² + 2x + 1"></textarea><label class="latex-toggle"><input type="checkbox" id="wb-textLatex"> LaTeX 수식으로 표시</label><div class="text-options"><label>글자 크기 (px)<input id="wb-textSize" type="number" min="8" max="256" value="28" step="1"></label><label>글자 색<input type="color" id="wb-textColor" value="#204acc"></label></div><div class="field-note">미리보기</div><div id="wb-textPreview" aria-live="polite"></div><p id="wb-textError" role="alert" hidden></p><div class="row text-dialog-actions"><button id="wb-textCancel" class="btn line">취소</button><button id="wb-textInsert" class="btn primary">넣기</button></div></dialog></section>
-<div class="footer"><span id="appFooterBrand">Class all in one Google ver1.395. made by YOONSUNGHO</span><span>학생 화면 ESC 돌아가기 · F 전체화면</span></div></main>
+<div class="footer"><span id="appFooterBrand">Class all in one Google ver1.40. made by YOONSUNGHO</span><span>학생 화면 ESC 돌아가기 · F 전체화면</span></div></main>
 <dialog id="settingsDialog" aria-labelledby="settingsTitle">
  <div class="settings-head row between"><div><span class="eyebrow">TEACHER SETTINGS</span><h2 id="settingsTitle">교실 도구 설정</h2></div><div class="settings-save-actions"><button id="settingsSaveAll" class="primary">✓ 전체 저장</button><button id="settingsRefresh">↻ 새로고침</button><button id="closeSettings" aria-label="설정 닫기">✕</button></div></div>
  <div class="settings-sections"><p id="settingsSaveStatus" role="status" class="field-note settings-save-status">전체 저장: 모든 설정·퀴즈 편집 내용·화이트보드를 함께 저장합니다.</p>
@@ -3437,7 +3600,7 @@ function setToolWide(value){
 on('toolWideButton',()=>{if(activeTab==='whiteboard'){$('wb-focusBtn').click();return}if(activeTab==='memoQr'&&memoQrMode==='quiz'){$('quizWide').click();return}setToolWide(!document.body.classList.contains('tool-wide'))});
 new MutationObserver(refreshToolWide).observe(document.body,{attributes:true,attributeFilter:['class']});
 
-function selectTab(id){if(document.body.classList.contains("tool-wide"))setToolWide(false);if(id==='memo'||id==='quicktools'){setMemoQrMode(id==='quicktools'?'qr':'memo');id='memoQr'}if(id==='random'){id='lottery';setLotteryMode('random')}if(!tabs.some(t=>t[0]===id))id='home';const enteringBoard=id==='whiteboard'&&activeTab!=='whiteboard';activeTab=id;document.body.classList.toggle('calc-active',id==='calculator');document.body.classList.toggle('whiteboard-open',id==='whiteboard');if(id!=='whiteboard')document.body.classList.remove('board-focus');$$('.panel').forEach(p=>p.classList.toggle('active',p.id===id));if(id==='whiteboard'){initWhiteboard();if(enteringBoard)window.dispatchEvent(new Event('classroom-whiteboard-enter'))}$$('.tabs button').forEach(b=>{b.classList.toggle('active',b.dataset.tab===id);b.setAttribute('aria-selected',b.dataset.tab===id)});const t=tabs.find(t=>t[0]===id);$('pageTitle').textContent=t[2];$('pageSubtitle').textContent=t[3];$('appFooterBrand').textContent=id==='home'?'Class all in one Google ver1.395. made by YOONSUNGHO':'Google Drive ver1.395';if(id==='graph')requestAnimationFrame(drawGraph);if(id==='calculator')queueCalcPreview();window.ClassroomFormulaConverter.setActive(id==='formulaConverter');if(id==='memoQr'&&memoQrMode==='memo')requestAnimationFrame(sizeMemoEffect);window.ClassroomQuizHost.setVisible(id==='memoQr'&&memoQrMode==='quiz');refreshToolWide();window.scrollTo(0,0);save()}
+function selectTab(id){if(document.body.classList.contains("tool-wide"))setToolWide(false);if(id==='memo'||id==='quicktools'){setMemoQrMode(id==='quicktools'?'qr':'memo');id='memoQr'}if(id==='random'){id='lottery';setLotteryMode('random')}if(!tabs.some(t=>t[0]===id))id='home';const enteringBoard=id==='whiteboard'&&activeTab!=='whiteboard';activeTab=id;document.body.classList.toggle('calc-active',id==='calculator');document.body.classList.toggle('whiteboard-open',id==='whiteboard');if(id!=='whiteboard')document.body.classList.remove('board-focus');$$('.panel').forEach(p=>p.classList.toggle('active',p.id===id));if(id==='whiteboard'){initWhiteboard();if(enteringBoard)window.dispatchEvent(new Event('classroom-whiteboard-enter'))}$$('.tabs button').forEach(b=>{b.classList.toggle('active',b.dataset.tab===id);b.setAttribute('aria-selected',b.dataset.tab===id)});const t=tabs.find(t=>t[0]===id);$('pageTitle').textContent=t[2];$('pageSubtitle').textContent=t[3];$('appFooterBrand').textContent=id==='home'?'Class all in one Google ver1.40. made by YOONSUNGHO':'Google Drive ver1.395';if(id==='graph')requestAnimationFrame(drawGraph);if(id==='calculator')queueCalcPreview();window.ClassroomFormulaConverter.setActive(id==='formulaConverter');if(id==='memoQr'&&memoQrMode==='memo')requestAnimationFrame(sizeMemoEffect);window.ClassroomQuizHost.setVisible(id==='memoQr'&&memoQrMode==='quiz');refreshToolWide();window.scrollTo(0,0);save()}
 for(const [id,icon,title]of tabs){const b=document.createElement('button');b.innerHTML='<span class="nav-icon">'+icon+'</span><span class="nav-label">'+title+'</span>';if(['timer','calculator','noise'].includes(id)){const label=document.createElement('span');label.className='nav-category';label.textContent=({timer:'수업 운영',calculator:'수학 탐구',noise:'수업 보조'})[id];document.querySelector('.tabs').append(label)}b.dataset.tab=id;b.onclick=()=>selectTab(id);document.querySelector('.tabs').append(b)}
 const randomPanel=document.querySelector('#random>.layout');if(randomPanel){$('lotteryRandomArea').append(randomPanel);$('random').remove()}
 on('homeTitle',()=>selectTab('home'));for(const [id,icon,title,description]of tabs.filter(t=>t[0]!=='home')){const b=document.createElement('button');b.className='home-tool';const i=document.createElement('span'),body=document.createElement('span'),strong=document.createElement('strong'),small=document.createElement('small');i.className='home-tool-icon';i.textContent=icon;strong.textContent=title;small.textContent=description;body.append(strong,small);b.append(i,body);b.onclick=()=>selectTab(id);$('homeTools').append(b)}
@@ -3445,7 +3608,7 @@ on('darkBtn',()=>{document.body.classList.toggle('dark');$('darkBtn').textConten
 // ======================================
 // 교사용 화면 / 학생용 화면
 // ======================================
-let teacherScrollY=0;function studentMode(v){if(v===document.body.classList.contains('student'))return;if(v){teacherScrollY=window.scrollY;clearTimeout(toastTimeout);$('toast').style.display='none'}document.body.classList.toggle('student',v);window.ClassroomFormulaConverter.setStudent(v);for(const id of ['calcInput','pySource','texSource','texX','texG','texTerms','texF','texLo','texHi'])$(id).readOnly=v;renderTimer();requestAnimationFrame(()=>{window.scrollTo(0,v?0:teacherScrollY);drawGraph();sizeMemoEffect()})}on('studentBtn',()=>studentMode(true));on('exitStudent',()=>studentMode(false));
+let teacherScrollY=0;function studentMode(v){if(v===document.body.classList.contains('student'))return;if(v){teacherScrollY=window.scrollY;clearTimeout(toastTimeout);$('toast').style.display='none'}document.body.classList.toggle('student',v);window.ClassroomFormulaConverter.setStudent(v);for(const id of ['calcInput','pySource','texSource','texX','texG','texTerms','texF','texLo','texHi','statsData','eqSource','eqLo','eqHi','seqExpr','seqA1','seqD','seqRec','seqStart','seqCount','sciDiffAt','sciIntLo','sciIntHi','sciTabLo','sciTabHi','sciTabStep'])$(id).readOnly=v;renderTimer();requestAnimationFrame(()=>{window.scrollTo(0,v?0:teacherScrollY);drawGraph();sizeMemoEffect()})}on('studentBtn',()=>studentMode(true));on('exitStudent',()=>studentMode(false));
 async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else toast('이 브라우저는 전체화면을 지원하지 않습니다. 학생 화면을 이용해 주세요.')}catch(e){toast('전체화면을 사용할 수 없습니다. 학생 화면을 이용해 주세요.')}}on('fullscreenBtn',fullscreen);document.addEventListener('fullscreenchange',()=>{$('fullscreenBtn').textContent=document.fullscreenElement?'⛶ 전체화면 해제':'⛶ 전체화면'});on('wideBoardBtn',()=>{selectTab('whiteboard');requestAnimationFrame(()=>{if(!document.body.classList.contains('board-focus'))$('wb-focusBtn').click()})});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('dialog[open]'))return;if(document.body.classList.contains('tool-wide')){setToolWide(false);return}if(document.body.classList.contains('quiz-wide')){$('quizWide').click();return}if(document.body.classList.contains('board-focus')){$('wb-focusBtn').click();return}studentMode(false);return}if(document.querySelector('dialog[open]')||activeTab==='whiteboard')return;if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)||e.target.isContentEditable)return;if(e.key.toLowerCase()==='f'){e.preventDefault();fullscreen()}if(activeTab==='calculator'&&['basic','scientific'].includes(calcMode)&&!document.body.classList.contains('student')){if(/^[0-9.+\-*/^()%!]$/.test(e.key)){e.preventDefault();insertCalc(e.key)}if(e.key==='Enter'){e.preventDefault();safe(calculate)()}if(e.key==='Backspace'){e.preventDefault();insertCalc('DEL')}}});
 // ======================================
@@ -3729,7 +3892,7 @@ const calcKernels=(()=>{
       if(m.type==='ready'&&!s.ready){s.ready=true;clearTimeout(s.timer);send(s);}
       if(m.type==='result'&&s.job?.id===m.id){
         const j=s.job;s.job=null;clearTimeout(s.timer);
-        j.resolve({...Object.fromEntries(['text','error','latex','approx','substitution','detail'].map(k=>[k,typeof m[k]==='string'?m[k].slice(0,12000):''])),series:m.series===true});
+        j.resolve({...Object.fromEntries(['text','error','latex','approx','substitution','detail'].map(k=>[k,typeof m[k]==='string'?m[k].slice(0,12000):''])),data:typeof m.data==='string'?m.data.slice(0,60000):'',series:m.series===true});
       }
     };
     sessions.set(kind,s);
@@ -3753,7 +3916,7 @@ const calcKernels=(()=>{
 
 const calcNames=new Set(['x','pi','e','ans','sin','cos','tan','asin','acos','atan','arcsin','arccos','arctan','sinh','cosh','tanh','log','ln','sqrt','abs','exp','constructor','prototype']);
 let calcMode='basic',calcTexAngle='RAD',sciDefinitions=[];
-const calcModeKeys=['basic','scientific','python','latex'];
+const calcModeKeys=['basic','scientific','python','latex','stats','equation','sequence'];
 function sciDefinition(raw){
   const m=raw.trim().match(/^([a-z][a-z0-9_]{0,23})\s*\(\s*([a-z][a-z0-9_]{0,15})\s*\)\s*=\s*([^=]+)$/i);
   if(!m)throw Error('함수는 f(x)=6x^5-4x^3+2x-1처럼 입력하세요.');
@@ -3784,7 +3947,7 @@ function registerScientific(input){
   out.push(d);checkSciDefinitions(out);sciDefinitions=out;
   const label=d.name+'('+d.param+')';
   $('calcAnswer').dataset.definition='true';$('calcAnswer').textContent=label+' 등록됨';
-  $('sciNotice').textContent='입력 칸의 3을 바꾸거나 그대로 = 를 누르세요.';
+  $('sciNotice').textContent='입력 칸의 3을 바꾸거나 그대로 = 를 누르세요. 아래 버튼으로 그래프·미분·적분·함숫값 표를 만들 수 있습니다.';
   const el=$('calcInput');el.value=d.name+'(3)';el.focus();el.setSelectionRange(d.name.length+1,d.name.length+2);
   afterCalc=false;renderSciFunctions();calcLog('[함수 등록] '+label+' = '+d.body);save();
 }
@@ -3792,7 +3955,7 @@ function renderSciFunctions(){
   const list=$('sciFunctions');list.replaceChildren();
   for(const d of sciDefinitions){
     const row=document.createElement('span'),use=document.createElement('button'),drop=document.createElement('button');
-    const label=d.name+'('+d.param+')';use.textContent=label;use.title=label+' = '+d.body;
+    const label=d.name+'('+d.param+')',full=label+' = '+d.body;use.textContent=full;use.title=full;use.className='calc-fn-use';
     use.setAttribute('aria-label',label+' 불러오기');
     use.onclick=()=>{const el=$('calcInput');el.value=d.name+'(3)';afterCalc=false;el.focus();el.setSelectionRange(d.name.length+1,d.name.length+2);$('sciNotice').textContent=label+' = '+d.body;};
     drop.textContent='×';drop.setAttribute('aria-label',label+' 삭제');drop.title=label+' 삭제';
@@ -3801,6 +3964,7 @@ function renderSciFunctions(){
       sciDefinitions=next;$('sciNotice').textContent=label+' 삭제됨';renderSciFunctions();save();});
     row.append(use,drop);list.append(row);
   }
+  window.calcTools140?.refresh();
 }
 function validateCalc136(s){
   if(s===undefined)return null;
@@ -3928,14 +4092,15 @@ function queueCalcPreview(){
 }
 function calcModes(){
   scientific=calcMode==='scientific';
-  const classic=calcMode==='basic'||scientific,showAngle=classic||calcMode==='latex';
+  const classic=calcMode==='basic'||scientific,showAngle=classic||['latex','equation','sequence'].includes(calcMode);
   $('calcClassic').hidden=!classic;$('calcPython').hidden=calcMode!=='python';$('calcLatex').hidden=calcMode!=='latex';
+  $('calcStats').hidden=calcMode!=='stats';$('calcEquation').hidden=calcMode!=='equation';$('calcSequence').hidden=calcMode!=='sequence';
   for(const key of calcModeKeys){const b=$(key+'Mode');b.classList.toggle('primary',key===calcMode);b.setAttribute('aria-pressed',String(key===calcMode));}
   $('calcKeyLayout').classList.toggle('is-scientific',scientific);$('scienceKeys').hidden=!scientific;$('sciTools').hidden=!scientific;
   const unit=calcMode==='latex'?calcTexAngle:angle;
   $('angleBtn').hidden=!showAngle;$('angleBtn').textContent=unit;$('angleBtn').setAttribute('aria-label','각도 단위 '+unit+' · 전환');
   $('calcModeLabel').textContent=angle+(angle==='DEG'?' · 도 단위':' · 라디안');
-  renderSciFunctions();queueCalcPreview();save();
+  renderSciFunctions();queueCalcPreview();window.calcTools140?.sync();save();
 }
 function wipeLab(kind,placeholder){
   const p=calcLab[kind].prefix,el=$(p+'Result');
@@ -4183,7 +4348,7 @@ function restoreExtraState(s){
  if(s.wheelData){wheelItems=[...s.wheelData.items];wheelOriginal=[...s.wheelData.original];wheelAngle=s.wheelData.angle;drawWheel()}
  restoreClasses(s);if(s.memoQrMode)setMemoQrMode(s.memoQrMode);renderRandomMode();syncGroupSource();syncSourceClasses();for(const pre of ['wheel','ladder']){const id=s.fields?.[pre+'Class'];if(classProfiles.some(c=>c.id===id))$(pre+'Class').value=id;syncDrawSource(pre)}
 }
-on('exportSettings',async()=>{requireTeacher();if(draftChanged())throw Error('수정한 명단을 먼저 적용한 뒤 백업해 주세요.');if(drawing||wheelSpinning||ladderBusy)throw Error('추첨이 끝난 뒤 백업해 주세요.');await window.ClassroomBoard.ready;await window.ClassroomQuizHost.flush();save();const data={...snapshot(),whiteboard:(window.ClassroomBoard.snapshotForSync||window.ClassroomBoard.snapshot)(),exportedAt:new Date().toISOString()};downloadBlob(new Blob([JSON.stringify(data)],{type:'application/json'}),'교실도구_Google_전체백업_v1.395.json');toast('화이트보드·자리배치를 포함한 전체 백업을 저장했습니다.')});
+on('exportSettings',async()=>{requireTeacher();if(draftChanged())throw Error('수정한 명단을 먼저 적용한 뒤 백업해 주세요.');if(drawing||wheelSpinning||ladderBusy)throw Error('추첨이 끝난 뒤 백업해 주세요.');await window.ClassroomBoard.ready;await window.ClassroomQuizHost.flush();save();const data={...snapshot(),whiteboard:(window.ClassroomBoard.snapshotForSync||window.ClassroomBoard.snapshot)(),exportedAt:new Date().toISOString()};downloadBlob(new Blob([JSON.stringify(data)],{type:'application/json'}),'교실도구_Google_전체백업_v1.40.json');toast('화이트보드·자리배치를 포함한 전체 백업을 저장했습니다.')});
 on('importSettings',async e=>{try{requireTeacher();const file=e.target.files[0];if(!file)return;if(drawing||wheelSpinning||ladderBusy)throw Error('추첨이 끝난 뒤 복원해 주세요.');const data=JSON.parse(await file.text());validateBackup(data);validateExtraState(data);await window.ClassroomBoard.ready;if(data.whiteboard)window.ClassroomBoard.validate(data.whiteboard);if(!confirm('전체 백업의 내용으로 현재 자료를 복원할까요?'))return;await window.ClassroomBoard.ready;restore(data);restoreExtraState(data);await window.ClassroomQuizHost.flush();if(data.whiteboard)await window.ClassroomBoard.restore(data.whiteboard);renderTeams();save();$('settingsDialog').close();if(activeTab==='whiteboard')await window.ClassroomDrive?.checkWhiteboard?.();toast('모든 반과 수업 자료를 복원했습니다. 복원된 비밀번호로 설정을 다시 열어 주세요.')}catch(e){toast(e.message)}finally{e.target.value=''}},'change');
 
 // Multiple classes share one teacher lock. Each class owns its roster and results.
@@ -4393,12 +4558,12 @@ for(const pre of ['wheel','ladder'])for(const suffix of ['Source','Class'])on(pr
 // ======================================
 // 키 이름은 유지하여 기존 버전의 설정·메모도 읽을 수 있게 합니다.
 const storageKey='classroom-tools-v1';let ready=false,restoring=false,storageWarning=false;
-const storedIds=['groupSource','manualGroupNames','ladderSource','ladderClass','wheelSource','wheelClass','timerH','timerM','timerS','sound','alarmVolume','lotteryVolume','effectVolume','randomStart','randomEnd','randomCount','randomExclude','lotteryTotal','prize1','prize2','prize3','prize4','prize5','memoText','memoSize','memoAlign','memoColor','memoEffect','memoSpeed','teamNumberCount','teamGroupCount','teamRoster','teamExclude','ladderNames','ladderPrizes','noiseThreshold','rngMin','rngMax','rngCount','rngDuplicate','caseElements','caseR','caseType','qrText','qrSize','wheelItems','graphSnap','experimentN','experimentType','binN','binP','binA','binB','normMu','normSigma','normA','normB','samplePopulation','sampleMu','sampleSigma','sampleMin','sampleMax','sampleN','sampleReps','ciMode','ciMu','ciSigma','ciP','ciN','ciReps','ciConfidence','dataInput','pySource','texSource','texX','texG','texTerms','texF','texLo','texHi'];
-const checkIds=['excludePrevious','allAgain','oneByOne','showGrid','showAxes','lotterySound','ladderShuffle','ladderHide','noiseWarningSound','wheelRemoveWinner','randomUseRoster','normLowerInf','normUpperInf'];
+const storedIds=['statsData','statsVar','statsQuart','eqSource','eqLo','eqHi','seqType','seqExpr','seqA1','seqD','seqRec','seqStart','seqCount','sciDiffOrder','sciDiffAt','sciIntLo','sciIntHi','sciTabLo','sciTabHi','sciTabStep','groupSource','manualGroupNames','ladderSource','ladderClass','wheelSource','wheelClass','timerH','timerM','timerS','sound','alarmVolume','lotteryVolume','effectVolume','randomStart','randomEnd','randomCount','randomExclude','lotteryTotal','prize1','prize2','prize3','prize4','prize5','memoText','memoSize','memoAlign','memoColor','memoEffect','memoSpeed','teamNumberCount','teamGroupCount','teamRoster','teamExclude','ladderNames','ladderPrizes','noiseThreshold','rngMin','rngMax','rngCount','rngDuplicate','caseElements','caseR','caseType','qrText','qrSize','wheelItems','graphSnap','experimentN','experimentType','binN','binP','binA','binB','normMu','normSigma','normA','normB','samplePopulation','sampleMu','sampleSigma','sampleMin','sampleMax','sampleN','sampleReps','ciMode','ciMu','ciSigma','ciP','ciN','ciReps','ciConfidence','dataInput','pySource','texSource','texX','texG','texTerms','texF','texLo','texHi'];
+const checkIds=['statsOutlier','seqShowSum','excludePrevious','allAgain','oneByOne','showGrid','showAxes','lotterySound','ladderShuffle','ladderHide','noiseWarningSound','wheelRemoveWinner','randomUseRoster','normLowerInf','normUpperInf'];
 const own=(object,key)=>Object.prototype.hasOwnProperty.call(object,key);
 const copyJSON=value=>JSON.parse(JSON.stringify(value));
 function snapshot(){return{
- ...currentExtraState(),formulaConverter:window.ClassroomFormulaConverter.snapshot(),version:2,appVersion:'Google Drive 1.395',tab:activeTab,dark:document.body.classList.contains('dark'),duration,angle,scientific,calculator136:{mode:calcMode,latexAngle:calcTexAngle,functions:sciDefinitions.map(f=>({...f}))},memoBold,memoUnderline,memoPaused,teamMode,timerMode,stopwatchElapsed,lapTimes:[...lapTimes],teamScores:copyJSON(teamScores),presentationOrder:[...presentationOrder],presentationIndex,lotteryMode,probMode,graphPoints:copyJSON(graphPoints),graphSegments:copyJSON(graphSegments),
+ ...currentExtraState(),formulaConverter:window.ClassroomFormulaConverter.snapshot(),version:2,appVersion:'Google Drive 1.40',tab:activeTab,dark:document.body.classList.contains('dark'),duration,angle,scientific,calculator136:{mode:calcMode,latexAngle:calcTexAngle,functions:sciDefinitions.map(f=>({...f}))},memoBold,memoUnderline,memoPaused,teamMode,timerMode,stopwatchElapsed,lapTimes:[...lapTimes],teamScores:copyJSON(teamScores),presentationOrder:[...presentationOrder],presentationIndex,lotteryMode,probMode,graphPoints:copyJSON(graphPoints),graphSegments:copyJSON(graphSegments),
  fields:Object.fromEntries(storedIds.map(id=>[id,$(id).value])),checks:Object.fromEntries(checkIds.map(id=>[id,$(id).checked])),
  functions:functions.map(f=>({expr:f.expr,show:f.show,color:f.color})),view:{...view},
  teamResults:copyJSON(teamResults),
@@ -4479,6 +4644,1188 @@ if(!startupReadFailed&&!(loadedState&&own(loadedState,'ladder'))){try{createLadd
 migrateSeating(loadedState);if(loadedState)restoreExtraState(loadedState);else restoreClasses(null);if(loadedState){setLotteryMode(loadedState.lotteryMode);setProbMode(loadedState.probMode)}renderTeams();updateTeamRosterStatus();setTeamMode(teamMode);ready=true;if(!startupReadFailed)save();else $('storageStatus').textContent='저장 내용 읽기 실패 · 백업 복원이 필요합니다.';window.__classroomAppReady=true;
 
 
+</script>
+<script id="classroom-calc140-script">
+// v1.40 계산기 공용 수식 도구: 정확한 분수, 수식 해석, 방정식·통계·수열 계산 (eval 없음)
+window.CalcAlg140=(()=>{
+'use strict';
+const ZERO=0n,ONE=1n;
+const babs=a=>a<ZERO?-a:a;
+function bgcd(a,b){a=babs(a);b=babs(b);while(b){const t=a%b;a=b;b=t;}return a;}
+const bitlen=a=>babs(a).toString(2).length;
+class Q{
+  constructor(n,d=ONE){
+    if(typeof n!=='bigint')n=BigInt(n);if(typeof d!=='bigint')d=BigInt(d);
+    if(d===ZERO)throw Error('0으로 나눌 수 없습니다.');
+    if(d<ZERO){n=-n;d=-d;}const g=bgcd(n,d)||ONE;this.n=n/g;this.d=d/g;
+  }
+  add(o){return new Q(this.n*o.d+o.n*this.d,this.d*o.d);}
+  sub(o){return new Q(this.n*o.d-o.n*this.d,this.d*o.d);}
+  mul(o){return new Q(this.n*o.n,this.d*o.d);}
+  div(o){if(o.n===ZERO)throw Error('0으로 나눌 수 없습니다.');return new Q(this.n*o.d,this.d*o.n);}
+  neg(){return new Q(-this.n,this.d);}
+  abs(){return new Q(babs(this.n),this.d);}
+  isZero(){return this.n===ZERO;}
+  isInt(){return this.d===ONE;}
+  sign(){return this.n>ZERO?1:this.n<ZERO?-1:0;}
+  cmp(o){const v=this.n*o.d-o.n*this.d;return v>ZERO?1:v<ZERO?-1:0;}
+  eq(o){return this.n===o.n&&this.d===o.d;}
+  pow(k){
+    k=Number(k);if(!Number.isInteger(k))throw Error('지수는 정수여야 합니다.');
+    if(Math.abs(k)>4096||Math.abs(k)*Math.max(bitlen(this.n),bitlen(this.d))>65536)throw Error('수가 너무 커집니다.');
+    if(k<0){if(this.n===ZERO)throw Error('0의 음수 거듭제곱은 정의되지 않습니다.');return new Q(this.d**BigInt(-k),this.n**BigInt(-k));}
+    return new Q(this.n**BigInt(k),this.d**BigInt(k));
+  }
+  bits(){return bitlen(this.n)+bitlen(this.d);}
+  toNumber(){
+    const s=BigInt(Math.max(0,Math.max(bitlen(this.n),bitlen(this.d))-1000));
+    return Number(this.n>>s)/Number(this.d>>s||ONE);
+  }
+  toString(){return this.d===ONE?String(this.n):this.n+'/'+this.d;}
+  tex(){if(this.d===ONE)return String(this.n);return (this.n<ZERO?'-':'')+'\\frac{'+babs(this.n)+'}{'+this.d+'}';}
+  // 유한소수이면 소수 문자열, 아니면 null
+  decimal(){
+    let d=this.d,k=0;while(d%2n===ZERO){d/=2n;k++;}let j=0;while(d%5n===ZERO){d/=5n;j++;}
+    if(d!==ONE)return null;const p=Math.max(k,j);if(p>40)return null;
+    const scaled=this.n*10n**BigInt(p)/this.d,neg=scaled<ZERO,t=babs(scaled).toString().padStart(p+1,'0');
+    const out=p?t.slice(0,-p)+'.'+t.slice(-p):t;return (neg?'-':'')+out;
+  }
+}
+Q.of=v=>v instanceof Q?v:new Q(BigInt(v));
+Q.zero=new Q(0n);Q.one=new Q(1n);
+function parseDecimal(text){
+  const m=String(text).trim().match(/^([+-]?)(\d*)(?:\.(\d*))?(?:[eE]([+-]?\d+))?$/);
+  if(!m||(!m[2]&&!m[3]))throw Error('수를 확인하세요: '+text);
+  const frac=m[3]||'',exp=Number(m[4]||0);if(Math.abs(exp)>400)throw Error('수가 너무 큽니다.');
+  let n=BigInt((m[2]||'0')+frac),d=10n**BigInt(frac.length);
+  if(exp>0)n*=10n**BigInt(exp);else if(exp<0)d*=10n**BigInt(-exp);
+  return new Q(m[1]==='-'?-n:n,d);
+}
+function fmtNum(v,digits=10){
+  if(typeof v!=='number'||!Number.isFinite(v))return '정의 안 됨';
+  if(Math.abs(v)<1e-13)return '0';
+  return String(Number(v.toPrecision(digits)));
+}
+// 분수는 '7/2', 유한소수는 그대로, 순환소수면 근삿값을 함께
+function fmtQ(q,approx=true){
+  if(!(q instanceof Q))return fmtNum(q);
+  if(q.isInt())return q.toString();
+  const dec=q.decimal();if(dec!==null&&dec.length<=14)return dec;
+  return q.toString()+(approx?' ≈ '+fmtNum(q.toNumber()):'');
+}
+
+// ---------------- 수식 해석 ----------------
+const BUILTIN=new Set(['sin','cos','tan','asin','acos','atan','arcsin','arccos','arctan','sinh','cosh','tanh','log','ln','sqrt','abs','exp']);
+const TRIG=new Set(['sin','cos','tan']),ITRIG=new Set(['asin','acos','atan','arcsin','arccos','arctan']);
+function normalize(src){
+  return String(src).replace(/\*\*/g,'^').replace(/[×·]/g,'*').replace(/÷/g,'/').replace(/π/g,'pi').replace(/[−–]/g,'-')
+    .replace(/²/g,'^2').replace(/³/g,'^3').replace(/，/g,',').trim();
+}
+function tokenize(src,consts){
+  src=normalize(src);if(src.length>2000)throw Error('수식이 너무 깁니다.');
+  const tokens=[],re=/\s*(?:(\d*\.\d+|\d+\.?\d*)([eE][+-]?\d+)?|([a-zA-Z][a-zA-Z0-9_]*)|([+\-*/^()%!]))/y;let pos=0;
+  while(pos<src.length){
+    if(/^\s+$/.test(src.slice(pos)))break;
+    re.lastIndex=pos;const m=re.exec(src);
+    if(!m)throw Error('사용할 수 없는 기호가 있습니다: '+src.slice(pos).trim().charAt(0));
+    tokens.push(m[1]!==undefined?{type:'n',value:m[1]+(m[2]||'')}:{type:m[3]?'id':m[4],value:m[3]?m[3].toLowerCase():m[4]});
+    pos=re.lastIndex;
+  }
+  for(let i=tokens.length-1;i>0;i--){
+    const a=tokens[i-1],b=tokens[i];
+    const end=a.type==='n'||a.type===')'||a.type==='!'||a.type==='%'||(a.type==='id'&&consts.has(a.value));
+    if(end&&(b.type==='('||b.type==='id'))tokens.splice(i,0,{type:'*',value:'*'});
+  }
+  return tokens;
+}
+function subst(ast,name,rep){
+  if(ast.k==='var')return ast.n===name?rep:ast;
+  const out={...ast};for(const key of ['a','b'])if(ast[key])out[key]=subst(ast[key],name,rep);return out;
+}
+// opts: {vars:['x'], defs:[{name,param,body}], ans:number}
+function parse(src,opts={}){
+  const vars=new Set(opts.vars||['x']),defs=new Map((opts.defs||[]).map(d=>[d.name,d]));
+  const consts=new Set([...vars,'pi','e','ans']);
+  const tokens=tokenize(src,consts);if(!tokens.length)throw Error('식을 입력하세요.');
+  const stack=opts._stack||new Set();
+  let i=0;const peek=()=>tokens[i]?.type,take=t=>peek()===t?tokens[i++]:null;
+  const need=t=>{if(!take(t))throw Error(t===')'?'닫는 괄호 )를 확인하세요.':'수식 형식을 확인하세요.');};
+  function primary(){
+    const n=take('n');if(n)return {k:'num',q:parseDecimal(n.value)};
+    if(take('(')){const v=add();need(')');return v;}
+    const id=take('id');
+    if(id){
+      const v=id.value;
+      if(vars.has(v))return {k:'var',n:v};
+      if(v==='pi')return {k:'pi'};
+      if(v==='e')return {k:'e'};
+      if(v==='ans'){if(typeof opts.ans!=='number')throw Error('ANS는 공학용 계산기에서만 사용할 수 있습니다.');return {k:'real',v:opts.ans};}
+      if(BUILTIN.has(v)){need('(');const a=add();need(')');return {k:'fn',f:v,a};}
+      if(defs.has(v)){
+        if(stack.has(v))throw Error('함수가 자기 자신을 부릅니다.');
+        need('(');const arg=add();need(')');
+        const d=defs.get(v);stack.add(v);
+        try{const body=parse(d.body,{...opts,vars:[d.param],_stack:stack});return subst(body,d.param,arg);}
+        finally{stack.delete(v);}
+      }
+      if(peek()==='(')throw Error('등록되지 않은 함수입니다: '+v+'()');
+      if(v.length>1&&[...v].every(c=>vars.has(c)||c==='e'))throw Error(v+'처럼 문자를 붙여 쓰면 한 이름으로 읽습니다. '+[...v].join('*')+'처럼 * 를 넣으세요.');
+      throw Error('알 수 없는 문자입니다: '+v+(vars.size?' (사용할 수 있는 변수: '+[...vars].join(', ')+')':''));
+    }
+    throw Error('수식이 완성되지 않았습니다.');
+  }
+  function postfix(){let a=primary();while(peek()==='!'||peek()==='%'){const t=tokens[i++].type;a={k:t==='!'?'fact':'pct',a};}return a;}
+  function power(){const a=postfix();if(take('^'))return {k:'pow',a,b:unary()};return a;}
+  function unary(){if(take('+'))return unary();if(take('-'))return {k:'neg',a:unary()};return power();}
+  function mul(){let a=unary();while(peek()==='*'||peek()==='/'){const t=tokens[i++].type;a={k:t==='*'?'mul':'div',a,b:unary()};}return a;}
+  function add(){let a=mul();while(peek()==='+'||peek()==='-'){const t=tokens[i++].type;a={k:t==='+'?'add':'sub',a,b:mul()};}return a;}
+  const out=add();
+  if(i!==tokens.length)throw Error(tokens[i].type===')'?'여는 괄호 (가 부족합니다.':'연산 기호를 확인하세요.');
+  return out;
+}
+function hasVar(ast,name){
+  if(ast.k==='var')return name?ast.n===name:true;
+  return (ast.a&&hasVar(ast.a,name))||(ast.b&&hasVar(ast.b,name))||false;
+}
+function hasTrig(ast){
+  if(ast.k==='fn'&&(TRIG.has(ast.f)||ITRIG.has(ast.f)))return true;
+  return (ast.a&&hasTrig(ast.a))||(ast.b&&hasTrig(ast.b))||false;
+}
+function evalNum(ast,env={},unit='RAD'){
+  const f=unit==='DEG'?Math.PI/180:1;
+  function ev(t){
+    switch(t.k){
+      case 'num':return t.q.toNumber();
+      case 'real':return t.v;
+      case 'var':if(!(t.n in env))throw Error(t.n+' 값이 필요합니다.');return env[t.n];
+      case 'pi':return Math.PI;case 'e':return Math.E;
+      case 'neg':return -ev(t.a);
+      case 'add':return ev(t.a)+ev(t.b);case 'sub':return ev(t.a)-ev(t.b);
+      case 'mul':return ev(t.a)*ev(t.b);
+      case 'div':{const b=ev(t.b);return b===0?NaN:ev(t.a)/b;}
+      case 'pow':{const a=ev(t.a),b=ev(t.b);return a===0&&b<=0?NaN:Math.pow(a,b);}
+      case 'pct':return ev(t.a)/100;
+      case 'fact':{const n=ev(t.a);if(!Number.isInteger(n)||n<0||n>170)return NaN;let p=1;for(let j=2;j<=n;j++)p*=j;return p;}
+      case 'fn':{
+        const a=ev(t.a);
+        switch(t.f){
+          case 'sin':return Math.sin(a*f);case 'cos':return Math.cos(a*f);
+          case 'tan':return Math.abs(Math.cos(a*f))<1e-14?NaN:Math.tan(a*f);
+          case 'asin':case 'arcsin':return Math.asin(a)/f;case 'acos':case 'arccos':return Math.acos(a)/f;case 'atan':case 'arctan':return Math.atan(a)/f;
+          case 'sinh':return Math.sinh(a);case 'cosh':return Math.cosh(a);case 'tanh':return Math.tanh(a);
+          case 'log':return Math.log10(a);case 'ln':return Math.log(a);case 'sqrt':return Math.sqrt(a);
+          case 'abs':return Math.abs(a);case 'exp':return Math.exp(a);
+        }
+      }
+    }
+    return NaN;
+  }
+  return ev(ast);
+}
+class Inexact extends Error{}
+function evalExact(ast,env={}){
+  function ev(t){
+    switch(t.k){
+      case 'num':return t.q;
+      case 'var':{const v=env[t.n];if(v instanceof Q)return v;throw new Inexact();}
+      case 'neg':return ev(t.a).neg();
+      case 'add':return ev(t.a).add(ev(t.b));case 'sub':return ev(t.a).sub(ev(t.b));
+      case 'mul':return ev(t.a).mul(ev(t.b));
+      case 'div':return ev(t.a).div(ev(t.b));
+      case 'pct':return ev(t.a).div(new Q(100n));
+      case 'pow':{const b=ev(t.b);if(!b.isInt())throw new Inexact();return ev(t.a).pow(b.n);}
+      case 'fact':{const a=ev(t.a);if(!a.isInt()||a.n<ZERO||a.n>500n)throw Error('팩토리얼은 0 이상 500 이하의 정수에서 계산합니다.');let p=ONE;for(let j=2n;j<=a.n;j++)p*=j;return new Q(p);}
+      case 'fn':if(t.f==='abs')return ev(t.a).abs();
+        if(t.f==='sqrt'){const a=ev(t.a);if(a.sign()<0)throw new Inexact();const n=isqrt(a.n),d=isqrt(a.d);if(n*n===a.n&&d*d===a.d)return new Q(n,d);}
+        throw new Inexact();
+    }
+    throw new Inexact();
+  }
+  return ev(ast);
+}
+function tryExact(ast,env){try{return evalExact(ast,env);}catch(e){if(e instanceof Inexact)return null;throw e;}}
+function isqrt(n){if(n<ZERO)return ZERO;if(n<2n)return n;let x=BigInt(Math.floor(Math.sqrt(Number(n))));if(x<1n)x=1n;for(;;){const y=(x+n/x)>>1n;if(y>=x){while(x*x>n)x--;while((x+1n)*(x+1n)<=n)x++;return x;}x=y;}}
+
+// ---------------- MathJSON / 그래프 식 ----------------
+const JSON_FN={sin:'Sin',cos:'Cos',tan:'Tan',asin:'Arcsin',arcsin:'Arcsin',acos:'Arccos',arccos:'Arccos',atan:'Arctan',arctan:'Arctan',sinh:'Sinh',cosh:'Cosh',tanh:'Tanh',ln:'Ln',sqrt:'Sqrt',abs:'Abs',exp:'Exp'};
+function bigJson(n){return n>=-9007199254740991n&&n<=9007199254740991n?Number(n):{num:n.toString()};}
+function toJson(ast){
+  switch(ast.k){
+    case 'num':return ast.q.isInt()?bigJson(ast.q.n):['Rational',bigJson(ast.q.n),bigJson(ast.q.d)];
+    case 'real':return ast.v;
+    case 'var':return ast.n;
+    case 'pi':return 'Pi';case 'e':return 'ExponentialE';
+    case 'neg':return ['Negate',toJson(ast.a)];
+    case 'add':return ['Add',toJson(ast.a),toJson(ast.b)];
+    case 'sub':return ['Subtract',toJson(ast.a),toJson(ast.b)];
+    case 'mul':return ['Multiply',toJson(ast.a),toJson(ast.b)];
+    case 'div':return ['Divide',toJson(ast.a),toJson(ast.b)];
+    case 'pow':return ['Power',toJson(ast.a),toJson(ast.b)];
+    case 'pct':return ['Divide',toJson(ast.a),100];
+    case 'fact':return ['Factorial',toJson(ast.a)];
+    case 'fn':return ast.f==='log'?['Log',toJson(ast.a),10]:[JSON_FN[ast.f],toJson(ast.a)];
+  }
+  throw Error('변환할 수 없는 식입니다.');
+}
+// 그래프 도구의 파서는 곱셈 기호를 생략할 수 없고 라디안만 사용합니다.
+const PREC={add:1,sub:1,mul:2,div:2,neg:3,pow:4};
+function toGraph(ast,unit='RAD'){
+  const deg=unit==='DEG';
+  function atom(t){return ['num','var','pi','e','real','fn','fact','pct'].includes(t.k)&&!(t.k==='num'&&(t.q.sign()<0||!t.q.isInt()&&t.q.decimal()===null))&&!(t.k==='real'&&t.v<0);}
+  function wrap(t,minPrec){const s=go(t);if(atom(t))return s;const p=PREC[t.k]??5;return p<minPrec?'('+s+')':s;}
+  function num(q){const d=q.decimal();if(d!==null&&d.length<=24)return q.sign()<0?'('+d+')':d;return '('+q.n+'/'+q.d+')';}
+  function go(t){
+    switch(t.k){
+      case 'num':return num(t.q);
+      case 'real':{const s=String(Number(t.v.toPrecision(15)));return t.v<0?'('+s+')':s;}
+      case 'var':return t.n;case 'pi':return 'pi';case 'e':return 'e';
+      case 'neg':return '-'+wrap(t.a,3);
+      case 'add':return t.b.k==='neg'?go(t.a)+'-'+wrap(t.b.a,2):t.b.k==='num'&&t.b.q.sign()<0?go(t.a)+'-'+num(t.b.q.neg()):go(t.a)+'+'+wrap(t.b,1);
+      case 'sub':return t.b.k==='neg'?go(t.a)+'+'+wrap(t.b.a,1):go(t.a)+'-'+wrap(t.b,2);
+      case 'mul':return wrap(t.a,2)+'*'+(t.b.k==='neg'?'('+go(t.b)+')':wrap(t.b,3));
+      case 'div':return wrap(t.a,2)+'/'+wrap(t.b,3);
+      case 'pow':return (atom(t.a)&&t.a.k!=='fact'&&t.a.k!=='pct'?go(t.a):'('+go(t.a)+')')+'^'+(atom(t.b)||t.b.k==='num'?go(t.b):'('+go(t.b)+')');
+      case 'pct':return '('+go(t.a)+')%';
+      case 'fact':return '('+go(t.a)+')!';
+      case 'fn':{
+        const a=go(t.a);
+        if(TRIG.has(t.f))return t.f+'('+(deg?'('+a+')*pi/180':a)+')';
+        if(ITRIG.has(t.f)){const n=t.f.replace(/^arc/,'a');return deg?'('+n+'('+a+')*180/pi)':n+'('+a+')';}
+        if(t.f==='sinh')return '((exp('+a+')-exp(-('+a+')))/2)';
+        if(t.f==='cosh')return '((exp('+a+')+exp(-('+a+')))/2)';
+        if(t.f==='tanh')return '((exp(2*('+a+'))-1)/(exp(2*('+a+'))+1))';
+        return t.f+'('+a+')';
+      }
+    }
+    throw Error('그래프로 보낼 수 없는 식입니다.');
+  }
+  return go(ast);
+}
+// MathJSON → 내부 식 (미분·적분 결과를 그래프로 보낼 때)
+function fromJson(j){
+  if(typeof j==='number'){if(!Number.isFinite(j))throw Error('유한하지 않은 값');return Number.isInteger(j)||String(j).length<18?{k:'num',q:parseDecimal(String(j))}:{k:'real',v:j};}
+  if(typeof j==='string'){
+    if(j==='Pi')return {k:'pi'};if(j==='ExponentialE')return {k:'e'};if(j==='Half')return {k:'num',q:new Q(1n,2n)};
+    if(/^[a-z]$/.test(j))return {k:'var',n:j};
+    if(/^-?\d+(\.\d+)?$/.test(j))return {k:'num',q:parseDecimal(j)};
+    throw Error('지원하지 않는 기호: '+j);
+  }
+  if(j&&typeof j==='object'&&!Array.isArray(j)){if('num' in j)return {k:'num',q:parseDecimal(String(j.num).replace(/n$/,''))};if('sym' in j)return fromJson(j.sym);throw Error('식');}
+  if(!Array.isArray(j)||!j.length)throw Error('식');
+  const [op,...a]=j;const R=fromJson;
+  const fold=(k,list)=>list.map(R).reduce((x,y)=>({k,a:x,b:y}));
+  switch(op){
+    case 'Add':return fold('add',a);
+    case 'Multiply':return fold('mul',a);
+    case 'Subtract':return a.length===1?{k:'neg',a:R(a[0])}:{k:'sub',a:R(a[0]),b:R(a[1])};
+    case 'Negate':return {k:'neg',a:R(a[0])};
+    case 'Divide':return {k:'div',a:R(a[0]),b:R(a[1])};
+    case 'Rational':return a.length===2?{k:'div',a:R(a[0]),b:R(a[1])}:R(a[0]);
+    case 'Power':return {k:'pow',a:R(a[0]),b:R(a[1])};
+    case 'Square':return {k:'pow',a:R(a[0]),b:{k:'num',q:new Q(2n)}};
+    case 'Sqrt':return {k:'fn',f:'sqrt',a:R(a[0])};
+    case 'Root':return {k:'pow',a:R(a[0]),b:{k:'div',a:{k:'num',q:Q.one},b:R(a[1])}};
+    case 'Exp':return {k:'fn',f:'exp',a:R(a[0])};
+    case 'Ln':return {k:'fn',f:'ln',a:R(a[0])};
+    case 'Log':if(a.length===1||a[1]===10)return {k:'fn',f:'log',a:R(a[0])};return {k:'div',a:{k:'fn',f:'ln',a:R(a[0])},b:{k:'fn',f:'ln',a:R(a[1])}};
+    case 'Abs':return {k:'fn',f:'abs',a:R(a[0])};
+    case 'Factorial':return {k:'fact',a:R(a[0])};
+    case 'Sec':return {k:'div',a:{k:'num',q:Q.one},b:{k:'fn',f:'cos',a:R(a[0])}};
+    case 'Csc':return {k:'div',a:{k:'num',q:Q.one},b:{k:'fn',f:'sin',a:R(a[0])}};
+    case 'Cot':return {k:'div',a:{k:'fn',f:'cos',a:R(a[0])},b:{k:'fn',f:'sin',a:R(a[0])}};
+    case 'Delimiter':return R(a[0]);
+  }
+  const fn=Object.entries(JSON_FN).find(([,v])=>v===op);
+  if(fn)return {k:'fn',f:fn[0],a:R(a[0])};
+  throw Error('지원하지 않는 연산: '+op);
+}
+
+// ---------------- 다항식 ----------------
+const MAXDEG=64;
+function polyOf(ast,v){
+  function trim(p){while(p.length>1&&p[p.length-1].isZero())p.pop();return p;}
+  function add(a,b,sign=1){const out=[];for(let i=0;i<Math.max(a.length,b.length);i++){const x=a[i]||Q.zero,y=b[i]||Q.zero;out.push(sign>0?x.add(y):x.sub(y));}return trim(out);}
+  function mul(a,b){if(a.length+b.length-2>MAXDEG)return null;const out=Array(a.length+b.length-1).fill(Q.zero);a.forEach((x,i)=>{if(!x.isZero())b.forEach((y,k)=>{out[i+k]=out[i+k].add(x.mul(y));});});return trim(out);}
+  function go(t){
+    if(!hasVar(t,v)){const q=tryExact(t,{});return q?[q]:null;}
+    switch(t.k){
+      case 'var':return [Q.zero,Q.one];
+      case 'neg':{const a=go(t.a);return a&&a.map(q=>q.neg());}
+      case 'add':case 'sub':{const a=go(t.a),b=go(t.b);return a&&b?add(a,b,t.k==='add'?1:-1):null;}
+      case 'mul':{const a=go(t.a),b=go(t.b);return a&&b?mul(a,b):null;}
+      case 'div':{if(hasVar(t.b,v))return null;const a=go(t.a),b=tryExact(t.b,{});if(!a||!b||b.isZero())return null;return a.map(q=>q.div(b));}
+      case 'pct':{const a=go(t.a);return a&&a.map(q=>q.div(new Q(100n)));}
+      case 'pow':{if(hasVar(t.b,v))return null;const k=tryExact(t.b,{});if(!k||!k.isInt()||k.n<ZERO||k.n>BigInt(MAXDEG))return null;let base=go(t.a);if(!base)return null;let out=[Q.one];for(let j=0n;j<k.n;j++){out=mul(out,base);if(!out)return null;}return out;}
+    }
+    return null;
+  }
+  return go(ast);
+}
+function polyEval(p,x){let r=Q.zero;for(let i=p.length-1;i>=0;i--)r=r.mul(x).add(p[i]);return r;}
+function polyTex(p,v='x'){
+  let s='';
+  for(let i=p.length-1;i>=0;i--){
+    const c=p[i];if(c.isZero())continue;
+    const neg=c.sign()<0,a=c.abs(),one=a.eq(Q.one)&&i>0;
+    const coef=one?'':a.tex();const pow=i===0?'':i===1?v:v+'^{'+i+'}';
+    s+=(s?(neg?' - ':' + '):(neg?'-':''))+coef+pow;
+  }
+  return s||'0';
+}
+function lcmBig(a,b){return a/bgcd(a,b)*b;}
+function smallFactors(n){
+  n=babs(n);const f=new Map();if(n<2n)return {f,rest:n};
+  for(const p of [2n,3n,5n]){while(n%p===ZERO){f.set(p,(f.get(p)||0)+1);n/=p;}}
+  for(let p=7n,step=0,inc=[4n,2n,4n,2n,4n,6n,2n,6n];p*p<=n&&p<1000000n;p+=inc[step++%8]){while(n%p===ZERO){f.set(p,(f.get(p)||0)+1);n/=p;}}
+  return {f,rest:n};
+}
+// n = k² m (m은 제곱 인수가 없는 양의 정수)
+function squareSplit(n){
+  const {f,rest}=smallFactors(n);let k=ONE,m=ONE;
+  for(const [p,e] of f){k*=p**BigInt(Math.floor(e/2));if(e%2)m*=p;}
+  if(rest>ONE){const r=isqrt(rest);if(r*r===rest)k*=r;else m*=rest;}
+  return {k,m};
+}
+function divisors(n){
+  n=babs(n);if(n===ZERO)return [];if(n>10n**12n)return null;
+  const {f,rest}=smallFactors(n);if(rest>ONE)f.set(rest,1);
+  let list=[ONE];for(const [p,e] of f){const next=[];for(const d of list){let x=d;for(let i=0;i<=e;i++){next.push(x);x*=p;}}list=next;if(list.length>4000)return null;}
+  return list;
+}
+// r + s√m (m<0이면 허수)
+function surdTex(r,s,m,sign='\\pm'){
+  const im=m<ZERO,mm=babs(m);
+  const L=lcmBig(r.d,s.d);let A=r.n*(L/r.d),B=babs(s.n)*(L/s.d),D=L;
+  const g=bgcd(bgcd(A,B),D);if(g>ONE){A/=g;B/=g;D/=g;}
+  const rad=(mm===ONE?'':'\\sqrt{'+mm+'}')+(im?'\\,i':'');
+  const bpart=(B===ONE&&rad?'':String(B))+rad;
+  const top=(A===ZERO?(sign==='\\pm'?'\\pm ':sign==='-'?'-':'')+bpart:A+' '+sign+' '+bpart).replace('+ -','- ');
+  return D===ONE?top:'\\frac{'+top+'}{'+D+'}';
+}
+function numericRoots(coeffs){
+  // Durand–Kerner, 계수는 실수 배열(오름차순)
+  const n=coeffs.length-1,a=coeffs.map(c=>c/coeffs[n]);
+  let z=Array.from({length:n},(_,k)=>{const ang=2*Math.PI*k/n+.4,r=1+Math.max(...a.slice(0,n).map(Math.abs));return [r*Math.cos(ang)*.9,r*Math.sin(ang)*.9];});
+  const mulc=(p,q)=>[p[0]*q[0]-p[1]*q[1],p[0]*q[1]+p[1]*q[0]];
+  const divc=(p,q)=>{const d=q[0]*q[0]+q[1]*q[1];return [(p[0]*q[0]+p[1]*q[1])/d,(p[1]*q[0]-p[0]*q[1])/d];};
+  const evalc=x=>{let r=[1,0];for(let i=n-1;i>=0;i--){r=mulc(r,x);r[0]+=a[i];}return r;};
+  for(let it=0;it<2000;it++){
+    let delta=0;
+    z=z.map((zi,i)=>{let den=[1,0];z.forEach((zj,j)=>{if(i!==j)den=mulc(den,[zi[0]-zj[0],zi[1]-zj[1]]);});const step=divc(evalc(zi),den);delta=Math.max(delta,Math.hypot(...step));return [zi[0]-step[0],zi[1]-step[1]];});
+    if(delta<1e-15)break;
+  }
+  return z.map(([re,im])=>{const s=Math.max(1,Math.hypot(re,im));return Math.abs(im)<1e-8*s?{re,im:0}:{re,im};});
+}
+function factorTex(lead,roots){
+  // lead·Π(x−r)^m, 분수 근은 (qx−p)로 정리
+  let c=lead,parts=[];
+  for(const {q,m} of roots){
+    let inner;
+    if(q.isZero())inner='x';
+    else if(q.isInt())inner='x '+(q.sign()>0?'- '+q.n:'+ '+(-q.n));
+    else{inner=q.d+'x '+(q.sign()>0?'- '+q.n:'+ '+(-q.n));c=c.div(new Q(q.d).pow(m));}
+    parts.push((inner==='x'?'x':'('+inner+')')+(m>1?'^{'+m+'}':''));
+  }
+  const cs=c.eq(Q.one)?'':c.eq(Q.one.neg())?'-':c.isInt()?c.tex():c.tex();
+  return cs+parts.join('');
+}
+function solvePoly(p){
+  const deg=p.length-1,lead=p[deg];
+  const result={degree:deg,exact:[],surd:null,numeric:[],lines:[],latex:[],factored:null};
+  if(deg===0){result.kind=p[0].isZero()?'identity':'none';return result;}
+  // 정수 계수로
+  let L=ONE;for(const c of p)L=lcmBig(L,c.d);
+  let ints=p.map(c=>c.n*(L/c.d));let g=ZERO;for(const c of ints)g=bgcd(g,c);ints=ints.map(c=>c/g);
+  let work=ints.slice(),found=[];
+  const push=(q)=>{const last=found.find(f=>f.q.eq(q));if(last)last.m++;else found.push({q,m:1});};
+  while(work.length>1&&work[0]===ZERO){push(Q.zero);work.shift();}
+  const qdiv=(arr,q)=>{ // 정수 계수 다항식을 (qd x − qn)으로 나누기, 나머지 0일 때 정수 계수 결과
+    const n=arr.length-1,out=Array(n).fill(ZERO);let carry=ZERO;
+    // 합성나눗셈을 분수로 수행
+    let qs=arr.map(c=>new Q(c));let rem=Q.zero,res=[];
+    for(let i=n;i>=0;i--){rem=rem.mul(q).add(qs[i]);if(i>0)res.unshift(rem);}
+    if(!rem.isZero())return null;
+    let LL=ONE;for(const c of res)LL=lcmBig(LL,c.d);let r=res.map(c=>c.n*(LL/c.d)),gg=ZERO;for(const c of r)gg=bgcd(gg,c);return r.map(c=>c/(gg||ONE));
+  };
+  let searching=true,guard=0;
+  while(searching&&work.length>3&&guard++<80){
+    searching=false;
+    const ps=divisors(work[0]),qs=divisors(work[work.length-1]);
+    if(!ps||!qs)break;
+    outer:for(const pp of ps)for(const qq of qs)for(const s of [ONE,-ONE]){
+      const cand=new Q(s*pp,qq),next=qdiv(work,cand);
+      if(next){push(cand);work=next;searching=true;break outer;}
+    }
+  }
+  if(work.length===2){push(new Q(-work[0],work[1]));work=[ONE];}
+  if(work.length===3){
+    const [c,b,a]=work.map(v=>new Q(v));const D=b.mul(b).sub(new Q(4n).mul(a).mul(c));
+    result.discriminant=D;
+    if(D.isZero()){const r=b.neg().div(a.mul(new Q(2n)));push(r);push(r);}
+    else{
+      const N=D.n*D.d,{k,m}=squareSplit(N);const r=b.neg().div(a.mul(new Q(2n))),s=new Q(k).div(new Q(D.d).mul(a.mul(new Q(2n)))).abs();
+      if(m===ONE&&D.sign()>0){push(r.add(s));push(r.sub(s));}
+      else result.surd={r,s,m:D.sign()<0?-m:m};
+    }
+    work=[ONE];
+  }
+  found.sort((x,y)=>x.q.cmp(y.q));
+  result.exact=found;
+  if(work.length>1){
+    const re=numericRoots(work.map(c=>Number(c)));result.numeric=re.sort((x,y)=>x.im-y.im||x.re-y.re);
+  }
+  if(!result.surd&&!result.numeric.length)result.factored=factorTex(lead,found);
+  else if(result.surd&&found.length===0&&deg===2)result.factored=null;
+  result.kind='poly';
+  return result;
+}
+// 수치해: 구간을 나누어 부호가 바뀌는 곳과 0에 닿는 곳을 찾습니다.
+function numericSolve(fn,lo,hi){
+  const N=6000,xs=[],ys=[];
+  for(let i=0;i<=N;i++){const x=lo+(hi-lo)*i/N;xs.push(x);let y;try{y=fn(x);}catch{y=NaN;}ys.push(Number.isFinite(y)?y:NaN);}
+  const finite=ys.filter(Number.isFinite),scale=Math.max(1,...finite.map(Math.abs).slice(0,5000));
+  const roots=[];
+  const refine=(a,b,fa)=>{for(let k=0;k<200;k++){const m=(a+b)/2,fm=fn(m);if(!Number.isFinite(fm))return null;if(fm===0)return m;if((fm<0)===(fa<0)){a=m;fa=fm;}else b=m;}return (a+b)/2;};
+  const add=r=>{if(r===null||!Number.isFinite(r))return;const v=fn(r);if(!Number.isFinite(v)||Math.abs(v)>1e-7*Math.max(1,Math.abs(r)))return;if(!roots.some(x=>Math.abs(x-r)<1e-7*Math.max(1,Math.abs(r))))roots.push(r);};
+  for(let i=0;i<N;i++){
+    const a=ys[i],b=ys[i+1];if(!Number.isFinite(a)||!Number.isFinite(b))continue;
+    if(a===0){add(xs[i]);continue;}
+    if((a<0)!==(b<0)&&b!==0){
+      // 불연속(점근선) 제외: 중간값이 두 끝값 사이에 있어야 함
+      const m=fn((xs[i]+xs[i+1])/2);if(!Number.isFinite(m)||Math.abs(m)>Math.max(Math.abs(a),Math.abs(b))*4+1e-12)continue;
+      add(refine(xs[i],xs[i+1],a));
+    }else if(i>0&&Number.isFinite(ys[i-1])&&Math.abs(a)<=Math.abs(ys[i-1])&&Math.abs(a)<=Math.abs(b)&&Math.abs(a)<1e-3*scale){
+      // 접하는 근: |f|의 극소 근처에서 황금분할 탐색
+      let l=xs[i-1],r=xs[i+1];for(let k=0;k<200;k++){const m1=l+(r-l)*.382,m2=l+(r-l)*.618;if(Math.abs(fn(m1))<Math.abs(fn(m2)))r=m2;else l=m1;}
+      add((l+r)/2);
+    }
+  }
+  if(Number.isFinite(ys[N])&&ys[N]===0)add(xs[N]);
+  return roots.sort((a,b)=>a-b);
+}
+// 일차식 계수 {'':상수, x:..., y:...}
+function linearOf(ast,vars){
+  const zero=()=>Object.fromEntries(['',...vars].map(k=>[k,Q.zero]));
+  const isConst=f=>vars.every(k=>f[k].isZero());
+  function go(t){
+    if(!hasVar(t)){const q=tryExact(t,{});if(!q)throw Error('연립방정식의 계수는 분수·소수로 입력하세요.');const f=zero();f['']=q;return f;}
+    switch(t.k){
+      case 'var':{const f=zero();f[t.n]=Q.one;return f;}
+      case 'neg':{const a=go(t.a);for(const k in a)a[k]=a[k].neg();return a;}
+      case 'add':case 'sub':{const a=go(t.a),b=go(t.b);for(const k in a)a[k]=t.k==='add'?a[k].add(b[k]):a[k].sub(b[k]);return a;}
+      case 'mul':{const a=go(t.a),b=go(t.b);if(isConst(a)){for(const k in b)b[k]=b[k].mul(a['']);return b;}if(isConst(b)){for(const k in a)a[k]=a[k].mul(b['']);return a;}break;}
+      case 'div':{const a=go(t.a),b=go(t.b);if(isConst(b)){for(const k in a)a[k]=a[k].div(b['']);return a;}break;}
+      case 'pct':{const a=go(t.a);for(const k in a)a[k]=a[k].div(new Q(100n));return a;}
+      case 'pow':{const k=tryExact(t.b,{});if(k&&k.eq(Q.one))return go(t.a);break;}
+    }
+    throw Error('일차식이 아닌 항이 있습니다. 연립일차방정식만 풀 수 있습니다.');
+  }
+  return go(ast);
+}
+function solveLinear(rows,vars){
+  // rows: [{coef:{x,y,..}, rhs:Q}]
+  const m=rows.map(r=>[...vars.map(v=>r[v]),r.rhs]),n=vars.length;let rank=0;const pivots=[];
+  for(let c=0;c<n&&rank<m.length;c++){
+    let p=m.findIndex((row,i)=>i>=rank&&!row[c].isZero());if(p<0)continue;
+    [m[rank],m[p]]=[m[p],m[rank]];const pv=m[rank][c];m[rank]=m[rank].map(v=>v.div(pv));
+    for(let i=0;i<m.length;i++)if(i!==rank&&!m[i][c].isZero()){const f=m[i][c];m[i]=m[i].map((v,j)=>v.sub(f.mul(m[rank][j])));}
+    pivots.push(c);rank++;
+  }
+  if(m.some((row,i)=>i>=rank&&!row[n].isZero()))return {kind:'none'};
+  if(rank<n)return {kind:'many',rank};
+  return {kind:'unique',values:Object.fromEntries(vars.map((v,i)=>[v,m[i][n]]))};
+}
+
+
+// ---------------- 미분·적분 규칙 (결과는 계산 엔진에서 수치 검산 후 사용) ----------------
+const N=q=>({k:'num',q:q instanceof Q?q:Q.of(q)});
+const isNum=(t,v)=>t.k==='num'&&(v===undefined||t.q.eq(Q.of(v)));
+function S(t){ // 가벼운 정리
+  const a=t.a&&S(t.a),b=t.b&&S(t.b);t={...t};if(a)t.a=a;if(b)t.b=b;
+  const both=a&&b&&a.k==='num'&&b.k==='num';
+  switch(t.k){
+    case 'neg':if(a.k==='num')return N(a.q.neg());if(a.k==='neg')return a.a;break;
+    case 'add':if(isNum(a,0))return b;if(isNum(b,0))return a;if(both)return N(a.q.add(b.q));if(b.k==='neg')return S({k:'sub',a,b:b.a});break;
+    case 'sub':if(isNum(b,0))return a;if(isNum(a,0))return S({k:'neg',a:b});if(both)return N(a.q.sub(b.q));break;
+    case 'mul':if(isNum(a,0)||isNum(b,0))return N(0);if(isNum(a,1))return b;if(isNum(b,1))return a;if(both)return N(a.q.mul(b.q));
+      if(isNum(a,-1))return S({k:'neg',a:b});if(b.k==='num'&&a.k!=='num')return {k:'mul',a:b,b:a};break;
+    case 'div':if(isNum(a,0))return N(0);if(isNum(b,1))return a;if(both&&!b.q.isZero())return N(a.q.div(b.q));break;
+    case 'pow':if(isNum(b,0))return N(1);if(isNum(b,1))return a;if(both&&b.q.isInt()&&Math.abs(Number(b.q.n))<64)return N(a.q.pow(b.q.n));break;
+  }
+  return t;
+}
+const mk=(k,a,b)=>b===undefined?{k,a}:{k,a,b};
+const fn=(f,a)=>({k:'fn',f,a});
+function derive(t,v='x'){
+  const D=u=>derive(u,v);
+  if(!hasVar(t,v))return N(0);
+  switch(t.k){
+    case 'var':return N(1);
+    case 'neg':return mk('neg',D(t.a));
+    case 'add':case 'sub':return mk(t.k,D(t.a),D(t.b));
+    case 'mul':if(!hasVar(t.a,v))return mk('mul',t.a,D(t.b));if(!hasVar(t.b,v))return mk('mul',D(t.a),t.b);
+      return mk('add',mk('mul',D(t.a),t.b),mk('mul',t.a,D(t.b)));
+    case 'div':if(!hasVar(t.b,v))return mk('div',D(t.a),t.b);
+      return mk('div',mk('sub',mk('mul',D(t.a),t.b),mk('mul',t.a,D(t.b))),mk('pow',t.b,N(2)));
+    case 'pct':return mk('div',D(t.a),N(100));
+    case 'pow':
+      if(!hasVar(t.b,v))return mk('mul',mk('mul',t.b,mk('pow',t.a,mk('sub',t.b,N(1)))),D(t.a));
+      if(!hasVar(t.a,v))return mk('mul',mk('mul',t,fn('ln',t.a)),D(t.b));
+      return mk('mul',t,mk('add',mk('mul',D(t.b),fn('ln',t.a)),mk('div',mk('mul',t.b,D(t.a)),t.a)));
+    case 'fn':{
+      const u=t.a,du=D(u);let o;
+      switch(t.f){
+        case 'sin':o=fn('cos',u);break;case 'cos':o=mk('neg',fn('sin',u));break;
+        case 'tan':o=mk('div',N(1),mk('pow',fn('cos',u),N(2)));break;
+        case 'asin':case 'arcsin':o=mk('div',N(1),fn('sqrt',mk('sub',N(1),mk('pow',u,N(2)))));break;
+        case 'acos':case 'arccos':o=mk('neg',mk('div',N(1),fn('sqrt',mk('sub',N(1),mk('pow',u,N(2))))));break;
+        case 'atan':case 'arctan':o=mk('div',N(1),mk('add',N(1),mk('pow',u,N(2))));break;
+        case 'sinh':o=fn('cosh',u);break;case 'cosh':o=fn('sinh',u);break;
+        case 'tanh':o=mk('div',N(1),mk('pow',fn('cosh',u),N(2)));break;
+        case 'log':o=mk('div',N(1),mk('mul',u,fn('ln',N(10))));break;
+        case 'ln':o=mk('div',N(1),u);break;
+        case 'sqrt':o=mk('div',N(1),mk('mul',N(2),fn('sqrt',u)));break;
+        case 'abs':o=mk('div',u,fn('abs',u));break;
+        case 'exp':o=fn('exp',u);break;
+      }
+      return mk('mul',o,du);
+    }
+  }
+  throw Error('이 식은 미분할 수 없습니다.');
+}
+function linear(t,v){const p=polyOf(t,v);return p&&p.length===2&&!p[1].isZero()?p:null;}
+function integrate(t,v='x'){
+  const X={k:'var',n:v};
+  if(!hasVar(t,v))return mk('mul',t,X);
+  const poly=polyOf(t,v);
+  if(poly){let out=N(0);poly.forEach((c,k)=>{if(!c.isZero())out=mk('add',out,mk('mul',N(c.div(Q.of(k+1))),mk('pow',X,N(k+1))));});return out;}
+  const I=u=>integrate(u,v);
+  switch(t.k){
+    case 'neg':{const a=I(t.a);return a&&mk('neg',a);}
+    case 'add':case 'sub':{const a=I(t.a),b=I(t.b);return a&&b&&mk(t.k,a,b);}
+    case 'pct':{const a=I(t.a);return a&&mk('div',a,N(100));}
+    case 'mul':{
+      if(!hasVar(t.a,v)){const b=I(t.b);return b&&mk('mul',t.a,b);}
+      if(!hasVar(t.b,v)){const a=I(t.a);return a&&mk('mul',a,t.b);}
+      for(const [p,g] of [[t.a,t.b],[t.b,t.a]]){const r=byParts(p,g,v);if(r)return r;}
+      return null;
+    }
+    case 'div':{
+      if(!hasVar(t.b,v)){const a=I(t.a);return a&&mk('div',a,t.b);}
+      if(hasVar(t.a,v))return null;
+      const c=t.a,lin=linear(t.b,v);
+      if(lin)return mk('div',mk('mul',c,fn('ln',fn('abs',t.b))),N(lin[1]));
+      if(t.b.k==='pow'&&!hasVar(t.b.b,v)){const l=linear(t.b.a,v);if(l)return I(mk('mul',c,mk('pow',t.b.a,mk('neg',t.b.b))));}
+      if(t.b.k==='fn'&&t.b.f==='sqrt'){const l=linear(t.b.a,v);if(l)return I(mk('mul',c,mk('pow',t.b.a,N(new Q(-1n,2n)))));}
+      const q=polyOf(t.b,v);
+      if(q&&q.length===3&&q[1].isZero()&&q[0].sign()>0&&q[2].sign()>0){
+        // c/(p x² + r) = c/√(pr) · arctan(√(p/r) x)
+        const pr=fn('sqrt',N(q[0].mul(q[2]))),k=fn('sqrt',N(q[2].div(q[0])));
+        return mk('mul',mk('div',c,pr),fn('atan',mk('mul',k,X)));
+      }
+      return null;
+    }
+    case 'pow':{
+      if(!hasVar(t.b,v)){
+        const l=linear(t.a,v);if(!l)return null;const n=tryExact(t.b,{});
+        if(n&&n.eq(Q.one.neg()))return mk('div',fn('ln',fn('abs',t.a)),N(l[1]));
+        const n1=mk('add',t.b,N(1));return mk('div',mk('pow',t.a,n1),mk('mul',n1,N(l[1])));
+      }
+      if(!hasVar(t.a,v)){const l=linear(t.b,v);if(!l)return null;
+        if(t.a.k==='e')return mk('div',t,N(l[1]));
+        return mk('div',t,mk('mul',fn('ln',t.a),N(l[1])));}
+      return null;
+    }
+    case 'fn':{
+      const u=t.a,l=linear(u,v);if(!l)return null;const a=N(l[1]);
+      switch(t.f){
+        case 'sin':return mk('div',mk('neg',fn('cos',u)),a);
+        case 'cos':return mk('div',fn('sin',u),a);
+        case 'tan':return mk('div',mk('neg',fn('ln',fn('abs',fn('cos',u)))),a);
+        case 'exp':return mk('div',fn('exp',u),a);
+        case 'sinh':return mk('div',fn('cosh',u),a);
+        case 'cosh':return mk('div',fn('sinh',u),a);
+        case 'sqrt':return mk('div',mk('mul',N(new Q(2n,3n)),mk('pow',u,N(new Q(3n,2n)))),a);
+        case 'ln':return mk('div',mk('sub',mk('mul',u,fn('ln',u)),u),a);
+        case 'log':return mk('div',mk('sub',mk('mul',u,fn('ln',u)),u),mk('mul',a,fn('ln',N(10))));
+      }
+      return null;
+    }
+  }
+  return null;
+}
+// 다항식 × sin·cos·exp(일차식): 부분적분을 표로 반복
+function byParts(p,g,v){
+  const P=polyOf(p,v);if(!P||P.length>8)return null;
+  let kind=null,u=null;
+  if(g.k==='fn'&&['sin','cos','exp'].includes(g.f)){kind=g.f;u=g.a;}
+  else if(g.k==='pow'&&g.a.k==='e'){kind='exp';u=g.b;}
+  if(!kind)return null;const l=linear(u,v);if(!l)return null;const a=l[1];
+  const anti=k=>{ // g의 k번째 원시함수
+    const c=N(Q.one.div(a.pow(k)));
+    if(kind==='exp')return mk('mul',c,fn('exp',u));
+    const cyc=kind==='sin'?[['cos',-1],['sin',-1],['cos',1],['sin',1]]:[['sin',1],['cos',-1],['sin',-1],['cos',1]];
+    const [f,s]=cyc[(k-1)%4];const term=mk('mul',c,fn(f,u));return s<0?mk('neg',term):term;
+  };
+  let out=N(0),deriv=P.slice(),sign=1;
+  for(let k=1;deriv.length&&!(deriv.length===1&&deriv[0].isZero());k++){
+    let pt=N(0);deriv.forEach((c,i)=>{if(!c.isZero())pt=mk('add',pt,mk('mul',N(c),mk('pow',{k:'var',n:v},N(i))));});
+    const term=mk('mul',pt,anti(k));out=sign>0?mk('add',out,term):mk('sub',out,term);sign=-sign;
+    deriv=deriv.slice(1).map((c,i)=>c.mul(Q.of(i+1)));
+    if(k>10)break;
+  }
+  return out;
+}
+// ---------------- 통계 ----------------
+function parseData(text){
+  const parts=String(text).replace(/[−–]/g,'-').split(/[\s,;，]+/).filter(Boolean);
+  if(!parts.length)throw Error('자료를 입력하세요. 쉼표·공백·줄바꿈으로 구분합니다.');
+  if(parts.length>10000)throw Error('자료는 10000개까지 계산합니다.');
+  return parts.map(p=>{try{return parseDecimal(p);}catch{throw Error('수가 아닌 값이 있습니다: '+p);}});
+}
+function quantile(sorted,p,method){
+  const n=sorted.length;
+  if(method==='inc'){const h=new Q(BigInt(n-1)).mul(new Q(BigInt(Math.round(p*4)),4n)),lo=Number(h.n/h.d),t=h.sub(new Q(BigInt(lo)));const a=sorted[lo],b=sorted[Math.min(n-1,lo+1)];return a.add(b.sub(a).mul(t));}
+  const median=arr=>{const k=arr.length;if(!k)return null;return k%2?arr[(k-1)/2]:arr[k/2-1].add(arr[k/2]).div(new Q(2n));};
+  if(p===.5)return median(sorted);
+  if(n<2)return sorted[0];
+  const half=Math.floor(n/2),lower=sorted.slice(0,half),upper=sorted.slice(n%2?half+1:half);
+  return median(p<.5?lower:upper);
+}
+function stats(values,{sample=false,method='tukey'}={}){
+  const n=values.length,sorted=[...values].sort((a,b)=>a.cmp(b));
+  let sum=Q.zero;for(const v of values)sum=sum.add(v);
+  const mean=sum.div(new Q(BigInt(n)));
+  let ss=Q.zero;for(const v of values){const d=v.sub(mean);ss=ss.add(d.mul(d));}
+  const denom=sample?n-1:n,variance=denom>0?ss.div(new Q(BigInt(denom))):null;
+  const freq=new Map();for(const v of sorted){const k=v.toString();freq.set(k,{v,c:(freq.get(k)?.c||0)+1});}
+  const maxc=Math.max(...[...freq.values()].map(f=>f.c));
+  const modes=maxc===1&&freq.size>1||freq.size>1&&[...freq.values()].every(f=>f.c===maxc)?[]:[...freq.values()].filter(f=>f.c===maxc).map(f=>f.v);
+  const q1=quantile(sorted,.25,method),med=quantile(sorted,.5,method),q3=quantile(sorted,.75,method);
+  let sd=null,sdExact=null;
+  if(variance){const r=isqrt(variance.n),s=isqrt(variance.d);if(r*r===variance.n&&s*s===variance.d)sdExact=new Q(r,s);sd=Math.sqrt(variance.toNumber());}
+  return {n,sorted,sum,mean,median:med,modes,modeCount:maxc,min:sorted[0],max:sorted[n-1],range:sorted[n-1].sub(sorted[0]),q1,q3,iqr:q3.sub(q1),variance,sd,sdExact,sample};
+}
+
+// ---------------- 수열 ----------------
+const LIMIT_BITS=4096;
+function sequence({type,expr,a1,d,start=1,count=10,defs=[],unit='RAD'}){
+  if(!Number.isInteger(count)||count<1||count>200)throw Error('항의 개수는 1~200 사이의 정수로 입력하세요.');
+  if(!Number.isInteger(start)||Math.abs(start)>1e6)throw Error('시작 번호를 확인하세요.');
+  const terms=[];
+  const value=(ast,env,numEnv)=>{let q=null;try{q=tryExact(ast,env);}catch(e){if(!/너무|정의|0으로|팩토리얼/.test(e.message))throw e;if(/0으로|정의/.test(e.message))return {num:NaN};}
+    if(q&&q.bits()<=LIMIT_BITS)return {q,num:q.toNumber()};return {num:evalNum(ast,numEnv,unit)};};
+  if(type==='general'){
+    const ast=parse(expr,{vars:['n'],defs});
+    for(let k=0;k<count;k++){const n=start+k;terms.push({n,...value(ast,{n:new Q(BigInt(n))},{n})});}
+  }else if(type==='arith'||type==='geo'){
+    const A=parse(a1,{vars:[],defs}),D=parse(d,{vars:[],defs});
+    const a=value(A,{},{}),r=value(D,{},{});
+    for(let k=0;k<count;k++){
+      let t;
+      if(a.q&&r.q){
+        const q=type==='arith'?a.q.add(r.q.mul(new Q(BigInt(k)))):(k&&r.q.isZero()?Q.zero:a.q.mul(r.q.pow(k)));
+        t=q.bits()<=LIMIT_BITS?{q,num:q.toNumber()}:{num:q.toNumber()};
+      }else t={num:type==='arith'?a.num+r.num*k:a.num*Math.pow(r.num,k)};
+      terms.push({n:start+k,...t});
+    }
+  }else if(type==='recur'){
+    const A=parse(a1,{vars:[],defs}),F=parse(expr,{vars:['a','n'],defs});
+    let cur=value(A,{},{});
+    for(let k=0;k<count;k++){
+      const n=start+k;terms.push({n,...cur});
+      if(k===count-1)break;
+      cur=cur.q?value(F,{a:cur.q,n:new Q(BigInt(n))},{a:cur.num,n}):{num:evalNum(F,{a:cur.num,n},unit)};
+    }
+  }else throw Error('수열 종류를 고르세요.');
+  let sq=Q.zero,exact=true,sn=0;
+  for(const t of terms){
+    if(exact&&t.q){sq=sq.add(t.q);if(sq.bits()>LIMIT_BITS)exact=false;}else exact=false;
+    sn+=t.num;t.S=exact?{q:sq,num:sq.toNumber()}:{num:sn};
+  }
+  return terms;
+}
+
+return {derive:(t,v)=>S(derive(t,v)),integrate:(t,v)=>{const r=integrate(t,v);return r&&S(r);},simplify:S,Q,parseDecimal,fmtNum,fmtQ,parse,evalNum,evalExact,tryExact,hasVar,hasTrig,toJson,toGraph,fromJson,polyOf,polyEval,polyTex,solvePoly,surdTex,numericSolve,linearOf,solveLinear,parseData,stats,sequence,squareSplit};
+})();
+
+// v1.40 계산기 확장: 내 함수 그래프·미분·적분·함숫값 표, 통계, 방정식, 수열, 크게 보기
+window.calcTools140=(()=>{
+'use strict';
+const A=window.CalcAlg140,{Q}=A;
+const el=id=>document.getElementById(id);
+const studentView=()=>document.body.classList.contains('student');
+const cleanTex=t=>String(t||'').replace(/\\exponentialE/g,'e').replace(/\\imaginaryI/g,'i').replace(/\\operatorname\{([a-z]+)\}/g,'\\$1');
+let renderSeq=0;
+// 수식 그림 한 줄. 그림을 만들지 못하면 글자로 남깁니다.
+function texLine(target,latex,size=24,label=''){
+  const row=document.createElement('div');row.className='calc-tex-line';
+  if(label){const s=document.createElement('span');s.className='calc-tex-label';s.textContent=label;row.append(s);}
+  const box=document.createElement('div');box.className='calc-formula';row.append(box);target.append(row);
+  const seq=renderSeq;mathGraphic(box,cleanTex(latex),size,()=>seq===renderSeq&&box.isConnected);
+  return row;
+}
+function note(target,text,cls='calc-approx'){const d=document.createElement('div');d.className=cls;d.textContent=text;target.append(d);return d;}
+function errorBox(target,error){target.replaceChildren();const d=note(target,'Error · '+String(error?.message||error),'calc-error');d.dataset.error='true';return d;}
+function defs(){return sciDefinitions.map(d=>({...d}));}
+function exactOrNumber(text,label){
+  const t=String(text??'').trim();if(!t)return null;
+  const ast=A.parse(t,{vars:[],defs:defs()});const q=A.tryExact(ast,{});const v=q?q.toNumber():A.evalNum(ast,{},'RAD');
+  if(!Number.isFinite(v))throw Error(label+' 값을 확인하세요.');
+  return {ast,q,v,text:t};
+}
+function texOfInput(x){if(!x)return '';if(x.q)return x.q.tex();return cleanTex(x.text.replace(/pi/g,'\\pi ').replace(/\*/g,'\\cdot '));}
+
+// ---------------- 공학용: 내 함수 도구 ----------------
+let tool=null,toolSeq=0,toolGraphExpr='';
+function refresh(){
+  const box=el('sciFnTools'),pick=el('sciToolFn');if(!box)return;
+  const names=sciDefinitions.map(d=>d.name),keep=pick.value;
+  pick.replaceChildren(...sciDefinitions.map(d=>{const o=document.createElement('option');o.value=d.name;o.textContent=d.name+'('+d.param+') = '+d.body;return o;}));
+  pick.value=names.includes(keep)?keep:names[0]||'';
+  box.hidden=!names.length;
+  if(!names.length)closeTool();
+}
+function current(){
+  const name=el('sciToolFn').value,d=sciDefinitions.find(v=>v.name===name);
+  if(!d)throw Error('먼저 f(x)=x+3처럼 함수를 등록하세요.');
+  return {d,label:d.name+'('+d.param+')',ast:A.parse(d.name+'(x)',{defs:defs(),ans})};
+}
+function closeTool(){tool=null;toolSeq++;const p=el('sciToolPanel');if(p)p.hidden=true;}
+function openTool(kind){
+  tool=kind;toolSeq++;renderSeq++;const p=el('sciToolPanel');p.hidden=false;
+  for(const o of p.querySelectorAll('[data-tool-opts]'))o.hidden=o.dataset.toolOpts!==kind;
+  el('sciToolGraph').hidden=true;el('sciTable').replaceChildren();el('sciToolResult').replaceChildren();el('sciToolStatus').textContent='';
+}
+function sendGraph(expr,label){
+  if(typeof addFunction!=='function')throw Error('그래프 도구를 찾지 못했습니다.');
+  const known=functions.find(f=>f.expr===expr);
+  if(known){known.show=true;renderFunctions();save();}
+  else addFunction(expr);
+  selectTab('graph');requestAnimationFrame(()=>drawGraph());
+  toast((label?label+' · ':'')+'그래프에 y = '+expr+(known?' (이미 있음)':' 추가'));
+  calcLog('[그래프] y = '+expr);
+}
+function graphCurrent(){
+  const {d,label,ast}=current();
+  const expr=A.toGraph(ast,angle);
+  if(angle==='DEG'&&A.hasTrig(ast))toast('DEG 함수는 그래프에서 x를 도(°)로 바꿔 그립니다.');
+  sendGraph(expr,label);
+}
+async function calculus(kind){
+  openTool(kind);
+  const {d,label,ast}=current(),out=el('sciToolResult'),status=el('sciToolStatus'),seq=toolSeq;
+  const name=d.name,order=Number(el('sciDiffOrder').value)===2?2:1,prime=order===2?"''":"'";
+  el('sciToolTitle').textContent=kind==='diff'?label+' 미분':label+' 적분';
+  try{
+    if(angle==='DEG'&&A.hasTrig(ast))throw Error('삼각함수가 들어 있는 함수는 RAD(라디안)로 바꾼 뒤 미분·적분하세요.');
+    const json=A.toJson(ast);let cands=[];
+    try{cands=[kind==='diff'?A.derive(order===2?A.derive(ast):ast):A.integrate(ast)].filter(Boolean).map(A.toJson);}catch{}
+    const at=kind==='diff'?exactOrNumber(el('sciDiffAt').value,'미분계수의 x'):null;
+    const lo=kind==='int'?exactOrNumber(el('sciIntLo').value,'아래끝'):null,hi=kind==='int'?exactOrNumber(el('sciIntHi').value,'위끝'):null;
+    if(kind==='int'&&(!!lo!==!!hi))throw Error('정적분은 아래끝과 위끝을 모두 입력하세요. 둘 다 비우면 부정적분을 구합니다.');
+    status.textContent='계산 중…';
+    const r=await calcKernels.run('latex',{task:'calculus140',json,cands,mode:kind,order,at:at?A.toJson(at.ast):null,lo:lo?A.toJson(lo.ast):null,hi:hi?A.toJson(hi.ast):null},s=>{if(seq===toolSeq)status.textContent=s;});
+    if(seq!==toolSeq)return;
+    if(r.error)throw Error(r.error);
+    const data=JSON.parse(r.data||'{}');out.replaceChildren();status.textContent='RAD';
+    texLine(out,name+'(x) = '+texOf(ast),22,'함수');
+    if(kind==='diff'){
+      texLine(out,name+prime+'(x) = '+data.latex,26,order===2?'이계도함수':'도함수');
+      if(data.at){texLine(out,name+prime+'\\left('+texOfInput(at)+'\\right) = '+data.at.latex,26,'미분계수');if(data.at.approx)note(out,'근삿값 ≈ '+data.at.approx);}
+      calcLog('[미분] '+name+prime+'(x) = '+(data.text||'').slice(0,160)+(data.at?'  ('+name+prime+'('+at.text+'))':''));
+    }else{
+      if(data.latex)texLine(out,'\\int '+name+'(x)\\,dx = '+data.latex+' + C',26,'부정적분');
+      else note(out,'부정적분 식은 구하지 못해 정적분 값만 수치로 구했습니다.');
+      if(data.definite){
+        texLine(out,'\\int_{'+texOfInput(lo)+'}^{'+texOfInput(hi)+'} '+name+'(x)\\,dx = '+data.definite.latex,26,'정적분');
+        if(data.definite.approx)note(out,(data.definite.exact?'근삿값 ≈ ':'수치적분 ≈ ')+data.definite.approx);
+      }
+      if(data.latex)note(out,'C는 적분상수입니다. 미분하면 원래 함수가 되는지 수치로 검산했습니다.');
+      calcLog('[적분] ∫'+name+'(x)dx = '+(data.text?data.text.slice(0,140)+' + C':'')+(data.definite?'  ['+lo.text+', '+hi.text+'] → '+(data.definite.approx||data.definite.latex):''));
+    }
+    toolGraphExpr='';
+    if(data.json){try{toolGraphExpr=A.toGraph(A.fromJson(data.json),'RAD');compile(toolGraphExpr);}catch{toolGraphExpr='';}}
+    const g=el('sciToolGraph');g.hidden=!toolGraphExpr;g.textContent=kind==='diff'?'📈 '+name+prime+'(x) 그래프에 그리기':'📈 원시함수 (C = 0) 그래프에 그리기';
+  }catch(error){if(seq===toolSeq){errorBox(out,error);status.textContent='입력 확인';}}
+}
+function texOf(ast){ // 입력식을 보기 좋은 LaTeX로
+  const P={add:1,sub:1,mul:2,div:2,neg:3,pow:4};
+  const fnTex={sin:'\\sin',cos:'\\cos',tan:'\\tan',asin:'\\sin^{-1}',acos:'\\cos^{-1}',atan:'\\tan^{-1}',arcsin:'\\arcsin',arccos:'\\arccos',arctan:'\\arctan',sinh:'\\sinh',cosh:'\\cosh',tanh:'\\tanh',log:'\\log',ln:'\\ln',exp:'\\exp'};
+  function w(t,p){const s=go(t);return (P[t.k]??9)<p?'\\left('+s+'\\right)':s;}
+  function go(t){
+    switch(t.k){
+      case 'num':return t.q.decimal()!==null&&!t.q.isInt()?t.q.decimal():t.q.tex();
+      case 'real':return A.fmtNum(t.v);case 'var':return t.n;case 'pi':return '\\pi';case 'e':return 'e';
+      case 'neg':return '-'+w(t.a,3);
+      case 'add':return go(t.a)+(t.b.k==='neg'?' - '+w(t.b.a,2):' + '+w(t.b,1));
+      case 'sub':return go(t.a)+' - '+w(t.b,2);
+      case 'mul':{const a=w(t.a,2),b=w(t.b,3);const left=['num','var','pi','e'].includes(t.a.k)||t.a.k==='pow'&&t.a.a.k==='var',right=['var','fn','pi','e'].includes(t.b.k)||t.b.k==='pow'&&t.b.a.k!=='num'||['add','sub'].includes(t.b.k);
+        const implicit=left&&right&&!(t.a.k==='var'&&t.b.k==='var'&&t.a.n===t.b.n);return a+(implicit?'':' \\cdot ')+b;}
+      case 'div':return '\\frac{'+go(t.a)+'}{'+go(t.b)+'}';
+      case 'pow':return (['var','pi','e'].includes(t.a.k)||t.a.k==='num'&&t.a.q.isInt()&&t.a.q.sign()>=0?go(t.a):'\\left('+go(t.a)+'\\right)')+'^{'+go(t.b)+'}';
+      case 'pct':return w(t.a,4)+'\\%';case 'fact':return w(t.a,4)+'!';
+      case 'fn':if(t.f==='sqrt')return '\\sqrt{'+go(t.a)+'}';if(t.f==='abs')return '\\left|'+go(t.a)+'\\right|';return fnTex[t.f]+'\\left('+go(t.a)+'\\right)';
+    }
+    return '';
+  }
+  return go(ast);
+}
+function table(){
+  openTool('table');
+  const out=el('sciToolResult'),box=el('sciTable');el('sciToolTitle').textContent='함숫값 표';
+  try{
+    const lo=exactOrNumber(el('sciTabLo').value,'x 시작'),hi=exactOrNumber(el('sciTabHi').value,'x 끝'),st=exactOrNumber(el('sciTabStep').value,'간격');
+    if(!lo||!hi||!st)throw Error('x 시작·끝·간격을 모두 입력하세요.');
+    if(st.v<=0)throw Error('간격은 0보다 큰 수로 입력하세요.');
+    if(hi.v<lo.v)throw Error('x 끝 값이 시작 값보다 커야 합니다.');
+    const count=Math.floor((hi.v-lo.v)/st.v+1e-9)+1;if(count>201)throw Error('행이 '+count+'개입니다. 201행 이하가 되도록 간격을 넓히세요.');
+    const cols=sciDefinitions.map(d=>({d,label:d.name+'(x)',ast:A.parse(d.name+'(x)',{defs:defs(),ans})}));
+    const rows=[];
+    for(let i=0;i<count;i++){
+      const xq=lo.q&&st.q?lo.q.add(st.q.mul(Q.of(i))):null,xv=xq?xq.toNumber():lo.v+st.v*i;
+      const cells=cols.map(c=>{
+        try{if(xq&&!(angle==='DEG'&&A.hasTrig(c.ast))){const q=A.tryExact(c.ast,{x:xq});if(q)return A.fmtQ(q,false);}}catch{return '정의 안 됨';}
+        return A.fmtNum(A.evalNum(c.ast,{x:xv},angle));
+      });
+      rows.push([xq?A.fmtQ(xq,false):A.fmtNum(xv),...cells]);
+    }
+    const t=document.createElement('table');t.className='calc-table';
+    const head=t.createTHead().insertRow();for(const h of ['x',...cols.map(c=>c.label)]){const th=document.createElement('th');th.textContent=h;th.scope='col';head.append(th);}
+    const body=t.createTBody();for(const r of rows){const tr=body.insertRow();r.forEach((v,i)=>{const td=i?tr.insertCell():document.createElement('th');if(!i){td.scope='row';tr.append(td);}td.textContent=v;if(v==='정의 안 됨')td.className='muted';});}
+    box.replaceChildren(t);box.dataset.tsv=[['x',...cols.map(c=>c.label)],...rows].map(r=>r.join('\t')).join('\n');
+    note(out,count+'행 · '+(angle==='DEG'?'DEG(도) 기준':'RAD 기준')+' · 분수로 나누어떨어지면 분수로 표시합니다.');
+    calcLog('[함숫값 표] x = '+lo.text+' ~ '+hi.text+', 간격 '+st.text+' · '+cols.map(c=>c.label).join(', '));
+  }catch(error){errorBox(out,error);box.replaceChildren();}
+}
+async function copyTable(){
+  const text=el('sciTable').dataset.tsv;if(!text)throw Error('먼저 표를 만드세요.');
+  try{await navigator.clipboard.writeText(text);toast('표를 복사했습니다. 스프레드시트에 붙여 넣을 수 있습니다.');}
+  catch{const ta=document.createElement('textarea');ta.value=text;document.body.append(ta);ta.select();document.execCommand('copy');ta.remove();toast('표를 복사했습니다.');}
+}
+
+// ---------------- 통계 ----------------
+let statsTimer=0;
+function niceTicks(lo,hi,n=6){
+  if(lo===hi){lo-=1;hi+=1;}const span=hi-lo,raw=span/n,p=Math.pow(10,Math.floor(Math.log10(raw))),m=raw/p,step=(m<=1?1:m<=2?2:m<=2.5?2.5:m<=5?5:10)*p;
+  const a=Math.floor(lo/step)*step,b=Math.ceil(hi/step)*step,ticks=[];for(let v=a;v<=b+step*1e-9&&ticks.length<40;v+=step)ticks.push(Number(v.toPrecision(12)));return {a,b,ticks};
+}
+const svgNS='http://www.w3.org/2000/svg';
+function svg(tag,attrs,parent,text){const n=document.createElementNS(svgNS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;parent?.append(n);return n;}
+function boxPlot(s,showOutliers){
+  const W=720,H=230,L=40,R=W-30,root=svg('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'점도표와 상자그림',class:'calc-svg'});
+  const vals=s.sorted.map(q=>q.toNumber()),q1=s.q1.toNumber(),q3=s.q3.toNumber(),med=s.median.toNumber(),iqr=q3-q1;
+  const lowF=q1-1.5*iqr,highF=q3+1.5*iqr,inner=showOutliers?vals.filter(v=>v>=lowF-1e-12&&v<=highF+1e-12):vals;
+  const wl=Math.min(...inner),wh=Math.max(...inner),{a,b,ticks}=niceTicks(vals[0],vals[vals.length-1]);
+  const X=v=>L+(R-L)*(v-a)/((b-a)||1),axisY=H-34;
+  svg('line',{x1:L,x2:R,y1:axisY,y2:axisY,class:'axis'},root);
+  for(const t of ticks){const x=X(t);svg('line',{x1:x,x2:x,y1:axisY,y2:axisY+6,class:'axis'},root);svg('text',{x,y:axisY+24,'text-anchor':'middle',class:'tick'},root,A.fmtNum(t,6));}
+  // 점도표: 같은 값은 위로 쌓기
+  if(vals.length<=400){const stack=new Map();const r=Math.max(3,Math.min(7,260/vals.length));for(const v of vals){const k=v.toPrecision(10),n=stack.get(k)||0;stack.set(k,n+1);const y=axisY-100-n*(r*2+1);if(y<r)continue;svg('circle',{cx:X(v),cy:y,r,class:'dot'},root);}}
+  const by=axisY-62,bh=34;
+  svg('line',{x1:X(wl),x2:X(q1),y1:by,y2:by,class:'whisker'},root);svg('line',{x1:X(q3),x2:X(wh),y1:by,y2:by,class:'whisker'},root);
+  for(const v of [wl,wh])svg('line',{x1:X(v),x2:X(v),y1:by-bh/3,y2:by+bh/3,class:'whisker'},root);
+  svg('rect',{x:X(q1),y:by-bh/2,width:Math.max(1,X(q3)-X(q1)),height:bh,class:'box',rx:3},root);
+  svg('line',{x1:X(med),x2:X(med),y1:by-bh/2,y2:by+bh/2,class:'median'},root);
+  if(showOutliers)for(const v of vals)if(v<lowF-1e-12||v>highF+1e-12)svg('circle',{cx:X(v),cy:by,r:5,class:'outlier'},root);
+  const meanX=X(s.mean.toNumber());svg('path',{d:`M${meanX-6} ${by+bh/2+12}l6 -9l6 9z`,class:'mean'},root);
+  svg('text',{x:R,y:16,'text-anchor':'end',class:'legend'},root,'▲ 평균 · 상자: Q1~Q3 · 굵은 선: 중앙값');
+  return root;
+}
+function runStats(){
+  const out=el('statsResult'),plot=el('statsPlot'),sorted=el('statsSorted');renderSeq++;
+  try{
+    const values=A.parseData(el('statsData').value),sample=el('statsVar').value==='sample';
+    if(sample&&values.length<2)throw Error('표본분산은 자료가 2개 이상일 때 구합니다.');
+    const s=A.stats(values,{sample,method:el('statsQuart').value});
+    const cards=[['자료 수 n',String(s.n)],['합계',A.fmtQ(s.sum)],['평균',A.fmtQ(s.mean)],['중앙값',A.fmtQ(s.median)],
+      ['최빈값',s.modes.length?s.modes.slice(0,6).map(q=>A.fmtQ(q,false)).join(', ')+(s.modes.length>6?' …':'')+' ('+s.modeCount+'번)':'없음'],
+      ['최솟값',A.fmtQ(s.min)],['최댓값',A.fmtQ(s.max)],['범위',A.fmtQ(s.range)],
+      ['제1사분위수 Q1',A.fmtQ(s.q1)],['제3사분위수 Q3',A.fmtQ(s.q3)],['사분위수 범위 IQR',A.fmtQ(s.iqr)],
+      [sample?'표본분산':'분산',s.variance?A.fmtQ(s.variance):'—'],[sample?'표본표준편차':'표준편차',s.sdExact?A.fmtQ(s.sdExact):s.sd===null?'—':'≈ '+A.fmtNum(s.sd)]];
+    out.replaceChildren(...cards.map(([k,v])=>{const d=document.createElement('div');d.className='calc-stat';const a=document.createElement('span');a.textContent=k;const b=document.createElement('strong');b.textContent=v;d.append(a,b);return d;}));
+    plot.replaceChildren(boxPlot(s,el('statsOutlier').checked));
+    sorted.textContent='크기순: '+s.sorted.slice(0,300).map(q=>A.fmtQ(q,false)).join(', ')+(s.n>300?' … (총 '+s.n+'개)':'');
+    el('statsStatus').textContent=(sample?'표본 · n−1':'모집단 · n')+(el('statsQuart').value==='inc'?' · 선형 보간':'');
+    return s;
+  }catch(error){errorBox(out,error);plot.replaceChildren();sorted.textContent='';el('statsStatus').textContent='입력 확인';return null;}
+}
+function logStats(){const s=runStats();if(s)calcLog('[통계] n = '+s.n+' · 평균 '+A.fmtQ(s.mean)+' · 중앙값 '+A.fmtQ(s.median)+' · 표준편차 '+(s.sdExact?A.fmtQ(s.sdExact):A.fmtNum(s.sd)));}
+
+// ---------------- 방정식 ----------------
+function sides(line,vars){
+  const parts=line.split('=');if(parts.length>2)throw Error('등호(=)는 한 줄에 하나만 쓰세요: '+line);
+  if(/[<>≤≥]/.test(line))throw Error('부등식은 풀지 않습니다. 등호(=)로 입력하세요.');
+  const L=A.parse(parts[0],{vars,defs:defs(),ans}),R=parts.length===2?A.parse(parts[1],{vars,defs:defs(),ans}):{k:'num',q:Q.zero};
+  return {L,R,diff:{k:'sub',a:L,b:R},tex:texOf(L)+' = '+(parts.length===2?texOf(R):'0')};
+}
+function rootTex(q){return q.tex();}
+function solveSingle(line,out){
+  const {diff,tex}=sides(line,['x']);texLine(out,tex,24,'방정식');
+  const p=A.polyOf(diff,'x');
+  if(p&&p.length===1){
+    const ok=p[0].isZero();texLine(out,ok?'\\text{모든 }x\\text{가 해 (항등식)}':'\\text{해가 없습니다}',24,'결과');return ok?'항등식':'해 없음';
+  }
+  if(p){
+    // 정수 계수, 최고차항 양수로 정리
+    let L=1n;for(const c of p)L=L/gcd(L,c.d)*c.d;let ints=p.map(c=>c.mul(Q.of(L)));let g=0n;for(const c of ints)g=gcd(g,c.n);if(ints[ints.length-1].sign()<0)g=-g;ints=ints.map(c=>c.div(Q.of(g)));
+    const deg=p.length-1,names={1:'일차방정식',2:'이차방정식',3:'삼차방정식',4:'사차방정식'};
+    const std=A.polyTex(ints)+' = 0';if(std.replace(/\s/g,'')!==tex.replace(/\s/g,''))texLine(out,std,24,'정리');
+    const r=A.solvePoly(ints);
+    if(deg===2&&r.discriminant){const D=r.discriminant,s=D.sign();texLine(out,'D = b^2 - 4ac = '+D.tex()+(s>0?' > 0':s<0?' < 0':''),22,'판별식');note(out,s>0?'D > 0 → 서로 다른 두 실근':s<0?'D < 0 → 서로 다른 두 허근':'D = 0 → 중근');}
+    else if(deg===2){note(out,'판별식 D > 0 → 서로 다른 두 실근');}
+    if(r.factored&&deg>=2)texLine(out,r.factored+' = 0',24,'인수분해');
+    const sol=[],plain=[];
+    for(const {q,m} of r.exact){sol.push('x = '+rootTex(q)+(m>1?'\\ (\\text{'+(m===2?'중근':m+'중근')+'})':''));plain.push('x = '+q.toString()+(m>1?' ('+m+'중근)':''));}
+    if(r.surd){
+      const {r:rr,s,m}=r.surd;sol.push('x = '+A.surdTex(rr,s,m));
+      if(m>0n){const a=rr.toNumber(),b=s.toNumber()*Math.sqrt(Number(m));plain.push('x ≈ '+A.fmtNum(a+b)+', '+A.fmtNum(a-b));}
+      else plain.push('허근 '+A.surdTex(rr,s,m).replace(/\\,/g,'').replace(/\\pm/,'±'));
+    }
+    if(sol.length)texLine(out,sol.join(' \\quad '),28,'해');
+    if(r.surd&&r.surd.m>0n){const a=r.surd.r.toNumber(),b=r.surd.s.toNumber()*Math.sqrt(Number(r.surd.m));note(out,'근삿값 x ≈ '+A.fmtNum(a+b)+', '+A.fmtNum(a-b));}
+    if(r.surd&&r.surd.m<0n)note(out,'i는 허수단위입니다 (i² = −1). 실근은 없습니다.');
+    if(r.numeric.length){
+      const real=r.numeric.filter(z=>z.im===0).map(z=>A.fmtNum(z.re,10)),cx=r.numeric.filter(z=>z.im>0).map(z=>A.fmtNum(z.re,8)+' ± '+A.fmtNum(z.im,8)+'i');
+      if(real.length){texLine(out,real.map(v=>'x \\approx '+v).join(' \\quad '),26,sol.length?'나머지 해':'해');plain.push('x ≈ '+real.join(', '));}
+      if(cx.length){note(out,'허근 ≈ '+cx.join(', '));plain.push('허근 '+cx.length*2+'개');}
+      note(out,'유리수 근으로 나누어떨어지지 않는 부분은 수치로 구했습니다.');
+    }
+    el('eqStatus').textContent=names[deg]||deg+'차방정식';
+    return plain.join(' / ');
+  }
+  // 다항식이 아닌 방정식: 구간에서 수치해
+  const lo=exactOrNumber(el('eqLo').value,'구간 시작'),hi=exactOrNumber(el('eqHi').value,'구간 끝');
+  if(!lo||!hi||hi.v<=lo.v)throw Error('수치해를 찾을 구간을 확인하세요. 시작이 끝보다 작아야 합니다.');
+  if(hi.v-lo.v>1e6)throw Error('구간이 너무 넓습니다.');
+  const roots=A.numericSolve(x=>A.evalNum(diff,{x},angle),lo.v,hi.v);
+  el('eqStatus').textContent='수치해 · '+angle;
+  if(!roots.length){texLine(out,'\\text{구간 }['+A.fmtNum(lo.v)+',\\ '+A.fmtNum(hi.v)+']\\text{에서 실근을 찾지 못했습니다}',22,'결과');return '실근 없음';}
+  const shown=roots.slice(0,24).map(v=>A.fmtNum(v,10));
+  texLine(out,shown.map(v=>'x \\approx '+v).join(' \\quad ').replace(/(\\quad [^\\]*\\quad [^\\]*\\quad [^\\]*)\\quad /g,'$1\\\\ '),26,'수치해');
+  note(out,'구간 ['+A.fmtNum(lo.v)+', '+A.fmtNum(hi.v)+']에서 찾은 실근 '+roots.length+'개'+(roots.length>24?' (처음 24개 표시)':'')+(A.hasTrig(diff)?' · 각도 단위 '+angle:'')+' · 다른 해는 구간을 바꿔 확인하세요.');
+  return 'x ≈ '+shown.join(', ');
+}
+function gcd(a,b){a=a<0n?-a:a;b=b<0n?-b:b;while(b){[a,b]=[b,a%b];}return a;}
+function linTex(f,vars){
+  let s='';for(const v of vars){const c=f[v];if(c.isZero())continue;const neg=c.sign()<0,a=c.abs();s+=(s?(neg?' - ':' + '):(neg?'-':''))+(a.eq(Q.one)?'':a.tex())+v;}
+  return (s||'0')+' = '+f[''].neg().tex();
+}
+function solveSystem(lines,out){
+  const all=['x','y','z'],eqs=lines.map(l=>sides(l,all));
+  const vars=all.filter(v=>eqs.some(e=>A.hasVar(e.diff,v)));
+  if(!vars.length)throw Error('미지수 x, y, z가 없습니다.');
+  const forms=eqs.map(e=>A.linearOf(e.diff,vars));
+  texLine(out,'\\begin{cases}'+forms.map(f=>linTex(f,vars)).join(' \\\\ ')+'\\end{cases}',24,'연립방정식');
+  const r=A.solveLinear(forms.map(f=>({...f,rhs:f[''].neg()})),vars);
+  el('eqStatus').textContent='연립일차방정식 · 미지수 '+vars.length+'개';
+  if(r.kind==='none'){texLine(out,'\\text{해가 없습니다 (불능)}',26,'결과');note(out,'식끼리 모순되어 모든 식을 동시에 만족하는 해가 없습니다.');return '해 없음';}
+  if(r.kind==='many'){texLine(out,'\\text{해가 무수히 많습니다 (부정)}',26,'결과');note(out,'서로 독립인 식이 '+r.rank+'개뿐이라 미지수 '+vars.length+'개를 하나로 정할 수 없습니다.');return '해가 무수히 많음';}
+  texLine(out,vars.map(v=>v+' = '+r.values[v].tex()).join(',\\quad '),28,'해');
+  if(vars.some(v=>!r.values[v].isInt()))note(out,vars.map(v=>v+' ≈ '+A.fmtNum(r.values[v].toNumber())).join(', '));
+  if(eqs.length<vars.length)note(out,'식이 미지수보다 적습니다.');
+  return vars.map(v=>v+' = '+r.values[v].toString()).join(', ');
+}
+function runEquation(log=true){
+  const out=el('eqResult');out.replaceChildren();renderSeq++;el('eqStatus').textContent='';
+  const src=el('eqSource').value;
+  try{
+    const lines=src.split(/\n/).map(s=>s.trim()).filter(Boolean);
+    if(!lines.length)throw Error('방정식을 입력하세요. 예: x^2-5x+6=0');
+    if(lines.length>3)throw Error('연립방정식은 3개까지 풀 수 있습니다.');
+    const summary=lines.length===1&&!/[yz]/i.test(lines[0].replace(/\b(?:[a-z]{2,}[a-z0-9_]*)\b/gi,''))?solveSingle(lines[0],out):solveSystem(lines,out);
+    if(log)calcLog('[방정식] '+lines.join(' , ').slice(0,140)+' → '+summary.slice(0,160));
+  }catch(error){errorBox(out,error);el('eqStatus').textContent='입력 확인';}
+}
+
+// ---------------- 수열 ----------------
+function seqFields(){
+  const type=el('seqType').value;
+  for(const l of document.querySelectorAll('#calcSequence [data-seq]'))l.hidden=!l.dataset.seq.split(' ').includes(type);
+  el('seqDLabel').textContent=type==='geo'?'공비 r':'공차 d';
+}
+function powTex(base,exp){const t=base.tex();return (base.sign()<0||!base.isInt()?'\\left('+t+'\\right)':t)+'^{'+exp+'}';}
+function seqPlot(terms,showSum){
+  const W=720,H=270,L=56,R=W-26,T=34,B=H-34,root=svg('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'수열의 그래프',class:'calc-svg'});
+  const pts=terms.filter(t=>Number.isFinite(t.num)),sums=showSum?terms.filter(t=>Number.isFinite(t.S.num)):[];
+  if(!pts.length)return root;
+  const ys=[...pts.map(t=>t.num),...sums.map(t=>t.S.num),0];let lo=Math.min(...ys),hi=Math.max(...ys);
+  const {a,b,ticks}=niceTicks(lo,hi,5),n0=terms[0].n,n1=terms[terms.length-1].n,xs=niceTicks(n0,n1,Math.min(10,Math.max(1,n1-n0)));
+  const X=n=>L+(R-L)*(n-xs.a)/((xs.b-xs.a)||1),Y=v=>B-(B-T)*(v-a)/((b-a)||1);
+  for(const t of ticks){svg('line',{x1:L,x2:R,y1:Y(t),y2:Y(t),class:'grid'},root);svg('text',{x:L-8,y:Y(t)+4,'text-anchor':'end',class:'tick'},root,A.fmtNum(t,6));}
+  for(const t of xs.ticks)if(Number.isInteger(t)){svg('text',{x:X(t),y:B+22,'text-anchor':'middle',class:'tick'},root,String(t));}
+  svg('line',{x1:L,x2:R,y1:Y(0),y2:Y(0),class:'axis'},root);svg('text',{x:R+8,y:Y(0)+4,'text-anchor':'start',class:'legend'},root,'n');
+  if(sums.length){svg('polyline',{points:sums.map(t=>X(t.n)+','+Y(t.S.num)).join(' '),class:'sumline'},root);for(const t of sums)svg('circle',{cx:X(t.n),cy:Y(t.S.num),r:3.5,class:'sumdot'},root);}
+  const r=pts.length>80?2.5:4.5;for(const t of pts)svg('circle',{cx:X(t.n),cy:Y(t.num),r,class:'dot'},root);
+  svg('text',{x:R,y:16,'text-anchor':'end',class:'legend'},root,showSum?'● aₙ   ○ Sₙ (첫 항부터의 합)':'● aₙ');
+  return root;
+}
+function runSequence(log=true){
+  const out=el('seqFormula'),tab=el('seqTable'),plot=el('seqPlot');out.replaceChildren();tab.replaceChildren();plot.replaceChildren();renderSeq++;el('seqStatus').textContent='';
+  try{
+    const type=el('seqType').value,start=Number(el('seqStart').value),count=Number(el('seqCount').value);
+    if(!Number.isInteger(start)||Math.abs(start)>1000)throw Error('시작 번호는 −1000~1000 사이의 정수로 입력하세요.');
+    const terms=A.sequence({type,expr:type==='recur'?el('seqRec').value:el('seqExpr').value,a1:el('seqA1').value,d:el('seqD').value,start,count,defs:defs(),unit:angle});
+    const first=terms[0].n,last=terms[terms.length-1].n,sub=k=>start===1?'a_{'+k+'}':'a_{'+k+'}';
+    const exactIn=t=>t.q?t.q:null;
+    if(type==='general'){texLine(out,'a_n = '+texOf(A.parse(el('seqExpr').value,{vars:['n'],defs:defs()})),24,'일반항');}
+    if(type==='arith'||type==='geo'){
+      const a1=A.tryExact(A.parse(el('seqA1').value,{vars:[],defs:defs()}),{}),d=A.tryExact(A.parse(el('seqD').value,{vars:[],defs:defs()}),{});
+      if(a1&&d&&start===1){
+        if(type==='arith'){
+          texLine(out,'a_n = a_1 + (n-1)d = '+A.polyTex([a1.sub(d),d],'n'),24,'일반항');
+          texLine(out,'S_n = \\frac{n\\{2a_1 + (n-1)d\\}}{2} = '+A.polyTex([Q.zero,a1.sub(d.div(Q.of(2))),d.div(Q.of(2))],'n'),24,'합');
+        }else{
+          const an=a1.isZero()?'0':(a1.eq(Q.one)?'':a1.eq(Q.one.neg())?'-':a1.tex()+' \\cdot ')+powTex(d,'n-1');
+          texLine(out,'a_n = a_1 r^{n-1} = '+an,24,'일반항');
+          if(d.eq(Q.one))texLine(out,'S_n = n a_1 = '+A.polyTex([Q.zero,a1],'n'),24,'합');
+          else{const c=a1.div(d.sub(Q.one)),neg=c.sign()<0,m=c.abs(),coef=m.eq(Q.one)?'':m.tex();texLine(out,(neg?'S_n = \\frac{a_1(1 - r^n)}{1 - r} = ':'S_n = \\frac{a_1(r^n - 1)}{r - 1} = ')+coef+'\\left('+(neg?'1 - '+powTex(d,'n'):powTex(d,'n')+' - 1')+'\\right)',24,'합');}
+          if(d.abs().cmp(Q.one)<0&&!a1.isZero()){const lim=a1.div(Q.one.sub(d));texLine(out,'\\sum_{n=1}^{\\infty} a_n = \\frac{a_1}{1-r} = '+lim.tex(),24,'무한등비급수');note(out,'|r| < 1이므로 무한등비급수는 '+A.fmtQ(lim)+'에 수렴합니다.');}
+          else if(!a1.isZero())note(out,'|r| ≥ 1이므로 무한등비급수는 발산합니다.');
+        }
+      }else if(start!==1)note(out,'시작 번호가 1이 아니면 첫째 항을 a'+start+'로 보고 계산합니다.');
+    }
+    if(type==='recur')texLine(out,'a_{'+first+'} = '+texOf(A.parse(el('seqA1').value,{vars:[],defs:defs()}))+',\\quad a_{n+1} = '+texOf(A.parse(el('seqRec').value,{vars:['a','n'],defs:defs()})).replace(/(^|[^a-z\\])a(?![a-z])/g,'$1a_n'),24,'점화식');
+    const total=terms[terms.length-1].S;
+    texLine(out,'\\sum_{k='+first+'}^{'+last+'} a_k = '+(total.q?total.q.tex():'\\approx '+A.fmtNum(total.num)),26,'합');
+    if(total.q&&!total.q.isInt())note(out,'합 ≈ '+A.fmtNum(total.num));
+    plot.replaceChildren(seqPlot(terms,el('seqShowSum').checked));
+    const t=document.createElement('table');t.className='calc-table';const h=t.createTHead().insertRow();
+    for(const s of ['n','aₙ','Sₙ (첫 항부터 합)']){const th=document.createElement('th');th.scope='col';th.textContent=s;h.append(th);}
+    const body=t.createTBody();for(const x of terms){const tr=body.insertRow();const th=document.createElement('th');th.scope='row';th.textContent=x.n;tr.append(th);tr.insertCell().textContent=x.q?A.fmtQ(x.q):A.fmtNum(x.num);tr.insertCell().textContent=x.S.q?A.fmtQ(x.S.q):A.fmtNum(x.S.num);}
+    tab.replaceChildren(t);
+    el('seqStatus').textContent={general:'일반항',arith:'등차수열',geo:'등비수열',recur:'점화식'}[type]+' · '+count+'항';
+    if(log)calcLog('[수열] '+el('seqStatus').textContent+' · 합 = '+(total.q?A.fmtQ(total.q):A.fmtNum(total.num)));
+  }catch(error){errorBox(out,error);el('seqStatus').textContent='입력 확인';}
+}
+
+// ---------------- 예시 ----------------
+const examples={
+  stats:[
+    {id:'score',title:'수학 점수 10명',data:'72, 85, 90, 64, 78, 85, 93, 70, 88, 85'},
+    {id:'height',title:'키(cm) · 소수 자료',data:'158.2 161.5 149.8 170.1 165.4 155.0 162.3 168.7 159.9 163.6 151.2 166.0'},
+    {id:'outlier',title:'이상값이 있는 자료',data:'12, 15, 14, 13, 16, 15, 14, 48',outlier:true},
+    {id:'sample',title:'표본분산 · 주사위 8번',data:'2 4 4 4 5 5 7 9',variance:'sample'}
+  ],
+  equation:[
+    {id:'factor',title:'이차방정식 · 인수분해',code:'x^2-5x+6=0'},
+    {id:'formula',title:'이차방정식 · 근의 공식',code:'2x^2+3x-1=0'},
+    {id:'double',title:'이차방정식 · 중근',code:'x^2-6x+9=0'},
+    {id:'complex',title:'이차방정식 · 허근',code:'x^2+2x+5=0'},
+    {id:'cubic',title:'삼차방정식 · 유리근',code:'2x^3-3x^2-3x+2=0'},
+    {id:'quartic',title:'사차방정식 · x⁴ = 1',code:'x^4=1'},
+    {id:'lin',title:'일차방정식 · 분수 계수',code:'x/2+1/3=(x+1)/4'},
+    {id:'sys2',title:'연립일차방정식 · 미지수 2개',code:'2x+3y=7\nx-y=1'},
+    {id:'sys3',title:'연립일차방정식 · 미지수 3개',code:'x+y+z=6\n2x-y+z=3\nx+2y-z=2'},
+    {id:'none',title:'연립방정식 · 해가 없는 경우',code:'x+y=1\n2x+2y=3'},
+    {id:'trig',title:'삼각방정식 · sin x = 1/2 (도)',code:'sin(x)=1/2',lo:'0',hi:'360',unit:'DEG'},
+    {id:'exp',title:'지수방정식 · 2^x = x+2 (수치해)',code:'2^x=x+2',lo:'-5',hi:'5'},
+    {id:'mine',title:'내 함수 · f(x) = g(x)',code:'f(x)=g(x)',help:'공학용 계산기에 f(x)와 g(x)를 먼저 등록하세요.'}
+  ],
+  sequence:[
+    {id:'arith',title:'등차수열 · 3, 5, 7, …',type:'arith',a1:'3',d:'2',count:10},
+    {id:'geo',title:'등비수열 · 1, 1/2, 1/4, … (수렴)',type:'geo',a1:'1',d:'1/2',count:12,sum:true},
+    {id:'geo2',title:'등비수열 · 3, 6, 12, …',type:'geo',a1:'3',d:'2',count:10},
+    {id:'square',title:'일반항 · 제곱수 n²',type:'general',expr:'n^2',count:10},
+    {id:'tele',title:'일반항 · 1/(n(n+1)) 합',type:'general',expr:'1/(n(n+1))',count:20,sum:true},
+    {id:'alt',title:'일반항 · (−1)ⁿ⁺¹/n',type:'general',expr:'(-1)^(n+1)/n',count:20,sum:true},
+    {id:'recur',title:'점화식 · aₙ₊₁ = 2aₙ + 1',type:'recur',a1:'1',rec:'2a+1',count:10},
+    {id:'recur2',title:'점화식 · aₙ₊₁ = aₙ/2 + 3',type:'recur',a1:'1',rec:'a/2+3',count:15}
+  ]
+};
+function fillExamples(){
+  for(const [kind,list] of Object.entries(examples)){
+    const sel=el({stats:'statsExample',equation:'eqExample',sequence:'seqExample'}[kind]);
+    for(const e of list){const o=document.createElement('option');o.value=e.id;o.textContent=e.title;sel.append(o);}
+  }
+}
+function chooseExample(kind,id){
+  const e=examples[kind].find(v=>v.id===id);if(!e)return;
+  if(kind==='stats'){el('statsData').value=e.data;el('statsOutlier').checked=!!e.outlier;el('statsVar').value=e.variance||'pop';runStats();}
+  if(kind==='equation'){el('eqSource').value=e.code;if(e.lo){el('eqLo').value=e.lo;el('eqHi').value=e.hi;}else{el('eqLo').value='-10';el('eqHi').value='10';}if(e.unit&&angle!==e.unit){angle=e.unit;calcModes();}el('eqExampleHint').textContent=e.help||(e.unit?'각도 단위를 '+e.unit+'로 바꿨습니다.':'');runEquation();}
+  if(kind==='sequence'){el('seqType').value=e.type;if(e.expr)el('seqExpr').value=e.expr;if(e.a1)el('seqA1').value=e.a1;if(e.d)el('seqD').value=e.d;if(e.rec)el('seqRec').value=e.rec;el('seqStart').value='1';el('seqCount').value=String(e.count||10);el('seqShowSum').checked=!!e.sum;seqFields();runSequence();}
+  save();
+}
+
+// ---------------- 크게 보기 ----------------
+let stageScale=1,stageFrame=0,stageObserver=null;
+const modeTitle={basic:'기본 계산기',scientific:'공학용 계산기',python:'파이썬 계산기',latex:'LaTeX 계산기',stats:'통계',equation:'방정식',sequence:'수열'};
+function cloneInto(parent,node,k){
+  if(!node||node.hidden)return;
+  const c=node.cloneNode(true);c.removeAttribute('id');for(const n of c.querySelectorAll('[id]'))n.removeAttribute('id');
+  for(const n of c.querySelectorAll('select,input,button,textarea'))n.remove();
+  for(const img of c.querySelectorAll('img')){const w=Number(img.getAttribute('width'))||img.naturalWidth;if(w)img.style.width=Math.round(w*k)+'px';img.removeAttribute('width');}
+  for(const s of c.querySelectorAll('svg'))s.style.maxHeight='none';
+  parent.append(c);
+}
+function text(parent,value,cls){const d=document.createElement(cls==='code'?'pre':'div');d.className='calc-stage-'+cls;d.textContent=value;parent.append(d);return d;}
+function renderStage(){
+  stageFrame=0;const body=el('calcStageBody');if(el('calcStage').hidden)return;
+  body.replaceChildren();const k=2.1*stageScale;body.style.setProperty('--stage-scale',stageScale);
+  el('calcStageTitle').textContent=modeTitle[calcMode]||'계산기';
+  if(calcMode==='basic'||calcMode==='scientific'){
+    text(body,el('calcInput').value||' ','input');
+    const ans=el('calcAnswer');const a=text(body,ans.textContent,'answer');if(ans.dataset.error)a.dataset.error='true';
+    if(calcMode==='scientific'&&!el('sciToolPanel').hidden){cloneInto(body,el('sciToolResult'),k*.85);cloneInto(body,el('sciTable'),1);}
+  }else if(calcMode==='python'){
+    text(body,el('pySource').value,'code');const r=text(body,el('pyResult').textContent,'code');r.classList.add('calc-stage-output');if(el('pyResult').dataset.error)r.dataset.error='true';
+  }else if(calcMode==='latex'){
+    cloneInto(body,el('texPreview'),k*.8);const res=el('texResult');
+    if(res.dataset.empty!=='true')cloneInto(body,res,k);
+    for(const id of ['texApprox','texDetail'])if(!el(id).hidden)text(body,el(id).textContent,'note');
+  }else if(calcMode==='stats'){
+    text(body,el('statsData').value,'data');cloneInto(body,el('statsResult'),1);cloneInto(body,el('statsPlot'),1);
+  }else if(calcMode==='equation'){
+    cloneInto(body,el('eqResult'),k*.85);
+  }else if(calcMode==='sequence'){
+    cloneInto(body,el('seqFormula'),k*.8);cloneInto(body,el('seqPlot'),1);
+  }
+}
+function queueStage(){if(!el('calcStage').hidden&&!stageFrame)stageFrame=requestAnimationFrame(renderStage);}
+function openStage(){
+  const s=el('calcStage');s.hidden=false;document.body.classList.add('calc-stage-open');renderStage();
+  stageObserver?.disconnect();stageObserver=new MutationObserver(queueStage);
+  stageObserver.observe(el('calculator'),{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['hidden','data-error','data-empty','src']});
+  el('calcStageClose').focus();
+}
+function closeStage(){el('calcStage').hidden=true;document.body.classList.remove('calc-stage-open');stageObserver?.disconnect();stageObserver=null;el('calcStageBtn')?.focus();}
+
+// ---------------- 연결 ----------------
+function init(){
+  fillExamples();seqFields();
+  on('sciToolFn',()=>{if(tool&&tool!=='graph'){tool==='table'?table():calculus(tool);}},'change');
+  for(const b of document.querySelectorAll('#sciFnTools [data-sci-tool]'))b.addEventListener('click',safe(()=>{const k=b.dataset.sciTool;if(k==='graph')graphCurrent();else if(k==='table')table();else calculus(k);}));
+  for(const b of document.querySelectorAll('#sciToolPanel [data-sci-run]'))b.addEventListener('click',safe(()=>{const k=b.dataset.sciRun;k==='table'?table():calculus(k);}));
+  for(const id of ['sciDiffAt','sciIntLo','sciIntHi','sciTabLo','sciTabHi','sciTabStep'])on(id,e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();tool==='table'?table():calculus(tool);}},'keydown');
+  on('sciDiffOrder',()=>calculus('diff'),'change');
+  on('sciToolClose',closeTool);on('sciTabCopy',copyTable);
+  on('sciToolGraph',()=>{if(!toolGraphExpr)throw Error('그래프로 보낼 결과가 없습니다.');sendGraph(toolGraphExpr,tool==='diff'?'도함수':'원시함수');});
+  on('statsData',()=>{clearTimeout(statsTimer);el('statsExample').value='';statsTimer=setTimeout(runStats,250);},'input');
+  on('statsData',e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();logStats();}},'keydown');
+  for(const id of ['statsVar','statsQuart','statsOutlier'])on(id,runStats,'change');
+  on('statsData',logStats,'change');
+  on('eqRun',()=>runEquation());
+  on('eqSource',e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();runEquation();}},'keydown');
+  on('eqSource',()=>{el('eqExample').value='';el('eqExampleHint').textContent='';},'input');
+  for(const id of ['eqLo','eqHi'])on(id,e=>{if(e.key==='Enter'){e.preventDefault();runEquation();}},'keydown');
+  on('seqRun',()=>runSequence());on('seqType',()=>{seqFields();runSequence(false);},'change');on('seqShowSum',()=>runSequence(false),'change');
+  for(const id of ['seqExpr','seqA1','seqD','seqRec','seqStart','seqCount'])on(id,e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();runSequence();}},'keydown');
+  on('statsExample',e=>chooseExample('stats',e.target.value),'change');
+  on('eqExample',e=>chooseExample('equation',e.target.value),'change');
+  on('seqExample',e=>chooseExample('sequence',e.target.value),'change');
+  on('calcStageBtn',openStage);on('calcStageClose',closeStage);
+  on('calcStageBigger',()=>{stageScale=Math.min(2.2,stageScale+.15);renderStage();});
+  on('calcStageSmaller',()=>{stageScale=Math.max(.6,stageScale-.15);renderStage();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!el('calcStage').hidden){e.preventDefault();closeStage();}});
+  el('calculator').addEventListener('input',queueStage);
+  refresh();runStats();runEquation(false);runSequence(false);
+}
+function sync(){if(!ready)return;if(calcMode==='stats')runStats();else if(calcMode==='equation')runEquation(false);else if(calcMode==='sequence')runSequence(false);queueStage();}
+let ready=false;const init0=init;
+return {init(){init0();ready=true;},sync,refresh,runStats,runEquation,runSequence,openStage,closeStage,texOf};
+})();
+
+try{window.calcTools140.init();calcModes();}catch(e){console.error('계산기 확장 초기화 실패',e);}
 </script>
 <script>
 if(!window.__classroomAppReady){
@@ -6003,13 +7350,88 @@ function classroomDomain139(ce,raw,xValue){
     const detail=rule.notes.length?(substitution?'도함수를 구한 뒤 x 값을 대입했습니다.':'도함수 · x 값을 입력하면 그 점에서의 값을 구합니다.'):'';
     return label({text:plain,latex:v.latex,approx,substitution,detail});
   }
+  // v1.40 공학용 계산기 내 함수의 미분·적분. 수치 검산을 통과한 식만 결과로 사용합니다.
+  function classroomQuad140(f,a,b){
+    if(a===b)return 0;if(a>b)return -classroomQuad140(f,b,a);
+    // 구간 안쪽에서 정의되지 않는 점이 있으면 적분하지 않습니다.
+    for(let i=1;i<2000;i++){const x=a+(b-a)*i/2000;if(!Number.isFinite(f(x)))throw Error('적분 구간 안에서 함수가 정의되지 않는 점이 있습니다. 구간을 확인하세요.');}
+    try{return classroomNumericIntegral(x=>{const y=f(x);if(!Number.isFinite(y))throw Error('끝점');return y;},a,b);}catch{}
+    // 끝점에서 기울기가 무한대인 경우: tanh-sinh 적분
+    const c=(a+b)/2,r=(b-a)/2;let prev=NaN;
+    for(let level=3;level<=9;level++){
+      const h=Math.pow(2,-level);let sum=0;
+      for(let k=-Math.ceil(4.5/h);k<=Math.ceil(4.5/h);k++){
+        const t=k*h,u=Math.PI/2*Math.sinh(t),x=Math.tanh(u),w=Math.PI/2*Math.cosh(t)/Math.cosh(u)**2;
+        if(w<1e-300||Math.abs(x)>=1)continue;const y=f(c+r*x);if(!Number.isFinite(y))continue;sum+=w*y;
+      }
+      const v=sum*h*r;if(Math.abs(v-prev)<=1e-10*Math.max(1,Math.abs(v)))return v;prev=v;
+    }
+    throw Error('적분값이 수렴하지 않았습니다. 구간을 확인하세요.');
+  }
+  function classroomCalculus140(m) {
+    const ce=new MathEngine();ce.angularUnit='rad';ce.precision=16;ce.declare('x','real');
+    let f;try{f=classroomChecked139(ce.box(m.json));}catch{throw Error('함수식을 계산할 수 없습니다. 정의역과 기호를 확인하세요.');}
+    if(f.unknowns.some(s=>s!=='x'))throw Error('x에 대한 함수만 미분·적분할 수 있습니다.');
+    const banned=['D','Derivative','PartialDerivative','Error','NumericDerivative','ND','Integrate','Nothing','Hold'];
+    const clean=v=>{if(!v?.isValid)return false;const s=JSON.stringify(v.json);return !banned.some(h=>s.includes('"'+h+'"'))&&!/NaN|ComplexInfinity|Undefined/.test(s);};
+    const fnOf=e=>{let g;try{g=classroomRealFunction(ce,e,'x');}catch{return ()=>NaN;}return x=>{try{return g(x);}catch{return NaN;}};};
+    const f0=fnOf(f),samples=[-2.7,-1.9,-1.3,-0.7,-0.35,0.3,0.65,1.2,1.8,2.45,3.1,4.2];
+    const num=v=>{try{const n=v.N();return n.im===0&&Number.isFinite(n.re)?n.re:NaN;}catch{return NaN;}};
+    const short=x=>String(Number(x.toPrecision(12)));
+    const decimalOnly=v=>/^[-+]?\d+\.\d{7,}/.test(v.toString());
+    const box=j=>{const v=ce.box(j),n=num(v);if(!Number.isFinite(n))throw Error('입력한 값은 실수 한 개여야 합니다.');return {expr:v,value:n};};
+    // 같은 함수인지 수치로 비교 (정의되는 점에서만)
+    const agree=(g,want,tol)=>{let ok=0,bad=0;for(const x of samples){const a=want(x),b=g(x);if(!Number.isFinite(a)||!Number.isFinite(b))continue;if(Math.abs(a-b)<=tol*Math.max(1,Math.abs(a)))ok++;else bad++;}return ok>=3&&!bad;};
+    const tidy=(v,check)=>{ // 정리한 식도 같은 함수일 때만 사용
+      for(const step of [()=>v.simplify(),()=>v.evaluate()]){try{const w=step();if(clean(w)&&!decimalOnly(w)&&w.latex.length<=v.latex.length&&agree(fnOf(w),check,1e-9))return w;}catch{}}
+      return v;
+    };
+    const cands=(m.cands||[]).map(j=>{try{return ce.box(j);}catch{return null;}}).filter(Boolean);
+    const out={mode:m.mode,order:m.order===2?2:1};
+    if(m.mode==='diff'){
+      const order=out.order,want=x=>{const h=(order===2?2e-3:1e-5)*Math.max(1,Math.abs(x)),a=f0(x-h),b=f0(x),c=f0(x+h);return order===2?(a-2*b+c)/(h*h):(c-a)/(2*h);};
+      const tol=order===2?3e-3:3e-5;let v=null;
+      try{let w=f;for(let i=0;i<order;i++)w=ce.box(['D',w.json,'x']).evaluate();if(clean(w)&&agree(fnOf(w),want,tol))v=w;}catch{}
+      if(!v)for(const c of cands){if(clean(c)&&agree(fnOf(c),want,tol)){v=tidy(c,fnOf(c));break;}}
+      if(!v)throw Error('이 함수의 도함수를 구하지 못했습니다. 정의역과 식을 확인하세요.');
+      out.latex=v.latex;out.text=v.toString();out.json=v.json;
+      if(m.at!=null){
+        const g=box(m.at),d=fnOf(v);
+        if(!Number.isFinite(f0(g.value)))throw Error('이 x 값에서 원래 함수가 정의되지 않습니다.');
+        let at=null;try{at=classroomChecked139(v.subs({x:g.expr}).evaluate());}catch{}
+        const n=at?num(at):d(g.value);if(!Number.isFinite(n))throw Error('이 x 값에서 미분계수가 정의되지 않습니다.');
+        const exact=at&&!decimalOnly(at)&&Math.abs(n-d(g.value))<=1e-9*Math.max(1,Math.abs(n));
+        out.at={x:g.expr.latex,latex:exact?at.latex:'\\approx '+ce.parse(short(n)).latex,approx:exact&&!/^[-+]?\d+(?:\.\d+)?$/.test(at.toString())?short(n):''};
+      }
+    }else{
+      const want=f0,dnum=g=>x=>{const h=1e-5*Math.max(1,Math.abs(x));return (g(x+h)-g(x-h))/(2*h);};
+      let F=null;
+      for(const c of cands){if(clean(c)&&agree(dnum(fnOf(c)),want,1e-6)){F=tidy(c,fnOf(c));break;}}
+      if(!F)try{const c=ce.box(['Integrate',f.json,'x']).evaluate();if(clean(c)&&agree(dnum(fnOf(c)),want,1e-6))F=c;}catch{}
+      if(F){out.latex=F.latex;out.text=F.toString();out.json=F.json;}
+      if(m.lo!=null&&m.hi!=null){
+        const a=box(m.lo),b=box(m.hi),value=classroomQuad140(f0,a.value,b.value);
+        let latex='',approx=short(value),exact=false;
+        if(F){
+          try{const raw=F.subs({x:b.expr}).sub(F.subs({x:a.expr}));let best=null;
+            for(const step of [()=>raw.simplify(),()=>raw.evaluate()]){try{const w=step();const n=num(w);if(clean(w)&&!decimalOnly(w)&&Number.isFinite(n)&&Math.abs(n-value)<=1e-6*Math.max(1,Math.abs(value))){best=w;break;}}catch{}}
+            if(best){latex=best.latex;exact=true;if(/^[-+]?\d+(?:\.\d+)?$/.test(best.toString()))approx='';}
+          }catch{}
+        }
+        if(!exact)latex='\\approx '+ce.parse(short(value)).latex;
+        out.definite={lo:a.expr.latex,hi:b.expr.latex,latex,approx,exact,value};
+      }
+      if(!F&&!out.definite)throw Error('이 함수의 부정적분 식은 구하지 못했습니다. 아래끝·위끝을 넣으면 정적분 값을 구합니다.');
+    }
+    return {text:out.text||'',latex:out.latex||'',data:JSON.stringify(out)};
+  }
   self.onmessage=async ({data:m})=>{
     if (m.op==='init') {
       try { await boot(m); self.postMessage({type:'ready'}); }
       catch (e) { self.postMessage({type:'fatal',message:'계산 엔진을 열지 못했습니다. '+String(e?.message||e).slice(0,220)}); }
     } else if (m.op==='run') {
       try {
-        const result=kind==='python' ? JSON.parse(executePython(m.code)) : mathResult(m.code,m.x,m.angle,m.g,m.terms,m.inv);
+        const result=kind==='python' ? JSON.parse(executePython(m.code)) : m.task==='calculus140' ? classroomCalculus140(m) : mathResult(m.code,m.x,m.angle,m.g,m.terms,m.inv);
         self.postMessage({type:'result',id:m.id,...result});
       } catch(e) { self.postMessage({type:'result',id:m.id,error:String(e?.message||e).slice(0,1400)}); }
     }
