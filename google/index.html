@@ -409,7 +409,7 @@ body.student #formulaStudio .slot.active-slot{box-shadow:none}
 @media(max-width:700px){#formulaStudio #fc-examples,#formulaStudio #fc-wrapper{width:100%}#formulaStudio #fc-editor{min-height:120px}}
 
 </style>
-<script type="application/json" id="classroom-changelog">[{"version": "1.38", "date": "2026-11-23", "changed": ["공학용·파이썬·LaTeX 계산기의 다항함수 예시를 f(x)=6x^5−4x^3+2x−1로 변경"]},{"version":"1.37","date":"2026-11-23","added":["수학 탐구 → 계산기 아래에 LaTeX 수식 변환기 추가","시각적 편집과 LaTeX·한글 수식 코드 변환·복사, 기호 키보드 및 예제","수식과 작성 중인 코드의 기기 저장·전체 백업 연동, 넓게 보기와 학생 화면 지원"],"validation":{"passed":["원본 예제 14개의 LaTeX·한글 수식 출력 28건 비교","분수 입력, 행렬 생성, 양방향 편집, 복사, 실행 취소·다시 실행","미완성 코드 새로고침 복원, 이전 백업 호환, 모의 Drive 저장 후 새 브라우저에서 불러오기","모바일 폭·넓게 보기·학생 화면, 오프라인 파일 실행 및 기존 계산기·화이트보드 회귀 점검"],"notTested":["실제 iPad Safari 및 한컴오피스 한글에서의 붙여넣기","실제 Google 계정의 Drive 업로드·다운로드"]}},{"version":"1.36","date":"2026-11-23","added":["기본·공학용·파이썬·LaTeX 계산기와 공학용 사용자 함수","오프라인 Python 3.12: 여러 줄 코드, 함수·변수 재사용, 중지·초기화","LaTeX 수식 미리보기, x 대입, 정확한 값·근삿값","등비·맥클로린·테일러 급수의 무한합·부분합·수렴 범위, g(t) 정적분 예시","원래 함수와 단조 구간을 지정하는 역함수 계산 및 두 가지 예시"],"validation":{"passed":["기본·공학용 계산, 함수 등록·재호출·복원","오프라인 Python 함수·표준 라이브러리·중지 후 재실행","LaTeX 계산, 수렴 범위 끝점과 부분합, 적분 상한·역방향·g(t) 변경","기존 넓게 보기·화이트보드 메모 필기·백업 관련 회귀 점검","역함수의 두 가지·치역 밖·단조가 아닌 구간 확인"],"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive 및 Vercel·Supabase 연결"]}},{"version":"1.35","date":"2026-11-05","fixed":["메모 상단의 손바닥 이동보다 Apple Pencil 입력을 우선 처리","메모 필기 중 손바닥이 보드 이동·확대 및 메모 버튼을 작동시키는 충돌 방지","종료 이벤트 누락·캡처 변경 후 다음 펜 입력 복구","메모의 고해상도 캔버스와 화면 크기 분리"],"changed":["메모의 완료된 필기 캐시 및 프레임 단위 화면 갱신","메모 실행 취소 기록에서 매번 전체 좌표를 복사하던 작업 제거","펜을 뗀 마지막 좌표 반영·메모 형광펜 겹침 개선","숨긴 메모의 화면 버퍼 해제로 메모리 사용 감소"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil 및 홈 화면 웹앱","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["v1.34에서 손바닥 선행 터치와 종료 누락 시 필기 차단 재현","손바닥보다 Pencil 우선·손가락 인식 ON/OFF 필기","필기 중 손바닥에 의한 메모 이동·보드 이동 차단","종료 누락·동일 펜 ID 재사용·캡처 변경·hover·취소 복구","브라우저 pen 포인터 스트림의 실제 캡처·메모 밖 이동·종료","고속 좌표 묶음과 pointerup 마지막 좌표 반영","메모 이동·크기·배경·실행 취소/다시 실행·지우기·복원","보드/메모 입력 전환 및 스냅샷 복원 후 메모 실행 취소","600개 기존 획에서 80회 이동 입력: 이동 중·획 종료 시 전체 필기 재그리기 없음","고해상도 캔버스 크기 안정성·숨김 버퍼 해제·재열기·새로고침 저장 유지","기존 필기·형광펜·지우개·PDF 탐색·시트 관리·PNG/PDF 저장 회귀 시험","설정 전체 기기 저장·퀴즈 초안 저장·확률 실험·반응형 UI 회귀 시험","10개 인라인 JavaScript 구문 검사·퀴즈 내장 소스 동일 확인·이전 변경 이력 보존"]}},{"version":"1.34","date":"2026-11-02","changed":["홈 하단에 Class all in one Google ver1.34. made by YOONSUNGHO 표시","상단 화이트보드 바로가기를 화이트 보드로 단축하고 주황색 적용","모든 확대 화면 복귀 버튼을 퀴즈·메모·QR과 같은 배경·글자·테두리 색으로 통일","복귀 버튼 문구를 ↩️ 작게 보기로 변경"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["홈 하단 문구·위치 및 도구 전환 후 홈 복귀 표시 확인","화이트 보드 바로가기의 실제 배경·글자 색 확인: 밝은·다크 모드","퀴즈 기준과 9개 도구의 작게 보기 문구·배경·글자·테두리 색 일치","넓게 보기 진입·작게 보기 복귀·Escape 및 모드·도구 전환","1024px 태블릿·390px 모바일 조작","프로젝트 3열·확률 실험·전체 기기 저장·새로고침 후 자료 유지","시트 관리·PNG/PDF 다운로드·내보내기 전후 원본 상태 유지","10개 인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.33","date":"2026-11-02","changed":["화이트보드 넓게 쓰기를 넓게 보기로 통일","화이트보드·퀴즈의 넓게 보기 진입 버튼을 타이머와 같은 제목 오른쪽 위치로 통합","넓게 보기 버튼의 배경·글자·테두리 색을 도구 간 통일"],"fixed":["화이트보드 넓게 보기에서 Escape 복귀 시 캔버스 크기 갱신","퀴즈 넓게 보기에서 Escape 복귀"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["타이머·화이트보드·퀴즈·메모·QR의 제목 오른쪽 위치·문구·색 일치: 밝은/다크 모드","기본 화면 중복 버튼 숨김·확대 화면 복귀·Escape·모드/도구 전환","1024px 태블릿·390px 모바일에서 진입 및 복귀 버튼 조작","프로젝트 3열·확률 실험·전체 기기 저장·새로고침 후 자료 유지","시트 관리·PNG/PDF 다운로드·내보내기 전후 원본 상태 유지","기존 지우개·형광펜·펜 크기·PDF 탐색 회귀 테스트","인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.32","date":"2026-11-02","changed":["메뉴를 퀴즈·메모·QR로 단축","퀴즈 프로젝트 카드 3열 및 간격 축소","퀴즈 저장 버튼은 Google Drive 저장 완료까지 저장 중 표시","화이트보드 작업 단위를 시트로 통일"],"added":["설정 전체 저장 및 새로고침","타이머·조자리점수·행운뽑기·계산기·함수그래프·확률통계·소음측정·메모QR 넓게보기","화이트보드 시트 관리: 미리보기·열기·이름·복제·삭제·순서 이동","현재 시트·모든 시트 PDF 저장"],"validation":{"notTested":["실제 Google Drive·Supabase·Vercel 서버 연결","실제 iPad Safari·Apple Pencil"],"passed":["1024·1536px 프로젝트 3열·390px 1열 및 메뉴 폭 확인","8개 도구 넓게보기·복귀·도구 전환","설정 전체 저장: 퀴즈 초안·비밀번호·전체 화이트보드 포함","Drive 지연 시 저장 중 유지·실패 표시·기기본 보존·변경 없는 재시도","업로드 중 새 편집은 미저장 초안으로 보존","Drive 충돌 시 전체 저장 취소 및 원격 내용 보호","새로고침 후 기기 자료 유지","시트 미리보기·열기·이름·복제·삭제·순서 변경","PNG·현재/전체 시트 PDF 다운로드·PDF 구조 파싱·렌더 확인·원본 상태 유지","기존 수동 저장·다크 화면 버튼 대비·형광펜·지우개·PDF 탐색·분리 동기화 회귀 확인","10개 인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.31","date":"2026-11-01","fixed":["공통 입력 스타일에 가려졌던 꺼진 스위치의 배경·윤곽·손잡이 표시","다크 퀴즈 화면의 정답 가리기 등 일반 버튼 글자·아이콘 대비","출제 순서·화면 배경 선택 및 도움말 글자 대비"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase 서버 연결"],"passed":["클릭 전 꺼짐 상태의 스위치 배경·윤곽·손잡이 표시","스위치 켜기·끄기 및 출제 순서 선택 동작","올인원 밝음/어두움 × 퀴즈 밝음/어두움 조합의 버튼 대비","정답 보기·가리기·완료 화면 버튼 글자 대비 4.5 이상","설정 창 선택 버튼과 일반 버튼 글자 대비 4.5 이상","390px 모바일 설정 창·스위치 조작","퀴즈 실행·정답 공개·요약 화면 전환, 페이지 오류 없음","기존 퀴즈 수동 저장 등 JavaScript 바이트 동일 확인"]}},{"version":"1.30","date":"2026-11-01","changed":["퀴즈 프로젝트 편집의 자동 저장을 수동 저장으로 변경","설정 왼쪽에 저장 버튼 및 미저장 표시 추가","편집 초안과 저장본 분리: 전체 저장·Drive·백업에 초안 제외"],"added":["편집 화면 이탈 시 저장·버리기·계속 편집 선택","Ctrl/Cmd+S 저장, 새로고침 이탈 경고"],"validation":{"notTested":["실제 Google Drive·Supabase·Vercel 연결","실제 iPad Safari·Apple Pencil"],"passed":["저장 버튼이 설정 왼쪽에 배치","입력 후 자동 저장·전체 저장·Host flush에서 초안 제외","저장 버튼·Ctrl/Cmd+S 명시적 저장","계속 편집·버리기·저장하고 이동 분기","다른 도구로 이동 후 초안 유지, 저장본 미변경","새로고침 시 미저장 경고, 저장 후 새로고침 복원","문항 추가의 수동 저장","화이트보드 진입·확률 동전 100회 실행, 페이지 오류 없음"]}},{"version":"1.29","date":"2026-11-01","added":["온라인 학생 참여: 코드·비밀번호·학번·이름, 기존 교사 Google 로그인 재사용","개별·교사 진행, 전체·문항별 시간제한 및 교사 수동 마감","서버 자동 채점, 제출 즉시 점수·종료 후 정답 공개, 교사 재응시·재접속 허용","퀴즈별 결과·문항별 답안·CSV 및 종료 성적 요약 Drive 저장"],"changed":["객관식 기본 선지 2개, 선지 추가·삭제 및 6개 제한 해제","문항별 진행은 이전 문항 잠금, 전체 퀴즈 마감은 제출 전 답안 수정"],"excluded":["학생별 누적 성적표"],"validation":{"notTested":["실제 Supabase 프로젝트·Vercel 배포","실제 Google OAuth·Drive 계정 연결","실제 iPad Safari·Apple Pencil","100명 실서버 동시 접속 부하"],"passed":["PGlite PostgreSQL 검사 19개: 권한·자동채점·마감·중복제출·재접속·재응시","교사와 학생 브라우저 연결: 코드·QR·입장·점수·답안·CSV·재접속·재응시","시간 만료 시 응시만 마감, 교사 전체 종료 후 정답·해설 공개","객관식 기본 2개 및 7개 이상 선지 추가·삭제·저장","종료 성적 요약의 기기 저장, 모의 Drive 저장·복원 왕복 보존","기존 퀴즈 편집·수식·Markdown·발표·백업 회귀 검사","화이트보드 필기·형광펜·지우개·PDF 이동 회귀 검사","모의 Drive의 화이트보드 진입 비교·분리 저장·충돌 방지 회귀 검사"]}},{"version":"1.28","date":"2026-11-01","changed":["퀴즈 100% OFFLINE 문구 제거, 교실 도구 테마와 색상 통일","시작 시 수업 도구만 동기화, 화이트보드는 진입 시 내용 비교 후 업로드·불러오기 선택","다른 도구 저장 시 Drive 화이트보드 쪽·사진 유지, 화이트보드 사진 다운로드 안 함","퀴즈 완료 화면 버튼을 제목 바로 아래로 이동"],"added":["교실 도구 제목 클릭으로 홈 이동, 홈 도구 카드"],"compatibility":["기존 Drive v2 저장 구조와 백업 지원","화이트보드 화면 이동·확대율만 다른 경우에는 내용 충돌로 묻지 않음"],"validation":{"notTested":["실제 Google OAuth 실계정 전송","실제 iPad Safari·Apple Pencil"],"passed":["시작 시 홈 표시 및 선택창 없음, 교실 도구 제목으로 홈 이동","모의 Drive: 시작·수업 도구 저장 시 화이트보드 쪽·사진 읽기 0건","모의 Drive: 다른 도구 저장 후 원격 화이트보드 쪽 목록·사진 유지","화이트보드 진입 시 내용이 다를 때 선택, 같은 내용·화면 위치 차이만 있을 때는 선택창 없음","화이트보드 업로드·불러오기·기기 전용 작업·첫 Drive 파일 생성","비교 이후 원격 자료 변경 시 덮어쓰기 차단","퀴즈 밝은 테마·다크모드 색상, OFFLINE 문구 제거, 완료 버튼 위치","퀴즈 편집·수식·발표·백업·기기 저장 회귀 테스트","화이트보드 필기·형광펜·지우개·사진 편집·굵기·PDF 이동 회귀 테스트"]}},{"version":"1.27","date":"2026-11-01","added":["메모 화면에 퀴즈 스튜디오 1.01 통합: 퀴즈·메모·QR 코드 선택","프로젝트·문제 편집·사진·LaTeX·발표·수업 기록·퀴즈 백업","퀴즈 기기 저장, 전체 백업 및 Google Drive 동기화","퀴즈 사진 원본은 기존 Drive 이미지 분리 저장으로 중복 업로드 방지"],"changed":["발표 중에는 퀴즈가 화면 전체 사용","상위 메뉴 이름을 퀴즈·수업 메모·QR 코드로 변경"],"compatibility":["기존 백업에 퀴즈가 없으면 현재 퀴즈 유지","기존 메모·QR 코드·화이트보드 데이터와 저장 키 유지"],"validation":{"passed":["퀴즈 버튼 순서·프로젝트 편집·LaTeX·마크다운 가져오기","스페이스·빈 화면 클릭 발표·마침 화면·모바일 발표 영역","메모·QR 유지·기기 저장·새로고침 복원·전체 백업·이전 백업 호환","모의 Drive 저장·불러오기·동일 사진 재업로드 방지·삭제 자원 정리","화이트보드 펜·형광펜·지우개·사진 편집·굵기·PDF 이동 회귀 테스트","타이머·확률 실험·함수 그래프 기본 동작"],"notTested":["실제 Google OAuth 로그인 및 실계정 Drive 전송","실제 iPad Safari·Apple Pencil 입력"]}},{"version":"1.26","date":"2026-10-30","changed":["펜 굵기 슬라이더: 아래 50%는 1~20px, 위 50%는 20~50px"]},{"version":"1.25","date":"2026-10-30","changed":["지우개 기본값 개체 전체","더보기 백업 불러오기 이동 및 중복 자르기 제거","사진 편집 닫기 버튼 수정","현재 화면에서 가까운 PDF 쪽을 기준으로 이전·다음 이동","형광펜 한 획의 투명도 겹침과 중복 입력 보완"]},{"version":"1.24","date":"2026-10-29","fixed":["손가락 인식 해제 시 펜슬 도구 클릭","왼쪽 굵기·투명도·Undo·Redo·굵기 버튼은 손가락 허용"]},{"version":"1.23","date":"2026-10-29","changed":["새 스티커 기본색을 옅은 노란색으로 변경"]},{"version":"1.22","date":"2026-10-29","added":["스티커 색 변경"]},{"version":"1.21","date":"2026-10-29","added":["보드 좌표에 고정되는 스티커","메모 이전·다음 버튼"],"changed":["저장된 메모는 보존하며 화면에는 하나만 표시","필기 전체 지우기는 사진·PDF·스티커·메모 유지"]},{"version":"1.20","date":"2026-10-29","changed":["더보기의 전체 지우기를 필기 전용 지우기로 변경"]},{"version":"1.19","date":"2026-10-29","added":["메모 관리: 열기·숨기기·삭제"],"removed":["더보기의 중복 페이지 삭제·필기 지우기 버튼"]},{"version":"1.18","date":"2026-10-29","added":["펜슬 필기용 메모장과 배경색·무늬 설정"],"changed":["현재 쪽 삭제와 이름 변경을 더보기로 이동"]},{"version":"1.17","date":"2026-10-29","added":["이동·크기 조절 메모장","1·5·10·15px 바로가기"],"changed":["왼쪽 굵기 슬라이더 길이 확대"]}]</script><style id="classroom-v132">
+<script type="application/json" id="classroom-changelog">[{"version":"1.39","date":"2026-11-23","added":["공학용·파이썬·LaTeX에 단원별 예시와 미분·적분 수업 예시 추가","LaTeX 도함수·부정적분, x=수식 계산과 등식 검산 구분","계산기 4종에서 잘못된 입력은 결과 칸에 Error와 이유 표시"],"validation":{"passed":["오프라인 공학용 13개·파이썬 26개·LaTeX 32개 예시의 실행 결과","4개 모드 오류 표시·복구, 기존 급수와 역함수, 백업 복원과 모바일 폭"],"notTested":["실제 iPad Safari, Google Drive 계정 연결"]}},{"version":"1.38","date":"2026-11-23","changed":["공학용·파이썬·LaTeX 계산기의 다항함수 예시를 f(x)=6x^5−4x^3+2x−1로 변경"]},{"version":"1.37","date":"2026-11-23","added":["수학 탐구 → 계산기 아래에 LaTeX 수식 변환기 추가","시각적 편집과 LaTeX·한글 수식 코드 변환·복사, 기호 키보드 및 예제","수식과 작성 중인 코드의 기기 저장·전체 백업 연동, 넓게 보기와 학생 화면 지원"],"validation":{"passed":["원본 예제 14개의 LaTeX·한글 수식 출력 28건 비교","분수 입력, 행렬 생성, 양방향 편집, 복사, 실행 취소·다시 실행","미완성 코드 새로고침 복원, 이전 백업 호환, 모의 Drive 저장 후 새 브라우저에서 불러오기","모바일 폭·넓게 보기·학생 화면, 오프라인 파일 실행 및 기존 계산기·화이트보드 회귀 점검"],"notTested":["실제 iPad Safari 및 한컴오피스 한글에서의 붙여넣기","실제 Google 계정의 Drive 업로드·다운로드"]}},{"version":"1.36","date":"2026-11-23","added":["기본·공학용·파이썬·LaTeX 계산기와 공학용 사용자 함수","오프라인 Python 3.12: 여러 줄 코드, 함수·변수 재사용, 중지·초기화","LaTeX 수식 미리보기, x 대입, 정확한 값·근삿값","등비·맥클로린·테일러 급수의 무한합·부분합·수렴 범위, g(t) 정적분 예시","원래 함수와 단조 구간을 지정하는 역함수 계산 및 두 가지 예시"],"validation":{"passed":["기본·공학용 계산, 함수 등록·재호출·복원","오프라인 Python 함수·표준 라이브러리·중지 후 재실행","LaTeX 계산, 수렴 범위 끝점과 부분합, 적분 상한·역방향·g(t) 변경","기존 넓게 보기·화이트보드 메모 필기·백업 관련 회귀 점검","역함수의 두 가지·치역 밖·단조가 아닌 구간 확인"],"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive 및 Vercel·Supabase 연결"]}},{"version":"1.35","date":"2026-11-05","fixed":["메모 상단의 손바닥 이동보다 Apple Pencil 입력을 우선 처리","메모 필기 중 손바닥이 보드 이동·확대 및 메모 버튼을 작동시키는 충돌 방지","종료 이벤트 누락·캡처 변경 후 다음 펜 입력 복구","메모의 고해상도 캔버스와 화면 크기 분리"],"changed":["메모의 완료된 필기 캐시 및 프레임 단위 화면 갱신","메모 실행 취소 기록에서 매번 전체 좌표를 복사하던 작업 제거","펜을 뗀 마지막 좌표 반영·메모 형광펜 겹침 개선","숨긴 메모의 화면 버퍼 해제로 메모리 사용 감소"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil 및 홈 화면 웹앱","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["v1.34에서 손바닥 선행 터치와 종료 누락 시 필기 차단 재현","손바닥보다 Pencil 우선·손가락 인식 ON/OFF 필기","필기 중 손바닥에 의한 메모 이동·보드 이동 차단","종료 누락·동일 펜 ID 재사용·캡처 변경·hover·취소 복구","브라우저 pen 포인터 스트림의 실제 캡처·메모 밖 이동·종료","고속 좌표 묶음과 pointerup 마지막 좌표 반영","메모 이동·크기·배경·실행 취소/다시 실행·지우기·복원","보드/메모 입력 전환 및 스냅샷 복원 후 메모 실행 취소","600개 기존 획에서 80회 이동 입력: 이동 중·획 종료 시 전체 필기 재그리기 없음","고해상도 캔버스 크기 안정성·숨김 버퍼 해제·재열기·새로고침 저장 유지","기존 필기·형광펜·지우개·PDF 탐색·시트 관리·PNG/PDF 저장 회귀 시험","설정 전체 기기 저장·퀴즈 초안 저장·확률 실험·반응형 UI 회귀 시험","10개 인라인 JavaScript 구문 검사·퀴즈 내장 소스 동일 확인·이전 변경 이력 보존"]}},{"version":"1.34","date":"2026-11-02","changed":["홈 하단에 Class all in one Google ver1.34. made by YOONSUNGHO 표시","상단 화이트보드 바로가기를 화이트 보드로 단축하고 주황색 적용","모든 확대 화면 복귀 버튼을 퀴즈·메모·QR과 같은 배경·글자·테두리 색으로 통일","복귀 버튼 문구를 ↩️ 작게 보기로 변경"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["홈 하단 문구·위치 및 도구 전환 후 홈 복귀 표시 확인","화이트 보드 바로가기의 실제 배경·글자 색 확인: 밝은·다크 모드","퀴즈 기준과 9개 도구의 작게 보기 문구·배경·글자·테두리 색 일치","넓게 보기 진입·작게 보기 복귀·Escape 및 모드·도구 전환","1024px 태블릿·390px 모바일 조작","프로젝트 3열·확률 실험·전체 기기 저장·새로고침 후 자료 유지","시트 관리·PNG/PDF 다운로드·내보내기 전후 원본 상태 유지","10개 인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.33","date":"2026-11-02","changed":["화이트보드 넓게 쓰기를 넓게 보기로 통일","화이트보드·퀴즈의 넓게 보기 진입 버튼을 타이머와 같은 제목 오른쪽 위치로 통합","넓게 보기 버튼의 배경·글자·테두리 색을 도구 간 통일"],"fixed":["화이트보드 넓게 보기에서 Escape 복귀 시 캔버스 크기 갱신","퀴즈 넓게 보기에서 Escape 복귀"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase·Vercel 서버 연결"],"passed":["타이머·화이트보드·퀴즈·메모·QR의 제목 오른쪽 위치·문구·색 일치: 밝은/다크 모드","기본 화면 중복 버튼 숨김·확대 화면 복귀·Escape·모드/도구 전환","1024px 태블릿·390px 모바일에서 진입 및 복귀 버튼 조작","프로젝트 3열·확률 실험·전체 기기 저장·새로고침 후 자료 유지","시트 관리·PNG/PDF 다운로드·내보내기 전후 원본 상태 유지","기존 지우개·형광펜·펜 크기·PDF 탐색 회귀 테스트","인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.32","date":"2026-11-02","changed":["메뉴를 퀴즈·메모·QR로 단축","퀴즈 프로젝트 카드 3열 및 간격 축소","퀴즈 저장 버튼은 Google Drive 저장 완료까지 저장 중 표시","화이트보드 작업 단위를 시트로 통일"],"added":["설정 전체 저장 및 새로고침","타이머·조자리점수·행운뽑기·계산기·함수그래프·확률통계·소음측정·메모QR 넓게보기","화이트보드 시트 관리: 미리보기·열기·이름·복제·삭제·순서 이동","현재 시트·모든 시트 PDF 저장"],"validation":{"notTested":["실제 Google Drive·Supabase·Vercel 서버 연결","실제 iPad Safari·Apple Pencil"],"passed":["1024·1536px 프로젝트 3열·390px 1열 및 메뉴 폭 확인","8개 도구 넓게보기·복귀·도구 전환","설정 전체 저장: 퀴즈 초안·비밀번호·전체 화이트보드 포함","Drive 지연 시 저장 중 유지·실패 표시·기기본 보존·변경 없는 재시도","업로드 중 새 편집은 미저장 초안으로 보존","Drive 충돌 시 전체 저장 취소 및 원격 내용 보호","새로고침 후 기기 자료 유지","시트 미리보기·열기·이름·복제·삭제·순서 변경","PNG·현재/전체 시트 PDF 다운로드·PDF 구조 파싱·렌더 확인·원본 상태 유지","기존 수동 저장·다크 화면 버튼 대비·형광펜·지우개·PDF 탐색·분리 동기화 회귀 확인","10개 인라인 JavaScript 구문 검사 및 브라우저 실행 오류 없음"]}},{"version":"1.31","date":"2026-11-01","fixed":["공통 입력 스타일에 가려졌던 꺼진 스위치의 배경·윤곽·손잡이 표시","다크 퀴즈 화면의 정답 가리기 등 일반 버튼 글자·아이콘 대비","출제 순서·화면 배경 선택 및 도움말 글자 대비"],"validation":{"notTested":["실제 iPad Safari·Apple Pencil","실제 Google Drive·Supabase 서버 연결"],"passed":["클릭 전 꺼짐 상태의 스위치 배경·윤곽·손잡이 표시","스위치 켜기·끄기 및 출제 순서 선택 동작","올인원 밝음/어두움 × 퀴즈 밝음/어두움 조합의 버튼 대비","정답 보기·가리기·완료 화면 버튼 글자 대비 4.5 이상","설정 창 선택 버튼과 일반 버튼 글자 대비 4.5 이상","390px 모바일 설정 창·스위치 조작","퀴즈 실행·정답 공개·요약 화면 전환, 페이지 오류 없음","기존 퀴즈 수동 저장 등 JavaScript 바이트 동일 확인"]}},{"version":"1.30","date":"2026-11-01","changed":["퀴즈 프로젝트 편집의 자동 저장을 수동 저장으로 변경","설정 왼쪽에 저장 버튼 및 미저장 표시 추가","편집 초안과 저장본 분리: 전체 저장·Drive·백업에 초안 제외"],"added":["편집 화면 이탈 시 저장·버리기·계속 편집 선택","Ctrl/Cmd+S 저장, 새로고침 이탈 경고"],"validation":{"notTested":["실제 Google Drive·Supabase·Vercel 연결","실제 iPad Safari·Apple Pencil"],"passed":["저장 버튼이 설정 왼쪽에 배치","입력 후 자동 저장·전체 저장·Host flush에서 초안 제외","저장 버튼·Ctrl/Cmd+S 명시적 저장","계속 편집·버리기·저장하고 이동 분기","다른 도구로 이동 후 초안 유지, 저장본 미변경","새로고침 시 미저장 경고, 저장 후 새로고침 복원","문항 추가의 수동 저장","화이트보드 진입·확률 동전 100회 실행, 페이지 오류 없음"]}},{"version":"1.29","date":"2026-11-01","added":["온라인 학생 참여: 코드·비밀번호·학번·이름, 기존 교사 Google 로그인 재사용","개별·교사 진행, 전체·문항별 시간제한 및 교사 수동 마감","서버 자동 채점, 제출 즉시 점수·종료 후 정답 공개, 교사 재응시·재접속 허용","퀴즈별 결과·문항별 답안·CSV 및 종료 성적 요약 Drive 저장"],"changed":["객관식 기본 선지 2개, 선지 추가·삭제 및 6개 제한 해제","문항별 진행은 이전 문항 잠금, 전체 퀴즈 마감은 제출 전 답안 수정"],"excluded":["학생별 누적 성적표"],"validation":{"notTested":["실제 Supabase 프로젝트·Vercel 배포","실제 Google OAuth·Drive 계정 연결","실제 iPad Safari·Apple Pencil","100명 실서버 동시 접속 부하"],"passed":["PGlite PostgreSQL 검사 19개: 권한·자동채점·마감·중복제출·재접속·재응시","교사와 학생 브라우저 연결: 코드·QR·입장·점수·답안·CSV·재접속·재응시","시간 만료 시 응시만 마감, 교사 전체 종료 후 정답·해설 공개","객관식 기본 2개 및 7개 이상 선지 추가·삭제·저장","종료 성적 요약의 기기 저장, 모의 Drive 저장·복원 왕복 보존","기존 퀴즈 편집·수식·Markdown·발표·백업 회귀 검사","화이트보드 필기·형광펜·지우개·PDF 이동 회귀 검사","모의 Drive의 화이트보드 진입 비교·분리 저장·충돌 방지 회귀 검사"]}},{"version":"1.28","date":"2026-11-01","changed":["퀴즈 100% OFFLINE 문구 제거, 교실 도구 테마와 색상 통일","시작 시 수업 도구만 동기화, 화이트보드는 진입 시 내용 비교 후 업로드·불러오기 선택","다른 도구 저장 시 Drive 화이트보드 쪽·사진 유지, 화이트보드 사진 다운로드 안 함","퀴즈 완료 화면 버튼을 제목 바로 아래로 이동"],"added":["교실 도구 제목 클릭으로 홈 이동, 홈 도구 카드"],"compatibility":["기존 Drive v2 저장 구조와 백업 지원","화이트보드 화면 이동·확대율만 다른 경우에는 내용 충돌로 묻지 않음"],"validation":{"notTested":["실제 Google OAuth 실계정 전송","실제 iPad Safari·Apple Pencil"],"passed":["시작 시 홈 표시 및 선택창 없음, 교실 도구 제목으로 홈 이동","모의 Drive: 시작·수업 도구 저장 시 화이트보드 쪽·사진 읽기 0건","모의 Drive: 다른 도구 저장 후 원격 화이트보드 쪽 목록·사진 유지","화이트보드 진입 시 내용이 다를 때 선택, 같은 내용·화면 위치 차이만 있을 때는 선택창 없음","화이트보드 업로드·불러오기·기기 전용 작업·첫 Drive 파일 생성","비교 이후 원격 자료 변경 시 덮어쓰기 차단","퀴즈 밝은 테마·다크모드 색상, OFFLINE 문구 제거, 완료 버튼 위치","퀴즈 편집·수식·발표·백업·기기 저장 회귀 테스트","화이트보드 필기·형광펜·지우개·사진 편집·굵기·PDF 이동 회귀 테스트"]}},{"version":"1.27","date":"2026-11-01","added":["메모 화면에 퀴즈 스튜디오 1.01 통합: 퀴즈·메모·QR 코드 선택","프로젝트·문제 편집·사진·LaTeX·발표·수업 기록·퀴즈 백업","퀴즈 기기 저장, 전체 백업 및 Google Drive 동기화","퀴즈 사진 원본은 기존 Drive 이미지 분리 저장으로 중복 업로드 방지"],"changed":["발표 중에는 퀴즈가 화면 전체 사용","상위 메뉴 이름을 퀴즈·수업 메모·QR 코드로 변경"],"compatibility":["기존 백업에 퀴즈가 없으면 현재 퀴즈 유지","기존 메모·QR 코드·화이트보드 데이터와 저장 키 유지"],"validation":{"passed":["퀴즈 버튼 순서·프로젝트 편집·LaTeX·마크다운 가져오기","스페이스·빈 화면 클릭 발표·마침 화면·모바일 발표 영역","메모·QR 유지·기기 저장·새로고침 복원·전체 백업·이전 백업 호환","모의 Drive 저장·불러오기·동일 사진 재업로드 방지·삭제 자원 정리","화이트보드 펜·형광펜·지우개·사진 편집·굵기·PDF 이동 회귀 테스트","타이머·확률 실험·함수 그래프 기본 동작"],"notTested":["실제 Google OAuth 로그인 및 실계정 Drive 전송","실제 iPad Safari·Apple Pencil 입력"]}},{"version":"1.26","date":"2026-10-30","changed":["펜 굵기 슬라이더: 아래 50%는 1~20px, 위 50%는 20~50px"]},{"version":"1.25","date":"2026-10-30","changed":["지우개 기본값 개체 전체","더보기 백업 불러오기 이동 및 중복 자르기 제거","사진 편집 닫기 버튼 수정","현재 화면에서 가까운 PDF 쪽을 기준으로 이전·다음 이동","형광펜 한 획의 투명도 겹침과 중복 입력 보완"]},{"version":"1.24","date":"2026-10-29","fixed":["손가락 인식 해제 시 펜슬 도구 클릭","왼쪽 굵기·투명도·Undo·Redo·굵기 버튼은 손가락 허용"]},{"version":"1.23","date":"2026-10-29","changed":["새 스티커 기본색을 옅은 노란색으로 변경"]},{"version":"1.22","date":"2026-10-29","added":["스티커 색 변경"]},{"version":"1.21","date":"2026-10-29","added":["보드 좌표에 고정되는 스티커","메모 이전·다음 버튼"],"changed":["저장된 메모는 보존하며 화면에는 하나만 표시","필기 전체 지우기는 사진·PDF·스티커·메모 유지"]},{"version":"1.20","date":"2026-10-29","changed":["더보기의 전체 지우기를 필기 전용 지우기로 변경"]},{"version":"1.19","date":"2026-10-29","added":["메모 관리: 열기·숨기기·삭제"],"removed":["더보기의 중복 페이지 삭제·필기 지우기 버튼"]},{"version":"1.18","date":"2026-10-29","added":["펜슬 필기용 메모장과 배경색·무늬 설정"],"changed":["현재 쪽 삭제와 이름 변경을 더보기로 이동"]},{"version":"1.17","date":"2026-10-29","added":["이동·크기 조절 메모장","1·5·10·15px 바로가기"],"changed":["왼쪽 굵기 슬라이더 길이 확대"]}]</script><style id="classroom-v132">
 .tabs .nav-label{min-width:0;overflow-wrap:anywhere}.tabs button{max-width:100%}.settings-save-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.settings-save-actions button{font-size:12px;white-space:nowrap;padding:8px 10px}.settings-save-status{padding-top:16px;margin-bottom:0;line-height:1.6}.settings-save-status.error{color:var(--danger)}#settingsSaveAll.saving-online{background:#a6650e;color:#fff;opacity:1;cursor:wait}.tool-widebar{display:none}body.tool-wide{overflow:hidden}body.tool-wide .panel.active{position:fixed;inset:0;z-index:120;overflow:auto;background:var(--bg);margin:0;padding:16px max(18px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left));border:0;border-radius:0;max-width:none}body.tool-wide .panel.active>.tool-widebar{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:-16px;z-index:10;padding:12px 0;margin:0 0 18px;background:var(--bg);border-bottom:1px solid var(--line)}.tool-widebar strong{font-size:18px}.tool-widebar button{font-size:13px}#toolWideButton{background:var(--soft);color:var(--blue);white-space:nowrap}#whiteboard #wb-sheetManager{width:min(980px,96vw);max-height:90dvh;overflow:auto;padding:20px}#whiteboard .sheet-manager-tools{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:15px 0;font-size:13px;color:var(--muted)}#whiteboard #wb-sheetList{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}#whiteboard .sheet-manager-card{padding:12px;border:1px solid var(--line);border-radius:13px;background:var(--card);min-width:0;display:flex;flex-direction:column;gap:8px}#whiteboard .sheet-manager-card.current{border:2px solid var(--blue);padding:11px}#whiteboard .sheet-manager-card canvas{width:100%;height:154px;object-fit:contain;background:#f1f5f4;border-radius:8px;pointer-events:none}#whiteboard .sheet-manager-card strong{font-size:14px;overflow-wrap:anywhere}#whiteboard .sheet-manager-card small{font-size:11px;color:var(--muted)}#whiteboard .sheet-manager-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:auto}#whiteboard .sheet-manager-actions button{font-size:11px;min-height:32px;padding:6px 9px}#whiteboard #wb-pdfExportDialog{width:min(430px,94vw);padding:22px}#whiteboard #wb-pdfExportDialog label{display:grid;gap:7px;margin:16px 0;font-size:13px}#whiteboard #wb-pdfExportDialog select{width:100%}#whiteboard #wb-pdfExportDialog .field-note{line-height:1.65;margin:12px 0}#whiteboard #wb-pdfExportStart{width:100%}
 @media(max-width:650px){body.tool-wide .panel.active{padding:12px}body.tool-wide .panel.active>.tool-widebar{top:-12px}.heading{flex-wrap:wrap}.heading-actions{flex-wrap:wrap}.settings-save-actions button{font-size:11px;padding:6px 8px}#settingsDialog .settings-head{gap:9px;flex-wrap:wrap}.tool-widebar strong{font-size:16px}}
 </style><style id="classroom-v133">
@@ -494,6 +494,17 @@ body.student #calculator .calc-result .calc-output:not([data-empty="true"]){font
  #calculator .calc-fn-line button,#calculator .calc-reset{margin-left:0}
  #calculator .calc-lab{gap:8px}
 }
+</style>
+<style id="classroom-calc139">
+#calculator .calc-example-label{display:inline-flex;align-items:center;gap:.45rem;min-width:0}
+#calculator .calc-example-label select{width:min(18rem,100%);max-width:100%;min-width:0;text-overflow:ellipsis;font:inherit;color:var(--text);background:var(--card,#fff)}
+#calculator .calc-fn-line .calc-example-label{margin-inline-start:auto}
+#calculator .calc-example-hint{margin:.3rem 0 .65rem;color:var(--text);font-size:.86rem;line-height:1.45}
+#calculator .calc-example-hint:empty{display:none}
+#calculator .calc-equation-help{margin:.3rem 0 .6rem}
+#calculator [data-error="true"]{color:var(--danger,#a52c33);font-size:1rem;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start}
+#calculator .calc-result:has(.calc-output[data-error="true"]){border-color:var(--danger,#a52c33)}
+@media(max-width:620px){#calculator .calc-example-label{width:100%}#calculator .calc-example-label select{flex:1;width:auto}}
 </style>
 </head><body class="menu-collapsed">
 <header class="top"><div class="brandbar"><div class="brand"><button id="menuToggle" aria-label="메뉴 펼치기" aria-controls="mainNav" aria-expanded="false"><i></i><i></i><i></i></button><button type="button" id="soundMenuButton" class="logo" aria-label="효과음 열기" aria-controls="soundPopup" aria-expanded="false">▦</button><button type="button" id="homeTitle" class="brand-name" aria-label="교실 도구 홈으로">교실 도구<span class="brand-sub">CLASSROOM ALL IN ONE</span></button><span id="globalSaveStatus" class="global-save-status" role="status" aria-live="polite">저장 상태 확인 중…</span></div><div class="row"><button id="saveAllBtn" class="global-save-button">✓ 저장</button><button id="studentBtn" class="primary">▣ 학생 화면</button><button id="darkBtn">◐ 다크모드</button><button id="wideBoardBtn" class="wide-board-shortcut" title="화이트 보드" aria-label="화이트 보드">화이트 보드</button><button id="fullscreenBtn">⛶ 전체화면</button><button id="driveOpen" class="drive-open">☁ Google Drive</button><button id="settingsBtn">⚙ 설정</button></div></div><nav id="mainNav" class="tabs" aria-label="교실 도구 선택"></nav></header>
@@ -590,7 +601,7 @@ body.dark .wide-board-shortcut{background:#203c39!important;border-color:#426c63
   <div id="calcClassic">
     <div class="calc-display"><div class="small muted" id="calcModeLabel">DEG · 각도 단위</div><input id="calcInput" aria-label="계산식" placeholder="계산식을 입력하세요" autocomplete="off" spellcheck="false"><div class="calc-answer" id="calcAnswer" aria-live="polite">0</div></div>
     <div id="sciTools" class="calc-fns teacher" hidden>
-      <div class="calc-fn-line"><strong>내 함수</strong><span class="calc-help">함수식을 입력하고 = 를 누르면 등록됩니다.</span><button type="button" id="sciExample">다항함수 예시 · f(x)=6x⁵−4x³+2x−1</button></div>
+      <div class="calc-fn-line"><strong>내 함수</strong><span class="calc-help">함수식을 입력하고 = 를 누르면 등록됩니다.</span><label class="calc-example-label">예시 <select id="sciExample" aria-label="공학용 예시"><option value="">예시 선택</option></select></label></div>
       <div id="sciFunctions" class="calc-fn-list"></div>
       <div id="sciNotice" class="calc-help" role="status"></div>
     </div>
@@ -598,7 +609,8 @@ body.dark .wide-board-shortcut{background:#203c39!important;border-color:#426c63
     <p class="field-note teacher" style="margin-top:12px">Enter 계산 · 닫는 괄호 자동 완성 · % = ÷100</p>
   </div>
   <div id="calcPython" class="calc-lab" hidden>
-    <div class="calc-lab-head"><h2>파이썬 계산기</h2><label class="calc-example-label teacher">예시 <select id="pyExample" aria-label="파이썬 예시"><option value="">선택</option><option value="poly">다항함수</option><option value="comb">조합</option><option value="sum">제곱의 합</option><option value="frac">분수</option></select></label></div>
+    <div class="calc-lab-head"><h2>파이썬 계산기</h2><label class="calc-example-label teacher">예시 <select id="pyExample" aria-label="파이썬 예시"><option value="">예시 선택</option></select></label></div>
+    <p class="calc-example-hint" id="pyExampleHint"></p>
     <label class="calc-caption" for="pySource">파이썬 코드</label>
     <textarea id="pySource" class="calc-code" rows="5" maxlength="16000" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-describedby="pyHelp">def f(x):
     return 6*x**5 - 4*x**3 + 2*x - 1
@@ -609,13 +621,15 @@ print(f(3))</textarea>
     <div class="calc-result" aria-live="polite" aria-atomic="true"><div class="calc-result-top"><strong>실행 결과</strong><span id="pyStatus" role="status"></span></div><pre id="pyResult" class="calc-output" data-empty="true">실행하면 결과가 표시됩니다.</pre></div>
   </div>
   <div id="calcLatex" class="calc-lab" hidden>
-    <div class="calc-lab-head"><h2>LaTeX 계산기</h2><label class="calc-example-label teacher">예시 <select id="texExample" aria-label="LaTeX 예시"><option value="">선택</option><option value="poly">다항함수</option><option value="frac">분수</option><option value="root">근호</option><option value="sum">수열의 합</option></select></label></div>
+    <div class="calc-lab-head"><h2>LaTeX 계산기</h2><label class="calc-example-label teacher">예시 <select id="texExample" aria-label="LaTeX 예시"><option value="">예시 선택</option></select></label></div>
+    <p class="calc-example-hint" id="texExampleHint"></p>
     <div class="calc-tex-layout"><div><label class="calc-caption" for="texSource">LaTeX 수식</label><textarea id="texSource" class="calc-code" rows="2" maxlength="2000" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false">f(x)=6x^5-4x^3+2x-1</textarea></div>
     <div class="teacher calc-xbox"><label class="calc-caption" for="texX"><span id="texXLabel">x 값</span> <small>(선택)</small></label><input id="texX" value="3" maxlength="120" placeholder="예: 3, 1/2" autocomplete="off" autocapitalize="off" spellcheck="false"></div></div>
+    <p class="calc-help calc-equation-help">x = 수식에서 x 값 칸을 비우면 오른쪽 값을 구합니다. x 값을 입력하면 등식이 맞는지 확인합니다.</p>
     <div id="texInverseRow" class="calc-aux teacher" hidden><label for="texF">원래 함수 f(x) =</label><input id="texF" value="x^2+x+1" maxlength="300" autocapitalize="off" spellcheck="false"><label for="texLo">구간 시작</label><input id="texLo" class="calc-bound" value="-0.5" maxlength="60"><label for="texHi">끝</label><input id="texHi" class="calc-bound" value="5" maxlength="60"><div class="calc-branches"><small>연속인 증가 또는 감소 구간을 고르세요.</small><button id="invRight">오른쪽 가지 예시</button><button id="invLeft">왼쪽 가지 예시</button></div></div>
     <div id="texIntegralRow" class="calc-aux teacher" hidden><label for="texG">적분할 함수 g(t) =</label><input id="texG" value="t^2+t+1" maxlength="300" aria-label="적분할 함수 g(t)" autocapitalize="off" spellcheck="false"><small>적분 구간에서 연속인 함수를 입력하세요.</small></div>
     <div id="texSeriesRow" class="calc-aux teacher" hidden><label for="texTerms">부분합 항 수</label><input id="texTerms" type="number" value="12" min="1" max="100" step="1"><small>처음 몇 항의 합을 무한합과 비교할지 정합니다.</small></div>
-    <div class="calc-symbols teacher" role="group" aria-label="수식 기호 넣기"><button data-tex-insert="frac" aria-label="분수 넣기">분수</button><button data-tex-insert="root" aria-label="제곱근 넣기">√</button><button data-tex-insert="power" aria-label="지수 넣기">aⁿ</button><button data-tex-insert="pi" aria-label="파이 넣기">π</button><button data-tex-insert="sum" aria-label="합 기호 넣기">Σ</button><button data-tex-insert="int" aria-label="적분 넣기">∫</button></div>
+    <div class="calc-symbols teacher" role="group" aria-label="수식 기호 넣기"><button data-tex-insert="frac" aria-label="분수 넣기">분수</button><button data-tex-insert="root" aria-label="제곱근 넣기">√</button><button data-tex-insert="power" aria-label="지수 넣기">aⁿ</button><button data-tex-insert="pi" aria-label="파이 넣기">π</button><button data-tex-insert="sum" aria-label="합 기호 넣기">Σ</button><button data-tex-insert="der" aria-label="미분 넣기">d/dx</button><button data-tex-insert="int" aria-label="적분 넣기">∫</button></div>
     <div class="calc-paper"><div class="calc-caption">수식 미리보기</div><div id="texPreview" class="calc-formula" aria-label="입력한 수식 미리보기"></div><div id="texDefinitionPreview" class="calc-formula" hidden aria-label="원래 함수의 수식"></div></div>
     <div class="calc-actions teacher"><button class="primary" id="texRun">= 계산하기</button><button id="texStop" hidden>중지</button><small class="calc-shortcut">Enter 계산 · Shift + Enter 줄바꿈</small></div>
     <div class="calc-result" aria-live="polite" aria-atomic="true"><div class="calc-result-top"><strong>계산 결과</strong><span id="texStatus" role="status"></span></div><div id="texResult" class="calc-formula calc-output" data-empty="true">계산하면 결과가 표시됩니다.</div><div id="texApprox" class="calc-approx" hidden></div><div id="texDetail" class="calc-approx" hidden></div></div>
@@ -817,7 +831,7 @@ print(f(3))</textarea>
   </aside>
   <div id="wb-toast" class="toast" role="status"></div>
   <div class="pop" id="wb-bgPopup"><div class="row between"><strong>배경 · 크기</strong><button id="wb-bgClose" aria-label="배경 설정 닫기">×</button></div><label for="wb-backgroundStyle">보드 배경</label><select id="wb-backgroundStyle"><option value="grid">격자</option><option value="blank">흰색</option><option value="dot">점 격자</option><option value="axes">좌표축</option><option value="ruled">줄노트</option></select><fieldset class="board-edges"><legend>화이트보드 경계 제한</legend><label><input type="checkbox" id="wb-limitLeft"> 왼쪽</label><label><input type="checkbox" id="wb-limitRight"> 오른쪽</label><label><input type="checkbox" id="wb-limitTop"> 위쪽</label><label><input type="checkbox" id="wb-limitBottom"> 아래쪽</label></fieldset><p id="wb-limitStatus" class="field-note"></p><button id="wb-limitReset" class="btn line">현재 화면을 경계 기준으로 설정</button><p class="field-note">체크한 방향만 제한합니다. PDF는 현재 펼친 쪽의 테두리가 기준입니다. 오른쪽을 해제하면 빈 공간에 계속 필기할 수 있습니다.</p></div>
-  <div class="pop" id="wb-morePopup" style="flex-wrap:wrap;max-width:92vw"><button class="btn line" id="wb-renamePage">✎ 시트 이름 바꾸기</button><button class="btn line warn" id="wb-deletePageQuick">− 현재 시트 삭제</button><button class="btn line" id="wb-manageNotes">▤ 메모 관리</button><button class="btn line" id="wb-manageSheets">▥ 시트 관리</button><div class="wb-save-panel"><div class="row"><button id="wb-saveProject" class="btn primary">💾 저장</button><button class="btn line" id="wb-importJson">백업 불러오기</button><span id="wb-saveStatus" role="status">저장 상태 확인 중…</span></div><div id="wb-accountInfo"></div><div id="wb-localSaveStatus"></div></div><button id="wb-saveBtn" class="btn primary">↓ PNG 저장</button><button id="wb-savePdf" class="btn primary">↓ PDF 저장</button><button class="btn line" id="wb-pasteBtn">붙여넣기</button><button class="btn primary" id="wb-pdfImport">PDF 가져오기</button><button class="btn line" id="wb-exportJson">프로젝트 백업</button><button class="btn line" id="wb-duplicatePage">현재 시트 복제</button><button class="btn line warn" id="wb-clearPage">필기 전체 지우기</button><button class="btn line" id="wb-fullscreen">전체 화면 전환</button><div id="wb-hint" class="hint">왼쪽 손가락 인식 체크: 이동·확대·축소 · 두 손가락 탭 취소 · 세 손가락 탭 다시 실행 · 체크 해제: 펜슬 전용 · 왼쪽 조절바는 손가락 사용 가능 · v1.38</div></div>
+  <div class="pop" id="wb-morePopup" style="flex-wrap:wrap;max-width:92vw"><button class="btn line" id="wb-renamePage">✎ 시트 이름 바꾸기</button><button class="btn line warn" id="wb-deletePageQuick">− 현재 시트 삭제</button><button class="btn line" id="wb-manageNotes">▤ 메모 관리</button><button class="btn line" id="wb-manageSheets">▥ 시트 관리</button><div class="wb-save-panel"><div class="row"><button id="wb-saveProject" class="btn primary">💾 저장</button><button class="btn line" id="wb-importJson">백업 불러오기</button><span id="wb-saveStatus" role="status">저장 상태 확인 중…</span></div><div id="wb-accountInfo"></div><div id="wb-localSaveStatus"></div></div><button id="wb-saveBtn" class="btn primary">↓ PNG 저장</button><button id="wb-savePdf" class="btn primary">↓ PDF 저장</button><button class="btn line" id="wb-pasteBtn">붙여넣기</button><button class="btn primary" id="wb-pdfImport">PDF 가져오기</button><button class="btn line" id="wb-exportJson">프로젝트 백업</button><button class="btn line" id="wb-duplicatePage">현재 시트 복제</button><button class="btn line warn" id="wb-clearPage">필기 전체 지우기</button><button class="btn line" id="wb-fullscreen">전체 화면 전환</button><div id="wb-hint" class="hint">왼쪽 손가락 인식 체크: 이동·확대·축소 · 두 손가락 탭 취소 · 세 손가락 탭 다시 실행 · 체크 해제: 펜슬 전용 · 왼쪽 조절바는 손가락 사용 가능 · v1.39</div></div>
  </div>
 <div id="wb-lassoActions" hidden><span>선택 영역 안쪽: 이동 · 오른쪽 아래 모서리: 크기 조절</span><button id="wb-lassoEditTextQuick" hidden>✎ 글자 편집</button><button id="wb-lassoSmaller">− 10%</button><button id="wb-lassoLarger">＋ 10%</button><button id="wb-lassoClear">선택 해제</button></div><div id="wb-pdfTools" hidden><button id="wb-pdfFit">한 쪽 전체</button><button id="wb-pdfWidth">가로폭 맞춤</button><button id="wb-pdfToggle" aria-pressed="false">배경 숨기기</button></div>
 <dialog id="wb-pdfDialog" aria-labelledby="wb-pdfTitle"><div class="row between"><h2 id="wb-pdfTitle">PDF 가져오기</h2><button id="wb-pdfClose" aria-label="취소하고 닫기">×</button></div><p class="field-note">PDF를 여러 개 선택할 수 있습니다. 새 시트는 파일마다 만들고, 현재 시트는 기존 자료 뒤에 이어 붙입니다. 한 쪽과 빈 필기 공간 또는 두 쪽 묶음이 현재 판서 영역에 들어오도록 맞추고, 배율은 100%로 시작합니다. 원본 비율과 선택한 화질은 유지합니다.</p><button id="wb-pdfChoose" class="pdf-drop-zone">＋ PDF 파일 추가 · 여러 개 선택하거나 여기로 끌어 놓으세요</button><p id="wb-pdfFileLabel">아직 선택한 파일이 없습니다.</p><div class="pdf-queue-toolbar"><strong>가져올 PDF 목록</strong><button id="wb-pdfClearFiles" type="button" disabled>전체 비우기</button></div><div id="wb-pdfQueue"></div><p class="field-note">PDF 순서 기준 · ~3은 1~3쪽, 4~는 4쪽부터 끝까지입니다.</p><fieldset class="pdf-layout-choice"><legend>PDF 보기 방식</legend><label><input type="radio" name="wb-pdfView" value="single" checked> 한 쪽 + 오른쪽 빈 필기 공간</label><label><input type="radio" name="wb-pdfView" value="spread"> 두 쪽씩 나란히</label></fieldset><p class="field-note">두 쪽씩은 선택한 순서대로 1·2쪽, 3·4쪽을 묶습니다. 마지막이 홀수 쪽이면 오른쪽은 비워 둡니다.</p><fieldset class="pdf-layout-choice"><legend>한 시트에 붙이는 방향</legend><label><input type="radio" name="wb-pdfLayout" value="vertical" checked> 세로로 길게</label><label><input type="radio" name="wb-pdfLayout" value="horizontal"> 가로로 길게</label></fieldset><label>화질<select id="wb-pdfQuality"><option value="1600">가벼움 · 긴 변 1600px</option><option value="2200" selected>표준 · 긴 변 2200px</option><option value="2800">선명함 · 긴 변 2800px</option></select></label><p class="field-note">변환된 배경은 이미지입니다. 글자 선택·검색은 지원하지 않습니다.<br>파일은 서버로 보내지 않으며 인터넷 없이 처리합니다.</p><div class="pdf-import-footer"><progress id="wb-pdfProgress" max="1" value="0"></progress><p id="wb-pdfStatus" role="status" aria-live="polite">먼저 PDF 파일을 선택하세요.</p><button id="wb-pdfStart" class="primary" disabled>새 시트에 pdf 가져오기</button><button id="wb-pdfStartCurrent" disabled>현재 시트에 pdf 가져오기</button></div></dialog><input id="wb-pdfFile" type="file" accept=".pdf,application/pdf" multiple hidden> <div class="wb-bottom-bar"><div class="sheet-strip"><button id="wb-pageScrollLeft" class="sheet-arrow" type="button" title="이전 시트 보기" aria-label="이전 시트 보기">‹</button><nav class="pages" id="wb-pages" aria-label="화이트보드 쪽 관리"><span id="wb-pdfLabel" class="pdf-inline-label" hidden></span></nav><button id="wb-pageScrollRight" class="sheet-arrow" type="button" title="다음 시트 보기" aria-label="다음 시트 보기">›</button></div><div class="zoom"><div id="wb-pdfGroupControls" class="pdf-bottom-controls" hidden><button id="wb-pdfPrev">← 이전 PDF쪽</button><span id="wb-pdfPosition"></span><button id="wb-pdfNext">다음 PDF쪽 →</button></div><button id="wb-zoomOut" title="축소">−</button><span id="wb-zoomText">100%</span><button id="wb-zoomIn" title="확대">+</button><button id="wb-zoomReset" title="PDF: 높이 맞춤 · 일반 보드: 100%">100%</button><button id="wb-centerView" title="처음 기준 위치로 돌아가기" style="font-size:13px;width:auto;padding:0 8px">⌖ 기준점</button><button id="wb-fitView" title="모든 필기를 화면에 맞추기" style="width:auto;padding:0 8px;font-size:12px">화면 맞춤</button></div></div>
@@ -828,7 +842,7 @@ print(f(3))</textarea>
 <dialog id="wb-sheetManager" aria-labelledby="wb-sheetManagerTitle"><div class="row between"><h2 id="wb-sheetManagerTitle">시트 관리</h2><button id="wb-sheetManagerClose" aria-label="시트 관리 닫기">×</button></div><div class="sheet-manager-tools"><span id="wb-sheetCount" role="status"></span><button id="wb-sheetAdd" class="btn primary">＋ 새 시트</button></div><div id="wb-sheetList"></div></dialog>
 <dialog id="wb-pdfExportDialog" class="wb-export-dialog" aria-labelledby="wb-pdfExportTitle"><div class="row between"><h2 id="wb-pdfExportTitle">PDF 저장</h2><button id="wb-pdfExportClose" class="btn" aria-label="PDF 저장 닫기">×</button></div><label>저장할 시트<select id="wb-pdfExportSheets"><option value="current">현재 시트</option><option value="all">모든 시트</option></select></label><label>저장 범위<select id="wb-pdfExportScope"><option value="all">필기 전체</option><option value="view">현재 화면</option></select></label><p class="field-note">시트당 PDF 한 쪽으로 저장합니다. 배경·사진·PDF·스티커·필기를 포함합니다.</p><p id="wb-pdfExportStatus" role="status" class="field-note"></p><button id="wb-pdfExportStart" class="btn primary">↓ PDF 저장</button></dialog>
 <dialog id="wb-exportDialog" class="wb-export-dialog" aria-labelledby="wb-exportTitle"><div class="row between"><h2 id="wb-exportTitle">PNG로 저장할 범위</h2><button id="wb-exportCancel" class="btn" aria-label="닫기">×</button></div><button id="wb-exportAll" class="export-choice"><strong>필기 전체</strong><small>현재 시트의 필기와 사진을 모두 저장합니다.</small></button><button id="wb-exportView" class="export-choice"><strong>현재 화면</strong><small>지금 보이는 판서 영역을 저장합니다.</small></button></dialog><dialog id="wb-textDialog" class="wb-textdialog" aria-labelledby="wb-textTitle"><h2 id="wb-textTitle">글자 넣기</h2><textarea id="wb-textValue" aria-label="글자 또는 LaTeX 수식" maxlength="2000" placeholder="수식이나 안내 문구를 입력하세요. 예: y = x² + 2x + 1"></textarea><label class="latex-toggle"><input type="checkbox" id="wb-textLatex"> LaTeX 수식으로 표시</label><div class="text-options"><label>글자 크기 (px)<input id="wb-textSize" type="number" min="8" max="256" value="28" step="1"></label><label>글자 색<input type="color" id="wb-textColor" value="#204acc"></label></div><div class="field-note">미리보기</div><div id="wb-textPreview" aria-live="polite"></div><p id="wb-textError" role="alert" hidden></p><div class="row text-dialog-actions"><button id="wb-textCancel" class="btn line">취소</button><button id="wb-textInsert" class="btn primary">넣기</button></div></dialog></section>
-<div class="footer"><span id="appFooterBrand">Class all in one Google ver1.38. made by YOONSUNGHO</span><span>학생 화면 ESC 돌아가기 · F 전체화면</span></div></main>
+<div class="footer"><span id="appFooterBrand">Class all in one Google ver1.39. made by YOONSUNGHO</span><span>학생 화면 ESC 돌아가기 · F 전체화면</span></div></main>
 <dialog id="settingsDialog" aria-labelledby="settingsTitle">
  <div class="settings-head row between"><div><span class="eyebrow">TEACHER SETTINGS</span><h2 id="settingsTitle">교실 도구 설정</h2></div><div class="settings-save-actions"><button id="settingsSaveAll" class="primary">✓ 전체 저장</button><button id="settingsRefresh">↻ 새로고침</button><button id="closeSettings" aria-label="설정 닫기">✕</button></div></div>
  <div class="settings-sections"><p id="settingsSaveStatus" role="status" class="field-note settings-save-status">전체 저장: 모든 설정·퀴즈 편집 내용·화이트보드를 함께 저장합니다.</p>
@@ -3421,7 +3435,7 @@ function setToolWide(value){
 on('toolWideButton',()=>{if(activeTab==='whiteboard'){$('wb-focusBtn').click();return}if(activeTab==='memoQr'&&memoQrMode==='quiz'){$('quizWide').click();return}setToolWide(!document.body.classList.contains('tool-wide'))});
 new MutationObserver(refreshToolWide).observe(document.body,{attributes:true,attributeFilter:['class']});
 
-function selectTab(id){if(document.body.classList.contains("tool-wide"))setToolWide(false);if(id==='memo'||id==='quicktools'){setMemoQrMode(id==='quicktools'?'qr':'memo');id='memoQr'}if(id==='random'){id='lottery';setLotteryMode('random')}if(!tabs.some(t=>t[0]===id))id='home';const enteringBoard=id==='whiteboard'&&activeTab!=='whiteboard';activeTab=id;document.body.classList.toggle('calc-active',id==='calculator');document.body.classList.toggle('whiteboard-open',id==='whiteboard');if(id!=='whiteboard')document.body.classList.remove('board-focus');$$('.panel').forEach(p=>p.classList.toggle('active',p.id===id));if(id==='whiteboard'){initWhiteboard();if(enteringBoard)window.dispatchEvent(new Event('classroom-whiteboard-enter'))}$$('.tabs button').forEach(b=>{b.classList.toggle('active',b.dataset.tab===id);b.setAttribute('aria-selected',b.dataset.tab===id)});const t=tabs.find(t=>t[0]===id);$('pageTitle').textContent=t[2];$('pageSubtitle').textContent=t[3];$('appFooterBrand').textContent=id==='home'?'Class all in one Google ver1.38. made by YOONSUNGHO':'Google Drive ver1.38';if(id==='graph')requestAnimationFrame(drawGraph);if(id==='calculator')queueCalcPreview();window.ClassroomFormulaConverter.setActive(id==='formulaConverter');if(id==='memoQr'&&memoQrMode==='memo')requestAnimationFrame(sizeMemoEffect);window.ClassroomQuizHost.setVisible(id==='memoQr'&&memoQrMode==='quiz');refreshToolWide();window.scrollTo(0,0);save()}
+function selectTab(id){if(document.body.classList.contains("tool-wide"))setToolWide(false);if(id==='memo'||id==='quicktools'){setMemoQrMode(id==='quicktools'?'qr':'memo');id='memoQr'}if(id==='random'){id='lottery';setLotteryMode('random')}if(!tabs.some(t=>t[0]===id))id='home';const enteringBoard=id==='whiteboard'&&activeTab!=='whiteboard';activeTab=id;document.body.classList.toggle('calc-active',id==='calculator');document.body.classList.toggle('whiteboard-open',id==='whiteboard');if(id!=='whiteboard')document.body.classList.remove('board-focus');$$('.panel').forEach(p=>p.classList.toggle('active',p.id===id));if(id==='whiteboard'){initWhiteboard();if(enteringBoard)window.dispatchEvent(new Event('classroom-whiteboard-enter'))}$$('.tabs button').forEach(b=>{b.classList.toggle('active',b.dataset.tab===id);b.setAttribute('aria-selected',b.dataset.tab===id)});const t=tabs.find(t=>t[0]===id);$('pageTitle').textContent=t[2];$('pageSubtitle').textContent=t[3];$('appFooterBrand').textContent=id==='home'?'Class all in one Google ver1.39. made by YOONSUNGHO':'Google Drive ver1.39';if(id==='graph')requestAnimationFrame(drawGraph);if(id==='calculator')queueCalcPreview();window.ClassroomFormulaConverter.setActive(id==='formulaConverter');if(id==='memoQr'&&memoQrMode==='memo')requestAnimationFrame(sizeMemoEffect);window.ClassroomQuizHost.setVisible(id==='memoQr'&&memoQrMode==='quiz');refreshToolWide();window.scrollTo(0,0);save()}
 for(const [id,icon,title]of tabs){const b=document.createElement('button');b.innerHTML='<span class="nav-icon">'+icon+'</span><span class="nav-label">'+title+'</span>';if(['timer','calculator','noise'].includes(id)){const label=document.createElement('span');label.className='nav-category';label.textContent=({timer:'수업 운영',calculator:'수학 탐구',noise:'수업 보조'})[id];document.querySelector('.tabs').append(label)}b.dataset.tab=id;b.onclick=()=>selectTab(id);document.querySelector('.tabs').append(b)}
 const randomPanel=document.querySelector('#random>.layout');if(randomPanel){$('lotteryRandomArea').append(randomPanel);$('random').remove()}
 on('homeTitle',()=>selectTab('home'));for(const [id,icon,title,description]of tabs.filter(t=>t[0]!=='home')){const b=document.createElement('button');b.className='home-tool';const i=document.createElement('span'),body=document.createElement('span'),strong=document.createElement('strong'),small=document.createElement('small');i.className='home-tool-icon';i.textContent=icon;strong.textContent=title;small.textContent=description;body.append(strong,small);b.append(i,body);b.onclick=()=>selectTab(id);$('homeTools').append(b)}
@@ -3431,7 +3445,7 @@ on('darkBtn',()=>{document.body.classList.toggle('dark');$('darkBtn').textConten
 // ======================================
 let teacherScrollY=0;function studentMode(v){if(v===document.body.classList.contains('student'))return;if(v){teacherScrollY=window.scrollY;clearTimeout(toastTimeout);$('toast').style.display='none'}document.body.classList.toggle('student',v);window.ClassroomFormulaConverter.setStudent(v);for(const id of ['calcInput','pySource','texSource','texX','texG','texTerms','texF','texLo','texHi'])$(id).readOnly=v;renderTimer();requestAnimationFrame(()=>{window.scrollTo(0,v?0:teacherScrollY);drawGraph();sizeMemoEffect()})}on('studentBtn',()=>studentMode(true));on('exitStudent',()=>studentMode(false));
 async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else toast('이 브라우저는 전체화면을 지원하지 않습니다. 학생 화면을 이용해 주세요.')}catch(e){toast('전체화면을 사용할 수 없습니다. 학생 화면을 이용해 주세요.')}}on('fullscreenBtn',fullscreen);document.addEventListener('fullscreenchange',()=>{$('fullscreenBtn').textContent=document.fullscreenElement?'⛶ 전체화면 해제':'⛶ 전체화면'});on('wideBoardBtn',()=>{selectTab('whiteboard');requestAnimationFrame(()=>{if(!document.body.classList.contains('board-focus'))$('wb-focusBtn').click()})});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('dialog[open]'))return;if(document.body.classList.contains('tool-wide')){setToolWide(false);return}if(document.body.classList.contains('quiz-wide')){$('quizWide').click();return}if(document.body.classList.contains('board-focus')){$('wb-focusBtn').click();return}studentMode(false);return}if(document.querySelector('dialog[open]')||activeTab==='whiteboard')return;if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)||e.target.isContentEditable)return;if(e.key.toLowerCase()==='f'){e.preventDefault();fullscreen()}if(activeTab==='calculator'&&!document.body.classList.contains('student')){if(/^[0-9.+\-*/^()%!]$/.test(e.key)){e.preventDefault();insertCalc(e.key)}if(e.key==='Enter'){e.preventDefault();safe(calculate)()}if(e.key==='Backspace'){e.preventDefault();insertCalc('DEL')}}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('dialog[open]'))return;if(document.body.classList.contains('tool-wide')){setToolWide(false);return}if(document.body.classList.contains('quiz-wide')){$('quizWide').click();return}if(document.body.classList.contains('board-focus')){$('wb-focusBtn').click();return}studentMode(false);return}if(document.querySelector('dialog[open]')||activeTab==='whiteboard')return;if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)||e.target.isContentEditable)return;if(e.key.toLowerCase()==='f'){e.preventDefault();fullscreen()}if(activeTab==='calculator'&&['basic','scientific'].includes(calcMode)&&!document.body.classList.contains('student')){if(/^[0-9.+\-*/^()%!]$/.test(e.key)){e.preventDefault();insertCalc(e.key)}if(e.key==='Enter'){e.preventDefault();safe(calculate)()}if(e.key==='Backspace'){e.preventDefault();insertCalc('DEL')}}});
 // ======================================
 // 타이머: 마감 시각으로 계산하여 탭 전환 시 누적 오차 방지
 // ======================================
@@ -3799,7 +3813,7 @@ function validateCalc136(s){
   checkSciDefinitions(defs);return {mode:s.mode,latexAngle:s.latexAngle,functions:defs};
 }
 
-function compile(expression,mode='RAD',answer=0,custom=null){let src=(custom?expression.replace(/\*\*/g,'^'):expression).replace(/×/g,'*').replace(/÷/g,'/').replace(/π/g,'pi').replace(/−/g,'-').trim();if(src.length>500)throw Error('수식은 500자 이내로 입력하세요.');const tokens=[];const re=custom?/\s*(?:(\d*\.\d+|\d+\.?\d*)([eE][+-]?\d+)?|([a-zA-Z][a-zA-Z0-9_]*)|([+\-*/^()%!]))/gy:/\s*(?:(\d*\.\d+|\d+\.?\d*)([eE][+-]?\d+)?|([a-zA-Z]+)|([+\-*/^()%!]))/gy;let pos=0;while(pos<src.length){re.lastIndex=pos;let m=re.exec(src);if(!m)throw Error('사용할 수 없는 기호가 있습니다.');tokens.push(m[1]?{type:'n',value:Number(m[1]+(m[2]||''))}:{type:m[3]?'id':m[4],value:(m[3]||m[4]).toLowerCase()});pos=re.lastIndex}
+function compile(expression,mode='RAD',answer=0,custom=null,strictCalc=!!custom){let src=(custom?expression.replace(/\*\*/g,'^'):expression).replace(/×/g,'*').replace(/÷/g,'/').replace(/π/g,'pi').replace(/−/g,'-').trim();if(src.length>500)throw Error('수식은 500자 이내로 입력하세요.');const tokens=[];const re=custom?/\s*(?:(\d*\.\d+|\d+\.?\d*)([eE][+-]?\d+)?|([a-zA-Z][a-zA-Z0-9_]*)|([+\-*/^()%!]))/gy:/\s*(?:(\d*\.\d+|\d+\.?\d*)([eE][+-]?\d+)?|([a-zA-Z]+)|([+\-*/^()%!]))/gy;let pos=0;while(pos<src.length){re.lastIndex=pos;let m=re.exec(src);if(!m)throw Error('사용할 수 없는 기호가 있습니다.');tokens.push(m[1]?{type:'n',value:Number(m[1]+(m[2]||''))}:{type:m[3]?'id':m[4],value:(m[3]||m[4]).toLowerCase()});pos=re.lastIndex}
 if(custom){for(let n=tokens.length-1;n>0;n--){const a=tokens[n-1],b=tokens[n],constant=a.type==='id'&&([custom.param,'pi','e','ans'].includes(a.value));
  const end=a.type==='n'||[')','!','%'].includes(a.type)||constant;
  if(end&&(b.type==='('||b.type==='id'))tokens.splice(n,0,{type:'*',value:'*'});
@@ -3810,13 +3824,14 @@ function primary(){let n=take('n');if(n)return()=>n.value;if(take('(')){let f=ad
 if(custom&&id.value==='x')throw Error('x를 숫자로 바꾸거나 f(x)=… 형태로 함수를 등록하세요.');
 if(['x','pi','e','ans'].includes(id.value))return x=>id.value==='x'?x:id.value==='pi'?Math.PI:id.value==='e'?Math.E:answer;if(!Object.prototype.hasOwnProperty.call(funcs,id.value)){
 const user=custom?.resolve(id.value);if(!user)throw Error('지원하지 않는 함수: '+id.value);
-requireToken('(');const arg=add();requireToken(')');return x=>user(arg(x));}requireToken('(');let f=add();requireToken(')');return x=>funcs[id.value](f(x))}throw Error('수식이 완성되지 않았습니다.')}
+requireToken('(');const arg=add();requireToken(')');return x=>user(arg(x));}requireToken('(');let f=add();requireToken(')');return x=>{const v=f(x);return strictCalc&&!Number.isFinite(v)?NaN:funcs[id.value](v)}}throw Error('수식이 완성되지 않았습니다.')}
 function postfix(){let f=primary();while(peek()==='!'||peek()==='%'){let op=tokens[i++].type,prev=f;f=op==='%'?x=>prev(x)/100:x=>{let n=prev(x);if(!Number.isInteger(n)||n<0||n>170)return NaN;let p=1;for(let j=2;j<=n;j++)p*=j;return p}}return f}
-function power(){let a=postfix();if(take('^')){let b=unary();return x=>Math.pow(a(x),b(x))}return a}function unary(){if(take('+'))return unary();if(take('-')){let f=unary();return x=>-f(x)}return power()}
-function mul(){let f=unary();while(peek()==='*'||peek()==='/'){let op=tokens[i++].type,a=f,b=unary();f=op==='*'?x=>a(x)*b(x):x=>a(x)/b(x)}return f}function add(){let f=mul();while(peek()==='+'||peek()==='-'){let op=tokens[i++].type,a=f,b=mul();f=op==='+'?x=>a(x)+b(x):x=>a(x)-b(x)}return f}let fn=add();if(i!==tokens.length)throw Error('연산 기호를 확인하세요. 곱셈은 *를 사용합니다.');return fn}
+function power(){let a=postfix();if(take('^')){let b=unary();return x=>{const v=a(x),w=b(x);return strictCalc&&(!Number.isFinite(v)||!Number.isFinite(w)||v===0&&w<=0)?NaN:Math.pow(v,w)}}return a}function unary(){if(take('+'))return unary();if(take('-')){let f=unary();return x=>-f(x)}return power()}
+function mul(){let f=unary();while(peek()==='*'||peek()==='/'){let op=tokens[i++].type,a=f,b=unary();f=op==='*'?x=>a(x)*b(x):x=>{const top=a(x),bottom=b(x);return strictCalc&&(!Number.isFinite(top)||!Number.isFinite(bottom)||bottom===0)?NaN:top/bottom}}return f}function add(){let f=mul();while(peek()==='+'||peek()==='-'){let op=tokens[i++].type,a=f,b=mul();f=op==='+'?x=>a(x)+b(x):x=>a(x)-b(x)}return f}let fn=add();if(i!==tokens.length)throw Error('연산 기호를 확인하세요. 곱셈은 *를 사용합니다.');return fn}
 // 등호를 누를 때 열려 있는 괄호만 자동으로 닫습니다. 잘못된 식은 그대로 오류를 알립니다.
 function completeCalcExpression(text){let balance=0;for(const ch of text){if(ch==='(')balance++;if(ch===')')balance--;if(balance<0)throw Error('닫는 괄호가 너무 많습니다.')}return text+')'.repeat(balance)}
-function insertCalc(v){
+function insertCalc(v){if(document.body.classList.contains('student'))return;clearClassicError139();if(v!=='='){$('sciExample').value='';$('sciNotice').textContent='';}try{insertCalcCore139(v);}catch(e){showClassicError139(e);}}
+function insertCalcCore139(v){
  const el=$('calcInput');if(v==='AC'){el.value='';delete $('calcAnswer').dataset.definition;$('sciNotice').textContent='';$('calcAnswer').textContent='0';afterCalc=false;return}if(v==='='){safe(calculate)();return}
  if(afterCalc&&v!=='DEL'){el.value=/^[+*/^!%\-]$/.test(v)||v==='^2'||v==='^3'||v==='NEG'||v==='1/('? 'ANS':'';afterCalc=false;el.setSelectionRange(el.value.length,el.value.length)}
  let a=el.selectionStart??el.value.length,b=el.selectionEnd??a;
@@ -3825,25 +3840,60 @@ function insertCalc(v){
  else{const before=el.value.slice(0,a),after=el.value.slice(b);const needsMultiply=(/^(?:[a-z]+\(|pi$|e$|ANS$|\()/.test(v)&&/(?:\d|\)|!|%|pi|e|ANS)$/i.test(before))||(/^\d/.test(v)&&/(?:\)|pi|e|ANS)$/i.test(before));if(needsMultiply)v='*'+v;el.value=before+v+after;a+=v.length}
  afterCalc=false;el.focus();el.setSelectionRange(a,a)
 }
-function calculate(){let text=$('calcInput').value;if(!text.trim())return;if(scientific&&text.includes('=')){registerScientific(text);return;}if(!scientific&&/\bx\b/i.test(text))throw Error('계산기에서는 x 대신 수를 입력하세요.');text=completeCalcExpression(text);let v=(scientific?sciCompiler(sciDefinitions,angle,ans).expression(text):compile(text,angle,ans))(0);if(!Number.isFinite(v))throw Error('정의되지 않은 계산입니다. 정의역과 0으로 나누기를 확인하세요.');ans=v;delete $('calcAnswer').dataset.definition;$('sciNotice').textContent='';$('calcInput').value=text;const value=Number(v.toPrecision(13)).toString();$('calcAnswer').textContent=value;afterCalc=true;calcHistory.unshift(text+' = '+value+'  ['+angle+']');calcHistory=calcHistory.slice(0,30);renderCalcHistory()}
+function calculate(){if(document.body.classList.contains('student'))return;clearClassicError139();try{calculateCore139();}catch(e){showClassicError139(e);}}
+function calculateCore139(){let text=$('calcInput').value;if(!text.trim())throw Error('계산할 식을 입력하세요.');if(scientific&&text.includes('=')){registerScientific(text);return;}if(!scientific&&/\bx\b/i.test(text))throw Error('계산기에서는 x 대신 수를 입력하세요.');text=completeCalcExpression(text);let v=(scientific?sciCompiler(sciDefinitions,angle,ans).expression(text):compile(text,angle,ans,null,true))(0);if(!Number.isFinite(v))throw Error('정의되지 않은 계산입니다. 정의역과 0으로 나누기를 확인하세요.');ans=v;delete $('calcAnswer').dataset.definition;$('sciNotice').textContent='';$('calcInput').value=text;const value=Number(v.toPrecision(13)).toString();$('calcAnswer').textContent=value;afterCalc=true;calcHistory.unshift(text+' = '+value+'  ['+angle+']');calcHistory=calcHistory.slice(0,30);renderCalcHistory()}
 
 function renderCalcHistory(){$('calcHistory').replaceChildren();calcHistory.forEach(t=>{let d=document.createElement('div');d.textContent=t;$('calcHistory').append(d)})}
-const calcExamples={
-  python:{poly:'def f(x):\n    return 6*x**5 - 4*x**3 + 2*x - 1\n\nprint(f(3))',comb:'import math\n\nmath.comb(10, 3)',sum:'sum(k**2 for k in range(1, 11))',frac:'from fractions import Fraction\n\nprint(Fraction(1, 3) + Fraction(1, 6))'},
-  latex:{poly:'f(x)=6x^5-4x^3+2x-1',frac:'\\frac{1}{3}+\\frac{1}{6}',root:'\\frac{\\sqrt{2}}{2}',sum:'\\sum_{k=1}^{5} k^2'}
-};
+const calcExamples={"scientific":[{"id":"poly","group":"수와 식 · 함수","title":"다항함수 · f(3)","code":"f(x)=6x^5-4x^3+2x-1","help":"처음 = 는 함수를 등록합니다. 한 번 더 누르면 f(3)을 계산합니다."},{"id":"compose","group":"수와 식 · 함수","title":"합성함수 · (2x+1)³","code":"g(x)=(2x+1)^3","help":"= 로 함수를 등록한 뒤, 입력 칸에서 3을 바꿔 보세요."},{"id":"quadratic","group":"수와 식 · 함수","title":"근의 공식 · 두 근 중 큰 값","code":"(-3+sqrt(3^2-4*1*1))/(2*1)"},{"id":"slope","group":"미분","title":"중앙차분 · x³의 x=2에서의 기울기","code":"((2+0.001)^3-(2-0.001)^3)/(2*0.001)","help":"x=2 양옆의 두 점으로 구한 기울기입니다. 실제 미분계수 12와 비교하세요."},{"id":"trap","group":"적분","title":"사다리꼴 한 개로 넓이 근사","code":"(2-0)*(0^2+2^2)/2","help":"y=x²의 [0,2] 넓이를 양 끝점으로 근사합니다. 정확한 값 8/3과 비교하세요."},{"id":"sindeg","group":"지수 · 로그 · 삼각함수","title":"삼각비 · sin 30° + cos 60°","code":"sin(30)+cos(60)","unit":"DEG"},{"id":"cosrad","group":"지수 · 로그 · 삼각함수","title":"호도법 · cos(π/3)","code":"cos(pi/3)","unit":"RAD"},{"id":"asin","group":"지수 · 로그 · 삼각함수","title":"역삼각함수 · arcsin(1/2)","code":"arcsin(0.5)","unit":"DEG"},{"id":"log","group":"지수 · 로그 · 삼각함수","title":"로그의 밑 변환 · log₂32","code":"ln(32)/ln(2)"},{"id":"comb","group":"확률 · 통계","title":"조합 · 8명 중 3명","code":"8!/(3!*5!)"},{"id":"coin","group":"확률 · 통계","title":"동전 5회 · 앞면이 정확히 2회","code":"5!/(2!*3!)/2^5"},{"id":"distance","group":"수열 · 기하","title":"두 점 (1,2), (4,6) 사이의 거리","code":"sqrt((4-1)^2+(6-2)^2)"},{"id":"dot","group":"수열 · 기하","title":"벡터 (2,−1), (3,4)의 내적","code":"2*3+(-1)*4"}],"python":[{"id":"poly","group":"수와 식 · 함수","title":"다항함수 · f(3)","code":"def f(x):\n    return 6*x**5 - 4*x**3 + 2*x - 1\n\nprint(f(3))"},{"id":"frac","group":"수와 식 · 함수","title":"유리수 · 정확한 분수 덧셈","code":"from fractions import Fraction\n\nprint(Fraction(1, 3) + Fraction(1, 6))"},{"id":"gcd","group":"수와 식 · 함수","title":"최대공약수와 최소공배수","code":"from math import gcd, lcm\n\na, b = 84, 60\nprint(\"최대공약수:\", gcd(a, b))\nprint(\"최소공배수:\", lcm(a, b))"},{"id":"derPoly","group":"미분","title":"다항함수 · 도함수의 계수와 f′(2)","code":"# f(x) = 6x⁵ − 4x³ + 2x − 1, 최고차항부터\ncoeff = [6, 0, -4, 0, 2, -1]\ndef derivative(a):\n    degree = len(a) - 1\n    return [c*(degree-i) for i, c in enumerate(a[:-1])]\ndef value(a, x):\n    return sum(c*x**(len(a)-1-i) for i, c in enumerate(a))\n\ndc = derivative(coeff)\nprint(\"도함수 계수:\", dc)\nprint(\"f′(2) =\", value(dc, 2))"},{"id":"derChain","group":"미분","title":"합성함수 · sin(x²)의 수치미분","code":"import math\n\ndef f(x):\n    return math.sin(x**2)\n\nx, h = 1.0, 0.00001\nslope = (f(x+h) - f(x-h)) / (2*h)\nprint(\"중앙차분 ≈\", round(slope, 9))\nprint(\"2x cos(x²) ≈\", round(2*x*math.cos(x**2), 9))","help":"h를 바꾸어 중앙차분과 도함수의 값을 비교하세요. 각도는 라디안입니다."},{"id":"derSecond","group":"미분","title":"이계도함수 · x⁴−3x²의 f″(2)","code":"def f(x):\n    return x**4 - 3*x**2\n\nx, h = 2, 0.001\nd2 = (f(x+h) - 2*f(x) + f(x-h)) / h**2\nprint(\"이계도함수의 근삿값:\", round(d2, 6))\nprint(\"정확한 값:\", 12*x**2 - 6)"},{"id":"primitive","group":"적분","title":"부정적분 · 원시함수의 계수와 적분상수","code":"from fractions import Fraction\n\n# 3x² + 2x − 1, 상수항부터 차례로\ncoeff = [-1, 2, 3]\nanti = [Fraction(c, k+1) for k, c in enumerate(coeff)]\nprint(\"원시함수의 x, x², x³ 계수:\", *anti)\nprint(\"적분상수 C는 임의의 실수입니다.\")\n\ndef F(x, C=0):\n    return C + sum(a*x**k for k, a in enumerate(anti, 1))\n\nprint(\"F(2) − F(0) =\", F(2)-F(0))"},{"id":"area","group":"적분","title":"정적분 · 사인 곡선 아래의 넓이","code":"import math\n\n# ∫₀^π sin(t) dt, 사다리꼴 공식\nn = 1000\na, b = 0, math.pi\nh = (b-a) / n\narea = h * ((math.sin(a)+math.sin(b))/2\n            + sum(math.sin(a+i*h) for i in range(1, n)))\nprint(\"사다리꼴 근사:\", round(area, 9))\nprint(\"정확한 값:\", 2)"},{"id":"comb","group":"확률 · 통계","title":"조합 · 10명 중 3명","code":"from math import comb\n\nprint(comb(10, 3))"},{"id":"binprob","group":"확률 · 통계","title":"이항분포 · 동전 5회 중 앞면 2회","code":"from math import comb\nfrom fractions import Fraction\n\nn, k = 5, 2\nprint(Fraction(comb(n, k), 2**n))"},{"id":"stats","group":"확률 · 통계","title":"자료의 평균·모분산·모표준편차","code":"from statistics import mean, pvariance, pstdev\n\nscores = [2, 4, 4, 4, 5, 5, 7, 9]\nprint(\"평균:\", mean(scores))\nprint(\"모분산:\", pvariance(scores))\nprint(\"모표준편차:\", pstdev(scores))"},{"id":"sum","group":"수열 · 기하","title":"수열 · 1²부터 10²까지의 합","code":"print(sum(k**2 for k in range(1, 11)))"},{"id":"fib","group":"수열 · 기하","title":"점화식 · 피보나치 수열 10항","code":"a, b = 0, 1\nterms = []\nfor _ in range(10):\n    terms.append(a)\n    a, b = b, a+b\nprint(terms)"},{"id":"vector","group":"수열 · 기하","title":"벡터 · 내적과 두 점 사이의 거리","code":"from math import dist\n\nu, v = (2, -1), (3, 4)\nprint(\"내적:\", sum(a*b for a, b in zip(u, v)))\nprint(\"두 점 사이의 거리:\", dist((1, 2), (4, 6)))"}],"latex":[{"id":"poly","group":"수와 식 · 함수","title":"다항함수 · f(3)","code":"f(x)=6x^5-4x^3+2x-1","x":"3"},{"id":"frac","group":"수와 식 · 함수","title":"유리수 · 정확한 분수 덧셈","code":"\\frac{1}{3}+\\frac{1}{6}"},{"id":"root","group":"수와 식 · 함수","title":"근호 · 정확한 값과 근삿값","code":"\\frac{\\sqrt{2}}{2}"},{"id":"xvalue","group":"수와 식 · 함수","title":"x = 수식 · 근호가 있는 값","code":"x=\\frac{-3+\\sqrt{3^2-4}}{3}","help":"x 값 칸이 비어 있으면 오른쪽 식을 계산합니다. 값을 따로 입력하면 양변이 같은지 확인합니다."},{"id":"derPoly","group":"미분","title":"다항함수 · 도함수 구하기","code":"\\frac{d}{dx}\\left(6x^5-4x^3+2x-1\\right)","help":"x 값 칸을 비워 두면 도함수를, 2를 넣으면 f′(2)를 구합니다."},{"id":"derAt","group":"미분","title":"미분계수 · x³−2x의 x=2에서의 기울기","code":"\\frac{d}{dx}\\left(x^3-2x\\right)","x":"2"},{"id":"derChain","group":"미분","title":"연쇄법칙 · sin(x²)의 도함수","code":"\\frac{d}{dx}\\left(\\sin(x^2)\\right)","unit":"RAD"},{"id":"derProduct","group":"미분","title":"곱의 미분법 · x² sin x","code":"\\frac{d}{dx}\\left(x^2\\sin(x)\\right)","unit":"RAD"},{"id":"derSecond","group":"미분","title":"이계도함수 · x⁴−3x²의 f″(2)","code":"\\frac{d^2}{dx^2}\\left(x^4-3x^2\\right)","x":"2"},{"id":"primitive","group":"적분","title":"부정적분 · 다항식과 적분상수 C","code":"\\int \\left(3x^2+2x-1\\right)\\,dx"},{"id":"antiCos","group":"적분","title":"부정적분 · cos(2x)와 적분상수 C","code":"\\int \\cos(2x)\\,dx","unit":"RAD"},{"id":"area","group":"적분","title":"정적분 · 포물선 아래의 넓이","code":"\\int_0^2 \\left(2x-x^2\\right)\\,dx"},{"id":"sinArea","group":"적분","title":"수치적분 · 사인 곡선 아래의 넓이","code":"\\int_0^\\pi \\sin(t)\\,dt","unit":"RAD"},{"id":"comb","group":"확률 · 통계","title":"조합 · 8명 중 3명","code":"\\binom{8}{3}"},{"id":"binprob","group":"확률 · 통계","title":"이항분포 · 동전 5회 중 앞면 2회","code":"\\frac{\\binom{5}{2}}{2^5}"},{"id":"sum","group":"수열 · 기하","title":"수열 · 1²부터 5²까지의 합","code":"\\sum_{k=1}^{5} k^2"},{"id":"prod","group":"수열 · 기하","title":"수열 · 1부터 4까지의 곱","code":"\\prod_{k=1}^{4} k"},{"id":"distance","group":"수열 · 기하","title":"좌표평면 · 두 점 사이의 거리","code":"\\sqrt{(4-1)^2+(6-2)^2}"},{"id":"log","group":"지수 · 로그 · 삼각함수","title":"로그 · 밑이 2인 로그","code":"\\log_{2}{32}"},{"id":"trig","group":"지수 · 로그 · 삼각함수","title":"호도법 · sin(π/6) + cos(π/3)","code":"\\sin\\left(\\frac{\\pi}{6}\\right)+\\cos\\left(\\frac{\\pi}{3}\\right)","unit":"RAD"}]};
 const calcLessons=classroomSeries();
-for(const kind of ['python','latex']){
-  const sel=$(kind==='python'?'pyExample':'texExample'),groups=new Map();
-  function option(group,id,title){
-    if(!groups.has(group)){const node=document.createElement('optgroup');node.label=group;sel.append(node);groups.set(group,node);}
-    const o=document.createElement('option');o.value=id;o.textContent=title;groups.get(group).append(o);
+for(const kind of ['scientific','python','latex']){
+  const sel=$(({scientific:'sci',python:'py',latex:'tex'})[kind]+'Example'),groups=new Map();
+  const list=calcExamples[kind];
+  if(kind!=='scientific'){
+    list.push({group:'적분',id:'integral',title:'1부터 x까지 g(t) 적분',code:kind==='python'?classroomPythonIntegral():'f(x)=\\int_{1}^{x}g(t)\\,dt',x:'3',g:'t^2+t+1'});
+    list.push({group:'역함수',id:'inverse',title:'f⁻¹(y) · 구간별 역함수',code:kind==='python'?classroomPythonInverse():'f^{-1}(y)',x:'13',f:'x^2+x+1',lo:'-0.5',hi:'5'});
+    for(const e of calcLessons)list.push({group:e.group,id:e.id,title:e.title,code:kind==='python'?classroomPythonSeries(e):'f(x)='+classroomSum(e),x:e.x||'1',unit:'RAD',terms:12});
   }
-  for(const s of calcLessons){option(s.group,s.id,s.title);calcExamples[kind][s.id]=kind==='python'?classroomPythonSeries(s):'f(x)='+classroomSum(s);}
-  option('정적분','integral','1부터 x까지 g(t) 적분');
-  calcExamples[kind].integral=kind==='python'?classroomPythonIntegral():'f(x)=\\int_{1}^{x}g(t)\\,dt';
-  option('역함수','inverse','f⁻¹(y) · 구간별 역함수');
-  calcExamples[kind].inverse=kind==='python'?classroomPythonInverse():'f^{-1}(y)';
+  for(const e of list){
+    if(!groups.has(e.group)){const group=document.createElement('optgroup');group.label=e.group;sel.append(group);groups.set(e.group,group);}
+    const option=document.createElement('option');option.value=e.id;option.textContent=e.title+(e.unit&&kind!=='python'?' · '+e.unit:'');groups.get(e.group).append(option);
+  }
+}
+function chooseCalcExample139(kind,key){
+  const e=calcExamples[kind].find(v=>v.id===key);if(!e)return;
+  const p=({scientific:'sci',python:'py',latex:'tex'})[kind],source=$(kind==='scientific'?'calcInput':p+'Source');
+  source.value=e.code;
+  if(kind==='scientific'){
+    if(e.unit)angle=e.unit;afterCalc=false;calcModes();
+    clearClassicError139();delete $('calcAnswer').dataset.definition;$('calcAnswer').textContent='…';
+  }else if(kind==='latex'){
+    $('texX').value=e.x||'';
+    if(e.g)$('texG').value=e.g;
+    if(e.f){$('texF').value=e.f;$('texLo').value=e.lo;$('texHi').value=e.hi;}
+    if(e.terms)$('texTerms').value=e.terms;
+    if(e.unit&&calcTexAngle!==e.unit){calcTexAngle=e.unit;calcModes();}
+  }
+  source.dispatchEvent(new Event('input',{bubbles:true}));$(p+'Example').value=key;
+  const hint=$(kind==='scientific'?'sciNotice':p+'ExampleHint');
+  hint.textContent=e.help||(kind==='scientific'?'값을 바꿔도 됩니다. = 또는 Enter로 계산하세요.':'');
+}
+function clearClassicError139(){
+  const result=$('calcAnswer');if(result.dataset.error){delete result.dataset.error;result.textContent='…';}
+}
+function showClassicError139(error){
+  const el=$('calcAnswer');delete el.dataset.definition;el.dataset.error='true';
+  el.textContent='Error · '+String(error?.message||error);$('sciNotice').textContent='';afterCalc=false;
+}
+function showLabError139(kind,msg,output=''){
+  const p=calcLab[kind].prefix,el=$(p+'Result');
+  const raw=String(msg||'계산을 마치지 못했습니다.');let title='';
+  if(kind==='python'){
+    const type=(raw.trim().split('\n').at(-1)||'').split(':')[0].trim();
+    title=({SyntaxError:'파이썬 문법을 확인하세요.',IndentationError:'들여쓰기를 확인하세요.',TabError:'탭과 공백을 섞어 썼습니다.',ZeroDivisionError:'0으로 나눌 수 없습니다.',NameError:'정의하지 않은 이름을 사용했습니다.',TypeError:'값의 자료형이나 함수 인수를 확인하세요.',ValueError:'입력한 값이나 함수의 정의역을 확인하세요.',OverflowError:'계산값이 표현 범위를 넘었습니다.',ModuleNotFoundError:'이 환경에 없는 모듈입니다.'})[type]||'';
+  }
+  el.dataset.empty='false';el.dataset.error='true';
+  el.textContent='Error · '+(title?title+'\n'+raw:raw)+(output?'\n\n오류 전 출력:\n'+output:'');
+  $(p+'Status').textContent='입력 확인';
 }
 const calcLab={'python':{prefix:'py',rev:0,busy:false,seq:0},'latex':{prefix:'tex',rev:0,busy:false,seq:0}};
 let calcPreviewTimer=0,calcPreviewRev=0;
@@ -3901,9 +3951,9 @@ async function runLab(kind){
   if(document.body.classList.contains('student'))return;
   const m=calcLab[kind],p=m.prefix,code=$(p+'Source').value,rev=m.rev;
   if(m.busy)return;
-  if(!code.trim()){wipeLab(kind,'먼저 '+(kind==='python'?'코드':'수식')+'를 입력하세요.');$(p+'Source').focus();return;}
-  if(code.length>(kind==='python'?16000:2000))throw Error('입력이 너무 깁니다. 나누어 실행하세요.');
-  const seq=++m.seq,x=$('texX').value.trim(),angleAtRun=calcTexAngle;
+  if(!code.trim()){wipeLab(kind,'');showLabError139(kind,kind==='python'?'실행할 코드를 입력하세요.':'계산할 수식을 입력하세요.');$(p+'Source').focus();return;}
+  if(code.length>(kind==='python'?16000:2000)){wipeLab(kind,'');showLabError139(kind,'입력이 너무 깁니다. 나누어 실행하세요.');return;}
+  m.stopping=false;const seq=++m.seq,x=$('texX').value.trim(),angleAtRun=calcTexAngle;
   wipeLab(kind,'');setLabBusy(kind,true);
   const result=$(p+'Result'),status=$(p+'Status');
   try {
@@ -3911,7 +3961,7 @@ async function runLab(kind){
     if(m.seq!==seq)return;
     if(m.rev!==rev){status.textContent='입력이 바뀌었습니다. 다시 계산하세요.';return;}
     result.dataset.empty='false';
-    if(r.error){result.dataset.error='true';result.textContent=(r.text?r.text+'\n':'')+r.error;status.textContent='입력 확인';return;}
+    if(r.error){showLabError139(kind,r.error,r.text);return;}
     if(kind==='python'){
       result.textContent=r.text||'실행을 마쳤습니다. 이번 코드는 출력이 없습니다.';status.textContent='실행 완료';
       const summary=code.trim().split('\n').filter(t=>t.trim()).at(-1);
@@ -3920,14 +3970,16 @@ async function runLab(kind){
       status.textContent=(r.substitution?'x = '+x+' · ':'')+(r.series?'무한급수':angleAtRun);
       mathGraphic(result,r.latex,32,()=>m.seq===seq&&m.rev===rev);
       $('texApprox').textContent=r.approx?'근삿값 ≈ '+r.approx:'';$('texApprox').hidden=!r.approx;
-      $('texDetail').textContent=r.detail;$('texDetail').hidden=!r.detail;
-      calcLog('[LaTeX] '+code.slice(0,130)+(r.substitution?'  (x = '+x+')':'')+' = '+r.text.slice(0,170)+'  ['+angleAtRun+']');
+      $('texDetail').textContent=r.detail||'';$('texDetail').hidden=!r.detail;
+      calcLog('[LaTeX] '+code.slice(0,130)+(r.substitution?'  (x = '+x+')':'')+' → '+r.text.slice(0,170)+'  ['+angleAtRun+']');
     }
   }catch(error){
-    if(m.seq===seq){status.textContent='계산 중지';result.dataset.empty='false';result.dataset.error='true';result.textContent=String(error.message||error);}
+    if(m.seq===seq){if(m.stopping){status.textContent='계산 중지';result.textContent=String(error.message||error);result.dataset.empty='false';}else if(m.rev===rev)showLabError139(kind,error.message||error);else status.textContent='입력이 바뀌었습니다. 다시 계산하세요.';}
   }finally{if(m.seq===seq)setLabBusy(kind,false);}
 }
 function resetCalcSessions(){
+  for(const p of ['py','tex']){$(p+'Example').value='';$(p+'ExampleHint').textContent='';}
+  $('sciExample').value='';$('sciNotice').textContent='';clearClassicError139();
   for(const kind of ['python','latex']){
     const m=calcLab[kind];m.seq++;m.rev++;calcKernels.close(kind);setLabBusy(kind,false);
     wipeLab(kind,kind==='python'?'실행하면 결과가 표시됩니다.':'계산하면 결과가 표시됩니다.');
@@ -3935,17 +3987,14 @@ function resetCalcSessions(){
 }
 for(const key of calcModeKeys)on(key+'Mode',()=>{calcMode=key;calcModes();});
 on('angleBtn',()=>{if(calcMode==='latex'){calcTexAngle=calcTexAngle==='RAD'?'DEG':'RAD';labEdited('latex');}else angle=angle==='DEG'?'RAD':'DEG';calcModes();});
-on('sciExample',()=>{const el=$('calcInput');el.value='f(x)=6x^5-4x^3+2x-1';afterCalc=false;$('sciNotice').textContent='= 또는 Enter를 눌러 이 함수를 등록하세요.';el.focus();});
+on('sciExample',e=>chooseCalcExample139('scientific',e.target.value),'change');
+on('calcInput',()=>{clearClassicError139();$('sciExample').value='';$('sciNotice').textContent='';},'input');
 for(const kind of ['python','latex']){
   const p=calcLab[kind].prefix;
   on(p+'Run',()=>runLab(kind));
-  on(p+'Stop',()=>calcKernels.close(kind,kind==='python'?'직접 중지했습니다. 함수·변수는 초기화되었습니다.':'계산을 중지했습니다.'));
-  on(p+'Example',e=>{const sel=e.target;if(!sel.value)return;const key=sel.value;sel.value='';
-    $(p+'Source').value=calcExamples[kind][key];
-    if(kind==='latex'){const s=calcLessons.find(t=>t.id===key);$('texX').value=s?s.x||'1':['poly','integral'].includes(key)?'3':'';if(key==='integral')$('texG').value='t^2+t+1';if(s)$('texTerms').value='12';}
-    if(kind==='latex'&&key==='inverse'){$('texX').value='13';$('texF').value='x^2+x+1';$('texLo').value='-0.5';$('texHi').value='5';}
-    $(p+'Source').dispatchEvent(new Event('input',{bubbles:true}));$(p+'Source').focus();},'change');
-  on(p+'Source',()=>labEdited(kind),'input');
+  on(p+'Stop',()=>{calcLab[kind].stopping=true;calcKernels.close(kind,kind==='python'?'직접 중지했습니다. 함수·변수는 초기화되었습니다.':'계산을 중지했습니다.');});
+  on(p+'Example',e=>chooseCalcExample139(kind,e.target.value),'change');
+  on(p+'Source',()=>{$(p+'Example').value='';$(p+'ExampleHint').textContent='';labEdited(kind);},'input');
 }
 on('pyReset',()=>{const m=calcLab.python;m.seq++;m.rev++;calcKernels.close('python');setLabBusy('python',false);wipeLab('python','함수·변수를 지웠습니다. 입력한 코드는 남아 있습니다.');});
 on('pySource',e=>{
@@ -3960,7 +4009,7 @@ for(const id of ['texX','texG','texTerms','texF','texLo','texHi'])on(id,()=>labE
 for(const [id,a,b] of [['invRight','-0.5','5'],['invLeft','-6','-0.5']])on(id,()=>{$('texLo').value=a;$('texHi').value=b;$('texLo').dispatchEvent(new Event('input',{bubbles:true}));});
 for(const b of document.querySelectorAll('#calculator [data-tex-insert]'))b.onclick=()=>{
   const el=$('texSource'),a=el.selectionStart,z=el.selectionEnd,sel=el.value.slice(a,z);
-  const t={frac:['\\frac{',sel||'1','}{2}'],root:['\\sqrt{',sel||'2','}'],power:['{',sel||'x','}^{2}'],pi:['','\\pi',' '],sum:['\\sum_{k=1}^{5} ',sel||'k',''],int:['\\int_{1}^{x} ',sel||'g(t)','\\,dt']}[b.dataset.texInsert];
+  const t={der:['\\frac{d}{dx}\\left(',sel||'x^2','\\right)'],frac:['\\frac{',sel||'1','}{2}'],root:['\\sqrt{',sel||'2','}'],power:['{',sel||'x','}^{2}'],pi:['','\\pi',' '],sum:['\\sum_{k=1}^{5} ',sel||'k',''],int:['\\int_{1}^{x} ',sel||'g(t)','\\,dt']}[b.dataset.texInsert];
   if(!t)return;const v=t.join('');if(el.value.length-(z-a)+v.length>2000)return;
   el.setRangeText(v,a,z,'end');el.focus();el.setSelectionRange(a+t[0].length,a+t[0].length+t[1].length);el.dispatchEvent(new Event('input',{bubbles:true}));
 };
@@ -4132,7 +4181,7 @@ function restoreExtraState(s){
  if(s.wheelData){wheelItems=[...s.wheelData.items];wheelOriginal=[...s.wheelData.original];wheelAngle=s.wheelData.angle;drawWheel()}
  restoreClasses(s);if(s.memoQrMode)setMemoQrMode(s.memoQrMode);renderRandomMode();syncGroupSource();syncSourceClasses();for(const pre of ['wheel','ladder']){const id=s.fields?.[pre+'Class'];if(classProfiles.some(c=>c.id===id))$(pre+'Class').value=id;syncDrawSource(pre)}
 }
-on('exportSettings',async()=>{requireTeacher();if(draftChanged())throw Error('수정한 명단을 먼저 적용한 뒤 백업해 주세요.');if(drawing||wheelSpinning||ladderBusy)throw Error('추첨이 끝난 뒤 백업해 주세요.');await window.ClassroomBoard.ready;await window.ClassroomQuizHost.flush();save();const data={...snapshot(),whiteboard:(window.ClassroomBoard.snapshotForSync||window.ClassroomBoard.snapshot)(),exportedAt:new Date().toISOString()};downloadBlob(new Blob([JSON.stringify(data)],{type:'application/json'}),'교실도구_Google_전체백업_v1.38.json');toast('화이트보드·자리배치를 포함한 전체 백업을 저장했습니다.')});
+on('exportSettings',async()=>{requireTeacher();if(draftChanged())throw Error('수정한 명단을 먼저 적용한 뒤 백업해 주세요.');if(drawing||wheelSpinning||ladderBusy)throw Error('추첨이 끝난 뒤 백업해 주세요.');await window.ClassroomBoard.ready;await window.ClassroomQuizHost.flush();save();const data={...snapshot(),whiteboard:(window.ClassroomBoard.snapshotForSync||window.ClassroomBoard.snapshot)(),exportedAt:new Date().toISOString()};downloadBlob(new Blob([JSON.stringify(data)],{type:'application/json'}),'교실도구_Google_전체백업_v1.39.json');toast('화이트보드·자리배치를 포함한 전체 백업을 저장했습니다.')});
 on('importSettings',async e=>{try{requireTeacher();const file=e.target.files[0];if(!file)return;if(drawing||wheelSpinning||ladderBusy)throw Error('추첨이 끝난 뒤 복원해 주세요.');const data=JSON.parse(await file.text());validateBackup(data);validateExtraState(data);await window.ClassroomBoard.ready;if(data.whiteboard)window.ClassroomBoard.validate(data.whiteboard);if(!confirm('전체 백업의 내용으로 현재 자료를 복원할까요?'))return;await window.ClassroomBoard.ready;restore(data);restoreExtraState(data);await window.ClassroomQuizHost.flush();if(data.whiteboard)await window.ClassroomBoard.restore(data.whiteboard);renderTeams();save();$('settingsDialog').close();if(activeTab==='whiteboard')await window.ClassroomDrive?.checkWhiteboard?.();toast('모든 반과 수업 자료를 복원했습니다. 복원된 비밀번호로 설정을 다시 열어 주세요.')}catch(e){toast(e.message)}finally{e.target.value=''}},'change');
 
 // Multiple classes share one teacher lock. Each class owns its roster and results.
@@ -4347,7 +4396,7 @@ const checkIds=['excludePrevious','allAgain','oneByOne','showGrid','showAxes','l
 const own=(object,key)=>Object.prototype.hasOwnProperty.call(object,key);
 const copyJSON=value=>JSON.parse(JSON.stringify(value));
 function snapshot(){return{
- ...currentExtraState(),formulaConverter:window.ClassroomFormulaConverter.snapshot(),version:2,appVersion:'Google Drive 1.38',tab:activeTab,dark:document.body.classList.contains('dark'),duration,angle,scientific,calculator136:{mode:calcMode,latexAngle:calcTexAngle,functions:sciDefinitions.map(f=>({...f}))},memoBold,memoUnderline,memoPaused,teamMode,timerMode,stopwatchElapsed,lapTimes:[...lapTimes],teamScores:copyJSON(teamScores),presentationOrder:[...presentationOrder],presentationIndex,lotteryMode,probMode,graphPoints:copyJSON(graphPoints),graphSegments:copyJSON(graphSegments),
+ ...currentExtraState(),formulaConverter:window.ClassroomFormulaConverter.snapshot(),version:2,appVersion:'Google Drive 1.39',tab:activeTab,dark:document.body.classList.contains('dark'),duration,angle,scientific,calculator136:{mode:calcMode,latexAngle:calcTexAngle,functions:sciDefinitions.map(f=>({...f}))},memoBold,memoUnderline,memoPaused,teamMode,timerMode,stopwatchElapsed,lapTimes:[...lapTimes],teamScores:copyJSON(teamScores),presentationOrder:[...presentationOrder],presentationIndex,lotteryMode,probMode,graphPoints:copyJSON(graphPoints),graphSegments:copyJSON(graphSegments),
  fields:Object.fromEntries(storedIds.map(id=>[id,$(id).value])),checks:Object.fromEntries(checkIds.map(id=>[id,$(id).checked])),
  functions:functions.map(f=>({expr:f.expr,show:f.show,color:f.color})),view:{...view},
  teamResults:copyJSON(teamResults),
@@ -5781,46 +5830,176 @@ function classroomIntegral(ce,e,xText){
       if (s.startsWith(a) && s.endsWith(b) && s.length>=a.length+b.length) return s.slice(a.length,-b.length).trim();
     return s;
   }
+// Extend the packaged LaTeX parser inside its worker; keep teaching notation in the preview.
+function classroomSyntax139(s){
+  let braces=0;for(let i=0;i<s.length;i++){
+    if(s[i]==='\\'&&i+1<s.length&&/[^A-Za-z]/.test(s[i+1])){i++;continue;}
+    if(s[i]==='{')braces++;else if(s[i]==='}'&&--braces<0)throw Error('닫는 중괄호 }가 더 많습니다.');
+  }
+  if(braces)throw Error('닫는 중괄호 }가 빠졌습니다.');
+  if(/(?:[+\-*/^_=]|\\(?:cdot|times|div|pm))\s*$/.test(s))throw Error('연산 기호 뒤의 식이 비어 있습니다.');
+}
+function classroomChecked139(v){
+  if(!v?.isValid||v.isFinite===false||/(^|[^A-Za-z])(?:NaN|Undefined|ComplexInfinity)(?:[^A-Za-z]|$)/.test(v.toString())||
+    ['NaN','ComplexInfinity','Undefined','PositiveInfinity','NegativeInfinity'].includes(v.symbol))
+    throw Error('정의되지 않은 값이거나 유한한 결과가 아닙니다. 분모와 함수의 정의역을 확인하세요.');
+  return v;
+}
+function classroomRule139(ce,input,unit){
+  const notes=[];
+  let source=input;
+  const D=String.raw, dd=D`(?:d|\\mathrm\s*\{\s*d\s*\})`,power=D`(?:\s*\^\s*(?:\{\s*(\d+)\s*\}|(\d)))?`;
+  const marker=new RegExp(D`\\(?:frac|dfrac|tfrac)\s*\{\s*`+dd+power+D`\s*\}\s*\{\s*`+dd+D`(?:\s|\\[,;!]|\\ )*([A-Za-z])`+power+D`\s*\}`,'g');
+  const hasBinom=/\\(?:d|t)?binom\b/.test(source);
+  source=source.replace(marker,(_m,aa,ab,sym,ba,bb)=>{
+    const n=+(aa||ab||1),m=+(ba||bb||1);
+    if(n!==m||!(n===1||n===2))throw Error('분자와 분모의 미분 차수를 맞추세요. 1차·2차 미분을 지원합니다.');
+    if(!/^[xtuyz]$/.test(sym))throw Error('미분 변수는 x, t, u, y, z 중 하나를 사용하세요.');
+    return '\\classroomDx'+(n===2?'Two':'One')+'{'+sym+'}';
+  });
+  if(source===input&&!hasBinom)return {source,notes};
+  const trig=new Set(['Sin','Cos','Tan','Cot','Sec','Csc','Arcsin','Arccos','Arctan']);
+  const supported=new Set(['Add','Subtract','Negate','Multiply','Divide','Power','Square','Sqrt','Root','Rational','Exp','Ln','Log','Log10','Log2','Sinh','Cosh','Tanh',...trig]);
+  function nodes(j,fn){if(!Array.isArray(j))return;fn(j[0]);for(let i=1;i<j.length;i++)nodes(j[i],fn);}
+  function entry(command,order){return {kind:'prefix',latexTrigger:command,precedence:475,parse(p,until){
+    const sym=p.parseGroup();p.skipSpace();let arg=p.parseGroup();
+    if(arg==null){const args=p.parseArguments('enclosure');if(args){if(args.length!==1)throw Error('미분할 식 하나를 괄호 안에 넣으세요.');arg=args[0];}}
+    if(arg==null)arg=p.parseExpression({...until,minPrec:276}); // A sum needs explicit parentheses.
+    if(arg==null||!['x','t','u','y','z'].includes(sym))throw Error('미분할 식과 변수를 확인하세요.');
+    const body=classroomChecked139(ce.box(arg));if(body.unknowns.some(k=>k!==sym))throw Error('미분 예시에서는 미분 변수 하나로 식을 작성하세요.');
+    nodes(body.json,h=>{if(!supported.has(h))throw Error('이 식의 미분은 지원하지 않습니다. 다항·유리·지수·로그·삼각함수를 사용하세요.');if(unit==='DEG'&&trig.has(h))throw Error('삼각함수 미분은 RAD(라디안)로 바꿔 계산하세요.');});
+    let v=body;for(let i=0;i<order;i++){
+      try{v=classroomChecked139(ce.box(['D',v.json,sym]).evaluate());}catch{throw Error('이 식의 도함수를 구하지 못했습니다. 미분할 식과 정의역을 확인하세요.');}
+      nodes(v.json,h=>{if(['D','Derivative','PartialDerivative','Error','NumericDerivative','ND'].includes(h))throw Error('이 식의 도함수는 지원하지 않습니다.');});
+    }
+    notes.push({body,raw:arg,sym,result:v,order});return v.json;
+  }};}
+  const entries=[...ce.latexDictionary];
+  if(source!==input)entries.push(entry('\\classroomDxOne',1),entry('\\classroomDxTwo',2));
+  if(hasBinom)for(const trigger of ['\\binom','\\tbinom','\\dbinom'])entries.push({latexTrigger:trigger,parse(p){const n=p.parseGroup(),k=p.parseGroup();if(n==null||k==null)throw Error('조합은 \\binom{전체 개수}{선택 개수}로 입력하세요.');return ['Binomial',n,k];}});
+  ce.latexDictionary=entries;
+  return {source,notes};
+}
+// Polynomial and basic elementary antiderivatives. Never let the generic engine
+// interpret absent integral limits as symbolic endpoints.
+function classroomPrimitive139(ce,e){
+  const j=e.json,limits=j[2],sym=limits[1];
+  let raw=j[1];if(Array.isArray(raw)&&raw[0]==='Function')raw=raw[1];if(Array.isArray(raw)&&raw[0]==='Block'&&raw.length===2)raw=raw[1];
+  const body=classroomChecked139(ce.box(raw)),t=ce.box(sym);
+  if(body.unknowns.some(k=>k!==sym))throw Error('부정적분의 식은 적분 변수 하나로 작성하세요.');
+  function primitive(n){
+    const a=classroomPolynomial(ce,n,sym);
+    if(a){let total=ce.Zero;for(let k=0;k<a.length;k++)if(!a[k].isSame(ce.Zero))total=total.add(a[k].div(k+1).mul(t.pow(k+1)));return total;}
+    if(!Array.isArray(n))return null;
+    const [op,...z]=n;if(op==='Add'){let total=ce.Zero;for(const q of z){const w=primitive(q);if(w===null)return null;total=total.add(w);}return total;}
+    if(op==='Negate'){const v=primitive(z[0]);return v&&v.neg();}
+    if(op==='Multiply'){const dep=z.filter(v=>calcHas(v,sym));if(dep.length===1){const v=primitive(dep[0]);if(v)return z.filter(w=>!calcHas(w,sym)).reduce((r,w)=>r.mul(ce.box(w)),v);}return null;}
+    if(op==='Divide'&&!calcHas(z[1],sym)){const v=primitive(z[0]);return v&&v.div(ce.box(z[1]));}
+    let exponent,form;
+    if(['Sin','Cos','Exp'].includes(op)){exponent=z[0];form=op;}
+    if(op==='Power'&&z[0]==='ExponentialE'){exponent=z[1];form='Exp';}
+    if(!form)return null;
+    const coef=classroomPolynomial(ce,exponent,sym);if(!coef||coef.length!==2||coef[1].isSame(ce.Zero))return null;
+    if(form!=='Exp'&&ce.angularUnit!=='rad')throw Error('삼각함수의 부정적분은 RAD(라디안)로 바꿔 계산하세요.');
+    const v=form==='Sin'?ce.box(['Negate',['Cos',exponent]]):form==='Cos'?ce.box(['Sin',exponent]):ce.box(['Power','ExponentialE',exponent]);
+    return v.div(coef[1]);
+  }
+  const prim=primitive(body.json);
+  if(prim===null)throw Error('이 부정적분은 지원하지 않습니다. 다항식·일차식의 sin, cos, 지수함수를 쓰거나 적분 구간을 지정하세요.');
+  const v=classroomChecked139(prim.evaluate()),zero=v.isSame(ce.Zero);
+  return {text:zero?'C':v.toString()+' + C',latex:zero?'C':v.latex+'+C',detail:'C는 임의의 실수입니다. 부정적분은 원시함수 전체를 표시합니다.'};
+}
+// Validate before the algebra engine simplifies away the original denominator.
+// A summation/integration variable belongs to that expression, not to the x input.
+function classroomDomain139(ce,raw,xValue){
+  const substitute=(j,at)=>at===undefined?j:calcSubFree(j,'x',at);
+  function known(j,at){const e=ce.box(substitute(j,at));if(e.unknowns.length)return null;return e.evaluate();}
+  function walk(j,at){
+    if(!Array.isArray(j))return;
+    const [op,...v]=j;
+    if(['Integrate','Sum','Product','Function'].includes(op)){
+      const bindings=v.slice(1),boundX=bindings.some(b=>b==='x'||(Array.isArray(b)&&b[1]==='x'));
+      for(const b of bindings)if(Array.isArray(b))for(const n of b.slice(2))walk(n,at);
+      walk(v[0],boundX?undefined:at);return;
+    }
+    for(const z of v)walk(z,at);
+    if(op==='Divide'&&v.length===2){
+      const denominator=known(v[1],at);if(denominator?.isSame(ce.Zero))throw Error('분모가 0입니다. 0으로 나눌 수 없습니다.');
+    }
+    if(op==='Power'&&v.length===2&&known(v[0],at)?.isSame(ce.Zero)){
+      const exponent=known(v[1],at);if(exponent&&(exponent.isSame(ce.Zero)||exponent.isNegative===true))throw Error('0의 0승과 음수 거듭제곱은 이 계산기에서 정의하지 않습니다.');
+    }
+    if(op==='Factorial'){
+      const a=known(v[0],at);if(a?.isInteger&&a.isNegative===true)throw Error('음의 정수에는 팩토리얼을 정의하지 않습니다.');
+    }
+    if(['Ln','Log','Log2','Log10','Tan','Cot','Csc','Sec'].includes(op)){
+      const n=known(j,at);if(n)classroomChecked139(n);
+    }
+  }
+  walk(raw,xValue);
+}
+
   function mathResult(code,x,unit,g,terms,inv) {
-    const ce = new MathEngine();
-    ce.angularUnit = unit === 'DEG' ? 'deg' : 'rad';
-    ce.precision = 16;
-    ce.declare('x','real');
-    let source = unframe(code);
+    const ce=new MathEngine();ce.angularUnit=unit==='DEG'?'deg':'rad';ce.precision=16;ce.declare('x','real');
+    let source=unframe(code);classroomSyntax139(source);
     const inverse=source.match(/^\s*f\s*\^\s*(?:\{\s*-\s*1\s*\}|-1)\s*(?:\\left\s*)?\(\s*([\s\S]+?)\s*(?:\\right\s*)?\)\s*$/);
     if(inverse)return classroomInverse(ce,inv.f,inverse[1].trim()==='y'?x:inverse[1],inv.lo,inv.hi);
-    // A named one-variable function is shorthand for evaluating its right side.
-    const def = source.match(/^\s*[A-Za-z](?:_\{?[A-Za-z0-9]+\}?)?\s*(?:\\left\s*)?\(\s*x\s*(?:\\right\s*)?\)\s*=\s*([\s\S]*)$/);
-    if (def) source=def[1];
-    if (!source.trim()) throw Error('계산할 식을 입력하세요.');
+    const def=source.match(/^\s*[A-Za-z](?:_\{?[A-Za-z0-9]+\}?)?\s*(?:\\left\s*)?\(\s*x\s*(?:\\right\s*)?\)\s*=\s*([\s\S]*)$/);
+    if(def)source=def[1];
+    if(!source.trim())throw Error('계산할 식을 입력하세요.');
     const gCall=/\bg\s*(?:\\left\s*)?\(\s*t\s*(?:\\right\s*)?\)/g;
     if(/\\int\b|\\int_/.test(source)&&source.search(gCall)>=0){
-      const body=ce.parse(g.trim());
+      classroomSyntax139(g);const body=ce.parse(g.trim());
       if(!g.trim()||!body?.isValid||body.unknowns.some(s=>s!=='t'))throw Error('g(t)에는 t에 대한 식을 입력하세요. 예: t^2+t+1');
       source=source.replace(gCall,()=>'\\left('+g+'\\right)');
     }
-    let e = ce.parse(source);
-    if (!e?.isValid) throw Error('수식을 읽을 수 없습니다. 중괄호, 분자·분모, 연산 기호를 확인하세요.');
-    if(calcHasSumInf(e.json))return classroomInfinite(ce,e,x,terms);
-    if(e.operator==='Integrate')return classroomIntegral(ce,e,x);
-    if(JSON.stringify(e.json).includes('"Integrate"'))throw Error('정적분은 아래끝과 위끝을 지정하여 한 개씩 계산하세요.');
-    let substitution='';
-    const tree=e.json;
-    if (x.trim() && calcSubFree(tree,'x','_xProbe')!==tree) {
-      const v=calcX(ce,unframe(x)).expr;
-      substitution=v.evaluate().latex;
-      e=ce.box(calcSubFree(tree,'x',v.json));
+    const rule=classroomRule139(ce,source,unit),given=x.trim()?calcX(ce,unframe(x)):null;
+    const parsed=ce.parse(rule.source,{canonical:false});
+    if(!parsed?.isValid)throw Error('수식을 읽을 수 없습니다. 괄호·분자·분모와 기호를 확인하세요.');
+    classroomDomain139(ce,parsed.json,given?.expr.json);
+    for(const d of rule.notes)classroomDomain139(ce,d.raw,d.sym==='x'?given?.expr.json:undefined);
+    let e=parsed.canonical;
+    if(!e?.isValid)throw Error('계산할 수 없는 식입니다. 기호와 입력값을 확인하세요.');
+    const relations=['Equal','NotEqual','Less','LessEqual','Greater','GreaterEqual'];
+    const hasFreeX=j=>calcSubFree(j,'x','_check')!==j;
+    let assigned=false,substitution='';
+    if(!given&&e.operator==='Equal'&&e.nops===2&&e.op1.symbol==='x'&&!hasFreeX(e.op2.json)){
+      assigned=true;e=e.op2;
     }
-    const v=e.evaluate(), plain=v.toString();
-    if (!v.isValid || /(^|[^A-Za-z])(NaN|Undefined|ComplexInfinity)([^A-Za-z]|$)/.test(plain))
-      throw Error('정의되지 않은 값입니다. 분모와 함수의 정의역을 확인하세요.');
-    let approx='';
-    if (!v.unknowns.length && !/^[+-]?(?:\d+|\d*\.\d+)(?:e[+-]?\d+)?$/i.test(plain)) {
-      const n=v.N();
-      if (n.im===0 && Number.isFinite(n.re)) approx=String(Number(n.re.toPrecision(12)));
+    const label=r=>assigned?{...r,latex:'x='+r.latex,text:'x = '+r.text}:r;
+    if(calcHasSumInf(e.json))return label(classroomInfinite(ce,e,x,terms));
+    if(e.operator==='Integrate'){
+      const lim=e.json[2];
+      if(!Array.isArray(lim)||typeof lim[1]!=='string'||lim[1]==='Nothing')throw Error('적분 변수를 dx 또는 dt처럼 적어 주세요.');
+      if(lim[2]==='Nothing'&&lim[3]==='Nothing')return label(classroomPrimitive139(ce,e));
+      if(lim[2]==='Nothing'||lim[3]==='Nothing')throw Error('정적분의 아래끝과 위끝을 모두 입력하세요.');
+      return label(classroomIntegral(ce,e,x));
     }
-    if (v.latex.length>12000 || plain.length>8000) throw Error('결과가 너무 깁니다. 식을 나누어 계산하세요.');
-    return {text:plain,latex:v.latex,approx,substitution};
+    if(JSON.stringify(e.json).includes('"Integrate"'))throw Error('적분은 한 번에 한 개씩 계산하세요.');
+    if(given){
+      for(const d of rule.notes)if(d.sym==='x'){
+        const n=d.body.subs({x:given.expr}).N();
+        if(!Number.isFinite(n.re)||n.im!==0)throw Error('입력한 x에서 원래 함수가 실수로 정의되지 않습니다.');
+      }
+      const tree=e.json,sub=calcSubFree(tree,'x',given.expr.json);
+      if(sub!==tree||rule.notes.some(d=>d.sym==='x'))substitution=given.expr.evaluate().latex;
+      if(sub!==tree)e=ce.box(sub);
+    }
+    if(relations.includes(e.operator)){
+      const sides=e.ops;for(const s of sides)classroomChecked139(s.evaluate());
+      if(e.unknowns.length&&!sides.every(s=>s.isSame(sides[0])))throw Error('참·거짓을 확인할 변수값이 필요합니다. x 값을 입력하세요. 방정식을 자동으로 풀지는 않습니다.');
+      const b=e.evaluate().symbol;
+      if(b==='False')throw Error((e.operator==='Equal'?'등식이':e.operator==='NotEqual'?'두 값이 다르다는 조건이':'부등식이')+' 성립하지 않습니다. 양변을 확인하세요.');
+      if(b!=='True')throw Error('이 관계가 참인지 확인할 수 없습니다. 양변을 확인하세요.');
+      return {text:'참',latex:'\\text{참}',substitution};
+    }
+    const v=classroomChecked139(e.evaluate()),plain=v.toString();let approx='';
+    if(!v.unknowns.length&&!/^[+-]?(?:\d+|\d*\.\d+)(?:e[+-]?\d+)?$/i.test(plain)){
+      const n=v.N();if(n.im===0&&Number.isFinite(n.re))approx=String(Number(n.re.toPrecision(12)));
+    }
+    if(v.latex.length>12000||plain.length>8000)throw Error('결과가 너무 깁니다. 식을 나누어 계산하세요.');
+    const detail=rule.notes.length?(substitution?'도함수를 구한 뒤 x 값을 대입했습니다.':'도함수 · x 값을 입력하면 그 점에서의 값을 구합니다.'):'';
+    return label({text:plain,latex:v.latex,approx,substitution,detail});
   }
   self.onmessage=async ({data:m})=>{
     if (m.op==='init') {
