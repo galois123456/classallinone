@@ -39,6 +39,8 @@ textarea{resize:vertical;min-height:110px;line-height:1.6}
 .bar-in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:12px}
 #save-state{flex:1;font-size:13px;color:var(--muted)}#save-state.err{color:var(--coral);font-weight:650}
 .done{text-align:center;padding:30px 20px}.done h2{font-size:24px;margin:6px 0}
+.done{text-align:center;padding:34px 20px}.done .big{font-size:56px;line-height:1}.done h2{font-size:24px;margin:10px 0 6px}.done p{color:var(--muted);margin:0 0 6px}
+.mine dt{font-size:13px;color:var(--muted);margin-top:10px}.mine dd{margin:2px 0 0;font-weight:650;white-space:pre-wrap}
 .ver{text-align:center;font-size:11px;color:#a0a69b;margin-top:20px}
 @media(max-width:480px){.grid2{grid-template-columns:1fr}.q h2{font-size:17px}}
 </style></head>
@@ -57,12 +59,13 @@ textarea{resize:vertical;min-height:110px;line-height:1.6}
    <button id="join-button" class="btn primary block" type="submit">입장하기</button>
   </form>
  </section>
+ <section id="finished" hidden></section>
  <section id="workspace" hidden>
   <div id="intro"></div>
   <div id="phase"></div>
   <div id="questions"></div>
  </section>
- <p class="ver">survey v1.52</p>
+ <p class="ver">survey v1.53</p>
 </main>
 <div class="bar" id="bar" hidden><div class="bar-in"><span id="save-state" role="status"></span><button type="button" class="btn" id="leave">나가기</button><button type="button" class="btn primary" id="submit">제출하기</button></div></div>
 <script>
@@ -87,13 +90,25 @@ async function api(action,data={},token=cred?.token){
 }
 const open=()=>room&&room.phase==='open';
 function apply(j,{keepDraft=false}={}){room=j.room;resp=j.response;if(!keepDraft||!dirty)answers=JSON.parse(JSON.stringify(resp.answers||{}));render();}
+function answerText(q,a){if(a===undefined||a===null||(Array.isArray(a)&&!a.length)||a==='')return '응답 없음';if(q.type==='choice')return a.map(id=>q.choices.find(c=>c.id===id)?.text||'').join(', ');if(q.type==='tags')return a.map(t=>'#'+t).join(' ');return String(a);}
+function finished(){
+ clearTimeout(pollTimer);clearTimeout(saveTimer);
+ $('#title').textContent=room.title;$('#identity').textContent=resp.studentNumber+' '+resp.name;
+ $('#join').hidden=true;$('#workspace').hidden=true;$('#bar').hidden=true;
+ const at=resp.submittedAt?new Date(resp.submittedAt).toLocaleString('ko-KR',{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'}):'';
+ $('#finished').hidden=false;$('#finished').innerHTML=`<div class="card done"><div class="big">✅</div><h2>제출을 마쳤습니다</h2><p>참여해 주셔서 고맙습니다. 설문이 끝났습니다.</p><p>${esc(resp.studentNumber+' '+resp.name)} · ${esc(at)} 제출</p><p style="margin-top:10px">답을 고쳐야 하면 선생님께 '다시 응답 허용'을 요청하세요.</p></div><details class="card"><summary><b>내가 낸 응답 보기</b></summary><dl class="mine">${room.questions.map((q,i)=>`<dt>${i+1}. ${esc(q.prompt)}</dt><dd>${esc(answerText(q,resp.answers?.[q.id]))}</dd>`).join('')}</dl></details><button type="button" class="btn block" id="done-leave">처음 화면으로</button>`;
+ $('#done-leave').onclick=()=>{cred=null;room=null;$('#finished').hidden=true;$('#join').hidden=false;$('#title').textContent='학생 설문';$('#identity').textContent='';};
+ window.scrollTo({top:0});
+}
 function render(){
+ if(resp.submittedAt){finished();return;}
+ $('#finished').hidden=true;
  $('#title').textContent=room.title;$('#identity').textContent=resp.studentNumber+' '+resp.name;
  $('#join').hidden=true;$('#workspace').hidden=false;$('#bar').hidden=false;
  $('#intro').innerHTML=room.intro?`<div class="card" style="white-space:pre-line">${esc(room.intro)}</div>`:'';
- $('#phase').innerHTML=!open()?'<p class="notice warn">설문이 마감되었습니다. 응답을 더 바꿀 수 없습니다.</p>':resp.submittedAt?'<p class="notice">제출했습니다. 설문이 마감되기 전까지 답을 고치고 다시 제출할 수 있습니다.</p>':'';
+ $('#phase').innerHTML=!open()?'<p class="notice warn">설문이 마감되었습니다. 응답을 더 바꿀 수 없습니다.</p>':'<p class="notice">답은 자동으로 저장됩니다. 모두 답한 뒤 맨 아래 [제출하기]를 누르면 설문이 끝납니다.</p>';
  const box=$('#questions');box.innerHTML=room.questions.map((q,i)=>card(q,i)).join('');
- $('#submit').disabled=!open();$('#submit').textContent=resp.submittedAt?'다시 제출':'제출하기';
+ $('#submit').disabled=!open();$('#submit').textContent='제출하기';
  for(const ta of box.querySelectorAll('textarea'))grow(ta);
 }
 function card(q,i){
@@ -114,9 +129,9 @@ async function save(submit){
  const sent=JSON.stringify(answers);
  saving=(async()=>{try{const j=await api('save',{roomId:cred.roomId,answers:JSON.parse(sent),submit});if(JSON.stringify(answers)===sent)dirty=false;persist();
    const wasSubmitted=!!resp.submittedAt;room=j.room;resp=j.response;
-   if(submit||(!wasSubmitted&&resp.submittedAt))render();else{$('#submit').textContent=resp.submittedAt?'다시 제출':'제출하기';}
+   if(submit||(!wasSubmitted&&resp.submittedAt))render();
    status(submit?'제출했습니다.':'저장했습니다 · '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}));clearError();}
-  catch(e){status(e.status===409?'마감되어 저장하지 못했습니다.':'이 기기에 임시 보관 중 · 다시 저장을 시도합니다',true);if(e.status===409){dirty=false;persist();refresh();}throw e;}})();
+  catch(e){status(e.status===409?'마감되었거나 이미 제출해 저장하지 못했습니다.':'이 기기에 임시 보관 중 · 다시 저장을 시도합니다',true);if(e.status===409){dirty=false;persist();refresh();}throw e;}})();
  try{await saving}finally{saving=null}
 }
 document.addEventListener('click',e=>{
@@ -140,9 +155,10 @@ document.addEventListener('input',e=>{const ta=e.target.closest('textarea[data-q
 $('#submit').onclick=async()=>{if(busy)return;busy=true;clearTimeout(saveTimer);
  const miss=room.questions.filter(q=>q.required&&!(Array.isArray(answers[q.id])?answers[q.id].length:String(answers[q.id]||'').trim()));
  if(miss.length){showError(Error(`필수 문항(*)에 답하세요: ${miss.map(q=>room.questions.indexOf(q)+1+'번').join(', ')}`));document.getElementById('q-'+miss[0].id)?.scrollIntoView({behavior:'smooth'});busy=false;return;}
- try{await save(true);window.scrollTo({top:0,behavior:'smooth'});}catch(e){showError(e)}finally{busy=false}};
+ if(!confirm('제출하면 설문이 끝나고 더 이상 답을 고칠 수 없습니다. 제출할까요?')){busy=false;return;}
+ try{await save(true);}catch(e){showError(e)}finally{busy=false}};
 $('#leave').onclick=()=>{if(dirty&&!confirm('아직 서버에 저장하지 못한 답이 있습니다. 그래도 나갈까요? (이 기기에는 남아 있습니다)'))return;clearTimeout(pollTimer);cred=null;room=null;$('#join').hidden=false;$('#workspace').hidden=true;$('#bar').hidden=true;$('#title').textContent='학생 설문';$('#identity').textContent='';status('');};
-async function refresh(){clearTimeout(pollTimer);if(!cred)return;try{if(dirty)await save(false);const j=await api('state',{roomId:cred.roomId});const before=room?.phase;room=j.room;resp=j.response;if(before!==room.phase)render();}catch(e){if(e.status===401){showError(e);}}finally{if(cred)pollTimer=setTimeout(refresh,document.hidden?30000:15000);}}
+async function refresh(){clearTimeout(pollTimer);if(!cred)return;try{if(dirty)await save(false);const j=await api('state',{roomId:cred.roomId});const before=room?.phase+'|'+!!resp?.submittedAt;room=j.room;resp=j.response;if(before!==room.phase+'|'+!!resp.submittedAt){if(!resp.submittedAt)answers=JSON.parse(JSON.stringify(resp.answers||{}));render();}}catch(e){if(e.status===401){showError(e);}}finally{if(cred&&!resp?.submittedAt)pollTimer=setTimeout(refresh,document.hidden?30000:15000);}}
 $('#join-form').addEventListener('submit',async e=>{e.preventDefault();if(busy)return;busy=true;clearError();const f=e.target,b=$('#join-button');b.disabled=true;
  try{const code=f.elements.code.value.trim().toUpperCase(),old=load(code);
   const j=await api('join',{code,password:f.elements.password.value,studentNumber:f.elements.studentNumber.value,name:f.elements.name.value},old?.token);
