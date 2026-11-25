@@ -1,5 +1,5 @@
-// v1.52: 학생 설문. 교사 확인·비밀번호 해시·입력 정리는 이 서버 함수에서만 합니다.
-// Supabase에는 classsurvey_install_v1.sql을 한 번 실행해야 합니다. 환경 변수는 온라인 퀴즈와 같은 것을 씁니다.
+// v1.52(1.54 수정: 객관식 직접 추가): 학생 설문. 교사 확인·비밀번호 해시·입력 정리는 이 서버 함수에서만 합니다.
+// Supabase에는 classsurvey_install_v3.sql을 한 번 실행해야 합니다. 환경 변수는 온라인 퀴즈와 같은 것을 씁니다.
 const crypto = require('node:crypto');
 const { getSession, sameOrigin } = require('../lib/oauth');
 const STUDENT = new Set(['join', 'state', 'save']);
@@ -31,6 +31,7 @@ function cleanQuestions(list) {
       }).filter(c => c.text);
       if (out.choices.length < 2) throw Error((i + 1) + '번 객관식 문항에 선택지를 2개 이상 입력하세요.');
       out.multiple = !!q.multiple;
+      out.allowOther = !!q.allowOther;
     } else if (type === 'text') {
       out.long = q.long !== false;
     } else {
@@ -97,7 +98,7 @@ module.exports = async function handler(req, res) {
     const result = await response.json();
     if (!response.ok) {
       if (result.code === 'P0001') return res.status(400).json({ error: result.message });
-      if (result.code === 'PGRST202' || result.code === '42883' || result.code === '42P01') return res.status(503).json({ error: 'Supabase에 설문 SQL 설치가 필요합니다. classsurvey_install_v1.sql을 SQL Editor에서 실행하세요.' });
+      if (result.code === 'PGRST202' || result.code === '42883' || result.code === '42P01') return res.status(503).json({ error: 'Supabase에 설문 SQL 설치가 필요합니다. classsurvey_install_v3.sql을 SQL Editor에서 실행하세요.' });
       console.error('classsurvey database error', result.code);
       return res.status(500).json({ error: '설문 요청을 처리하지 못했습니다. 잠시 후 다시 시도하세요.' });
     }

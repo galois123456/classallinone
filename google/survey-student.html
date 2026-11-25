@@ -33,6 +33,8 @@ textarea{resize:vertical;min-height:110px;line-height:1.6}
 .tag{border:1.5px solid #cfd6cb;background:#fff;border-radius:999px;padding:7px 14px;font-size:15px;font-weight:650}
 .tag.on{background:var(--green);border-color:var(--green);color:#fff}
 .tag .x{margin-left:6px;opacity:.8}
+.mine-choice .x{margin-left:auto;opacity:.7}.mine-choice small{color:var(--muted);font-weight:500}
+.otheradd{margin-top:10px}
 .tagadd{display:flex;gap:8px;align-items:stretch}.tagadd input{margin-top:0;flex:1;min-width:0}.tagadd .btn{flex:none;white-space:nowrap}
 .count{font-size:12px;color:var(--muted);text-align:right;margin-top:4px}
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:#ffffffee;backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom))}
@@ -65,7 +67,7 @@ textarea{resize:vertical;min-height:110px;line-height:1.6}
   <div id="phase"></div>
   <div id="questions"></div>
  </section>
- <p class="ver">survey v1.53</p>
+ <p class="ver">survey v1.54</p>
 </main>
 <div class="bar" id="bar" hidden><div class="bar-in"><span id="save-state" role="status"></span><button type="button" class="btn" id="leave">나가기</button><button type="button" class="btn primary" id="submit">제출하기</button></div></div>
 <script>
@@ -77,6 +79,7 @@ const KEY=c=>'classsurvey.student.v1:'+c;
 const code0=(new URLSearchParams(location.search).get('room')||'').toUpperCase();
 let cred=null,room=null,resp=null,answers={},dirty=false,saving=null,saveTimer=null,pollTimer=null,busy=false;
 function load(c){try{return JSON.parse(localStorage.getItem(KEY(c))||'null')}catch{return null}}
+function forget(){try{if(cred)localStorage.removeItem(KEY(cred.code));}catch{}}
 function persist(){if(!cred)return;try{localStorage.setItem(KEY(cred.code),JSON.stringify({...cred,draft:dirty?answers:null}))}catch{}}
 function showError(e){const el=$('#error');el.hidden=false;el.textContent=e.message||String(e);el.scrollIntoView({block:'nearest'});}
 function clearError(){$('#error').hidden=true;}
@@ -90,14 +93,15 @@ async function api(action,data={},token=cred?.token){
 }
 const open=()=>room&&room.phase==='open';
 function apply(j,{keepDraft=false}={}){room=j.room;resp=j.response;if(!keepDraft||!dirty)answers=JSON.parse(JSON.stringify(resp.answers||{}));render();}
-function answerText(q,a){if(a===undefined||a===null||(Array.isArray(a)&&!a.length)||a==='')return '응답 없음';if(q.type==='choice')return a.map(id=>q.choices.find(c=>c.id===id)?.text||'').join(', ');if(q.type==='tags')return a.map(t=>'#'+t).join(' ');return String(a);}
+const otherCount=a=>Array.isArray(a)?a.filter(v=>v&&typeof v==='object').length:0;
+function answerText(q,a){if(a===undefined||a===null||(Array.isArray(a)&&!a.length)||a==='')return '응답 없음';if(q.type==='choice')return a.map(v=>v&&typeof v==='object'?v.other+' (내가 추가)':q.choices.find(c=>c.id===v)?.text||'').join(', ');if(q.type==='tags')return a.map(t=>'#'+t).join(' ');return String(a);}
 function finished(){
  clearTimeout(pollTimer);clearTimeout(saveTimer);
  $('#title').textContent=room.title;$('#identity').textContent=resp.studentNumber+' '+resp.name;
  $('#join').hidden=true;$('#workspace').hidden=true;$('#bar').hidden=true;
  const at=resp.submittedAt?new Date(resp.submittedAt).toLocaleString('ko-KR',{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'}):'';
  $('#finished').hidden=false;$('#finished').innerHTML=`<div class="card done"><div class="big">✅</div><h2>제출을 마쳤습니다</h2><p>참여해 주셔서 고맙습니다. 설문이 끝났습니다.</p><p>${esc(resp.studentNumber+' '+resp.name)} · ${esc(at)} 제출</p><p style="margin-top:10px">답을 고쳐야 하면 선생님께 '다시 응답 허용'을 요청하세요.</p></div><details class="card"><summary><b>내가 낸 응답 보기</b></summary><dl class="mine">${room.questions.map((q,i)=>`<dt>${i+1}. ${esc(q.prompt)}</dt><dd>${esc(answerText(q,resp.answers?.[q.id]))}</dd>`).join('')}</dl></details><button type="button" class="btn block" id="done-leave">처음 화면으로</button>`;
- $('#done-leave').onclick=()=>{cred=null;room=null;$('#finished').hidden=true;$('#join').hidden=false;$('#title').textContent='학생 설문';$('#identity').textContent='';};
+ $('#done-leave').onclick=()=>{forget();cred=null;room=null;$('#finished').hidden=true;$('#join').hidden=false;$('#title').textContent='학생 설문';$('#identity').textContent='';};
  window.scrollTo({top:0});
 }
 function render(){
@@ -115,7 +119,7 @@ function card(q,i){
  const a=answers[q.id],dis=open()?'':'disabled';
  let body='';
  if(q.type==='choice'){const sel=new Set(Array.isArray(a)?a:[]);
-  body=`${q.multiple?'<p class="hint">여러 개를 고를 수 있습니다.</p>':''}<div class="choices">${q.choices.map(c=>`<button type="button" class="choice ${q.multiple?'multi':''} ${sel.has(c.id)?'on':''}" data-q="${esc(q.id)}" data-choice="${esc(c.id)}" aria-pressed="${sel.has(c.id)}" ${dis}><span class="mark">${sel.has(c.id)?'✓':''}</span><span>${esc(c.text)}</span></button>`).join('')}</div>`;}
+  body=`${q.multiple?'<p class="hint">여러 개를 고를 수 있습니다.</p>':''}<div class="choices">${q.choices.map(c=>`<button type="button" class="choice ${q.multiple?'multi':''} ${sel.has(c.id)?'on':''}" data-q="${esc(q.id)}" data-choice="${esc(c.id)}" aria-pressed="${sel.has(c.id)}" ${dis}><span class="mark">${sel.has(c.id)?'✓':''}</span><span>${esc(c.text)}</span></button>`).join('')}${(Array.isArray(a)?a:[]).map((v,i)=>v&&typeof v==='object'?`<button type="button" class="choice mine-choice on ${q.multiple?'multi':''}" data-q="${esc(q.id)}" data-other="${i}" aria-label="직접 추가한 선택지 ${esc(v.other)} 빼기" ${dis}><span class="mark">✓</span><span>${esc(v.other)} <small>(내가 추가)</small></span><span class="x" aria-hidden="true">✕</span></button>`:'').join('')}</div>${q.allowOther&&open()&&otherCount(a)<3?`<form class="tagadd otheradd" data-q="${esc(q.id)}"><input type="text" maxlength="200" placeholder="보기에 없으면 직접 쓰기" aria-label="선택지 직접 추가"><button class="btn" type="submit">추가</button></form>`:''}`;}
  else if(q.type==='text'){body=`<textarea data-q="${esc(q.id)}" maxlength="3000" placeholder="자유롭게 쓰세요." ${dis}>${esc(typeof a==='string'?a:'')}</textarea><div class="count" data-count="${esc(q.id)}">${(typeof a==='string'?a:'').length} / 3000</div>`;}
  else {const sel=Array.isArray(a)?a:[],preset=q.tags||[],extra=sel.filter(t=>!preset.includes(t));
   body=`<p class="hint">${q.allowCustom?'준비된 태그를 누르거나 직접 만들어 추가하세요.':'준비된 태그 중에서 고르세요.'} 최대 ${q.maxTags}개 · <b data-tagcount="${esc(q.id)}">${sel.length}</b>개 선택</p><div class="tags">${preset.map(t=>`<button type="button" class="tag ${sel.includes(t)?'on':''}" data-q="${esc(q.id)}" data-tag="${esc(t)}" aria-pressed="${sel.includes(t)}" ${dis}>#${esc(t)}</button>`).join('')}${extra.map(t=>`<button type="button" class="tag on" data-q="${esc(q.id)}" data-tag="${esc(t)}" aria-label="#${esc(t)} 빼기" ${dis}>#${esc(t)}<span class="x">✕</span></button>`).join('')}</div>${q.allowCustom&&open()?`<form class="tagadd" data-q="${esc(q.id)}"><input type="text" maxlength="30" placeholder="#나만의_태그" aria-label="새 해시태그"><button class="btn" type="submit">추가</button></form>`:''}`;}
@@ -135,6 +139,8 @@ async function save(submit){
  try{await saving}finally{saving=null}
 }
 document.addEventListener('click',e=>{
+ const o=e.target.closest('[data-other]');
+ if(o&&!o.disabled){const q=room.questions.find(x=>x.id===o.dataset.q);let cur=[...(answers[q.id]||[])];cur.splice(Number(o.dataset.other),1);if(cur.length)answers[q.id]=cur;else delete answers[q.id];const art=o.closest('.q');art.outerHTML=card(q,room.questions.indexOf(q));change();return;}
  const c=e.target.closest('[data-choice]');
  if(c&&!c.disabled){const q=room.questions.find(x=>x.id===c.dataset.q);let cur=Array.isArray(answers[q.id])?[...answers[q.id]]:[];const id=c.dataset.choice;
   if(q.multiple)cur=cur.includes(id)?cur.filter(x=>x!==id):[...cur,id];else cur=cur.includes(id)?[]:[id];
@@ -146,7 +152,15 @@ document.addEventListener('click',e=>{
   if(cur.length)answers[q.id]=cur;else delete answers[q.id];clearError();
   const art=t.closest('.q');art.outerHTML=card(q,room.questions.indexOf(q));change();}
 });
-document.addEventListener('submit',e=>{const f=e.target.closest('.tagadd');if(!f)return;e.preventDefault();
+document.addEventListener('submit',e=>{const oa=e.target.closest('.otheradd');if(!oa)return;e.preventDefault();e.stopImmediatePropagation();
+ const q=room.questions.find(x=>x.id===oa.dataset.q),input=oa.querySelector('input'),v=input.value.replace(/\s+/g,' ').trim().slice(0,200);if(!v)return;
+ let cur=Array.isArray(answers[q.id])?[...answers[q.id]]:[];
+ if(cur.some(x=>x&&typeof x==='object'&&x.other===v)){input.value='';return;}
+ if(q.multiple){if(otherCount(cur)>=3){showError(Error('선택지는 3개까지 직접 추가할 수 있습니다.'));return;}cur.push({other:v});}
+ else cur=[{other:v}];
+ answers[q.id]=cur;clearError();const art=oa.closest('.q');art.outerHTML=card(q,room.questions.indexOf(q));change();
+ if(q.multiple)document.querySelector(`#q-${CSS.escape(q.id)} .otheradd input`)?.focus();},true);
+document.addEventListener('submit',e=>{const f=e.target.closest('.tagadd');if(!f||f.classList.contains('otheradd'))return;e.preventDefault();
  const q=room.questions.find(x=>x.id===f.dataset.q),input=f.querySelector('input'),v=cleanTag(input.value);if(!v)return;
  let cur=Array.isArray(answers[q.id])?[...answers[q.id]]:[];if(!cur.includes(v)){if(cur.length>=q.maxTags){showError(Error(`해시태그는 ${q.maxTags}개까지 고를 수 있습니다.`));return;}cur.push(v);}
  answers[q.id]=cur;clearError();const art=f.closest('.q');art.outerHTML=card(q,room.questions.indexOf(q));change();
@@ -157,13 +171,14 @@ $('#submit').onclick=async()=>{if(busy)return;busy=true;clearTimeout(saveTimer);
  if(miss.length){showError(Error(`필수 문항(*)에 답하세요: ${miss.map(q=>room.questions.indexOf(q)+1+'번').join(', ')}`));document.getElementById('q-'+miss[0].id)?.scrollIntoView({behavior:'smooth'});busy=false;return;}
  if(!confirm('제출하면 설문이 끝나고 더 이상 답을 고칠 수 없습니다. 제출할까요?')){busy=false;return;}
  try{await save(true);}catch(e){showError(e)}finally{busy=false}};
-$('#leave').onclick=()=>{if(dirty&&!confirm('아직 서버에 저장하지 못한 답이 있습니다. 그래도 나갈까요? (이 기기에는 남아 있습니다)'))return;clearTimeout(pollTimer);cred=null;room=null;$('#join').hidden=false;$('#workspace').hidden=true;$('#bar').hidden=true;$('#title').textContent='학생 설문';$('#identity').textContent='';status('');};
+$('#leave').onclick=()=>{if(dirty&&!confirm('아직 서버에 저장하지 못한 답이 있습니다. 그래도 나갈까요?'))return;forget();clearTimeout(pollTimer);cred=null;room=null;$('#join').hidden=false;$('#workspace').hidden=true;$('#bar').hidden=true;$('#title').textContent='학생 설문';$('#identity').textContent='';status('');};
 async function refresh(){clearTimeout(pollTimer);if(!cred)return;try{if(dirty)await save(false);const j=await api('state',{roomId:cred.roomId});const before=room?.phase+'|'+!!resp?.submittedAt;room=j.room;resp=j.response;if(before!==room.phase+'|'+!!resp.submittedAt){if(!resp.submittedAt)answers=JSON.parse(JSON.stringify(resp.answers||{}));render();}}catch(e){if(e.status===401){showError(e);}}finally{if(cred&&!resp?.submittedAt)pollTimer=setTimeout(refresh,document.hidden?30000:15000);}}
 $('#join-form').addEventListener('submit',async e=>{e.preventDefault();if(busy)return;busy=true;clearError();const f=e.target,b=$('#join-button');b.disabled=true;
  try{const code=f.elements.code.value.trim().toUpperCase(),old=load(code);
-  const j=await api('join',{code,password:f.elements.password.value,studentNumber:f.elements.studentNumber.value,name:f.elements.name.value},old?.token);
+  const same=old&&old.studentNumber===f.elements.studentNumber.value.trim()&&old.name===f.elements.name.value.trim();
+  const j=await api('join',{code,password:f.elements.password.value,studentNumber:f.elements.studentNumber.value,name:f.elements.name.value},same?old.token:null);
   cred={code,roomId:j.room.id,token:j.token,studentNumber:j.response.studentNumber,name:j.response.name};
-  const draft=old?.token===j.token&&old.draft?old.draft:null;apply(j);if(draft&&j.room.phase==='open'){answers=draft;dirty=true;render();save(false).catch(()=>{});}
+  const draft=same&&old?.token===j.token&&old.draft?old.draft:null;apply(j);if(draft&&j.room.phase==='open'){answers=draft;dirty=true;render();save(false).catch(()=>{});}
   persist();status('입장했습니다. 답은 자동으로 저장됩니다.');pollTimer=setTimeout(refresh,15000);}
  catch(err){showError(err)}finally{busy=false;b.disabled=false}});
 window.addEventListener('online',()=>{if(cred&&dirty)save(false).catch(()=>{})});
