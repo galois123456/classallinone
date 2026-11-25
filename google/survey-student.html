@@ -1,0 +1,162 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#137d75"><title>학생 설문 · 교실 도구</title>
+<link rel="icon" href="favicon-32.png">
+<style>
+:root{--bg:#f7f7f2;--paper:#fff;--ink:#263b33;--muted:#6f7a72;--line:#e2e6dc;--green:#1d7a6c;--green-soft:#e4f2ee;--accent:#dfeeab;--coral:#c4553b;--radius:18px;font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+*{box-sizing:border-box}body{margin:0;min-height:100dvh}button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}[hidden]{display:none!important}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #80b8a8;outline-offset:2px}
+.head{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px max(16px,env(safe-area-inset-left));background:#f7f7f2ee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.head small{display:block;font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:700}.head h1{margin:0;font-size:18px;line-height:1.3}
+#identity{font-size:13px;color:var(--muted);white-space:nowrap}
+main{max-width:760px;margin:0 auto;padding:18px 16px 120px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:0 10px 30px #243c300a}
+.eyebrow{font-size:11px;letter-spacing:1.6px;font-weight:750;color:#6f8a62;margin-bottom:6px}
+label{display:block;font-size:13px;font-weight:650;color:#4b5a52;margin-bottom:12px}
+input[type=text],input[type=password],textarea{display:block;width:100%;margin-top:6px;padding:12px 14px;border:1px solid #cfd6cb;border-radius:12px;background:#fff;font-size:16px}
+textarea{resize:vertical;min-height:110px;line-height:1.6}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{border:1px solid #cfd6cb;background:#fff;border-radius:12px;padding:11px 16px;font-weight:700;font-size:15px}
+.btn.primary{background:var(--green);border-color:var(--green);color:#fff}
+.btn.block{width:100%}
+.error{background:#fdeeea;border:1px solid #f0c2b6;color:#8a2f1c;border-radius:12px;padding:12px 14px;font-weight:600;white-space:pre-line}
+.notice{background:var(--green-soft);border:1px solid #bfe0d8;border-radius:12px;padding:12px 14px;font-weight:600}
+.notice.warn{background:#fff4dc;border-color:#f1d79a}
+.q{scroll-margin-top:80px}
+.q h2{font-size:18px;margin:0 0 12px;line-height:1.5;white-space:pre-line}
+.req{color:var(--coral);margin-left:4px}
+.hint{font-size:13px;color:var(--muted);margin:-6px 0 10px}
+.choices{display:grid;gap:8px}
+.choice{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 14px;border:1.5px solid #d7ddd2;border-radius:14px;background:#fff;font-size:16px}
+.choice .mark{width:22px;height:22px;border:2px solid #9aa79e;border-radius:50%;flex:none;display:grid;place-items:center;font-size:14px;color:#fff}
+.choice.multi .mark{border-radius:6px}
+.choice.on{border-color:var(--green);background:var(--green-soft)}.choice.on .mark{background:var(--green);border-color:var(--green)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.tag{border:1.5px solid #cfd6cb;background:#fff;border-radius:999px;padding:7px 14px;font-size:15px;font-weight:650}
+.tag.on{background:var(--green);border-color:var(--green);color:#fff}
+.tag .x{margin-left:6px;opacity:.8}
+.tagadd{display:flex;gap:8px;align-items:stretch}.tagadd input{margin-top:0;flex:1;min-width:0}.tagadd .btn{flex:none;white-space:nowrap}
+.count{font-size:12px;color:var(--muted);text-align:right;margin-top:4px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:#ffffffee;backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom))}
+.bar-in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:12px}
+#save-state{flex:1;font-size:13px;color:var(--muted)}#save-state.err{color:var(--coral);font-weight:650}
+.done{text-align:center;padding:30px 20px}.done h2{font-size:24px;margin:6px 0}
+.ver{text-align:center;font-size:11px;color:#a0a69b;margin-top:20px}
+@media(max-width:480px){.grid2{grid-template-columns:1fr}.q h2{font-size:17px}}
+</style></head>
+<body>
+<header class="head"><div><small>CLASSROOM ALL IN ONE · 설문</small><h1 id="title">학생 설문</h1></div><span id="identity"></span></header>
+<main>
+ <p id="error" class="error" hidden role="alert"></p>
+ <section id="join" class="card">
+  <div class="eyebrow">JOIN SURVEY</div>
+  <h2 style="margin:0 0 6px">설문에 참여하세요.</h2>
+  <p style="margin:0 0 16px;color:var(--muted)">선생님이 알려준 입장 코드와 비밀번호를 입력하세요. 정답이 없는 설문입니다.</p>
+  <form id="join-form" autocomplete="off">
+   <label>입장 코드<input type="text" name="code" maxlength="12" required autocapitalize="characters" placeholder="예: SABC2345"></label>
+   <label>입장 비밀번호<input type="password" name="password" maxlength="80" required></label>
+   <div class="grid2"><label>학번<input type="text" name="studentNumber" maxlength="20" required inputmode="numeric" placeholder="예: 10101"></label><label>이름<input type="text" name="name" maxlength="30" required></label></div>
+   <button id="join-button" class="btn primary block" type="submit">입장하기</button>
+  </form>
+ </section>
+ <section id="workspace" hidden>
+  <div id="intro"></div>
+  <div id="phase"></div>
+  <div id="questions"></div>
+ </section>
+ <p class="ver">survey v1.52</p>
+</main>
+<div class="bar" id="bar" hidden><div class="bar-in"><span id="save-state" role="status"></span><button type="button" class="btn" id="leave">나가기</button><button type="button" class="btn primary" id="submit">제출하기</button></div></div>
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const KEY=c=>'classsurvey.student.v1:'+c;
+const code0=(new URLSearchParams(location.search).get('room')||'').toUpperCase();
+let cred=null,room=null,resp=null,answers={},dirty=false,saving=null,saveTimer=null,pollTimer=null,busy=false;
+function load(c){try{return JSON.parse(localStorage.getItem(KEY(c))||'null')}catch{return null}}
+function persist(){if(!cred)return;try{localStorage.setItem(KEY(cred.code),JSON.stringify({...cred,draft:dirty?answers:null}))}catch{}}
+function showError(e){const el=$('#error');el.hidden=false;el.textContent=e.message||String(e);el.scrollIntoView({block:'nearest'});}
+function clearError(){$('#error').hidden=true;}
+function status(t,err=false){const el=$('#save-state');el.textContent=t;el.classList.toggle('err',err);}
+async function api(action,data={},token=cred?.token){
+ const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),20000);
+ try{const r=await fetch('api/classsurvey',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json',...(token?{'X-Classsurvey-Token':token}:{})},body:JSON.stringify({action,...data}),signal:ctl.signal});
+  const j=await r.json().catch(()=>({error:'설문 서버에 연결할 수 없습니다.'}));if(!r.ok){const e=Error(j.error||'요청에 실패했습니다.');e.status=r.status;throw e;}return j;}
+ catch(e){if(e.name==='TypeError')throw Error('서버에 연결할 수 없습니다. 인터넷 연결을 확인하세요.');if(e.name==='AbortError')throw Error('연결이 지연됩니다. 잠시 후 다시 시도하세요.');throw e;}
+ finally{clearTimeout(t)}
+}
+const open=()=>room&&room.phase==='open';
+function apply(j,{keepDraft=false}={}){room=j.room;resp=j.response;if(!keepDraft||!dirty)answers=JSON.parse(JSON.stringify(resp.answers||{}));render();}
+function render(){
+ $('#title').textContent=room.title;$('#identity').textContent=resp.studentNumber+' '+resp.name;
+ $('#join').hidden=true;$('#workspace').hidden=false;$('#bar').hidden=false;
+ $('#intro').innerHTML=room.intro?`<div class="card" style="white-space:pre-line">${esc(room.intro)}</div>`:'';
+ $('#phase').innerHTML=!open()?'<p class="notice warn">설문이 마감되었습니다. 응답을 더 바꿀 수 없습니다.</p>':resp.submittedAt?'<p class="notice">제출했습니다. 설문이 마감되기 전까지 답을 고치고 다시 제출할 수 있습니다.</p>':'';
+ const box=$('#questions');box.innerHTML=room.questions.map((q,i)=>card(q,i)).join('');
+ $('#submit').disabled=!open();$('#submit').textContent=resp.submittedAt?'다시 제출':'제출하기';
+ for(const ta of box.querySelectorAll('textarea'))grow(ta);
+}
+function card(q,i){
+ const a=answers[q.id],dis=open()?'':'disabled';
+ let body='';
+ if(q.type==='choice'){const sel=new Set(Array.isArray(a)?a:[]);
+  body=`${q.multiple?'<p class="hint">여러 개를 고를 수 있습니다.</p>':''}<div class="choices">${q.choices.map(c=>`<button type="button" class="choice ${q.multiple?'multi':''} ${sel.has(c.id)?'on':''}" data-q="${esc(q.id)}" data-choice="${esc(c.id)}" aria-pressed="${sel.has(c.id)}" ${dis}><span class="mark">${sel.has(c.id)?'✓':''}</span><span>${esc(c.text)}</span></button>`).join('')}</div>`;}
+ else if(q.type==='text'){body=`<textarea data-q="${esc(q.id)}" maxlength="3000" placeholder="자유롭게 쓰세요." ${dis}>${esc(typeof a==='string'?a:'')}</textarea><div class="count" data-count="${esc(q.id)}">${(typeof a==='string'?a:'').length} / 3000</div>`;}
+ else {const sel=Array.isArray(a)?a:[],preset=q.tags||[],extra=sel.filter(t=>!preset.includes(t));
+  body=`<p class="hint">${q.allowCustom?'준비된 태그를 누르거나 직접 만들어 추가하세요.':'준비된 태그 중에서 고르세요.'} 최대 ${q.maxTags}개 · <b data-tagcount="${esc(q.id)}">${sel.length}</b>개 선택</p><div class="tags">${preset.map(t=>`<button type="button" class="tag ${sel.includes(t)?'on':''}" data-q="${esc(q.id)}" data-tag="${esc(t)}" aria-pressed="${sel.includes(t)}" ${dis}>#${esc(t)}</button>`).join('')}${extra.map(t=>`<button type="button" class="tag on" data-q="${esc(q.id)}" data-tag="${esc(t)}" aria-label="#${esc(t)} 빼기" ${dis}>#${esc(t)}<span class="x">✕</span></button>`).join('')}</div>${q.allowCustom&&open()?`<form class="tagadd" data-q="${esc(q.id)}"><input type="text" maxlength="30" placeholder="#나만의_태그" aria-label="새 해시태그"><button class="btn" type="submit">추가</button></form>`:''}`;}
+ return `<article class="card q" id="q-${esc(q.id)}"><div class="eyebrow">${i+1} / ${room.questions.length} · ${q.type==='choice'?'객관식':q.type==='text'?'서술형':'해시태그'}</div><h2>${esc(q.prompt)}${q.required?'<span class="req" aria-label="필수">*</span>':''}</h2>${body}</article>`;
+}
+function grow(ta){ta.style.height='auto';ta.style.height=Math.min(600,ta.scrollHeight+4)+'px';}
+const cleanTag=t=>String(t||'').trim().replace(/^#+/,'').replace(/\s+/g,'_').slice(0,30);
+function change(){if(!open())return;dirty=true;persist();status('저장 중…');clearTimeout(saveTimer);saveTimer=setTimeout(()=>save(false).catch(()=>{}),700);}
+async function save(submit){
+ if(saving){await saving.catch(()=>{});if(!dirty&&!submit)return;}
+ const sent=JSON.stringify(answers);
+ saving=(async()=>{try{const j=await api('save',{roomId:cred.roomId,answers:JSON.parse(sent),submit});if(JSON.stringify(answers)===sent)dirty=false;persist();
+   const wasSubmitted=!!resp.submittedAt;room=j.room;resp=j.response;
+   if(submit||(!wasSubmitted&&resp.submittedAt))render();else{$('#submit').textContent=resp.submittedAt?'다시 제출':'제출하기';}
+   status(submit?'제출했습니다.':'저장했습니다 · '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}));clearError();}
+  catch(e){status(e.status===409?'마감되어 저장하지 못했습니다.':'이 기기에 임시 보관 중 · 다시 저장을 시도합니다',true);if(e.status===409){dirty=false;persist();refresh();}throw e;}})();
+ try{await saving}finally{saving=null}
+}
+document.addEventListener('click',e=>{
+ const c=e.target.closest('[data-choice]');
+ if(c&&!c.disabled){const q=room.questions.find(x=>x.id===c.dataset.q);let cur=Array.isArray(answers[q.id])?[...answers[q.id]]:[];const id=c.dataset.choice;
+  if(q.multiple)cur=cur.includes(id)?cur.filter(x=>x!==id):[...cur,id];else cur=cur.includes(id)?[]:[id];
+  if(cur.length)answers[q.id]=cur;else delete answers[q.id];
+  const art=c.closest('.q');art.outerHTML=card(q,room.questions.indexOf(q));change();return;}
+ const t=e.target.closest('[data-tag]');
+ if(t&&!t.disabled){const q=room.questions.find(x=>x.id===t.dataset.q);let cur=Array.isArray(answers[q.id])?[...answers[q.id]]:[];const v=t.dataset.tag;
+  if(cur.includes(v))cur=cur.filter(x=>x!==v);else{if(cur.length>=q.maxTags){showError(Error(`해시태그는 ${q.maxTags}개까지 고를 수 있습니다.`));return;}cur.push(v);}
+  if(cur.length)answers[q.id]=cur;else delete answers[q.id];clearError();
+  const art=t.closest('.q');art.outerHTML=card(q,room.questions.indexOf(q));change();}
+});
+document.addEventListener('submit',e=>{const f=e.target.closest('.tagadd');if(!f)return;e.preventDefault();
+ const q=room.questions.find(x=>x.id===f.dataset.q),input=f.querySelector('input'),v=cleanTag(input.value);if(!v)return;
+ let cur=Array.isArray(answers[q.id])?[...answers[q.id]]:[];if(!cur.includes(v)){if(cur.length>=q.maxTags){showError(Error(`해시태그는 ${q.maxTags}개까지 고를 수 있습니다.`));return;}cur.push(v);}
+ answers[q.id]=cur;clearError();const art=f.closest('.q');art.outerHTML=card(q,room.questions.indexOf(q));change();
+ document.querySelector(`#q-${CSS.escape(q.id)} .tagadd input`)?.focus();});
+document.addEventListener('input',e=>{const ta=e.target.closest('textarea[data-q]');if(!ta)return;const v=ta.value;if(v.trim())answers[ta.dataset.q]=v;else delete answers[ta.dataset.q];grow(ta);const n=document.querySelector(`[data-count="${CSS.escape(ta.dataset.q)}"]`);if(n)n.textContent=v.length+' / 3000';change();});
+$('#submit').onclick=async()=>{if(busy)return;busy=true;clearTimeout(saveTimer);
+ const miss=room.questions.filter(q=>q.required&&!(Array.isArray(answers[q.id])?answers[q.id].length:String(answers[q.id]||'').trim()));
+ if(miss.length){showError(Error(`필수 문항(*)에 답하세요: ${miss.map(q=>room.questions.indexOf(q)+1+'번').join(', ')}`));document.getElementById('q-'+miss[0].id)?.scrollIntoView({behavior:'smooth'});busy=false;return;}
+ try{await save(true);window.scrollTo({top:0,behavior:'smooth'});}catch(e){showError(e)}finally{busy=false}};
+$('#leave').onclick=()=>{if(dirty&&!confirm('아직 서버에 저장하지 못한 답이 있습니다. 그래도 나갈까요? (이 기기에는 남아 있습니다)'))return;clearTimeout(pollTimer);cred=null;room=null;$('#join').hidden=false;$('#workspace').hidden=true;$('#bar').hidden=true;$('#title').textContent='학생 설문';$('#identity').textContent='';status('');};
+async function refresh(){clearTimeout(pollTimer);if(!cred)return;try{if(dirty)await save(false);const j=await api('state',{roomId:cred.roomId});const before=room?.phase;room=j.room;resp=j.response;if(before!==room.phase)render();}catch(e){if(e.status===401){showError(e);}}finally{if(cred)pollTimer=setTimeout(refresh,document.hidden?30000:15000);}}
+$('#join-form').addEventListener('submit',async e=>{e.preventDefault();if(busy)return;busy=true;clearError();const f=e.target,b=$('#join-button');b.disabled=true;
+ try{const code=f.elements.code.value.trim().toUpperCase(),old=load(code);
+  const j=await api('join',{code,password:f.elements.password.value,studentNumber:f.elements.studentNumber.value,name:f.elements.name.value},old?.token);
+  cred={code,roomId:j.room.id,token:j.token,studentNumber:j.response.studentNumber,name:j.response.name};
+  const draft=old?.token===j.token&&old.draft?old.draft:null;apply(j);if(draft&&j.room.phase==='open'){answers=draft;dirty=true;render();save(false).catch(()=>{});}
+  persist();status('입장했습니다. 답은 자동으로 저장됩니다.');pollTimer=setTimeout(refresh,15000);}
+ catch(err){showError(err)}finally{busy=false;b.disabled=false}});
+window.addEventListener('online',()=>{if(cred&&dirty)save(false).catch(()=>{})});
+window.addEventListener('pagehide',persist);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&cred)refresh();});
+$('#join-form').elements.code.value=code0;
+const saved=code0&&load(code0);
+if(saved?.token&&saved.roomId){cred=saved;$('#join-form').elements.studentNumber.value=saved.studentNumber||'';$('#join-form').elements.name.value=saved.name||'';
+ api('state',{roomId:saved.roomId}).then(j=>{apply(j);if(saved.draft&&j.room.phase==='open'){answers=saved.draft;dirty=true;render();save(false).catch(()=>{});}status('이어서 응답합니다.');pollTimer=setTimeout(refresh,15000);}).catch(e=>{cred=null;if(e.status!==401)showError(e);});}
+})();
+</script>
+</body></html>
