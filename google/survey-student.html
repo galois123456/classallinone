@@ -45,6 +45,8 @@ textarea{resize:vertical;min-height:110px;line-height:1.6}
 .mine dt{font-size:13px;color:var(--muted);margin-top:10px}.mine dd{margin:2px 0 0;font-weight:650;white-space:pre-wrap}
 .ver{text-align:center;font-size:11px;color:#a0a69b;margin-top:20px}
 @media(max-width:480px){.grid2{grid-template-columns:1fr}.q h2{font-size:17px}}
+[hidden]{display:none!important}
+.anon-note{margin:0 0 12px;padding:10px 12px;border-radius:12px;background:var(--green-soft);border:1px solid var(--line);font-size:14px}
 </style></head>
 <body>
 <header class="head"><div><small>CLASSROOM ALL IN ONE · 설문</small><h1 id="title">학생 설문</h1></div><span id="identity"></span></header>
@@ -57,7 +59,8 @@ textarea{resize:vertical;min-height:110px;line-height:1.6}
   <form id="join-form" autocomplete="off">
    <label>입장 코드<input type="text" name="code" maxlength="12" required autocapitalize="characters" placeholder="예: SABC2345"></label>
    <label>입장 비밀번호<input type="password" name="password" maxlength="80" required></label>
-   <div class="grid2"><label>학번<input type="text" name="studentNumber" maxlength="20" required inputmode="numeric" placeholder="예: 10101"></label><label>이름<input type="text" name="name" maxlength="30" required></label></div>
+   <p id="anon-note" class="anon-note" hidden>🙈 <b>익명 설문</b>입니다. 학번과 이름을 적지 않고, 선생님께도 이름이 보이지 않습니다.</p>
+   <div class="grid2" id="who-fields"><label>학번<input type="text" name="studentNumber" maxlength="20" required inputmode="numeric" placeholder="예: 10101"></label><label>이름<input type="text" name="name" maxlength="30" required></label></div>
    <button id="join-button" class="btn primary block" type="submit">입장하기</button>
   </form>
  </section>
@@ -67,7 +70,7 @@ textarea{resize:vertical;min-height:110px;line-height:1.6}
   <div id="phase"></div>
   <div id="questions"></div>
  </section>
- <p class="ver">survey v1.54</p>
+ <p class="ver">survey v1.59</p>
 </main>
 <div class="bar" id="bar" hidden><div class="bar-in"><span id="save-state" role="status"></span><button type="button" class="btn" id="leave">나가기</button><button type="button" class="btn primary" id="submit">제출하기</button></div></div>
 <script>
@@ -77,6 +80,11 @@ const $=s=>document.querySelector(s);
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const KEY=c=>'classsurvey.student.v1:'+c;
 const code0=(new URLSearchParams(location.search).get('room')||'').toUpperCase();
+// 익명 설문 주소(&anon=1)면 학번·이름 칸을 숨깁니다. 실제 익명 여부는 서버의 설문 방 설정으로 정해집니다.
+let anonHint=new URLSearchParams(location.search).get('anon')==='1';
+function setWho(anon){anonHint=anon;$('#who-fields').hidden=anon;$('#anon-note').hidden=!anon;for(const n of ['studentNumber','name'])$('#join-form').elements[n].required=!anon;}
+const isAnon=()=>!!room?.settings?.anonymous;
+const whoText=()=>isAnon()?'익명 참여':resp.studentNumber+' '+resp.name;
 let cred=null,room=null,resp=null,answers={},dirty=false,saving=null,saveTimer=null,pollTimer=null,busy=false;
 function load(c){try{return JSON.parse(localStorage.getItem(KEY(c))||'null')}catch{return null}}
 function forget(){try{if(cred)localStorage.removeItem(KEY(cred.code));}catch{}}
@@ -87,7 +95,7 @@ function status(t,err=false){const el=$('#save-state');el.textContent=t;el.class
 async function api(action,data={},token=cred?.token){
  const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),20000);
  try{const r=await fetch('api/classsurvey',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json',...(token?{'X-Classsurvey-Token':token}:{})},body:JSON.stringify({action,...data}),signal:ctl.signal});
-  const j=await r.json().catch(()=>({error:'설문 서버에 연결할 수 없습니다.'}));if(!r.ok){const e=Error(j.error||'요청에 실패했습니다.');e.status=r.status;throw e;}return j;}
+  const j=await r.json().catch(()=>({error:'설문 서버에 연결할 수 없습니다.'}));if(!r.ok){const e=Error(j.error||'요청에 실패했습니다.');e.status=r.status;e.needIdentity=!!j.needIdentity;throw e;}return j;}
  catch(e){if(e.name==='TypeError')throw Error('서버에 연결할 수 없습니다. 인터넷 연결을 확인하세요.');if(e.name==='AbortError')throw Error('연결이 지연됩니다. 잠시 후 다시 시도하세요.');throw e;}
  finally{clearTimeout(t)}
 }
@@ -97,17 +105,17 @@ const otherCount=a=>Array.isArray(a)?a.filter(v=>v&&typeof v==='object').length:
 function answerText(q,a){if(a===undefined||a===null||(Array.isArray(a)&&!a.length)||a==='')return '응답 없음';if(q.type==='choice')return a.map(v=>v&&typeof v==='object'?v.other+' (내가 추가)':q.choices.find(c=>c.id===v)?.text||'').join(', ');if(q.type==='tags')return a.map(t=>'#'+t).join(' ');return String(a);}
 function finished(){
  clearTimeout(pollTimer);clearTimeout(saveTimer);
- $('#title').textContent=room.title;$('#identity').textContent=resp.studentNumber+' '+resp.name;
+ $('#title').textContent=room.title;$('#identity').textContent=whoText();
  $('#join').hidden=true;$('#workspace').hidden=true;$('#bar').hidden=true;
  const at=resp.submittedAt?new Date(resp.submittedAt).toLocaleString('ko-KR',{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'}):'';
- $('#finished').hidden=false;$('#finished').innerHTML=`<div class="card done"><div class="big">✅</div><h2>제출을 마쳤습니다</h2><p>참여해 주셔서 고맙습니다. 설문이 끝났습니다.</p><p>${esc(resp.studentNumber+' '+resp.name)} · ${esc(at)} 제출</p><p style="margin-top:10px">답을 고쳐야 하면 선생님께 '다시 응답 허용'을 요청하세요.</p></div><details class="card"><summary><b>내가 낸 응답 보기</b></summary><dl class="mine">${room.questions.map((q,i)=>`<dt>${i+1}. ${esc(q.prompt)}</dt><dd>${esc(answerText(q,resp.answers?.[q.id]))}</dd>`).join('')}</dl></details><button type="button" class="btn block" id="done-leave">처음 화면으로</button>`;
+ $('#finished').hidden=false;$('#finished').innerHTML=`<div class="card done"><div class="big">✅</div><h2>제출을 마쳤습니다</h2><p>참여해 주셔서 고맙습니다. 설문이 끝났습니다.</p><p>${esc(whoText())} · ${esc(at)} 제출</p><p style="margin-top:10px">답을 고쳐야 하면 선생님께 '다시 응답 허용'을 요청하세요.</p></div><details class="card"><summary><b>내가 낸 응답 보기</b></summary><dl class="mine">${room.questions.map((q,i)=>`<dt>${i+1}. ${esc(q.prompt)}</dt><dd>${esc(answerText(q,resp.answers?.[q.id]))}</dd>`).join('')}</dl></details><button type="button" class="btn block" id="done-leave">처음 화면으로</button>`;
  $('#done-leave').onclick=()=>{forget();cred=null;room=null;$('#finished').hidden=true;$('#join').hidden=false;$('#title').textContent='학생 설문';$('#identity').textContent='';};
  window.scrollTo({top:0});
 }
 function render(){
  if(resp.submittedAt){finished();return;}
  $('#finished').hidden=true;
- $('#title').textContent=room.title;$('#identity').textContent=resp.studentNumber+' '+resp.name;
+ $('#title').textContent=room.title;$('#identity').textContent=whoText();
  $('#join').hidden=true;$('#workspace').hidden=false;$('#bar').hidden=false;
  $('#intro').innerHTML=room.intro?`<div class="card" style="white-space:pre-line">${esc(room.intro)}</div>`:'';
  $('#phase').innerHTML=!open()?'<p class="notice warn">설문이 마감되었습니다. 응답을 더 바꿀 수 없습니다.</p>':'<p class="notice">답은 자동으로 저장됩니다. 모두 답한 뒤 맨 아래 [제출하기]를 누르면 설문이 끝납니다.</p>';
@@ -175,16 +183,19 @@ $('#leave').onclick=()=>{if(dirty&&!confirm('아직 서버에 저장하지 못�
 async function refresh(){clearTimeout(pollTimer);if(!cred)return;try{if(dirty)await save(false);const j=await api('state',{roomId:cred.roomId});const before=room?.phase+'|'+!!resp?.submittedAt;room=j.room;resp=j.response;if(before!==room.phase+'|'+!!resp.submittedAt){if(!resp.submittedAt)answers=JSON.parse(JSON.stringify(resp.answers||{}));render();}}catch(e){if(e.status===401){showError(e);}}finally{if(cred&&!resp?.submittedAt)pollTimer=setTimeout(refresh,document.hidden?30000:15000);}}
 $('#join-form').addEventListener('submit',async e=>{e.preventDefault();if(busy)return;busy=true;clearError();const f=e.target,b=$('#join-button');b.disabled=true;
  try{const code=f.elements.code.value.trim().toUpperCase(),old=load(code);
-  const same=old&&old.studentNumber===f.elements.studentNumber.value.trim()&&old.name===f.elements.name.value.trim();
-  const j=await api('join',{code,password:f.elements.password.value,studentNumber:f.elements.studentNumber.value,name:f.elements.name.value},same?old.token:null);
-  cred={code,roomId:j.room.id,token:j.token,studentNumber:j.response.studentNumber,name:j.response.name};
+  const same=old&&(anonHint?!!old.anon:old.studentNumber===f.elements.studentNumber.value.trim()&&old.name===f.elements.name.value.trim());
+  let j;
+  try{j=await api('join',{code,password:f.elements.password.value,studentNumber:anonHint?'':f.elements.studentNumber.value,name:anonHint?'':f.elements.name.value},same?old.token:null);}
+  catch(err){if(anonHint&&(err.needIdentity||/학번/.test(err.message))){setWho(false);throw Error('이 설문은 학번과 이름을 적어야 합니다. 아래 칸에 입력하고 다시 입장하세요.');}throw err;}
+  const anonRoom=!!j.room.settings?.anonymous;if(anonRoom&&!anonHint)setWho(true);
+  cred={code,roomId:j.room.id,token:j.token,studentNumber:j.response.studentNumber,name:j.response.name,anon:anonRoom};
   const draft=same&&old?.token===j.token&&old.draft?old.draft:null;apply(j);if(draft&&j.room.phase==='open'){answers=draft;dirty=true;render();save(false).catch(()=>{});}
-  persist();status('입장했습니다. 답은 자동으로 저장됩니다.');pollTimer=setTimeout(refresh,15000);}
+  persist();status(anonRoom?'익명으로 입장했습니다. 학번·이름은 저장하지 않습니다.':'입장했습니다. 답은 자동으로 저장됩니다.');pollTimer=setTimeout(refresh,15000);}
  catch(err){showError(err)}finally{busy=false;b.disabled=false}});
 window.addEventListener('online',()=>{if(cred&&dirty)save(false).catch(()=>{})});
 window.addEventListener('pagehide',persist);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&cred)refresh();});
-$('#join-form').elements.code.value=code0;
+$('#join-form').elements.code.value=code0;if(anonHint)setWho(true);
 const saved=code0&&load(code0);
 if(saved?.token&&saved.roomId){cred=saved;$('#join-form').elements.studentNumber.value=saved.studentNumber||'';$('#join-form').elements.name.value=saved.name||'';
  api('state',{roomId:saved.roomId}).then(j=>{apply(j);if(saved.draft&&j.room.phase==='open'){answers=saved.draft;dirty=true;render();save(false).catch(()=>{});}status('이어서 응답합니다.');pollTimer=setTimeout(refresh,15000);}).catch(e=>{cred=null;if(e.status!==401)showError(e);});}

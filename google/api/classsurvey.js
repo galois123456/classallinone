@@ -78,7 +78,7 @@ module.exports = async function handler(req, res) {
       data.title = text(body.title, 160).trim() || '설문';
       data.intro = text(body.intro, 4000);
       try { data.questions = cleanQuestions(body.questions); } catch (e) { return res.status(400).json({ error: e.message }); }
-      data.settings = { surveyId: text(body.surveyId, 100) };
+      data.settings = { surveyId: text(body.surveyId, 100), anonymous: body.anonymous === true };
     }
     if (action === 'join') {
       data.code = String(body.code || '').toUpperCase().replace(/\s/g, '').slice(0, 20);
@@ -98,11 +98,11 @@ module.exports = async function handler(req, res) {
     const result = await response.json();
     if (!response.ok) {
       if (result.code === 'P0001') return res.status(400).json({ error: result.message });
-      if (result.code === 'PGRST202' || result.code === '42883' || result.code === '42P01') return res.status(503).json({ error: 'Supabase에 설문 SQL 설치가 필요합니다. classsurvey_install_v3.sql을 SQL Editor에서 실행하세요.' });
+      if (result.code === 'PGRST202' || result.code === '42883' || result.code === '42P01') return res.status(503).json({ error: 'Supabase에 설문 SQL 설치가 필요합니다. classsurvey_install_v4.sql을 SQL Editor에서 실행하세요.' });
       console.error('classsurvey database error', result.code);
       return res.status(500).json({ error: '설문 요청을 처리하지 못했습니다. 잠시 후 다시 시도하세요.' });
     }
-    if (result?.error) return res.status(result.status || 400).json({ error: result.error });
+    if (result?.error) return res.status(result.status || 400).json({ error: result.error, ...(result.needIdentity ? { needIdentity: true } : {}) });
     if (action === 'join') result.token = token;
     return res.status(200).json(result);
   } catch (error) {
